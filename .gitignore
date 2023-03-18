@@ -3,6 +3,13 @@
 /.pnp
 .pnp.js
 
+# json files
+package-lock.json
+
+# css and js dist directory
+public/css/dist/
+public/js/dist/
+
 # misc
 .DS_Store
 .env.local
