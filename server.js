@@ -1,3 +1,4 @@
+// Import the necessary modules
 const express = require("express");
 const path = require("path");
 
@@ -5,16 +6,28 @@ const path = require("path");
 const app = express();
 
 // Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
-// Define a route that responds with "Hello, world!" when accessed
+// Define a route for the root URL
 app.get("/", (req, res) => {
-	const filePath = path.join(__dirname, "index.html");
+	// Construct the file path for the index.html file
+	const filePath = path.join(__dirname, "./public/index.html");
+	// Send the index.html file to the client
 	res.sendFile(filePath);
 });
 
-// Start the server to listen for incoming requests
-const port = 3000;
+// Define the port number for the server to listen on
+const port = process.env.PORT || 3000; // Use the port specified in the environment variable or 3000 by default
+
+// Start the server and listen on the specified port
 app.listen(port, () => {
 	console.log(`Server is listening on port ${port}`);
+});
+
+// Define an error handling middleware function
+app.use(function (err, req, res, next) {
+	// Log the error to the console
+	console.error(err.stack);
+	// Send a generic error response to the client with a 500 status code
+	res.status(500).send("Something broke!");
 });
