@@ -4,9 +4,9 @@ const babel = require("rollup-plugin-babel");
 
 module.exports = [
     {
-        input: './public/js/src/test.js',
+        input: './public/js/src/index.js',
         output: {
-            file: './public/js/dist/test.js',
+            file: './public/js/dist/index.js',
             format: 'cjs', // CommonJS output
             sourceMap: 'inline',
         },
