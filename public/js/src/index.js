@@ -1,3 +1,3 @@
 import { log } from "./helpers/log";
 
-log("Test");
+log("Test", "2");
