@@ -1,0 +1,11 @@
+.silverBox-buttons {
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    padding: 13px 60px;
+    cursor: pointer;
+    transition: .2s ease;
+    &:active {
+        transform: scale(.95);
+    }
+}
