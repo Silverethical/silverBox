@@ -1,6 +1,8 @@
 // import components
 import buttonComponent from "./button";
 import inputComponent from "./input";
+import modalSample from "./modalSample";
+
 const log = console.log;
 silverBox({
     timer: 1500,
