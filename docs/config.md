@@ -3,10 +3,13 @@ const config = {
 	icon: "warning",
 	title: "Title",
 	text: "Description",
+	isForm:true;
 	showCancelButton: false,
+	showConfirmButton: false,
 	confirmButtonColor: "#3085d6",
-	cancelButtonColor: "#d33",
 	confirmButtonText: "Yes",
+	cancelButtonColor: "#d33",
+	cancelButtonText: "Cancel",
 	disableConfirmButton: true,
 	inputs: [
 		{
