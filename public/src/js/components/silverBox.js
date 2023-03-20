@@ -1,6 +1,6 @@
 // import components
-import  buttonComponent  from "./button";
-import { inputComponent } from "./input";
+import buttonComponent from "./button";
+import inputComponent from "./input";
 const log = console.log;
 
 silverBox({
