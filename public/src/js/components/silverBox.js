@@ -2,6 +2,7 @@
 import { confirmButton } from "./confirmButton";
 import { cancelButton } from "./cancelButton";
 import { inputComponent } from "./input";
+import { textareaComponent } from "./textarea";
 
 // comments to be added.
 export function silverBox() {
@@ -19,6 +20,7 @@ export function silverBox() {
 
     modalBox.appendChild(confirmButton())
     modalBox.appendChild(cancelButton())
+    modalBox.appendChild(textareaComponent("my placeHolder"))
     modalBox.appendChild(inputComponent("myPlaceHolder","password"))
     return modalBox
 }
