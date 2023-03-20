@@ -1,17 +1,17 @@
+@import "./components/cssConfig";
 @import "./components/input";
 @import "./components/buttons";
 @import "./components/confirmButton";
 @import "./components/cancelButton";
 @import "./components/textarea";
 
-
 body {
 	background-color: white;
-	color:var(--success-700)
+	color: var(--success-700)
 }
 
 // silver box modal
-.silver-box {
+.silver-box-overlay {
 	width: 99vw;
 	height: 99vh;
 	position: absolute;
@@ -21,21 +21,7 @@ body {
 	justify-content: center;
 }
 
-:root {
-	// primary
-	--primary-600:#{#7f56d9};
-	--primary-500:#{#9e77ed};
-	--primary-300:#{#d6bbfb};
-	// gray
-	--gray-200:#{#eaecf0};
-	--gray-25:#{#fcfcfd};
-	// error
-	--error-500:#{#f04438};
-	--error-300:#{#fda29b};
-	// warning
-	--warning-300:#{#fec84b};
-	--warning-100:#{#fef0c7};
-	// success
-	--success-700:#{#027a48};
-
+.silverBox {
+	display: flex;
+	flex-direction: column;
 }

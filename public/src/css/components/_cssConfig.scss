@@ -1,0 +1,34 @@
+:root {
+    // font sizes 
+    // title
+    --silverBox-title-font-size: 24px;
+    --silverBox-title-font-weight: 600;
+    // text
+    --silverBox-text-font-size: 18px;
+    --silverBox-text-font-weight: 600;
+    // buttons
+    --silverBox-button-font-size: 18px;
+    --silverBox-button-font-weight: 600;
+
+    // colors
+    --silverBox-title-color: #000;
+    --silverBox-text-color: grey;
+    // confirm button
+    --silverBox-confirm-color: #fff;
+    --silverBox-confirm-bg-color: #7f56d9;
+    --silverBox-confirm-hover-color: #d6bbfb;
+    // deny button
+    --silverBox-deny-color: #fff;
+    --silverBox-deny-bg-color: #d33;
+    --silverBox-deny-hover-color: #f75555;
+    // cancel button
+    --silverBox-cancel-color: #000;
+    --silverBox-cancel-bg-color: #fff;
+    --silverBox-deny-hover-color: #838383;
+
+    // border radius
+    --silverBox-card-border-radius: 8px;
+    --silverBox-button-border-radius: 8px;
+    --silverBox-input-border-radius: 8px;
+
+}
