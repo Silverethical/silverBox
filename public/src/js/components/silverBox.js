@@ -1,5 +1,6 @@
 // import components
 import { confirmButton } from "./confirmButton";
+import { cancelButton } from "./cancelButton";
 
 // comments to be added.
 export function silverBox() {
@@ -16,6 +17,6 @@ export function silverBox() {
     // ---- silverBox modal END ----
 
     modalBox.appendChild(confirmButton())
-    return "Modal";
+    modalBox.appendChild(cancelButton())
+    return modalBox
 }
-console.log(confirmButton());
