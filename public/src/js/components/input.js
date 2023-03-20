@@ -1,4 +1,7 @@
-function inputComponent({ elementType = "input", inputType = "text", placeHolder = "default placeholder", readOnly = false, label = 'this is a label', }) {
+function inputComponent({ inputType = "text", placeHolder = "default placeholder", readOnly = false, label = 'this is a label', }) {
+
+	// changing the inputType case to lowerCase to avoid case conflict problem
+	inputType = inputType.toLowerCase()
 
 	// parent and children element creation
 	let inputWrrapper = document.createElement('div')
@@ -8,23 +11,30 @@ function inputComponent({ elementType = "input", inputType = "text", placeHolder
 	let labelEl = document.createElement("label")
 	labelEl.textContent = label
 
-	// input
-	let inputEl = document.createElement(elementType)
+	// input or textArea selection conditions
+	let inputEl
+
+	if (inputType !== "textarea") {
+		inputEl = document.createElement('input')
+		inputEl.setAttribute('type', inputType)
+	}
+	else {
+		inputEl = document.createElement('textArea')
+	}
+
 
 	// general input/textArea configs
 	inputEl.setAttribute('placeholder', placeHolder)
 
-	// input or textArea selection conditions (for adding input types)
-	if (elementType == "input") {
-		inputEl.setAttribute('type', inputType)
-	}
+
 	// readOnly condition for inputs
 	if (readOnly == true) {
-		inputEl.setAttribute('readonly')
+		inputEl.setAttribute('readonly', '')
 	}
-
+	// appending lable and inputs to the main div
 	inputWrrapper.append(labelEl)
 	inputWrrapper.appendChild(inputEl)
+
 	return inputWrrapper
 }
 export default inputComponent
