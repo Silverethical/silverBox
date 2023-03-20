@@ -1,16 +1,16 @@
 /**
  * confirm button component
- * @param {string} text - button text
  * @returns button element
 */
-const log = console.log;
-function buttonComponent({ text = "Confirm", buttonColor = '#000', elementUniqueClassList }) {
+function buttonComponent({ text = "Confirm", buttonBgColor = '#fff', buttonColor = "#000", elementUniqueClassList }) {
     let button = document.createElement("button")
-    button.style.background = buttonColor
+    button.style.background = buttonBgColor
+    button.setAttribute("style", `background-color:${buttonBgColor}; color:${buttonColor};`)
     button.classList.add(elementUniqueClassList, "silverBox-button")
     let buttonText = document.createTextNode(text)
     button.appendChild(buttonText)
-    log(button)
     return button
 }
+const body = document.body
+body.appendChild(buttonComponent(buttonComponent({})))
 export default buttonComponent;
