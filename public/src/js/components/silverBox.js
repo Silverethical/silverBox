@@ -1,6 +1,7 @@
 // import components
 import { confirmButton } from "./confirmButton";
 import { cancelButton } from "./cancelButton";
+import { inputComponent } from "./input";
 
 // comments to be added.
 export function silverBox() {
@@ -18,5 +19,6 @@ export function silverBox() {
 
     modalBox.appendChild(confirmButton())
     modalBox.appendChild(cancelButton())
+    modalBox.appendChild(inputComponent("myPlaceHolder"))
     return modalBox
 }
