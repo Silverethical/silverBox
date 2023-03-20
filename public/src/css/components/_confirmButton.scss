@@ -2,6 +2,15 @@
     outline: none;
     border: none;
     border-radius: 10px;
-    width: 100px;
-    height: 50px;
+    padding: 13px 60px;
+    color: white;
+    background-color:#7f56d9 ;
+    cursor: pointer;
+    transition: .2s ease;
+    &:hover{
+        background-color: #9e77ed;
+    }
+    &:active{
+        transform: scale(.95);
+    }
 }
