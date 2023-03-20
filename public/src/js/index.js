@@ -1,3 +1,4 @@
 import { inputComponent } from "./components/input"
-console.log(inputComponent());
+import { silverBox } from "./components/silverBox"
 
+console.log(silverBox());
