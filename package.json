@@ -5,7 +5,7 @@
 	"scripts": {
 		"start": "echo 'Not configured yet'",
 		"dev:front": "concurrently --kill-others \"npm run scss\" \"npm run rollup\" \"node ./server.js\"",
-		"scss": "sass --watch public/css/src/:public/css/dist/",
+		"scss": "sass --watch public/src/css/:public/dist/css",
 		"rollup": "rollup --watch --config rollup.config.cjs"
 	},
 	"repository": {

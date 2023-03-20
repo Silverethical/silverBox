@@ -6,9 +6,8 @@
 # json files
 package-lock.json
 
-# css and js dist directory
-public/css/dist/
-public/js/dist/
+# dist directory
+public/dist/
 
 # misc
 .DS_Store
