@@ -10,7 +10,7 @@ export function silverBox() {
     const body = document.body
     // modal box
     const modalBox = document.createElement("div")
-    modalBox.classList.add("modal-box")
+    modalBox.classList.add("silver-box")
     // adding the box to body
     body.appendChild(modalBox)
     // ---- silverBox modal END ----
