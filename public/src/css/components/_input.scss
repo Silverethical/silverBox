@@ -1,7 +1,17 @@
 .silverBox-input {
-    outline: none;
-    border: 1px solid var(--silverBox-input-border-color);
-    padding: var(--silverBox-input-padding);
-    border-radius: var(--silverBox-input-border-radius);
-    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+
+    &>input,
+    &>textarea {
+        outline: none;
+        border: 1px solid var(--silverBox-input-border-color);
+        padding: var(--silverBox-input-padding);
+        border-radius: var(--silverBox-input-border-radius);
+        max-width: 250px;
+        resize: none;
+    }
+
+
 }
