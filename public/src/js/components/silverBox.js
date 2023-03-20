@@ -1,5 +1,5 @@
 // import components
-import { buttonComponent } from "./button";
+import  buttonComponent  from "./button";
 import { inputComponent } from "./input";
 const log = console.log;
 
