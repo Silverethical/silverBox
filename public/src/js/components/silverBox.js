@@ -19,6 +19,6 @@ export function silverBox() {
 
     modalBox.appendChild(confirmButton())
     modalBox.appendChild(cancelButton())
-    modalBox.appendChild(inputComponent("myPlaceHolder"))
+    modalBox.appendChild(inputComponent("myPlaceHolder","password"))
     return modalBox
 }
