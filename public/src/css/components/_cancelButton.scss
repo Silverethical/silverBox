@@ -1,7 +1,7 @@
 .silverBox-cancel-button {
-    color: black;
-    background-color: white;
+    background-color:var(--gray-25);
+    border: 1px solid var(--gray-200);
     &:hover {
-        background-color: rgb(214, 212, 212);
+        background-color: #d6d4d4;
     }
 }

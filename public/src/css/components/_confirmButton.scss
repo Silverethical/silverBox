@@ -1,7 +1,7 @@
 .silverBox-confirm-button {
-    color: white;
-    background-color:#7f56d9 ;
+    color: var(--gray-25);
+    background-color:var(--primary-600) ;
     &:hover{
-        background-color: #9e77ed;
+        background-color: var(--primary-500) ;
     }
 }

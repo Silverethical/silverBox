@@ -6,8 +6,8 @@
 
 
 body {
-	background-color: rgb(76, 76, 76);
-	color: rgb(244, 244, 244);
+	background-color: white;
+	color:var(--success-700)
 }
 
 // silver box modal
@@ -22,5 +22,20 @@ body {
 }
 
 :root {
-	--primary-900:#{#42307D};
+	// primary
+	--primary-600:#{#7f56d9};
+	--primary-500:#{#9e77ed};
+	--primary-300:#{#d6bbfb};
+	// gray
+	--gray-200:#{#eaecf0};
+	--gray-25:#{#fcfcfd};
+	// error
+	--error-500:#{#f04438};
+	--error-300:#{#fda29b};
+	// warning
+	--warning-300:#{#fec84b};
+	--warning-100:#{#fef0c7};
+	// success
+	--success-700:#{#027a48};
+
 }
