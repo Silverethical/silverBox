@@ -1,7 +1,7 @@
 // import components
 import { buttonComponent } from "./button";
 import { inputComponent } from "./input";
-
+const log = console.log;
 
 silverBox({
     timer: 1500,
@@ -43,6 +43,8 @@ export function silverBox(config) {
     // checks if the config needs an input modal or alertModal
     if (config.inputs) {
         // input modal
+        log("jasem kachal ;X")
+        log(config)
     }
     else {
         // alert modal
