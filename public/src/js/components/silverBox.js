@@ -45,20 +45,26 @@ silverBox({
 export function silverBox(config) {
     // array of all the elements in the modal (inputs/texts/icons/buttons)
     let elementsArray = []
+    let form = document.createElement('form')
 
     // checks if the config needs an input modal or alertModal
     if (config.inputs) {
-        // input modal
 
+        // header
+        elementsArray.push(headerComponent({}))
+
+        // inputs
         config.inputs.forEach(input => {
             elementsArray.push(inputComponent({ inputType: input.type }))
         })
 
-        elementsArray.push(headerComponent({}))
-
+        // buttons
         elementsArray.push(buttonComponent({}))
 
-        document.body.append(modalSample(elementsArray))
+        // appending the whole thing to the form
+        form.append(modalSample(elementsArray))
+
+        document.body.append(form)
     }
     else {
         // alert modal
