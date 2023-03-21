@@ -2,6 +2,7 @@
 import buttonComponent from "./button";
 import inputComponent from "./input";
 import modalSample from "./modalSample";
+import headerComponent from "./header";
 
 const log = console.log;
 silverBox({
@@ -41,11 +42,13 @@ silverBox({
 // comments to be added.
 export function silverBox(config) {
     // array of all the elements in the modal (inputs/texts/icons/buttons)
-    let elementsArary = []
+    let elementsArray = []
 
     // checks if the config needs an input modal or alertModal
     if (config.inputs) {
         // input modal
+        elementsArray.push(headerComponent({})) 
+        document.body.append(modalSample(elementsArray))
     }
     else {
         // alert modal
