@@ -11,8 +11,10 @@ function buttonComponent({ text = "button", buttonBgColor, elementUniqueClassLis
     button.style.background = buttonBgColor
     if (buttonBgColor) button.setAttribute("style", `background-color:${buttonBgColor};`)
     button.classList.add(elementUniqueClassList, "silverBox-button")
-    let buttonText = document.createTextNode(text)
-    button.appendChild(buttonText)
+    let buttonTextSpan = document.createElement("span")
+    buttonTextSpan.classList.add("silverBox-button-text")
+    buttonTextSpan.textContent = text
+    button.appendChild(buttonTextSpan)
     return button
 }
 export default buttonComponent;
