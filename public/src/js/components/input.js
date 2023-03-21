@@ -1,4 +1,4 @@
-function inputComponent({ inputType = "text", placeHolder = "default placeholder", readOnly = false, label = 'this is a label', }) {
+function inputComponent({ inputType = "text", placeHolder = "default placeholder", readOnly = false, label = 'this is a label', hint = 'input hint' }) {
 
 	// changing the inputType case to lowerCase to avoid case conflict problem
 	inputType = inputType.toLowerCase()
@@ -22,18 +22,21 @@ function inputComponent({ inputType = "text", placeHolder = "default placeholder
 		inputEl = document.createElement('textArea')
 	}
 
+	// hint
+	let hintEl = document.createElement('span')
+	hintEl.textContent = hint
 
 	// general input/textArea configs
 	inputEl.setAttribute('placeholder', placeHolder)
 
 
 	// readOnly condition for inputs
-	if (readOnly == true) {
-		inputEl.setAttribute('readonly', '')
-	}
+	if (readOnly) inputEl.setAttribute('readonly', '')
+
 	// appending lable and inputs to the main div
 	inputWrrapper.append(labelEl)
 	inputWrrapper.appendChild(inputEl)
+	inputWrrapper.appendChild(hintEl)
 
 	return inputWrrapper
 }

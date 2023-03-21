@@ -26,14 +26,16 @@ silverBox({
             label: "label",
             type: "text",
             placeHolder: "test",
+            hint: 'input hint',
             readOnly: true,
-            afterHtml: "",
         },
         {
             label: "enter email",
             type: "textarea",
             placeHolder: "test2",
+            hint: 'input hint',
             readOnly: false,
+
         },
     ],
 })
@@ -47,7 +49,15 @@ export function silverBox(config) {
     // checks if the config needs an input modal or alertModal
     if (config.inputs) {
         // input modal
-        elementsArray.push(headerComponent({})) 
+
+        config.inputs.forEach(input => {
+            elementsArray.push(inputComponent({ inputType: input.type }))
+        })
+
+        elementsArray.push(headerComponent({}))
+
+        elementsArray.push(buttonComponent({}))
+
         document.body.append(modalSample(elementsArray))
     }
     else {
