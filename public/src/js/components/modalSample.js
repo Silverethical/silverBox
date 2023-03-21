@@ -1,4 +1,4 @@
-function modalSample(elements) {
+function modalSample(elementsArray) {
 
     // main overlay
     let overlay = document.createElement('div')
@@ -7,11 +7,13 @@ function modalSample(elements) {
     // the modalBox
     let silverBoxModal = document.createElement('div')
     silverBoxModal.classList.add('silver-box')
-    overlay.append(silverBoxModal)
 
     // adds the input/text/button to the silverBox modal
-    silverBoxModal.append(elements)
+    elementsArray.forEach(element => {
+        silverBoxModal.append(element)
+    })
 
+    overlay.append(silverBoxModal)
 
     return overlay
 
