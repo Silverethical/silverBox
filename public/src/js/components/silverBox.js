@@ -40,6 +40,8 @@ silverBox({
 
 // comments to be added.
 export function silverBox(config) {
+    // array of all the elements in the modal (inputs/texts/icons/buttons)
+    let elementsArary = []
 
     // checks if the config needs an input modal or alertModal
     if (config.inputs) {
