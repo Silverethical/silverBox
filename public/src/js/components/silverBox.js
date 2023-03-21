@@ -30,16 +30,14 @@ silverBox({
             readOnly: true,
         },
         {
-            label: "enter email",
-            type: "textarea",
-            placeHolder: "test2",
+            label: "label",
+            type: "text",
+            placeHolder: "test",
             hint: 'input hint',
-            readOnly: false,
+            readOnly: true,
+        }]
 
-        },
-    ],
 })
-
 
 // comments to be added.
 export function silverBox(config) {
@@ -54,9 +52,20 @@ export function silverBox(config) {
         elementsArray.push(headerComponent({}))
 
         // inputs
-        config.inputs.forEach(input => {
-            elementsArray.push(inputComponent({ inputType: input.type }))
-        })
+
+        // checks if the input key is array
+
+        // if true this code will be deployed
+        if (Array.isArray(config.inputs)) {
+            config.inputs.forEach(input => {
+                elementsArray.push(inputComponent({ inputType: input.type, hint: input.hint, label: input.label, placeHolder: input.placeHolder, readOnly: input.readOnly }))
+            })
+        }
+        // if false, this code will be deployed
+        else {
+            elementsArray.push(inputComponent({ inputType: config.inputs.type, hint: config.inputs.hint, label: config.inputs.label, placeHolder: config.inputs.placeHolder, readOnly: config.inputs.readOnly }))
+        }
+
 
         // buttons
         elementsArray.push(buttonComponent({}))
@@ -70,5 +79,4 @@ export function silverBox(config) {
         // alert modal
     }
 }
-
 
