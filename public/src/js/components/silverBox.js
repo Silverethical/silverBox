@@ -4,6 +4,7 @@ import inputComponent from "./input";
 import modalSample from "./modalSample";
 import headerComponent from "./header";
 import closeOnClick from "./closeOnClick";
+import iconsComponent from "./icons";
 
 const log = console.log;
 silverBox({
