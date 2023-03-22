@@ -94,7 +94,7 @@ export function silverBox(config) {
         // pushes the buttonWrapper inside the elements Array     
         elementsArray.push(buttonWrapper)
         // appending the whole thing to the form
-        form.append(modalSample(elementsArray))
+        form.append(modalSample(elementsArray, 'silver-box-overlay'))
 
         bodyEl.append(form)
     }
