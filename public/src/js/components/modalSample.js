@@ -1,8 +1,8 @@
-function modalSample(elementsArray) {
+function modalSample(elementsArray, overlayClass) {
 
     // main overlay
     let overlay = document.createElement('div')
-    overlay.classList.add('silver-box-overlay')
+    overlay.classList.add(overlayClass)
 
     // the modalBox
     let silverBoxModal = document.createElement('div')
