@@ -29,21 +29,21 @@ silverBox({
     denyButtonText: "Deny",//
     denyButtonIconRight: "/path/to/icon",//
     denyButtonIconLeft: "/path/to/icon",//
-    // inputs: [
-    //     {
-    //         label: "label",
-    //         type: "text",
-    //         placeHolder: "test",
-    //         hint: 'input hint',
-    //         readOnly: true,
-    //     },
-    //     {
-    //         label: "label",
-    //         type: "text",
-    //         placeHolder: "test",
-    //         hint: 'input hint',
-    //         readOnly: true,
-    //     }]
+    inputs: [
+        {
+            label: "label",
+            type: "text",
+            placeHolder: "test",
+            hint: 'input hint',
+            readOnly: true,
+        },
+        {
+            label: "label",
+            type: "text",
+            placeHolder: "test",
+            hint: 'input hint',
+            readOnly: true,
+        }]
 
 })
 
@@ -83,7 +83,7 @@ export function silverBox(config) {
             buttonWrapper.append(buttonComponent({ text: config.cancelButtonText, elementUniqueClassList: `silverBox-cancel-button`, buttonBgColor: config.cancelButtonColor, leftIcon: config.cancelButtonIconLeft, rightIcon: config.cancelButtonIconRight }))
         }
         // deny button
-        if (config.showDenyButton.valueOf() === true) {
+        if (("showDenyButton" in config) && config.showDenyButton.valueOf() === true) {
             buttonWrapper.append(buttonComponent({ text: config.denyButtonText, elementUniqueClassList: `silverBox-deny-button`, buttonBgColor: config.denyButtonColor, leftIcon: config.denyButtonIconLeft, rightIcon: config.denyButtonIconRight }))
         }
         // confirm button
@@ -107,7 +107,7 @@ export function silverBox(config) {
             buttonWrapper.append(buttonComponent({ text: config.cancelButtonText, elementUniqueClassList: `silverBox-cancel-button`, buttonBgColor: config.cancelButtonColor, leftIcon: config.cancelButtonIconLeft, rightIcon: config.cancelButtonIconRight }))
         }
         // deny button
-        if (config.showDenyButton.valueOf() === true) {
+        if (("showDenyButton" in config) && config.showDenyButton.valueOf() === true) {
             buttonWrapper.append(buttonComponent({ text: config.denyButtonText, elementUniqueClassList: `silverBox-deny-button`, buttonBgColor: config.denyButtonColor, leftIcon: config.denyButtonIconLeft, rightIcon: config.denyButtonIconRight }))
         }
         // confirm button
