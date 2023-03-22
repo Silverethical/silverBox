@@ -6,8 +6,8 @@ import headerComponent from "./header";
 
 const log = console.log;
 silverBox({
-    timer: 1500,
-    position: 'top-right', //
+    // timer: 5000,
+    // position: 'bottom-center', //
     icon: "warning",
     title: "Title", //
     html: "<h1>text</h1>", //
@@ -29,21 +29,21 @@ silverBox({
     denyButtonText: "Deny",//
     denyButtonIconRight: "/path/to/icon",//
     denyButtonIconLeft: "/path/to/icon",//
-    inputs: [
-        {
-            label: "label",
-            type: "text",
-            placeHolder: "test",
-            hint: 'input hint',
-            readOnly: true,
-        },
-        {
-            label: "label",
-            type: "text",
-            placeHolder: "test",
-            hint: 'input hint',
-            readOnly: true,
-        }]
+    // inputs: [
+    //     {
+    //         label: "label",
+    //         type: "text",
+    //         placeHolder: "test",
+    //         hint: 'input hint',
+    //         readOnly: true,
+    //     },
+    //     {
+    //         label: "label",
+    //         type: "text",
+    //         placeHolder: "test",
+    //         hint: 'input hint',
+    //         readOnly: true,
+    //     }]
 
 })
 
@@ -117,8 +117,23 @@ export function silverBox(config) {
         // pushes the buttonWrapper into the elementsArray
         elementsArray.push(buttonWrapper)
         // pushes the elementArray into the body
-        bodyEl.append(modalSample(elementsArray))
 
+        // selecting silverBox overlay
+        const SilverBoxOverlay = document.querySelector('.silver-box-overlay')
+        // checks if timer is written in config 
+        if ("timer" in config) {
+            setTimeout(() => {
+                SilverBoxOverlay.remove()
+            }, config.timer)
+        }
+
+        // postion 
+        if ("position" in config) {
+            bodyEl.append(modalSample(elementsArray,`silver-box-${config.position}`))
+            SilverBoxOverlay.classList.add(`silver-box-${config.position}`)
+        } else {
+            bodyEl.append(modalSample(elementsArray,'silver-box-overlay'))
+        }
         // alert modal
     }
 }
