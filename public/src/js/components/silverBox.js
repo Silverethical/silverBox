@@ -11,15 +11,24 @@ silverBox({
     icon: "warning",
     title: "Title", //
     html: "<h1>text</h1>", //
-    showCancelButton: false, //
-    showDenyButton: true,
+    // confirom button
     showConfirmButton: true, //
     confirmButtonColor: "#3085d6",//
     confirmButtonText: "Confirm",//
     confirmButtonIconRight: "/path/to/icon",//
+    confirmButtonIconLeft: "/path/to/icon",//
+    // cancel button
+    showCancelButton: true, //
     cancelButtonColor: "#fff",//
     cancelButtonText: "Cancel",//
+    cancelButtonIconRight:"/path/to/icon",//
+    cancelButtonIconLeft:"/path/to/icon",//
+    // deny button
+    showDenyButton: true,
+    denyButtonColor:"#d23",
     denyButtonText: "Deny",//
+    denyButtonIconRight:"/path/to/icon",//
+    denyButtonIconLeft:"/path/to/icon",//
     // inputs: [
     //     {
     //         label: "label",
@@ -43,7 +52,9 @@ export function silverBox(config) {
     // array of all the elements in the modal (inputs/texts/icons/buttons)
     let elementsArray = [],
         bodyEl = document.body,
-        form = document.createElement('form');
+        form = document.createElement('form'),
+        buttonWrapper = document.createElement("div");
+    buttonWrapper.classList.add("silverBox-button-wrapper")
 
     // checks if the config needs an input modal or alertModal
     if (config.inputs) {
@@ -65,7 +76,6 @@ export function silverBox(config) {
             elementsArray.push(inputComponent({ inputType: config.inputs.type, hint: config.inputs.hint, label: config.inputs.label, placeHolder: config.inputs.placeHolder, readOnly: config.inputs.readOnly }))
         }
 
-
         // buttons
         elementsArray.push(buttonComponent({}))
 
@@ -76,23 +86,25 @@ export function silverBox(config) {
     }
     else {
         // header component
-        elementsArray.push(headerComponent({titleText:config.title ,descriptionText:config.html}))
+        elementsArray.push(headerComponent({ titleText: config.title, descriptionText: config.html }))
+
         // cancel button
         console.log(config.showCancelButton.valueOf());
         if (!("showCancelButton" in config) || config.showCancelButton.valueOf() === true) {
-            elementsArray.push(buttonComponent({ text: config.cancelButtonText, elementUniqueClassList: `silverBox-cancel-button`, buttonBgColor: config.cancelButtonColor }))
-            bodyEl.append(modalSample(elementsArray))
-        }
-        // confirm button
-        if (!("showConfirmButton" in config) || config.showConfirmButton.valueOf() === true) {
-            elementsArray.push(buttonComponent({ text: config.confirmButtonText, elementUniqueClassList: `silverBox-confrim-button`, buttonBgColor: config.confirmButtonColor }))
-            bodyEl.append(modalSample(elementsArray))
+            buttonWrapper.append(buttonComponent({ text: config.cancelButtonText, elementUniqueClassList: `silverBox-cancel-button`, buttonBgColor: config.cancelButtonColor,leftIcon: config.cancelButtonIconLeft,rightIcon: config.cancelButtonIconRight }))
         }
         // deny button
         if (config.showDenyButton.valueOf() === true) {
-            elementsArray.push(buttonComponent({ text: config.denyButtonText, elementUniqueClassList: `silverBox-deny-button`, buttonBgColor: config.denyButtonColor }))
-            bodyEl.append(modalSample(elementsArray))
+            buttonWrapper.append(buttonComponent({ text: config.denyButtonText, elementUniqueClassList: `silverBox-deny-button`, buttonBgColor: config.denyButtonColor,leftIcon: config.denyButtonIconLeft,rightIcon: config.denyButtonIconRight }))
         }
+        // confirm button
+        if (!("showConfirmButton" in config) || config.showConfirmButton.valueOf() === true) {
+            buttonWrapper.append(buttonComponent({ text: config.confirmButtonText, elementUniqueClassList: `silverBox-confrim-button`, buttonBgColor: config.confirmButtonColor,leftIcon: config.confirmButtonIconLeft,rightIcon: config.confirmButtonIconRight }))
+        }
+        // pushes the buttonWrapper into the elementsArray
+        elementsArray.push(buttonWrapper)
+        // pushes the elementArray into the body
+        bodyEl.append(modalSample(elementsArray))
 
         // alert modal
     }
