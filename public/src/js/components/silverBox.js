@@ -12,13 +12,13 @@ silverBox({
     icon: "warning",
     title: "Title", //
     html: "<h1>text</h1>", //
-    // confirom button
+    // confirm button
     showConfirmButton: true, //
     confirmButtonColor: "#3085d6",//
     confirmButtonText: "Confirm",//
     confirmButtonIconRight: "/path/to/icon",//
     confirmButtonIconLeft: "/path/to/icon",//
-    confirmButtonCloseOnClick: true,
+    confirmButtonCloseOnClick: false,
     // cancel button
     showCancelButton: true, //
     cancelButtonColor: "#fff",//
@@ -32,7 +32,7 @@ silverBox({
     denyButtonText: "Deny",//
     denyButtonIconRight: "/path/to/icon",//
     denyButtonIconLeft: "/path/to/icon",//
-    denyButtonCloseOnClick: false,
+    denyButtonCloseOnClick: true,
 
     inputs: [
         {
@@ -131,7 +131,7 @@ export function silverBox(config) {
 
         // selecting silverBox overlay
         let silverBox = document.querySelector('.silver-box')
-        // postion 
+        // position 
         if ("position" in config) {
             bodyEl.append(modalSample(elementsArray, `silver-box-${config.position}`))
             silverBox = document.querySelector('.silver-box')
@@ -151,13 +151,22 @@ export function silverBox(config) {
     }
 
     // event listeners
+    silverBox = document.querySelector('.silver-box')
 
     // confirm close on click 
-    if ("confirmButtonCloseOnClick" in config && config.confirmButtonCloseOnClick === true) {
-        let confirmButton = document.querySelector('.silverBox-confirm-button')
-        closeOnClick(confirmButton)
+    let confirmButton = document.querySelector('.silverBox-confirm-button')
+
+    // if confirm button doesn't closes onclick
+    if (!("confirmButtonCloseOnClick" in config) || config.confirmButtonCloseOnClick.valueOf() === false) {
+        confirmButton.addEventListener("click", () => {
+            const silverBoxText = document.querySelector('.silverBox-confirm-button .silverBox-button-text')
+            silverBoxText.classList.add("silverBox-loading-button")
+        })
     }
 
+    if ("confirmButtonCloseOnClick" in config && config.confirmButtonCloseOnClick === true) {
+        closeOnClick(confirmButton)
+    }
     // deny close on click 
     if (!("denyButtonCloseOnClick" in config) || config.denyButtonCloseOnClick === true) {
         let denyButton = document.querySelector('.silverBox-deny-button')
@@ -169,7 +178,6 @@ export function silverBox(config) {
         let cancelButton = document.querySelector('.silverBox-cancel-button')
         closeOnClick(cancelButton)
     }
-
 
 }
 
