@@ -5,7 +5,7 @@
  * @param {string} elementUniqueClassList - button classList
  * @returns 
  */
-function buttonComponent({ text = "button", buttonBgColor, elementUniqueClassList, leftIcon, rightIcon }) {
+function buttonComponent({ text, buttonBgColor, elementUniqueClassList, leftIcon, rightIcon }) {
     // button
     let button = document.createElement("button")
     button.style.background = buttonBgColor

@@ -88,7 +88,7 @@ export function silverBox(config) {
         }
         // confirm button
         if (!("showConfirmButton" in config) || config.showConfirmButton.valueOf() === true) {
-            buttonWrapper.append(buttonComponent({ text: config.confirmButtonText, elementUniqueClassList: `silverBox-confrim-button`, buttonBgColor: config.confirmButtonColor, leftIcon: config.confirmButtonIconLeft, rightIcon: config.confirmButtonIconRight }))
+            buttonWrapper.append(buttonComponent({ text: config.confirmButtonText, elementUniqueClassList: `silverBox-confirm-button`, buttonBgColor: config.confirmButtonColor, leftIcon: config.confirmButtonIconLeft, rightIcon: config.confirmButtonIconRight }))
         }
 
         // pushes the buttonWrapper inside the elements Array     
@@ -112,7 +112,7 @@ export function silverBox(config) {
         }
         // confirm button
         if (!("showConfirmButton" in config) || config.showConfirmButton.valueOf() === true) {
-            buttonWrapper.append(buttonComponent({ text: config.confirmButtonText, elementUniqueClassList: `silverBox-confrim-button`, buttonBgColor: config.confirmButtonColor, leftIcon: config.confirmButtonIconLeft, rightIcon: config.confirmButtonIconRight }))
+            buttonWrapper.append(buttonComponent({ text: config.confirmButtonText, elementUniqueClassList: `silverBox-confirm-button`, buttonBgColor: config.confirmButtonColor, leftIcon: config.confirmButtonIconLeft, rightIcon: config.confirmButtonIconRight }))
         }
         // pushes the buttonWrapper into the elementsArray
         elementsArray.push(buttonWrapper)
