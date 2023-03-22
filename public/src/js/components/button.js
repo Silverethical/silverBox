@@ -5,16 +5,31 @@
  * @param {string} elementUniqueClassList - button classList
  * @returns 
  */
-function buttonComponent({ text = "button", buttonBgColor, elementUniqueClassList }) {
-    // 
+function buttonComponent({ text = "button", buttonBgColor, elementUniqueClassList, leftIcon, rightIcon }) {
+    // button
     let button = document.createElement("button")
     button.style.background = buttonBgColor
+    // background color
     if (buttonBgColor) button.setAttribute("style", `background-color:${buttonBgColor};`)
     button.classList.add(elementUniqueClassList, "silverBox-button")
+    // button left icon
+    if (leftIcon) {
+        let buttonLeftIcon = document.createElement("img")
+        buttonLeftIcon.setAttribute("src", leftIcon)
+        button.appendChild(buttonLeftIcon)
+    }
+    // button text
     let buttonTextSpan = document.createElement("span")
     buttonTextSpan.classList.add("silverBox-button-text")
     buttonTextSpan.textContent = text
     button.appendChild(buttonTextSpan)
+    // button right icon
+    if (rightIcon) {
+        let buttonrightIcon = document.createElement("img")
+        buttonrightIcon.setAttribute("src", rightIcon)
+        button.appendChild(buttonrightIcon)
+    }
+    // appends everything into button
     return button
 }
 export default buttonComponent;
