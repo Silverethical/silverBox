@@ -6,8 +6,8 @@ import headerComponent from "./header";
 
 const log = console.log;
 silverBox({
-    // timer: 5000,
-    // position: 'bottom-center', //
+    // timer: 1500,
+    // position: 'top-right', //
     icon: "warning",
     title: "Title", //
     html: "<h1>text</h1>", //
@@ -119,22 +119,34 @@ export function silverBox(config) {
         // pushes the elementArray into the body
 
         // selecting silverBox overlay
-        const SilverBoxOverlay = document.querySelector('.silver-box-overlay')
+        let silverBox = document.querySelector('.silver-box')
+        // postion 
+        if ("position" in config) {
+            bodyEl.append(modalSample(elementsArray, `silver-box-${config.position}`))
+            silverBox = document.querySelector('.silver-box')
+            silverBox.parentElement.classList.add(`silver-box-${config.position}`)
+        } else {
+            bodyEl.append(modalSample(elementsArray, 'silver-box-overlay'))
+            silverBox = document.querySelector('.silver-box')
+        }
+
         // checks if timer is written in config 
         if ("timer" in config) {
             setTimeout(() => {
-                SilverBoxOverlay.remove()
+                silverBox.parentElement.remove()
             }, config.timer)
         }
 
-        // postion 
-        if ("position" in config) {
-            bodyEl.append(modalSample(elementsArray,`silver-box-${config.position}`))
-            SilverBoxOverlay.classList.add(`silver-box-${config.position}`)
-        } else {
-            bodyEl.append(modalSample(elementsArray,'silver-box-overlay'))
-        }
-        // alert modal
     }
+
+    // event listeners
+    const allButtons = document.querySelectorAll('.silverBox-button');
+    silverBox = document.querySelector('.silver-box')
+    // 
+    allButtons.forEach(button =>{
+        button.addEventListener('click', () =>{
+            silverBox.parentElement.remove()
+        })
+    })
 }
 
