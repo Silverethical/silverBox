@@ -10,7 +10,7 @@ const log = console.log;
 silverBox({
     // timer: 1500,
     // position: 'top-right', //
-    icon: "warning",
+    icon: "failed",
     title: "Title", //
     html: "<h1>text</h1>", //
     // confirm button
@@ -21,35 +21,35 @@ silverBox({
     confirmButtonIconLeft: "/path/to/icon",//
     confirmButtonCloseOnClick: false,
     // cancel button
-    showCancelButton: true, //
+    // showCancelButton: true, //
     cancelButtonColor: "#fff",//
     cancelButtonText: "Cancel",//
     cancelButtonIconRight: "/path/to/icon",//
     cancelButtonIconLeft: "/path/to/icon",//
     cancelButtonCloseOnClick: true,
     // deny button
-    showDenyButton: true,
+    // showDenyButton: true,
     denyButtonColor: "#d23",
     denyButtonText: "Deny",//
     denyButtonIconRight: "/path/to/icon",//
     denyButtonIconLeft: "/path/to/icon",//
     denyButtonCloseOnClick: true,
 
-    inputs: [
-        {
-            label: "label",
-            type: "text",
-            placeHolder: "test",
-            hint: 'input hint',
-            readOnly: true,
-        },
-        {
-            label: "label",
-            type: "text",
-            placeHolder: "test",
-            hint: 'input hint',
-            readOnly: true,
-        }]
+    // inputs: [
+    //     {
+    //         label: "label",
+    //         type: "text",
+    //         placeHolder: "test",
+    //         hint: 'input hint',
+    //         readOnly: true,
+    //     },
+    //     {
+    //         label: "label",
+    //         type: "text",
+    //         placeHolder: "test",
+    //         hint: 'input hint',
+    //         readOnly: true,
+    //     }]
 
 })
 
@@ -112,10 +112,10 @@ export function silverBox(config) {
     }
     else {
         // header component
-        elementsArray.push(headerComponent({ titleText: config.title, descriptionText: config.html }))
+        elementsArray.push(headerComponent({ titleText: config.title, descriptionText: config.html, imageSource: iconsComponent(config.icon) }))
 
         // cancel button
-        if (!("showCancelButton" in config) || config.showCancelButton.valueOf() === true) {
+        if (("showCancelButton" in config) && config.showCancelButton.valueOf() === true) {
             buttonWrapper.append(buttonComponent({ text: (config.cancelButtonText) ? config.cancelButtonText : "Cancel", elementUniqueClassList: `silverBox-cancel-button`, buttonBgColor: config.cancelButtonColor, leftIcon: config.cancelButtonIconLeft, rightIcon: config.cancelButtonIconRight }))
         }
         // deny button
@@ -166,18 +166,18 @@ export function silverBox(config) {
     }
 
     if (!("confirmButtonCloseOnClick" in config) || config.confirmButtonCloseOnClick === true) {
-        closeOnClick(confirmButton)
+         if(confirmButton) closeOnClick(confirmButton)
     }
     // deny close on click 
     if (!("denyButtonCloseOnClick" in config) || config.denyButtonCloseOnClick === true) {
         let denyButton = document.querySelector('.silverBox-deny-button')
-        closeOnClick(denyButton)
+        if(denyButton) closeOnClick(denyButton)
     }
 
     // cancel close on click 
     if (!("cancelButtonCloseOnClick" in config) || config.cancelButtonCloseOnClick === true) {
         let cancelButton = document.querySelector('.silverBox-cancel-button')
-        closeOnClick(cancelButton)
+        if(cancelButton) closeOnClick(cancelButton)
     }
 
 }
