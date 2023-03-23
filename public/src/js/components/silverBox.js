@@ -61,6 +61,7 @@ export function silverBox(config) {
         buttonWrapper = document.createElement("div");
     buttonWrapper.classList.add("silverBox-button-wrapper")
 
+
     // checks if the config needs an input modal or alertModal
     if (config.inputs) {
         // header
@@ -100,6 +101,11 @@ export function silverBox(config) {
         elementsArray.push(buttonWrapper)
         // appending the whole thing to the form
         form.append(modalSample(elementsArray, 'silver-box-overlay'))
+
+        // form preventDefault
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+        })
 
         bodyEl.append(form)
     }
