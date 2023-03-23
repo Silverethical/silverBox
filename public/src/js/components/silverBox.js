@@ -66,7 +66,7 @@ export function silverBox(config) {
     // checks if the config needs an input modal or alertModal
     if (config.inputs) {
         // header
-        elementsArray.push(headerComponent({ titleText: config.title, descriptionText: config.html }))
+        elementsArray.push(headerComponent({ titleText: config.title, descriptionText: config.html, imageSource: iconsComponent(config.icon) }))
 
         // inputs
 
