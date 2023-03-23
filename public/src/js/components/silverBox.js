@@ -165,7 +165,7 @@ export function silverBox(config) {
         })
     }
 
-    if ("confirmButtonCloseOnClick" in config && config.confirmButtonCloseOnClick === true) {
+    if (!("confirmButtonCloseOnClick" in config) || config.confirmButtonCloseOnClick === true) {
         closeOnClick(confirmButton)
     }
     // deny close on click 
