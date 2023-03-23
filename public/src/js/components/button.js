@@ -25,9 +25,9 @@ function buttonComponent({ text, buttonBgColor, elementUniqueClassList, leftIcon
     button.appendChild(buttonTextSpan)
     // button right icon
     if (rightIcon) {
-        let buttonrightIcon = document.createElement("img")
-        buttonrightIcon.setAttribute("src", rightIcon)
-        button.appendChild(buttonrightIcon)
+        let buttonRightIcon = document.createElement("img")
+        buttonRightIcon.setAttribute("src", rightIcon)
+        button.appendChild(buttonRightIcon)
     }
     // appends everything into button
     return button
