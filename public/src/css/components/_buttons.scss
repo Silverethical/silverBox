@@ -34,5 +34,11 @@
     &:active {
         transform: scale(.95);
     }
+    &:active:disabled{
+        transform:scale(1);
+    }
+    &:disabled{
+        opacity: .7;
+    }
 
 }
