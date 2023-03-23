@@ -3,6 +3,7 @@ import buttonComponent from "./button";
 import inputComponent from "./input";
 import modalSample from "./modalSample";
 import headerComponent from "./header";
+import closeOnClick from "./closeOnClick";
 
 const log = console.log;
 silverBox({
@@ -144,8 +145,6 @@ export function silverBox(config) {
     }
 
     // event listeners
-    const allButtons = document.querySelectorAll('.silverBox-button');
-    silverBox = document.querySelector('.silver-box')
 
     // confirm close on click 
     if ("confirmButtonCloseOnClick" in config && config.confirmButtonCloseOnClick === true) {
@@ -166,10 +165,5 @@ export function silverBox(config) {
     }
 
 
-    function closeOnClick(button) {
-        button.addEventListener('click', () => {
-            silverBox.parentElement.remove()
-        })
-    }
 }
 
