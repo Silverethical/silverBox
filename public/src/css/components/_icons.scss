@@ -1,0 +1,106 @@
+/* tick */
+#silverBox-tick-mark {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 3px solid lightgreen;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+    #inside {
+        position: absolute;
+        width: 50%;
+        height: 10px;
+        border-left: 3px solid lightgreen;
+        border-bottom: 3px solid lightgreen;
+        transform: rotate(-45deg);
+    }
+}
+
+
+/* info */
+#silverBox-info {
+    border: 3px solid;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    border-color: #3fc3ee;
+    color: #3fc3ee;
+
+}
+
+/* question */
+#silverBox-question {
+    border: 3px solid;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #87adbd;
+    border-color: #87adbd;
+}
+
+/* warning */
+#silverBox-warning {
+    border: 3px solid;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #f8bb86;
+    border-color: #f8bb86;
+}
+
+/* x mark */
+#silverBox-failed {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 2px solid #f27474;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .x {
+        width: 30px;
+        height: 4px;
+        position: relative;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 30px;
+            height: 2px;
+            background-color: #f27474;
+            border-radius: 10px;
+        }
+
+        &::before {
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+}
