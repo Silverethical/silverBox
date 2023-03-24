@@ -140,7 +140,8 @@ export default function silverBox(config) {
 
 	if ("inputs" in config) {
 		// appending the whole thing to the form
-		form.append(modalSample(elementsArray, "silver-box-overlay"));
+		log(modalSample(elementsArray, "silver-box-overlay"))
+		form.append(modalSample(elementsArray, "silver-box-overlay"))
 		bodyEl.append(form);
 
 		// form preventDefault
@@ -150,10 +151,16 @@ export default function silverBox(config) {
 
 	}
 	else {
-		bodyEl.append(modalSample(elementsArray, "silver-box-overlay"));
+		bodyEl.append(modalSample(elementsArray, "silver-box-overlay"))
 	}
 
-
+	// checks if we have time config, true => the modal will be removed after the given time
+	if ("timer" in config) {
+		setTimeout(() => {
+			let silverBox = document.querySelector('.silver-box-overlay')
+			silverBox.parentElement.remove()
+		}, config.timer)
+	}
 
 
 }
