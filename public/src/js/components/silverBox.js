@@ -12,7 +12,12 @@ silverBox({
     // position: 'top-right', //
     icon: "success",
     title: "Title", //
+<<<<<<< HEAD
     html: "text", //
+=======
+    html: "<h1>text</h1>", //
+    text: "simple Text", //
+>>>>>>> development
     // confirm button
     showConfirmButton: true, //
     // confirmButtonColor: "#3085d6",//
@@ -71,7 +76,7 @@ export function silverBox(config) {
     // checks if the config needs an input modal or alertModal
     if (config.inputs) {
         // header
-        elementsArray.push(headerComponent({ titleText: config.title, descriptionText: config.html, imageSource: iconsComponent(config.icon) }))
+        elementsArray.push(headerComponent({ titleText: config.title, htmlText: config.html, simpleText: config.text, imageSource: iconsComponent(config.icon) }))
 
         // inputs
 
