@@ -134,13 +134,26 @@ export default function silverBox(config) {
 
 	// pushes the buttonWrapper inside the elements Array
 	elementsArray.push(buttonWrapper);
-	// appending the whole thing to the form
-	form.append(modalSample(elementsArray, "silver-box-overlay"));
 
-	// form preventDefault
-	form.addEventListener("submit", (e) => {
-		e.preventDefault();
-	});
+	// checks if we have inputs in config, the whole thing will be added into a form
+	// else, the whole thing will be added to body w/o form tag
 
-	bodyEl.append(form);
+	if ("inputs" in config) {
+		// appending the whole thing to the form
+		form.append(modalSample(elementsArray, "silver-box-overlay"));
+		bodyEl.append(form);
+
+		// form preventDefault
+		form.addEventListener("submit", (e) => {
+			e.preventDefault();
+		});
+
+	}
+	else {
+		bodyEl.append(modalSample(elementsArray, "silver-box-overlay"));
+	}
+
+
+
+
 }
