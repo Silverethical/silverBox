@@ -1,4 +1,6 @@
-function headerComponent({ titleText, htmlText, simpleText, imageSource,closeButton }) {
+import closeButtonOnClick from "./closeButtonOnClick"
+
+function headerComponent({ titleText, htmlText, simpleText, imageSource, closeButton }) {
     // header wrapper
     let headerWrapper = document.createElement("header")
 
@@ -19,8 +21,9 @@ function headerComponent({ titleText, htmlText, simpleText, imageSource,closeBut
 
     let closeButtonEl = document.createElement("div")
     closeButtonEl.textContent = "X"
+    closeButtonEl.onclick = closeButtonOnClick
     closeButtonEl.classList.add("silverBox-close-button")
-    if(closeButton) headerWrapper.appendChild(closeButtonEl)
+    if (closeButton) headerWrapper.appendChild(closeButtonEl)
     // add icon to headerWrapper
     if (imageSource) headerWrapper.appendChild(imageSource)
     // add title to headerWrapper

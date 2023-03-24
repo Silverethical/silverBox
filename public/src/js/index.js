@@ -2,8 +2,8 @@ import silverBox from "./components/silverBox";
 
 showModal.addEventListener("click", () => {
 	silverBox({
-		timer: 1000,
-		position: 'top-right', //
+		// timer: 1000,
+		// position: 'top-right', //
 		icon: "success",
 		title: "Title", //
 		html: "<p>test</p>", //
