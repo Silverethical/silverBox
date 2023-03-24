@@ -12,12 +12,7 @@ silverBox({
     // position: 'top-right', //
     icon: "success",
     title: "Title", //
-<<<<<<< HEAD
     html: "text", //
-=======
-    html: "<h1>text</h1>", //
-    text: "simple Text", //
->>>>>>> development
     // confirm button
     showConfirmButton: true, //
     // confirmButtonColor: "#3085d6",//
