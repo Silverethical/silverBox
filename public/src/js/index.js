@@ -8,6 +8,7 @@ showModal.addEventListener("click", () => {
 		title: "Title", //
 		html: "<p>test</p>", //
 		text: "simple text",
+		showCloseButton: true,
 		// confirm button
 		showConfirmButton: true, //
 		// confirmButtonColor: "#3085d6",//

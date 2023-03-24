@@ -23,6 +23,7 @@ export default function silverBox(config) {
 			htmlText: config.html,
 			simpleText: config.text,
 			imageSource: iconsComponent(config.icon),
+			closeButton: config.showCloseButton
 		})
 	);
 

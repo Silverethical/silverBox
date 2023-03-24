@@ -1,4 +1,4 @@
-function headerComponent({ titleText, htmlText, simpleText, imageSource }) {
+function headerComponent({ titleText, htmlText, simpleText, imageSource,closeButton }) {
     // header wrapper
     let headerWrapper = document.createElement("header")
 
@@ -12,12 +12,15 @@ function headerComponent({ titleText, htmlText, simpleText, imageSource }) {
     htmlStructure.classList.add("silverBox-header-description")
     htmlStructure.innerHTML = htmlText
 
-    // textStructre
-    let textStructre = document.createElement("p")
-    textStructre.textContent = simpleText
-    textStructre.classList.add("silverBox-header-description")
+    // textStructure
+    let textStructure = document.createElement("p")
+    textStructure.textContent = simpleText
+    textStructure.classList.add("silverBox-header-description")
 
-
+    let closeButtonEl = document.createElement("div")
+    closeButtonEl.textContent = "X"
+    closeButtonEl.classList.add("silverBox-close-button")
+    if(closeButton) headerWrapper.appendChild(closeButtonEl)
     // add icon to headerWrapper
     if (imageSource) headerWrapper.appendChild(imageSource)
     // add title to headerWrapper
@@ -30,7 +33,7 @@ function headerComponent({ titleText, htmlText, simpleText, imageSource }) {
         headerWrapper.appendChild(htmlStructure)
     }
     else if (simpleText) {
-        headerWrapper.appendChild(textStructre)
+        headerWrapper.appendChild(textStructure)
     }
     // checks if header Element is empty or not
     return headerWrapper.childElementCount !== 0 ? headerWrapper : ''
