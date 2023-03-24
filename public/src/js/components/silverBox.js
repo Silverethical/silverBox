@@ -183,7 +183,7 @@ export function silverBox(config) {
         cancelButton.classList.add("silverBox-loading-button")
     } else {
         cancelButton.addEventListener("click", () => {
-            cancelButtonclassList.add("silverBox-loading-button")
+            cancelButton.classList.add("silverBox-loading-button")
             cancelButton.setAttribute("disabled", "")
         })
     }
