@@ -12,7 +12,8 @@ silverBox({
     // position: 'top-right', //
     icon: "success",
     title: "Title", //
-    html: "text", //
+    html: "<p>test</p>", //
+    text: 'simple text',
     // confirm button
     showConfirmButton: true, //
     // confirmButtonColor: "#3085d6",//
@@ -117,7 +118,7 @@ export function silverBox(config) {
     }
     else {
         // header component
-        elementsArray.push(headerComponent({ titleText: config.title, descriptionText: config.html, imageSource: iconsComponent(config.icon) }))
+        elementsArray.push(headerComponent({ titleText: config.title, htmlText: config.html, simpleText: config.text, imageSource: iconsComponent(config.icon) }))
 
         // cancel button
         if (("showCancelButton" in config) && config.showCancelButton.valueOf() === true) {
