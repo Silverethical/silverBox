@@ -19,21 +19,21 @@ silverBox({
     confirmButtonText: "Confirm",//
     confirmButtonIconRight: "/path/to/icon",//
     confirmButtonIconLeft: "/path/to/icon",//
-    confirmButtonCloseOnClick: true,
+    confirmButtonCloseOnClick: false,
     // cancel button
     showCancelButton: true, //
     cancelButtonColor: "#fff",//
     cancelButtonText: "Cancel",//
     cancelButtonIconRight: "/path/to/icon",//
     cancelButtonIconLeft: "/path/to/icon",//
-    cancelButtonCloseOnClick:true,
+    cancelButtonCloseOnClick: false,
     // deny button
     showDenyButton: true,
     denyButtonColor: "#d23",
     denyButtonText: "Deny",//
     denyButtonIconRight: "/path/to/icon",//
     denyButtonIconLeft: "/path/to/icon",//
-    denyButtonCloseOnClick: true,
+    denyButtonCloseOnClick: false,
 
     // inputs: [
     //     {
@@ -160,33 +160,30 @@ export function silverBox(config) {
 
     // confirm close on click
     if (!("confirmButtonCloseOnClick" in config) || config.confirmButtonCloseOnClick === true) {
-        if (confirmButton) closeOnClick(confirmButton)
+        if (confirmButton) confirmButton.addEventListener('click', closeOnClick)
     } else {
         confirmButton.addEventListener("click", () => {
-            const confirmButtonText = document.querySelector('.silverBox-confirm-button .silverBox-button-text')
-            confirmButtonText.classList.add("silverBox-loading-button")
+            confirmButton.classList.add("silverBox-loading-button")
             confirmButton.setAttribute("disabled", "")
         })
     };
     // deny close on click 
     if (!("denyButtonCloseOnClick" in config) || config.denyButtonCloseOnClick === true) {
-        if (denyButton) closeOnClick(denyButton)
+        if (denyButton) denyButton.addEventListener('click', closeOnClick)
     } else {
         denyButton.addEventListener("click", () => {
-            const denyButtonText = document.querySelector('.silverBox-deny-button .silverBox-button-text')
-            denyButtonText.classList.add("silverBox-loading-button")
+            denyButton.classList.add("silverBox-loading-button")
             denyButton.setAttribute("disabled", "")
         })
     };
 
     // cancel close on click 
     if (!("cancelButtonCloseOnClick" in config) || config.cancelButtonCloseOnClick === true) {
-        if (cancelButton) closeOnClick(cancelButton)
+        if (cancelButton) cancelButton.addEventListener('click', closeOnClick)
         cancelButton.classList.add("silverBox-loading-button")
     } else {
         cancelButton.addEventListener("click", () => {
-            const cancelButtonText = document.querySelector('.silverBox-cancel-button .silverBox-button-text')
-            cancelButtonText.classList.add("silverBox-loading-button")
+            cancelButtonclassList.add("silverBox-loading-button")
             cancelButton.setAttribute("disabled", "")
         })
     }
