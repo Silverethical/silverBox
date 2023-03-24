@@ -1,11 +1,5 @@
 function modalSample({ elementsArray, overlayClass, isInput }) {
 
-    if (isInput === true) {
-        console.log('true');
-    }
-    else {
-        console.log('false');
-    }
     // form 
     let form = document.createElement('form')
     form.classList.add('silverBox-form')
