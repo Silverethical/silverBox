@@ -10,12 +10,13 @@ const log = console.log;
 silverBox({
     // timer: 1500,
     // position: 'top-right', //
-    icon: "failed",
+    icon: "warning",
     title: "Title", //
     html: "<h1>text</h1>", //
     // confirm button
     showConfirmButton: true, //
     confirmButtonColor: "#3085d6",//
+    confirmBorderColor:"#3085d6",
     confirmButtonText: "Confirm",//
     confirmButtonIconRight: "/path/to/icon",//
     confirmButtonIconLeft: "/path/to/icon",//
@@ -23,6 +24,7 @@ silverBox({
     // cancel button
     showCancelButton: true, //
     cancelButtonColor: "#fff",//
+    cancelBorderColor:"#000",
     cancelButtonText: "Cancel",//
     cancelButtonIconRight: "/path/to/icon",//
     cancelButtonIconLeft: "/path/to/icon",//
@@ -30,6 +32,7 @@ silverBox({
     // deny button
     showDenyButton: true,
     denyButtonColor: "#d23",
+    denyBorderColor:"#d23",
     denyButtonText: "Deny",//
     denyButtonIconRight: "/path/to/icon",//
     denyButtonIconLeft: "/path/to/icon",//
@@ -87,7 +90,7 @@ export function silverBox(config) {
 
         // cancel button
         if (!("showCancelButton" in config) || config.showCancelButton.valueOf() === true) {
-            buttonWrapper.append(buttonComponent({ text: (config.cancelButtonText) ? config.cancelButtonText : "Cancel", elementUniqueClassList: `silverBox-cancel-button`, buttonBgColor: config.cancelButtonColor, leftIcon: config.cancelButtonIconLeft, rightIcon: config.cancelButtonIconRight }))
+            buttonWrapper.append(buttonComponent({ text: (config.cancelButtonText) ? config.cancelButtonText : "Cancel", elementUniqueClassList: `silverBox-cancel-button`, buttonBgColor: config.cancelButtonColor, leftIcon: config.cancelButtonIconLeft, rightIcon: config.cancelButtonIconRight,borderColor:config.cancelBorderColor }))
         }
         // deny button
         if (("showDenyButton" in config) && config.showDenyButton.valueOf() === true) {
@@ -95,7 +98,7 @@ export function silverBox(config) {
         }
         // confirm button
         if (!("showConfirmButton" in config) || config.showConfirmButton.valueOf() === true) {
-            buttonWrapper.append(buttonComponent({ text: (config.confirmButtonText) ? config.confirmButtonText : "Confirm", elementUniqueClassList: `silverBox-confirm-button`, buttonBgColor: config.confirmButtonColor, leftIcon: config.confirmButtonIconLeft, rightIcon: config.confirmButtonIconRight }))
+            buttonWrapper.append(buttonComponent({ text: (config.confirmButtonText) ? config.confirmButtonText : "Confirm", elementUniqueClassList: `silverBox-confirm-button`, buttonBgColor: config.confirmButtonColor, leftIcon: config.confirmButtonIconLeft, rightIcon: config.confirmButtonIconRight,borderColor:config.confirmBorderColor }))
         }
 
         // pushes the buttonWrapper inside the elements Array     
@@ -116,15 +119,15 @@ export function silverBox(config) {
 
         // cancel button
         if (("showCancelButton" in config) && config.showCancelButton.valueOf() === true) {
-            buttonWrapper.append(buttonComponent({ text: (config.cancelButtonText) ? config.cancelButtonText : "Cancel", elementUniqueClassList: `silverBox-cancel-button`, buttonBgColor: config.cancelButtonColor, leftIcon: config.cancelButtonIconLeft, rightIcon: config.cancelButtonIconRight }))
+            buttonWrapper.append(buttonComponent({ text: (config.cancelButtonText) ? config.cancelButtonText : "Cancel", elementUniqueClassList: `silverBox-cancel-button`, buttonBgColor: config.cancelButtonColor, leftIcon: config.cancelButtonIconLeft, rightIcon: config.cancelButtonIconRight,borderColor:config.cancelBorderColor }))
         }
         // deny button
         if (("showDenyButton" in config) && config.showDenyButton.valueOf() === true) {
-            buttonWrapper.append(buttonComponent({ text: (config.denyButtonText) ? config.denyButtonText : "Deny", elementUniqueClassList: `silverBox-deny-button`, buttonBgColor: config.denyButtonColor, leftIcon: config.denyButtonIconLeft, rightIcon: config.denyButtonIconRight }))
+            buttonWrapper.append(buttonComponent({ text: (config.denyButtonText) ? config.denyButtonText : "Deny", elementUniqueClassList: `silverBox-deny-button`, buttonBgColor: config.denyButtonColor, leftIcon: config.denyButtonIconLeft, rightIcon: config.denyButtonIconRight,borderColor:config.denyBorderColor}))
         };
         // confirm button
         if (!("showConfirmButton" in config) || config.showConfirmButton.valueOf() === true) {
-            buttonWrapper.append(buttonComponent({ text: (config.confirmButtonText) ? (config.confirmButtonText) : "Confirm", elementUniqueClassList: `silverBox-confirm-button`, buttonBgColor: config.confirmButtonColor, leftIcon: config.confirmButtonIconLeft, rightIcon: config.confirmButtonIconRight }))
+            buttonWrapper.append(buttonComponent({ text: (config.confirmButtonText) ? (config.confirmButtonText) : "Confirm", elementUniqueClassList: `silverBox-confirm-button`, buttonBgColor: config.confirmButtonColor, leftIcon: config.confirmButtonIconLeft, rightIcon: config.confirmButtonIconRight,borderColor:config.confirmBorderColor }))
         }
         // pushes the buttonWrapper into the elementsArray
         elementsArray.push(buttonWrapper)
