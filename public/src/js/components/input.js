@@ -1,4 +1,4 @@
-function inputComponent({ inputType = "text", placeHolder = "default placeholder", readOnly = false, label = 'this is a label', hint = 'input hint' }) {
+function inputComponent({ inputType = "text", placeHolder, readOnly, label, hint }) {
 
 	// changing the inputType case to lowerCase to avoid case conflict problem
 	inputType = inputType.toLowerCase()
