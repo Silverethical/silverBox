@@ -4,6 +4,7 @@ import inputComponent from "./input";
 import modalSample from "./modalSample";
 import headerComponent from "./header";
 import iconsComponent from "./icons";
+import closeButtonOnClick from "./closeButtonOnClick";
 
 const log = console.log;
 
@@ -173,8 +174,7 @@ export default function silverBox(config) {
 	// checks if we have time config, true => the modal will be removed after the given time
 	if ("timer" in config) {
 		setTimeout(() => {
-			let silverBox = document.querySelector('.silverBox-overlay')
-			silverBox.parentElement.remove()
+			closeButtonOnClick()
 		}, config.timer)
 	}
 
