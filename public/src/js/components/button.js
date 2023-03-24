@@ -5,12 +5,12 @@
  * @param {string} elementUniqueClassList - button classList
  * @returns 
  */
-function buttonComponent({ text, buttonBgColor, elementUniqueClassList, leftIcon, rightIcon,borderColor }) {
+function buttonComponent({ text, buttonBgColor, elementUniqueClassList, leftIcon, rightIcon, borderColor, textColor }) {
     // button
     let button = document.createElement("button")
     button.style.background = buttonBgColor
     // background color
-    if (buttonBgColor) button.setAttribute("style", `background-color:${buttonBgColor}; border-color:${borderColor};`)
+    if (buttonBgColor) button.setAttribute("style", `background-color:${buttonBgColor}; border-color:${borderColor}; color:${textColor};`)
     button.classList.add(elementUniqueClassList, "silverBox-button")
     // button left icon
     if (leftIcon) {
