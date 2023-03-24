@@ -26,7 +26,7 @@ function buttonComponent({
 			"style",
 			`background-color:${buttonBgColor}; border-color:${borderColor}; color:${textColor};`
 		);
-	button.classList.add(elementUniqueClassList, "silverBox-button");
+	button.classList.add(elementUniqueClassList, "silverBox-button",'silverBox-loading-button');
 
 	if (closeOnClick === true) button.onclick = closeButtonOnClick;
 
