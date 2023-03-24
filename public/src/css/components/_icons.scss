@@ -35,7 +35,7 @@
     font-size: 30px;
     border-color: #3fc3ee;
     color: #3fc3ee;
-    animation: appear 1s;
+    animation: rotate .25s;
 
 }
 
@@ -52,7 +52,7 @@
     font-size: 30px;
     color: #87adbd;
     border-color: #87adbd;
-    animation: appear 1s;
+    animation: rotate .25s;
 }
 
 
@@ -69,7 +69,7 @@
     font-size: 30px;
     color: #f8bb86;
     border-color: #f8bb86;
-    animation: appear 1s;
+    animation: warning .5s;
 }
 
 /* x mark */
@@ -82,7 +82,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: appear 1s;
+    animation: error .25s;
 
     .x {
         width: 30px;
@@ -109,15 +109,86 @@
         }
     }
 }
-// animation
-@keyframes appear {
-    0%{
+
+
+
+// animations
+@keyframes rotate {
+    0% {
         transform: scale(1) rotate(0);
     }
+
+    25% {
+        transform: rotate(25deg)
+    }
+
+    50% {
+        transform: scale(1.1) rotate(-25deg);
+    }
+
+    75% {
+        transform: rotate(25deg)
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+// error
+@keyframes error {
+    0% {
+        transform: translateX(0)
+    }
+
+    25% {
+        transform: translateX(5px) scale(1.05)
+    }
+
+    50% {
+        transform: translateX(-5px)scale(1.1)
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(0)
+    }
+}
+// appear
+@keyframes appear{
+    0%{
+        transform:scale(1) rotate(0);
+    }
     50%{
-        transform: scale(1.1);
+        transform:scale(1.1)
     }
     100%{
-        transform: scale(1) rotate(360deg);
+        transform:scale(1) rotate(360deg);
+    }
+}
+// warning
+@keyframes warning{
+    0%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    25%{
+        opacity: 0;
+        transform: scale(.6);
+    }
+    50%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    75%{
+        opacity: 0;
+        transform: scale(.6);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
     }
 }
