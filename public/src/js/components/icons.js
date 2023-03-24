@@ -2,7 +2,7 @@ function iconsComponent(iconType) {
     if (iconType == "warning") return warningIcon()
     if (iconType == "success") return successIcon()
     if (iconType == "info") return infoIcon()
-    if (iconType == "failed") return failedIcon()
+    if (iconType == "error") return errorIcon()
     if (iconType == "question") return questionIcon()
 }
 function warningIcon() {
@@ -41,16 +41,16 @@ function infoIcon() {
     return silverBoxInfo
 }
 
-function failedIcon() {
+function errorIcon() {
     // create parent element
-    let failedIcon = document.createElement('div')
-    failedIcon.id = 'silverBox-failed'
+    let errorIcon = document.createElement('div')
+    errorIcon.id = 'silverBox-error'
     // create child element
     let xIcon = document.createElement('div')
     xIcon.classList.add('x')
     // append child to parent
-    failedIcon.append(xIcon)
-    return failedIcon
+    errorIcon.append(xIcon)
+    return errorIcon
 }
 
 function questionIcon() {
