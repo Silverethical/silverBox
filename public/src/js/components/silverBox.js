@@ -139,33 +139,24 @@ export default function silverBox(config) {
 
 	// checks if we have inputs in config, the whole thing will be added into a form
 	// else, the whole thing will be added to body w/o form tag
-	// also checks for positions
+	// also checks for positions , if we have a position, the overlay class will be changed related to the position config
 
 	if ("inputs" in config) {
 
-		// checks if position config is given, if true the overlay will have a position in the body
 		if ('position' in config) {
-			form.append(modalSample(elementsArray, `silverBox-${config.position}`))
-			form.classList.add('silverBox-form')
-			bodyEl.append(form);
-
-			// form preventDefault
-			form.addEventListener("submit", (e) => {
-				e.preventDefault();
-			});
+			bodyEl.append(modalSample({ elementsArray: elementsArray, overlayClass: `silverBox-${config.position}`, isInput: true }))
 		}
 		else {
-			bodyEl.append(modalSample(elementsArray, "silverBox-overlay"))
+			bodyEl.append(modalSample({ elementsArray: elementsArray, overlayClass: "silverBox-overlay", isInput: true }))
 		}
 
 	}
 	else {
-		// checks if position config is given, if true the overlay will have a position in the body
 		if ('position' in config) {
-			bodyEl.append(modalSample(elementsArray, `silverBox-${config.position}`))
+			bodyEl.append(modalSample({ elementsArray: elementsArray, overlayClass: `silverBox-${config.position}`, isInput: false }))
 		}
 		else {
-			bodyEl.append(modalSample(elementsArray, "silverBox-overlay"))
+			bodyEl.append(modalSample({ elementsArray: elementsArray, overlayClass: "silverBox-overlay", isInput: false }))
 		}
 
 	}
