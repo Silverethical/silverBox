@@ -144,6 +144,7 @@ export default function silverBox(config) {
 		// checks if position config is given, if true the overlay will have a position in the body
 		if ('position' in config) {
 			form.append(modalSample(elementsArray, `silverBox-${config.position}`))
+			form.classList.add('silverBox-form')
 			bodyEl.append(form);
 
 			// form preventDefault
