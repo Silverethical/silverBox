@@ -20,12 +20,19 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	backdrop-filter: blur(2px);
+	background-color: #d0d5ddac;
 }
 
 .silver-box {
 	display: flex;
 	flex-direction: column;
 	gap: 10px 0;
+	border: var(--silverBox-border);
+	border-radius: var(--silverBox-border-radius);
+	padding:var(--silverBox-padding);
+	box-shadow: 0px 0px 10px #00000047;
+	background-color: white;
 }
 
 .silver-box-top-right,

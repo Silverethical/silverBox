@@ -7,9 +7,9 @@
     --silverBox-text-font-size: 18px;
     --silverBox-text-font-weight: 600;
     // buttons
-    --silverBox-button-font-size: 18px;
+    --silverBox-button-font-size: 16px;
     --silverBox-button-font-weight: 600;
-    --silverBox-button-padding: 10px 60px;
+    --silverBox-button-padding: 12px 60px;
 
     // colors
     --silverBox-title-color: #000;
@@ -25,9 +25,9 @@
     --silverBox-deny-border-color: #d33;
     --silverBox-deny-hover-color: #f75555;
     // cancel button
-    --silverBox-cancel-color: #000;
+    --silverBox-cancel-color: #475467;
     --silverBox-cancel-bg-color: #fff;
-    --silverBox-cancel-border-color: #000;
+    --silverBox-cancel-border-color: #D0D5DD ;
     --silverBox-cancel-hover-color: #838383;
 
     // border radius
@@ -37,5 +37,9 @@
     // inputs
     --silverBox-input-border-color: grey;
     --silverBox-input-padding: 10px;
+    // silver box
+    --silverBox-padding:30px;
+    --silverBox-border-radius:20px;
+    --silverBox-border:1px solid #fff;
 
 }
