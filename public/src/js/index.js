@@ -2,8 +2,8 @@ import silverBox from "./components/silverBox";
 
 showModal.addEventListener("click", () => {
 	silverBox({
-		// timer: 3000,
-		// position: 'top-right', //
+		// timer: 1000,
+		position: 'top-right', //
 		icon: "success",
 		title: "Title", //
 		html: "<p>test</p>", //
@@ -16,7 +16,7 @@ showModal.addEventListener("click", () => {
 		confirmButtonText: "Confirm", //
 		// confirmButtonIconRight: "/path/to/icon",//
 		// confirmButtonIconLeft: "/path/to/icon",//
-		// confirmButtonCloseOnClick: true,
+		confirmButtonCloseOnClick: true,
 		// cancel button
 		showCancelButton: true, //
 		// cancelButtonColor: "#fff",//
@@ -36,19 +36,19 @@ showModal.addEventListener("click", () => {
 		denyButtonIconLeft: "/path/to/icon", //
 		denyButtonCloseOnClick: false,
 		inputs: [
-		    {
-		        label: "label",
-		        type: "text",
-		        placeHolder: "test",
-		        hint: 'input hint',
-		        readOnly: true,
-		    },
-		    {
-		        label: "label",
-		        type: "text",
-		        placeHolder: "test",
-		        hint: 'input hint',
-		        readOnly: true,
-		    }]
+			{
+				label: "label",
+				type: "text",
+				placeHolder: "test",
+				hint: 'input hint',
+				readOnly: true,
+			},
+			{
+				label: "label",
+				type: "text",
+				placeHolder: "test",
+				hint: 'input hint',
+				readOnly: true,
+			}]
 	});
 });

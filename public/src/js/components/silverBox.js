@@ -137,27 +137,41 @@ export default function silverBox(config) {
 
 	// checks if we have inputs in config, the whole thing will be added into a form
 	// else, the whole thing will be added to body w/o form tag
+	// also checks for positions
 
 	if ("inputs" in config) {
-		// appending the whole thing to the form
-		log(modalSample(elementsArray, "silver-box-overlay"))
-		form.append(modalSample(elementsArray, "silver-box-overlay"))
-		bodyEl.append(form);
 
-		// form preventDefault
-		form.addEventListener("submit", (e) => {
-			e.preventDefault();
-		});
+		// checks if position config is given, if true the overlay will have a position in the body
+		if ('position' in config) {
+			form.append(modalSample(elementsArray, `silverBox-${config.position}`))
+			bodyEl.append(form);
+
+			// form preventDefault
+			form.addEventListener("submit", (e) => {
+				e.preventDefault();
+			});
+		}
+		else {
+			bodyEl.append(modalSample(elementsArray, "silverBox-overlay"))
+		}
 
 	}
 	else {
-		bodyEl.append(modalSample(elementsArray, "silver-box-overlay"))
+		// checks if position config is given, if true the overlay will have a position in the body
+		if ('position' in config) {
+			bodyEl.append(modalSample(elementsArray, `silverBox-${config.position}`))
+		}
+		else {
+			bodyEl.append(modalSample(elementsArray, "silverBox-overlay"))
+		}
+
 	}
+
 
 	// checks if we have time config, true => the modal will be removed after the given time
 	if ("timer" in config) {
 		setTimeout(() => {
-			let silverBox = document.querySelector('.silver-box-overlay')
+			let silverBox = document.querySelector('.silverBox-overlay')
 			silverBox.parentElement.remove()
 		}, config.timer)
 	}
