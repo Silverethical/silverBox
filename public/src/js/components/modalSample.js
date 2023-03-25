@@ -18,20 +18,22 @@ function modalSample({ elementsArray, overlayClass, isInput }) {
     let silverBoxModal = document.createElement('div')
     silverBoxModal.classList.add('silverBox')
 
-    // adds the input/text/button to the silverBox modal
-    elementsArray.forEach(element => {
-        silverBoxModal.append(element)
-    })
-
-    // checks if we have inputs in the given config, if true the silverBox will be added to a form elements, else there will be no form elements
+    // checks if we have inputs in the given config, if true the elements will be added to a form elements, else there will be no form elements
     if (isInput) {
-        form.append(silverBoxModal)
-        overlay.append(form)
+
+        elementsArray.forEach(element => {
+            form.append(element)
+        })
+        silverBoxModal.append(form)
+
     }
     else {
-        overlay.append(silverBoxModal)
+        elementsArray.forEach(element => {
+            silverBoxModal.append(element)
+        })
     }
 
+    overlay.append(silverBoxModal)
     // returns the whole thing
     return overlay
 
