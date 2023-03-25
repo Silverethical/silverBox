@@ -1,7 +1,7 @@
 .silverBox-button-wrapper {
 	display: flex;
 	justify-content: space-around;
-	gap: 0 10px;
+	gap: 10px 10px;
 }
 .silverBox-button {
 	display: flex;
@@ -48,7 +48,13 @@
 	img {
 		max-width: 40px;
 	}
-	&.silverBox-loading-button .silverBox-button-text{
+	&.silverBox-loading-button .silverBox-button-text {
 		opacity: 0;
-	} 
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.silverBox-button-wrapper {
+		flex-direction: column-reverse;
+	}
 }
