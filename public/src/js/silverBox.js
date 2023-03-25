@@ -178,8 +178,9 @@ export default function silverBox(config) {
 	if (("centerIcon" in config) && config.centerIcon.valueOf() === true) {
 		const silverBoxIcon = document.querySelector('.silverBox-icon')
 		silverBoxIcon.style.justifySelf = "center"
+		silverBoxIcon.style.gridColumnStart = 2
 	}
-	
+
 	// checks if we have time config, true => the modal will be removed after the given time
 	if ("timer" in config) {
 		setTimeout(() => {

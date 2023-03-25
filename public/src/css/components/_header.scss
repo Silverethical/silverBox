@@ -1,11 +1,11 @@
 .silverBox-close-button {
-    position: absolute;
     cursor: pointer;
-    right: 10px;
-    top: 5px;
+    grid-column-start: 3;
+
 }
 
-.header-wrapper {
-    position: relative;
+.icon-wrapper {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
 }

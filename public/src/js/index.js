@@ -6,7 +6,7 @@ showModal.addEventListener("click", () => {
 		// position: 'top-right', //
 		icon: "info",
 		title: "Title", //
-		centerIcon:true,
+		centerIcon: true,
 		html: "<p>test</p>", //
 		text: "simple text",
 		showCloseButton: true,
