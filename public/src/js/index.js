@@ -4,7 +4,7 @@ showModal.addEventListener("click", () => {
 	silverBox({
 		// timer: 1000,
 		// position: 'top-right', //
-		icon: "error",
+		icon: "warning",
 		title: "Title", //
 		centerContent: true,
 		html: "<p>test</p>", //

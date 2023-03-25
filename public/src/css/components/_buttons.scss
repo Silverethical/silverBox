@@ -50,7 +50,11 @@
     img {
         max-width: 40px;
     }
-
+    .silverBox-button-text{
+        min-height: 30px;
+        display: flex;
+        align-items: center;
+    }
     .silverBox-button-loading-animation {
         display: none;
     }
