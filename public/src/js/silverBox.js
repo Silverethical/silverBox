@@ -174,13 +174,6 @@ export default function silverBox(config) {
 
 	}
 
-	// if centerIcon key is true in config this code will be executed
-	if (("centerIcon" in config) && config.centerIcon.valueOf() === true) {
-		const silverBoxIcon = document.querySelector('.silverBox-icon')
-		silverBoxIcon.style.justifySelf = "center"
-		silverBoxIcon.style.gridColumnStart = 2
-	}
-
 	// checks if we have time config, true => the modal will be removed after the given time
 	if ("timer" in config) {
 		setTimeout(() => {
@@ -193,6 +186,13 @@ export default function silverBox(config) {
 	const silverBoxOverlay = document.querySelector('.silverBox-overlay')
 	const silverBoxOver = document.querySelector('.silverBox')
 
+	// if centerContent key is true in config this code will be executed
+	if (("centerContent" in config) && config.centerContent.valueOf() === true) {
+		const silverBoxIcon = document.querySelector('.silverBox-icon')
+		silverBoxIcon.style.justifySelf = "center"
+		silverBoxIcon.style.gridColumnStart = 2
+		silverBoxOver.style.textAlign = "center"
+	}
 	// adding event listener for overlay
 	// if the clicked element has classList of silverBox-overlay this code will be executed
 	silverBoxOverlay.addEventListener("click", (e) => {
