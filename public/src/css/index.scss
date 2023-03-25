@@ -6,7 +6,12 @@
 
 body {
 	background-color: white;
-	color: var(--success-700)
+	color: var(--success-700);
+}
+
+.silverBox-form {
+	width: 90vw;
+	max-width: 450px;
 }
 
 // silver box modal
