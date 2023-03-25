@@ -73,24 +73,27 @@ export default function silverBox(config) {
 		!("showCancelButton" in config) ||
 		config.showCancelButton.valueOf() === true
 	) {
-		buttonWrapper.append(
-			buttonComponent({
-				text: config.cancelButtonText
-					? config.cancelButtonText
-					: "Cancel",
-				elementUniqueClassList: `silverBox-cancel-button`,
-				buttonBgColor: config.cancelButtonColor,
-				leftIcon: config.cancelButtonIconLeft,
-				rightIcon: config.cancelButtonIconRight,
-				borderColor:
-					"cancelButtonBorderColor" in config
-						? config.cancelButtonBorderColor
-						: config.cancelButtonColor,
-				textColor: config.cancelButtonTextColor,
-				closeOnClick:
-					config.cancelButtonCloseOnClick === false ? false : true,
-			})
-		);
+		if ("inputs" in config) {
+			buttonWrapper.append(
+				buttonComponent({
+					text: config.cancelButtonText
+						? config.cancelButtonText
+						: "Cancel",
+					elementUniqueClassList: `silverBox-cancel-button`,
+					buttonBgColor: config.cancelButtonColor,
+					leftIcon: config.cancelButtonIconLeft,
+					rightIcon: config.cancelButtonIconRight,
+					borderColor:
+						"cancelButtonBorderColor" in config
+							? config.cancelButtonBorderColor
+							: config.cancelButtonColor,
+					textColor: config.cancelButtonTextColor,
+					closeOnClick:
+						config.cancelButtonCloseOnClick === false ? false : true,
+				})
+
+			);
+		}
 	}
 	// deny button
 	if (

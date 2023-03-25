@@ -36,20 +36,20 @@ showModal.addEventListener("click", () => {
 		denyButtonIconRight: "/path/to/icon", //
 		denyButtonIconLeft: "/path/to/icon", //
 		denyButtonCloseOnClick: false,
-		inputs: [
-			{
-				label: "label",
-				type: "text",
-				placeHolder: "test",
-				hint: 'input hint',
-				readOnly: true,
-			},
-			{
-				label: "label",
-				type: "text",
-				placeHolder: "test",
-				hint: 'input hint',
-				readOnly: true,
-			}]
+		// inputs: [
+		// 	{
+		// 		label: "label",
+		// 		type: "text",
+		// 		placeHolder: "test",
+		// 		hint: 'input hint',
+		// 		readOnly: true,
+		// 	},
+		// 	{
+		// 		label: "label",
+		// 		type: "text",
+		// 		placeHolder: "test",
+		// 		hint: 'input hint',
+		// 		readOnly: true,
+		// 	}]
 	});
 });
