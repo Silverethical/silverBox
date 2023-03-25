@@ -22,6 +22,7 @@ function modalSample({ elementsArray, overlayClass, isInput }) {
         silverBoxModal.append(element)
     })
 
+    // checks if we have inputs in the given config, if true the silverBox will be added to a form elements, else there will be no form elements
     if (isInput) {
         form.append(silverBoxModal)
         overlay.append(form)
@@ -30,7 +31,7 @@ function modalSample({ elementsArray, overlayClass, isInput }) {
         overlay.append(silverBoxModal)
     }
 
-
+    // returns the whole thing
     return overlay
 
 }
