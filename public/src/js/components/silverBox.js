@@ -170,13 +170,21 @@ export default function silverBox(config) {
 
 	}
 
-
 	// checks if we have time config, true => the modal will be removed after the given time
 	if ("timer" in config) {
 		setTimeout(() => {
 			closeButtonOnClick()
 		}, config.timer)
 	}
+
+
+	// selecting overLay and adding event listener
+	const silverBoxOverlay = document.querySelector('.silverBox-overlay')
+	silverBoxOverlay.addEventListener("click", (e) => {
+		if (e.target.classList.contains('silverBox-overlay')) {
+			silverBoxOverlay.remove()
+		}
+	})
 
 
 }
