@@ -1,0 +1,92 @@
+@import "./components/cssConfig";
+@import "./components/input";
+@import "./components/buttons";
+@import "./components/header";
+@import "./components/icons";
+
+body {
+	background-color: white;
+	color: var(--success-700);
+}
+
+.silverBox-form {
+	width: 90vw;
+	max-width: 450px;
+}
+
+// silver box modal
+.silverBox-overlay {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	backdrop-filter: blur(2px);
+	background-color: #d0d5ddac;
+}
+
+.silverBox {
+	display: flex;
+	flex-direction: column;
+	gap: 10px 0;
+	border: var(--silverBox-border);
+	border-radius: var(--silverBox-border-radius);
+	padding: var(--silverBox-padding);
+	box-shadow: 0px 0px 10px #00000047;
+	background-color: white;
+}
+
+.silverBox-top-right,
+.silverBox-top-center,
+.silverBox-top-left,
+.silverBox-bottom-right,
+.silverBox-bottom-center,
+.silverBox-bottom-left {
+	position: absolute;
+	width: fit-content;
+	height: fit-content;
+}
+
+// top
+.silverBox-top-right,
+.silverBox-top-center,
+.silverBox-top-left {
+	top: 10px;
+}
+
+.silverBox-top-right {
+	right: 10px;
+}
+
+.silverBox-top-center {
+	transform: translateX(50%);
+	right: 50%;
+}
+
+.silverBox-top-left {
+	left: 10px;
+}
+
+// bottom
+.silverBox-bottom-right,
+.silverBox-bottom-left,
+.silverBox-bottom-center {
+	bottom: 10px;
+}
+
+.silverBox-bottom-right {
+	right: 10px;
+}
+
+.silverBox-bottom-center {
+	transform: translateX(50%);
+	right: 50%;
+}
+
+.silverBox-bottom-left {
+	left: 10px;
+}

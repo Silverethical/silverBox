@@ -1,10 +1,10 @@
 // import components
-import buttonComponent from "./button";
-import inputComponent from "./input";
-import modalSample from "./modalSample";
-import headerComponent from "./header";
-import iconsComponent from "./icons";
-import closeButtonOnClick from "./closeButtonOnClick";
+import buttonComponent from "./components/button";
+import inputComponent from "./components/input";
+import modalSample from "./components/modalSample";
+import headerComponent from "./components/header";
+import iconsComponent from "./components/icons";
+import closeButtonOnClick from "./components/closeButtonOnClick";
 
 const log = console.log;
 

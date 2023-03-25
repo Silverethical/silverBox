@@ -1,4 +1,4 @@
-import silverBox from "./components/silverBox";
+import silverBox from "./silverBox";
 
 showModal.addEventListener("click", () => {
 	silverBox({
