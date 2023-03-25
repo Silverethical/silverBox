@@ -32,7 +32,6 @@ export default function silverBox(config) {
 			closeButton: config.showCloseButton
 		})
 	);
-
 	/** inputs */
 
 	/** if inputs exist */
@@ -175,6 +174,12 @@ export default function silverBox(config) {
 
 	}
 
+	// if centerIcon key is true in config this code will be executed
+	if (("centerIcon" in config) && config.centerIcon.valueOf() === true) {
+		const silverBoxIcon = document.querySelector('.silverBox-icon')
+		silverBoxIcon.style.justifySelf = "center"
+	}
+	
 	// checks if we have time config, true => the modal will be removed after the given time
 	if ("timer" in config) {
 		setTimeout(() => {
@@ -195,6 +200,4 @@ export default function silverBox(config) {
 	silverBoxOver.addEventListener('click', (e) => {
 		e.stopPropagation()
 	})
-
-
 }
