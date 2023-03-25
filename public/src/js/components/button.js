@@ -26,9 +26,20 @@ function buttonComponent({
 			"style",
 			`background-color:${buttonBgColor}; border-color:${borderColor}; color:${textColor};`
 		);
-	button.classList.add(elementUniqueClassList, "silverBox-button",'silverBox-loading-button');
+	button.classList.add(elementUniqueClassList, "silverBox-button");
 
-	if (closeOnClick === true) button.onclick = closeButtonOnClick;
+	// if closeOnClick in config is true the code will be executed
+	if (closeOnClick === true) {
+		button.onclick = closeButtonOnClick;
+	}
+	// if closeOnClick in config is false the code will be executed
+	else {
+		button.addEventListener("click", () => {
+			button.disabled = true
+			button.classList.add('silverBox-loading-button')
+		})
+	}
+
 
 	// button left icon
 	if (leftIcon) {
