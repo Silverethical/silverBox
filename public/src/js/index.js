@@ -15,8 +15,8 @@ showModal.addEventListener("click", () => {
 		confirmButtonBorderColor: "#3085d6",
 		confirmButtonTextColor: "#fff",
 		confirmButtonText: "Confirm", //
-		// confirmButtonIconRight: "/path/to/icon",//
-		// confirmButtonIconLeft: "/path/to/icon",//
+		confirmButtonIconRight: "../src/images/anya.png",//
+		confirmButtonIconLeft: "../src/images/anya.png",//
 		confirmButtonCloseOnClick: true,
 		// cancel button
 		showCancelButton: true, //
