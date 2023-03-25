@@ -9,11 +9,6 @@ body {
 	color: var(--success-700);
 }
 
-.silverBox-form {
-	width: 90vw;
-	max-width: 450px;
-}
-
 // silver box modal
 .silverBox-overlay {
 	width: 100vw;
@@ -30,6 +25,9 @@ body {
 }
 
 .silverBox {
+	box-sizing: border-box;
+	width: 90vw;
+	max-width: 400px;
 	display: flex;
 	flex-direction: column;
 	gap: 10px 0;
