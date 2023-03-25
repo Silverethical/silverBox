@@ -13,7 +13,7 @@
 
     // colors
     --silverBox-title-color: #000;
-    --silverBox-text-color: grey;
+    --silverBox-text-color: #475467;
     // confirm button
     --silverBox-confirm-color: #fff;
     --silverBox-confirm-bg-color: #7f56d9;
@@ -27,7 +27,7 @@
     // cancel button
     --silverBox-cancel-color: #475467;
     --silverBox-cancel-bg-color: #fff;
-    --silverBox-cancel-border-color: #D0D5DD ;
+    --silverBox-cancel-border-color: #D0D5DD;
     --silverBox-cancel-hover-color: #838383;
 
     // border radius
@@ -35,11 +35,17 @@
     --silverBox-button-border-radius: 8px;
     --silverBox-input-border-radius: 8px;
     // inputs
-    --silverBox-input-border-color: grey;
     --silverBox-input-padding: 10px;
     // silver box
-    --silverBox-padding:30px;
-    --silverBox-border-radius:20px;
-    --silverBox-border:1px solid #fff;
+    --silverBox-padding: 30px;
+    --silverBox-border-radius: 20px;
+    --silverBox-border: 1px solid #fff;
 
+    // inputs
+    --silverBox-input-border-color: #D0D5DD;
+    --silverBox-input-color: #000;
+    --silverBox-input-placeHolder-color: #98a2b3;
+    --silverBox-label-color: #1D2939;
+    --silverBox-hint-color: #101828;
+    --silverBox-hint-fontSize: 12px;
 }

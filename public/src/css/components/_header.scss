@@ -9,3 +9,13 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
 }
+
+.header-wrapper {
+    .silverBox-header-title {
+        color: var(--silverBox-title-color);
+    }
+
+    .silverBox-header-description {
+        color: var(--silverBox-text-color);
+    }
+}

@@ -24,6 +24,7 @@ function inputComponent({ inputType = "text", placeHolder, readOnly, label, hint
 
 	// hint
 	let hintEl = document.createElement('span')
+	hintEl.classList.add('silverBox-input-hint')
 	hintEl.textContent = hint
 
 	// general input/textArea configs
