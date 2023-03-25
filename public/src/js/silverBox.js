@@ -23,6 +23,7 @@ export default function silverBox(config) {
 	buttonWrapper.classList.add("silverBox-button-wrapper");
 
 	/** pushes header into the modal */
+
 	elementsArray.push(
 		headerComponent({
 			titleText: config.title,
@@ -63,10 +64,36 @@ export default function silverBox(config) {
 				})
 			);
 		}
+	} else {
+		// if there is no showCancelButton in config this code will be executed
+		if (!("showCancelButton" in config) || config.showCancelButton.valueOf() === true) {
+			// if the key of "icon" in config is either question or warning
+			// (and also no showCancelButton in config)the code will be executed
+			if (config.icon.valueOf() === "question" || config.icon.valueOf() === "warning") {
+				buttonWrapper.append(
+					buttonComponent({
+						text: config.cancelButtonText
+							? config.cancelButtonText
+							: "Cancel",
+						elementUniqueClassList: `silverBox-cancel-button`,
+						buttonBgColor: config.cancelButtonColor,
+						leftIcon: config.cancelButtonIconLeft,
+						rightIcon: config.cancelButtonIconRight,
+						borderColor:
+							"cancelButtonBorderColor" in config
+								? config.cancelButtonBorderColor
+								: config.cancelButtonColor,
+						textColor: config.cancelButtonTextColor,
+						closeOnClick:
+							config.cancelButtonCloseOnClick === false ? false : true,
+					})
+
+				);
+			}
+		}
 	}
 
 	// buttons
-
 	// cancel button
 	if (
 		!("showCancelButton" in config) ||

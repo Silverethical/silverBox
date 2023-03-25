@@ -4,7 +4,7 @@ showModal.addEventListener("click", () => {
 	silverBox({
 		// timer: 1000,
 		// position: 'top-right', //
-		icon: "warning",
+		icon: "error",
 		title: "Title", //
 		centerContent: true,
 		html: "<p>test</p>", //
@@ -20,7 +20,7 @@ showModal.addEventListener("click", () => {
 		// confirmButtonIconLeft: "../src/images/anya.png",//
 		confirmButtonCloseOnClick: false,
 		// cancel button
-		showCancelButton: true, //
+		// showCancelButton: false, //
 		// cancelButtonColor: "#fff",//
 		// cancelButtonBorderColor: "#000",
 		cancelButtonTextColor: "#000",
@@ -37,20 +37,20 @@ showModal.addEventListener("click", () => {
 		denyButtonIconRight: "/path/to/icon", //
 		denyButtonIconLeft: "/path/to/icon", //
 		denyButtonCloseOnClick: false,
-		inputs: [
-			{
-				label: "label",
-				type: "text",
-				placeHolder: "test",
-				hint: 'input hint',
-				readOnly: false,
-			},
-			{
-				label: "label",
-				type: "text",
-				placeHolder: "test",
-				hint: 'input hint',
-				readOnly: false,
-			}]
+		// inputs: [
+		// 	{
+		// 		label: "label",
+		// 		type: "text",
+		// 		placeHolder: "test",
+		// 		hint: 'input hint',
+		// 		readOnly: false,
+		// 	},
+		// 	{
+		// 		label: "label",
+		// 		type: "text",
+		// 		placeHolder: "test",
+		// 		hint: 'input hint',
+		// 		readOnly: false,
+		// 	}]
 	});
 });
