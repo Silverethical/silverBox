@@ -11,6 +11,7 @@ function modalSample({ elementsArray, overlayClass, isInput }) {
 
     // main overlay
     let overlay = document.createElement('div')
+    overlay.classList.add("silverBox-wrapper")
     overlay.classList.add(overlayClass)
 
     // the modalBox
