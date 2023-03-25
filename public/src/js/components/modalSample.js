@@ -1,4 +1,13 @@
-function modalSample(elementsArray, overlayClass) {
+function modalSample({ elementsArray, overlayClass, isInput }) {
+
+    // form 
+    let form = document.createElement('form')
+    form.classList.add('silverBox-form')
+
+    // form preventDefault
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+    });
 
     // main overlay
     let overlay = document.createElement('div')
@@ -13,7 +22,14 @@ function modalSample(elementsArray, overlayClass) {
         silverBoxModal.append(element)
     })
 
-    overlay.append(silverBoxModal)
+    if (isInput) {
+        form.append(silverBoxModal)
+        overlay.append(form)
+    }
+    else {
+        overlay.append(silverBoxModal)
+    }
+
 
     return overlay
 
