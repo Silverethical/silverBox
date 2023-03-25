@@ -8,16 +8,21 @@ import closeButtonOnClick from "./closeButtonOnClick";
 
 const log = console.log;
 
-// comments to be added.
+/**
+ * SilverBox modal
+ * @param {object} config - object of related keys to silverBox settings
+ * puts the config keys as component arguments and creates a component based on given keys from object
+ */
 export default function silverBox(config) {
-	// array of all the elements in the modal (inputs/texts/icons/buttons)
+
+	/** selectors(before creating elements)*/
+	/** array of all the elements in the modal (inputs/texts/icons/buttons) */
 	let elementsArray = [],
 		bodyEl = document.body,
-		form = document.createElement("form"),
 		buttonWrapper = document.createElement("div");
 	buttonWrapper.classList.add("silverBox-button-wrapper");
 
-	// header
+	/** pushes header into the modal */
 	elementsArray.push(
 		headerComponent({
 			titleText: config.title,
@@ -28,7 +33,7 @@ export default function silverBox(config) {
 		})
 	);
 
-	// inputs
+	/** inputs */
 
 	/** if inputs exist */
 	if ("inputs" in config) {
@@ -141,20 +146,26 @@ export default function silverBox(config) {
 	// else, the whole thing will be added to body w/o form tag
 	// also checks for positions , if we have a position, the overlay class will be changed related to the position config
 
+	// if there is input in config this code will be executed
 	if ("inputs" in config) {
 
+		// if there is input and position in config this code will be executed
 		if ('position' in config) {
 			bodyEl.append(modalSample({ elementsArray: elementsArray, overlayClass: `silverBox-${config.position}`, isInput: true }))
 		}
+		// if there is input and no position in config this code will be executed
 		else {
 			bodyEl.append(modalSample({ elementsArray: elementsArray, overlayClass: "silverBox-overlay", isInput: true }))
 		}
 
 	}
+	// if there is not input in config this code will be executed
 	else {
+		// if there is no input in config and position is in config this code will be executed
 		if ('position' in config) {
 			bodyEl.append(modalSample({ elementsArray: elementsArray, overlayClass: `silverBox-${config.position}`, isInput: false }))
 		}
+		// if there is no input and position in config this code will be executed
 		else {
 			bodyEl.append(modalSample({ elementsArray: elementsArray, overlayClass: "silverBox-overlay", isInput: false }))
 		}
@@ -169,9 +180,11 @@ export default function silverBox(config) {
 	}
 
 
-	// selecting overLay and adding event listener
+	// selecting overLay 
 	const silverBoxOverlay = document.querySelector('.silverBox-overlay')
+	// adding event listener for overlay
 	silverBoxOverlay.addEventListener("click", (e) => {
+		// if the clicked element has classList of silverBox-overlay this code will be executed
 		if (e.target.classList.contains('silverBox-overlay')) {
 			silverBoxOverlay.remove()
 		}
