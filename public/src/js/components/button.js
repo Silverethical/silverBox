@@ -1,4 +1,5 @@
 import closeButtonOnClick from "./closeButtonOnClick";
+import loadingAnimation from "../loadingAnimation";
 
 /**
  *
@@ -52,6 +53,7 @@ function buttonComponent({
 	buttonTextSpan.classList.add("silverBox-button-text");
 	buttonTextSpan.textContent = text;
 	button.appendChild(buttonTextSpan);
+	button.append(loadingAnimation())
 	// button right icon
 	if (rightIcon) {
 		let buttonRightIcon = document.createElement("img");
