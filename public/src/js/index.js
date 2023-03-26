@@ -4,10 +4,10 @@ showModal.addEventListener("click", () => {
 	silverBox({
 		// timer: 1000,
 		// position: 'top-right', //
-		icon: "warning",
+		icon: "success",
 		title: "Title", //
 		centerContent: true,
-		html: "<p>test</p>", //
+		html: "<p>hello sir</p>", //
 		text: "simple text",
 		showCloseButton: true,
 		// confirm button
@@ -37,20 +37,27 @@ showModal.addEventListener("click", () => {
 		denyButtonIconRight: "/path/to/icon", //
 		denyButtonIconLeft: "/path/to/icon", //
 		denyButtonCloseOnClick: false,
-		// inputs: [
-		// 	{
-		// 		label: "label",
-		// 		type: "text",
-		// 		placeHolder: "test",
-		// 		hint: 'input hint',
-		// 		readOnly: false,
-		// 	},
-		// 	{
-		// 		label: "label",
-		// 		type: "text",
-		// 		placeHolder: "test",
-		// 		hint: 'input hint',
-		// 		readOnly: false,
-		// 	}]
+		inputs: [
+			{
+				label: "Name",
+				type: "text",
+				placeHolder: "Enter your name",
+				// hint: 'input hint',
+				readOnly: false,
+			},
+			{
+				label: "Email",
+				type: "text",
+				placeHolder: "Enter your email",
+				// hint: 'input hint',
+				readOnly: false,
+			},
+			{
+				label: "Password",
+				type: "password",
+				placeHolder: "Create a password",
+				hint: 'Must be at least 8 characters',
+				readOnly: false,
+			}]
 	});
 });

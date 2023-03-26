@@ -1,10 +1,9 @@
  .silverBox-input {
      display: flex;
      flex-direction: column;
-     gap: 5px 0;
-     margin: 10px 0 10px 0;
+     gap: 10px 0;
+     margin-block: 17px;
      text-align: start;
-
 
      &>input,
      &>textarea {
@@ -14,11 +13,15 @@
          padding: var(--silverBox-input-padding);
          border-radius: var(--silverBox-input-border-radius);
          resize: none;
+         font-size: var(--silverBox-input-fontSize);
+         box-shadow: var(--silverBox-boxShadow);
+
+         &::placeholder {
+             color: var(--silverBox-input-placeHolder-color);
+             font-size: var(--silverBox-input-fontSize);
+         }
      }
 
-     &::placeholder {
-         color: var(--silverBox-input-placeHolder-color);
-     }
 
      label {
          color: var(--silverBox-label-color);
