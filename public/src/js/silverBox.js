@@ -19,8 +19,10 @@ export default function silverBox(config) {
 	/** array of all the elements in the modal (inputs/texts/icons/buttons) */
 	let elementsArray = [],
 		bodyEl = document.body,
+		inputWrapper = document.createElement('div'),
 		buttonWrapper = document.createElement("div");
 	buttonWrapper.classList.add("silverBox-button-wrapper");
+	inputWrapper.classList.add("silverBox-input-wrapper")
 
 	/** pushes header into the modal */
 
@@ -41,7 +43,7 @@ export default function silverBox(config) {
 		// if true this code will be deployed
 		if (Array.isArray(config.inputs)) {
 			config.inputs.forEach((input) => {
-				elementsArray.push(
+				inputWrapper.append(
 					inputComponent({
 						inputType: input.type,
 						hint: input.hint,
@@ -54,7 +56,7 @@ export default function silverBox(config) {
 		}
 		// if false, this code will be deployed
 		else {
-			elementsArray.push(
+			inputWrapper.append(
 				inputComponent({
 					inputType: config.inputs.type,
 					hint: config.inputs.hint,
@@ -64,6 +66,8 @@ export default function silverBox(config) {
 				})
 			);
 		}
+		// adding inputWrapper to elementsArray
+		elementsArray.push(inputWrapper)
 	} else {
 		// if there is no showCancelButton in config this code will be executed
 		if (!("showCancelButton" in config) || config.showCancelButton.valueOf() === true) {

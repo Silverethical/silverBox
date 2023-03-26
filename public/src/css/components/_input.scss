@@ -1,36 +1,45 @@
- .silverBox-input {
+ .silverBox-input-wrapper {
+     margin: 10px 0 10px 0;
      display: flex;
-     flex-direction: column;
-     gap: 10px 0;
-     margin-block: 17px;
-     text-align: start;
+     flex-wrap: wrap;
+     gap: var(--silverBox-input-parent-gap);
 
-     &>input,
-     &>textarea {
-         outline: none;
-         border: 1px solid var(--silverBox-input-border-color);
-         color: var(--silverBox-input-color);
-         padding: var(--silverBox-input-padding);
-         border-radius: var(--silverBox-input-border-radius);
-         resize: none;
-         font-size: var(--silverBox-input-fontSize);
-         box-shadow: var(--silverBox-boxShadow);
 
-         &::placeholder {
-             color: var(--silverBox-input-placeHolder-color);
-             font-size: var(--silverBox-placeHolder-fontSize);
+     .silverBox-input {
+         display: inline-flex;
+         flex-direction: column;
+         gap: 10px 0;
+         width: 100%;
+         margin: var(--silverBox-input-margin);
+         text-align: start;
+
+         &>input,
+         &>textarea {
+             outline: none;
+             border: 1px solid var(--silverBox-input-border-color);
+             color: var(--silverBox-input-color);
+             padding: var(--silverBox-input-padding);
+             border-radius: var(--silverBox-input-border-radius);
+             resize: none;
+             font-size: var(--silverBox-input-fontSize);
+             box-shadow: var(--silverBox-boxShadow);
+
+             &::placeholder {
+                 color: var(--silverBox-input-placeHolder-color);
+                 font-size: var(--silverBox-placeHolder-fontSize);
+             }
          }
+
+
+         label {
+             color: var(--silverBox-label-color);
+         }
+
+         .silverBox-input-hint {
+             font-size: var(--silverBox-hint-fontSize);
+             color: var(--silverBox-hint-color);
+         }
+
+
      }
-
-
-     label {
-         color: var(--silverBox-label-color);
-     }
-
-     .silverBox-input-hint {
-         font-size: var(--silverBox-hint-fontSize);
-         color: var(--silverBox-hint-color);
-     }
-
-
  }
