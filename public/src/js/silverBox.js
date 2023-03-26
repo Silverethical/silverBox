@@ -39,6 +39,7 @@ export default function silverBox(config) {
 
 	/** if inputs exist */
 	if ("inputs" in config) {
+
 		// checks if the input key is array
 		// if true this code will be deployed
 		if (Array.isArray(config.inputs)) {
@@ -50,6 +51,9 @@ export default function silverBox(config) {
 						label: input.label,
 						placeHolder: input.placeHolder,
 						readOnly: input.readOnly,
+						width: input.inputWidth,
+						height: input.inputHeight,
+						inputMaxLength: input.inputMaxLength
 					})
 				);
 			});
@@ -63,6 +67,9 @@ export default function silverBox(config) {
 					label: config.inputs.label,
 					placeHolder: config.inputs.placeHolder,
 					readOnly: config.inputs.readOnly,
+					width: config.inputs.inputWidth,
+					height: config.inputs.inputHeight,
+					inputMaxLength: config.inputs.inputMaxLength
 				})
 			);
 		}
@@ -232,4 +239,5 @@ export default function silverBox(config) {
 	silverBoxOver.addEventListener('click', (e) => {
 		e.stopPropagation()
 	})
+
 }

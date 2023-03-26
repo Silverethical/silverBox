@@ -1,4 +1,6 @@
-function inputComponent({ inputType = "text", placeHolder, readOnly, label, hint }) {
+
+
+function inputComponent({ inputType = "text", placeHolder, readOnly, label, hint, width, height, inputMaxLength }) {
 
 	// changing the inputType case to lowerCase to avoid case conflict problem
 	inputType = inputType.toLowerCase()
@@ -28,8 +30,15 @@ function inputComponent({ inputType = "text", placeHolder, readOnly, label, hint
 	hintEl.textContent = hint
 
 	// general input/textArea configs
-	inputEl.setAttribute('placeholder', placeHolder)
+	if (placeHolder) inputEl.setAttribute('placeholder', placeHolder)
+	if (inputMaxLength) inputEl.setAttribute('maxlength', inputMaxLength)
+	if (inputMaxLength == 1) inputEl.style.textAlign = 'center'
 
+	// add input elements custom height and width if their given
+	inputEl.style.width = width
+	inputEl.style.height = height
+	// restart the inputs/textArea parent's width if the width exist
+	if (width) inputWrrapper.style.width = 'fit-content'
 
 	// readOnly condition for inputs
 	if (readOnly) inputEl.setAttribute('readonly', '')

@@ -41,23 +41,35 @@ showModal.addEventListener("click", () => {
 			{
 				label: "Name",
 				type: "text",
-				placeHolder: "Enter your name",
+				// placeHolder: "Enter your name",
 				// hint: 'input hint',
 				readOnly: false,
+				inputWidth: '50px',
+				inputHeight: '50px',
+				// inputMaxLength: 10,
 			},
 			{
 				label: "Email",
 				type: "text",
-				placeHolder: "Enter your email",
+				// placeHolder: "Enter your email",
 				// hint: 'input hint',
 				readOnly: false,
+				inputWidth: '50px',
+				inputHeight: '50px',
+				inputMaxLength: 1,
+
 			},
 			{
 				label: "Password",
 				type: "password",
-				placeHolder: "Create a password",
-				hint: 'Must be at least 8 characters',
+				// placeHolder: "Create a password",
+				// hint: 'Must be at least 8 characters',
 				readOnly: false,
-			}]
+				inputWidth: '50px',
+				inputHeight: '50px',
+				// inputMaxLength: 1,
+
+			}
+		]
 	});
 });
