@@ -80,7 +80,7 @@ export default function silverBox(config) {
 		if (!("showCancelButton" in config) || config.showCancelButton.valueOf() === true) {
 			// if the key of "icon" in config is either question or warning
 			// (and also no showCancelButton in config)the code will be executed
-			if (config.icon.valueOf() === "question" || config.icon.valueOf() === "warning") {
+			if ("icon" in config && (config.icon.valueOf() === "question" || config.icon.valueOf() === "warning")) {
 				buttonWrapper.append(
 					buttonComponent({
 						text: config.cancelButtonText
