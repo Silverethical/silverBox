@@ -6,8 +6,8 @@ function inputComponent({ inputType = "text", placeHolder, readOnly, label, hint
 	inputType = inputType.toLowerCase()
 
 	// parent and children element creation
-	let inputWrrapper = document.createElement('div')
-	inputWrrapper.classList.add('silverBox-input')
+	let inputWrapper = document.createElement('div')
+	inputWrapper.classList.add('silverBox-input')
 
 	// label
 	let labelEl = document.createElement("label")
@@ -38,17 +38,17 @@ function inputComponent({ inputType = "text", placeHolder, readOnly, label, hint
 	inputEl.style.width = width
 	inputEl.style.height = height
 	// restart the inputs/textArea parent's width if the width exist
-	if (width) inputWrrapper.style.width = 'fit-content'
+	if (width) inputWrapper.style.width = 'fit-content'
 
 	// readOnly condition for inputs
 	if (readOnly) inputEl.setAttribute('readonly', '')
 
-	// appending lable and inputs to the main div
-	inputWrrapper.append(labelEl)
-	inputWrrapper.appendChild(inputEl)
-	inputWrrapper.appendChild(hintEl)
+	// appending label and inputs to the main div
+	inputWrapper.append(labelEl)
+	inputWrapper.appendChild(inputEl)
+	inputWrapper.appendChild(hintEl)
 
-	return inputWrrapper
+	return inputWrapper
 }
 export default inputComponent
 
