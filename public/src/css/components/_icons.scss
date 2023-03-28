@@ -111,7 +111,9 @@
     }
 }
 
-
+#silverBox-custom-icon {
+    max-width: var(--silverBox-custom-icon-width);
+}
 
 // animations
 @keyframes rotate {
@@ -158,37 +160,45 @@
         transform: translateX(0)
     }
 }
+
 // appear
-@keyframes appear{
-    0%{
-        transform:scale(1) rotate(0);
+@keyframes appear {
+    0% {
+        transform: scale(1) rotate(0);
     }
-    50%{
-        transform:scale(1.1)
+
+    50% {
+        transform: scale(1.1)
     }
-    100%{
-        transform:scale(1) rotate(360deg);
+
+    100% {
+        transform: scale(1) rotate(360deg);
     }
 }
+
 // warning
-@keyframes warning{
-    0%{
+@keyframes warning {
+    0% {
         opacity: 1;
         transform: scale(1);
     }
-    25%{
+
+    25% {
         opacity: 0;
         transform: scale(.6);
     }
-    50%{
+
+    50% {
         opacity: 1;
         transform: scale(1);
     }
-    75%{
+
+    75% {
         opacity: 0;
         transform: scale(.6);
     }
-    100%{
+
+    100% {
         opacity: 1;
         transform: scale(1);
     }
