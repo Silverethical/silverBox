@@ -31,7 +31,7 @@ export default function silverBox(config) {
 			titleText: config.title,
 			htmlText: config.html,
 			simpleText: config.text,
-			imageSource: iconsComponent(config.icon),
+			imageSource: iconsComponent(config.alertIcon, config.userIcon),
 			closeButton: config.showCloseButton,
 		})
 	);
@@ -91,8 +91,8 @@ export default function silverBox(config) {
 			// (and also no showCancelButton in config)the code will be executed
 			if (
 				"icon" in config &&
-				(config.icon.valueOf() === "question" ||
-					config.icon.valueOf() === "warning")
+				(config.alertIcon.valueOf() === "question" ||
+					config.alertIcon.valueOf() === "warning")
 			) {
 				buttonWrapper.append(
 					buttonComponent({
@@ -239,6 +239,7 @@ export default function silverBox(config) {
 					elementsArray: elementsArray,
 					overlayClass: `silverBox-${config.position}`,
 					isInput: false,
+					theme: config.theme,
 				})
 			);
 		}
@@ -249,6 +250,7 @@ export default function silverBox(config) {
 					elementsArray: elementsArray,
 					overlayClass: "silverBox-overlay",
 					isInput: false,
+					theme: config.theme,
 				})
 			);
 		}

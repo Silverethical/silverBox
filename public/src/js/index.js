@@ -5,7 +5,8 @@ showModal.addEventListener("click", () => {
 		// timer: 1000,
 		// position: 'top-right', //
 		theme: "light",
-		icon: "success",
+		alertIcon: "warning",
+		userIcon: "../src/images/anya.png",
 		title: "Title", //
 		centerContent: true,
 		html: "<p>hello sir</p>", //
@@ -39,50 +40,50 @@ showModal.addEventListener("click", () => {
 		denyButtonIconRight: "/path/to/icon", //
 		denyButtonIconLeft: "/path/to/icon", //
 		denyButtonCloseOnClick: false,
-		inputs: [
-			{
-				label: "Name",
-				type: "text",
-				// placeHolder: "Enter your name",
-				// hint: 'input hint',
-				readOnly: false,
-				inputWidth: '50px',
-				inputHeight: '50px',
-				inputMaxLength: 10,
-				textAlign: 'center',
-				fontSize: '20px',
-				multiplyBy: 1
-			},
-			{
-				label: "Email",
-				type: "text",
-				// placeHolder: "Enter your email",
-				// hint: 'input hint',
-				readOnly: false,
-				inputWidth: '50px',
-				inputHeight: '50px',
-				inputMaxLength: 1,
-				// textAlign: 'center',
-				fontSize: '20px',
-				multiplyBy: 1
+		// inputs: [
+		// 	{
+		// 		label: "Name",
+		// 		type: "text",
+		// 		// placeHolder: "Enter your name",
+		// 		// hint: 'input hint',
+		// 		readOnly: false,
+		// 		inputWidth: '50px',
+		// 		inputHeight: '50px',
+		// 		inputMaxLength: 10,
+		// 		textAlign: 'center',
+		// 		fontSize: '20px',
+		// 		multiplyBy: 1
+		// 	},
+		// 	{
+		// 		label: "Email",
+		// 		type: "text",
+		// 		// placeHolder: "Enter your email",
+		// 		// hint: 'input hint',
+		// 		readOnly: false,
+		// 		inputWidth: '50px',
+		// 		inputHeight: '50px',
+		// 		inputMaxLength: 1,
+		// 		// textAlign: 'center',
+		// 		fontSize: '20px',
+		// 		multiplyBy: 1
 
 
-			},
-			{
-				label: "Password",
-				type: "password",
-				// placeHolder: "Create a password",
-				// hint: 'Must be at least 8 characters',
-				readOnly: false,
-				inputWidth: '50px',
-				inputHeight: '50px',
-				// inputMaxLength: 1,
-				// textAlign: 'center',
-				fontSize: '20px',
-				multiplyBy: 1
+		// 	},
+		// 	{
+		// 		label: "Password",
+		// 		type: "password",
+		// 		// placeHolder: "Create a password",
+		// 		// hint: 'Must be at least 8 characters',
+		// 		readOnly: false,
+		// 		inputWidth: '50px',
+		// 		inputHeight: '50px',
+		// 		// inputMaxLength: 1,
+		// 		// textAlign: 'center',
+		// 		fontSize: '20px',
+		// 		multiplyBy: 1
 
 
-			}
-		]
+		// 	}
+		// ]
 	});
 });

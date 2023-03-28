@@ -1,9 +1,10 @@
-function iconsComponent(iconType) {
-    if (iconType == "warning") return warningIcon()
-    if (iconType == "success") return successIcon()
-    if (iconType == "info") return infoIcon()
-    if (iconType == "error") return errorIcon()
-    if (iconType == "question") return questionIcon()
+function iconsComponent(alertIcon, customIcon) {
+    if (customIcon) return userIcon(customIcon)
+    if (alertIcon == "warning") return warningIcon()
+    else if (alertIcon == "success") return successIcon()
+    else if (alertIcon == "info") return infoIcon()
+    else if (alertIcon == "error") return errorIcon()
+    else if (alertIcon == "question") return questionIcon()
 }
 function warningIcon() {
     // create parent element
@@ -69,5 +70,15 @@ function questionIcon() {
     // append child to parent
     silverBoxQuestion.append(silverBoxQuestionSpan)
     return silverBoxQuestion
+}
+function userIcon(userIcon) {
+    // create img tag
+    let img = document.createElement('img')
+    // setting the src for img
+    img.setAttribute('src', userIcon)
+    img.classList.add("silverBox-icon")
+    img.id = "silverBox-custom-icon"
+
+    return img
 }
 export default iconsComponent

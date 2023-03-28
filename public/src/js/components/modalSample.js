@@ -1,4 +1,4 @@
-function modalSample({ elementsArray, overlayClass, isInput,theme }) {
+function modalSample({ elementsArray, overlayClass, isInput, theme = 'light' }) {
 
     // form 
     let form = document.createElement('form')
@@ -13,7 +13,7 @@ function modalSample({ elementsArray, overlayClass, isInput,theme }) {
     let overlay = document.createElement('div')
     overlay.classList.add("silverBox-wrapper")
     overlay.classList.add(overlayClass)
-    if(theme)overlay.setAttribute("data-theme",theme)
+    overlay.setAttribute("data-theme", theme)
 
     // the modalBox
     let silverBoxModal = document.createElement('div')
