@@ -59,12 +59,17 @@ body {
         height: fit-content;
     }
 
-    // top
-    .silverBox-top-right,
-    .silverBox-top-center,
-    .silverBox-top-left {
-        top: 10px;
-    }
+.silverBox-top-right,
+.silverBox-top-center,
+.silverBox-top-left,
+.silverBox-bottom-right,
+.silverBox-bottom-center,
+.silverBox-bottom-left {
+	position: absolute;
+	width: -moz-fit-content;
+	width: fit-content;
+	height: fit-content;
+}
 
     .silverBox-top-right {
         right: 10px;
