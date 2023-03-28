@@ -4,6 +4,7 @@ showModal.addEventListener("click", () => {
 	silverBox({
 		// timer: 1000,
 		// position: 'top-right', //
+		theme:"light",
 		icon: "success",
 		title: "Title", //
 		centerContent: true,

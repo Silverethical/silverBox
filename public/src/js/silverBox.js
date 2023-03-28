@@ -194,6 +194,7 @@ export default function silverBox(config) {
 					elementsArray: elementsArray,
 					overlayClass: `silverBox-${config.position}`,
 					isInput: true,
+					theme:config.theme,
 				})
 			);
 		}
@@ -204,6 +205,7 @@ export default function silverBox(config) {
 					elementsArray: elementsArray,
 					overlayClass: "silverBox-overlay",
 					isInput: true,
+					theme:config.theme,
 				})
 			);
 		}

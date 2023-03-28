@@ -1,5 +1,5 @@
 .silverBox-wrapper {
-    .silverBox-wrapper[data-theme="light"] {
+    &[data-theme="light"] {
         // header
         --silverBox-title-color: #000;
         --silverBox-text-color: #475467;
@@ -25,7 +25,7 @@
         --silverBox-label-color: #1d2939;
         --silverBox-hint-color: #101828;
     }
-    .silverBox-wrapper[data-theme="dark"] {
+    &[data-theme="dark"] {
         // header
         --silverBox-title-color: #000;
         --silverBox-text-color: #475467;
