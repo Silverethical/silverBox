@@ -10,6 +10,7 @@ showModal.addEventListener("click", () => {
 		centerContent: true,
 		html: "<p>hello sir</p>", //
 		text: "simple text",
+		footer:"<p>Dadasham footer</p>",
 		showCloseButton: true,
 		// confirm button
 		showConfirmButton: true, //

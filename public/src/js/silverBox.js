@@ -5,6 +5,7 @@ import modalSample from "./components/modalSample";
 import headerComponent from "./components/header";
 import iconsComponent from "./components/icons";
 import closeButtonOnClick from "./components/closeButtonOnClick";
+import footerComponent from "./components/footer";
 
 const log = console.log;
 
@@ -177,9 +178,14 @@ export default function silverBox(config) {
 			})
 		);
 	}
-
 	// pushes the buttonWrapper inside the elements Array
 	elementsArray.push(buttonWrapper);
+	console.log(elementsArray);
+
+	// adds footer if it is inside the config
+	elementsArray.push(footerComponent({
+		footerInside: config.footer
+	}))
 
 	// checks if we have inputs in config, the whole thing will be added into a form
 	// else, the whole thing will be added to body w/o form tag
@@ -194,7 +200,7 @@ export default function silverBox(config) {
 					elementsArray: elementsArray,
 					overlayClass: `silverBox-${config.position}`,
 					isInput: true,
-					theme:config.theme,
+					theme: config.theme,
 				})
 			);
 		}
@@ -205,7 +211,7 @@ export default function silverBox(config) {
 					elementsArray: elementsArray,
 					overlayClass: "silverBox-overlay",
 					isInput: true,
-					theme:config.theme,
+					theme: config.theme,
 				})
 			);
 		}
