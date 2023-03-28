@@ -1,5 +1,5 @@
 import closeButtonOnClick from "./closeButtonOnClick";
-import loadingAnimation from "../loadingAnimation";
+import loadingAnimation from "./loadingAnimation";
 
 /**
  *
