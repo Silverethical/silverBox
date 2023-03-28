@@ -16,7 +16,7 @@ showModal.addEventListener("click", () => {
 		confirmButtonBorderColor: "#3085d6",
 		confirmButtonTextColor: "#fff",
 		confirmButtonText: "Confirm", //
-		// confirmButtonIconRight: "../src/images/anya.png",//
+		confirmButtonIconRight: "../src/images/anya.png",//
 		// confirmButtonIconLeft: "../src/images/anya.png",//
 		confirmButtonCloseOnClick: false,
 		// cancel button
@@ -46,7 +46,8 @@ showModal.addEventListener("click", () => {
 				readOnly: false,
 				inputWidth: '50px',
 				inputHeight: '50px',
-				// inputMaxLength: 10,
+				inputMaxLength: 10,
+				textAlign: 'center',
 			},
 			{
 				label: "Email",
@@ -57,6 +58,7 @@ showModal.addEventListener("click", () => {
 				inputWidth: '50px',
 				inputHeight: '50px',
 				inputMaxLength: 1,
+				// textAlign: 'center',
 
 			},
 			{
@@ -68,7 +70,7 @@ showModal.addEventListener("click", () => {
 				inputWidth: '50px',
 				inputHeight: '50px',
 				// inputMaxLength: 1,
-
+				// textAlign: 'center',
 			}
 		]
 	});

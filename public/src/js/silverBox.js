@@ -53,7 +53,8 @@ export default function silverBox(config) {
 						readOnly: input.readOnly,
 						width: input.inputWidth,
 						height: input.inputHeight,
-						inputMaxLength: input.inputMaxLength
+						inputMaxLength: input.inputMaxLength,
+						textAlign: input.textAlign
 					})
 				);
 			});
@@ -69,7 +70,8 @@ export default function silverBox(config) {
 					readOnly: config.inputs.readOnly,
 					width: config.inputs.inputWidth,
 					height: config.inputs.inputHeight,
-					inputMaxLength: config.inputs.inputMaxLength
+					inputMaxLength: config.inputs.inputMaxLength,
+					textAlign: config.inputs.textAlign
 				})
 			);
 		}
