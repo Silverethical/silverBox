@@ -55,6 +55,7 @@ body {
 .silverBox-bottom-center,
 .silverBox-bottom-left {
 	position: absolute;
+	width: -moz-fit-content;
 	width: fit-content;
 	height: fit-content;
 }
