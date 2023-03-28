@@ -1,5 +1,58 @@
-:root {
-    // font sizes 
+.silverBox-wrapper {
+    .silverBox-wrapper[data-theme="light"] {
+        // header
+        --silverBox-title-color: #000;
+        --silverBox-text-color: #475467;
+        // confirm button
+        --silverBox-confirm-color: #fff;
+        --silverBox-confirm-bg-color: #7f56d9;
+        --silverBox-confirm-border-color: #7f56d9;
+        --silverBox-confirm-hover-color: #d6bbfb;
+        // deny button
+        --silverBox-deny-color: #fff;
+        --silverBox-deny-bg-color: #d33;
+        --silverBox-deny-border-color: #d33;
+        --silverBox-deny-hover-color: #f75555;
+        // cancel button
+        --silverBox-cancel-color: #475467;
+        --silverBox-cancel-bg-color: #fff;
+        --silverBox-cancel-border-color: #d0d5dd;
+        --silverBox-cancel-hover-color: #838383;
+        // inputs
+        --silverBox-input-border-color: #d0d5dd;
+        --silverBox-input-color: #000;
+        --silverBox-input-placeHolder-color: #475467;
+        --silverBox-label-color: #1d2939;
+        --silverBox-hint-color: #101828;
+    }
+    .silverBox-wrapper[data-theme="dark"] {
+        // header
+        --silverBox-title-color: #000;
+        --silverBox-text-color: #475467;
+        // confirm button
+        --silverBox-confirm-color: #fff;
+        --silverBox-confirm-bg-color: #7f56d9;
+        --silverBox-confirm-border-color: #7f56d9;
+        --silverBox-confirm-hover-color: #d6bbfb;
+        // deny button
+        --silverBox-deny-color: #fff;
+        --silverBox-deny-bg-color: #d33;
+        --silverBox-deny-border-color: #d33;
+        --silverBox-deny-hover-color: #f75555;
+        // cancel button
+        --silverBox-cancel-color: #475467;
+        --silverBox-cancel-bg-color: #fff;
+        --silverBox-cancel-border-color: #d0d5dd;
+        --silverBox-cancel-hover-color: #838383;
+        // inputs
+        --silverBox-input-border-color: #d0d5dd;
+        --silverBox-input-color: #000;
+        --silverBox-input-placeHolder-color: #475467;
+        --silverBox-label-color: #1d2939;
+        --silverBox-hint-color: #101828;
+    }
+
+    // font sizes
     // title
     --silverBox-title-font-size: 24px;
     --silverBox-title-font-weight: 600;
@@ -10,25 +63,6 @@
     --silverBox-button-font-size: 16px;
     --silverBox-button-font-weight: 600;
     --silverBox-button-padding: 7px 20px;
-
-    // colors
-    --silverBox-title-color: #000;
-    --silverBox-text-color: #475467;
-    // confirm button
-    --silverBox-confirm-color: #fff;
-    --silverBox-confirm-bg-color: #7f56d9;
-    --silverBox-confirm-border-color: #7f56d9;
-    --silverBox-confirm-hover-color: #d6bbfb;
-    // deny button
-    --silverBox-deny-color: #fff;
-    --silverBox-deny-bg-color: #d33;
-    --silverBox-deny-border-color: #d33;
-    --silverBox-deny-hover-color: #f75555;
-    // cancel button
-    --silverBox-cancel-color: #475467;
-    --silverBox-cancel-bg-color: #fff;
-    --silverBox-cancel-border-color: #D0D5DD;
-    --silverBox-cancel-hover-color: #838383;
 
     // border radius
     --silverBox-card-border-radius: 8px;
@@ -45,11 +79,6 @@
     --silverBox-input-parent-justify-content: center;
     --silverBox-input-parent-align-items: center;
     --silverBox-input-parent-gap: 10px;
-    --silverBox-input-border-color: #D0D5DD;
-    --silverBox-input-color: #000;
-    --silverBox-input-placeHolder-color: #475467;
-    --silverBox-label-color: #1D2939;
-    --silverBox-hint-color: #101828;
     --silverBox-hint-fontSize: 12px;
     --silverBox-input-fontSize: 14px;
     --silverBox-placeHolder-fontSize: 14px;
