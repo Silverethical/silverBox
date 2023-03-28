@@ -50,7 +50,7 @@ export default function silverBox(config) {
 				height: selector.inputHeight,
 				inputMaxLength: selector.inputMaxLength,
 				textAlign: selector.textAlign,
-				fontsize:selector.fontSize,
+				fontSize:selector.fontSize,
 			};
 		};
 
