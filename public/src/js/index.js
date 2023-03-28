@@ -4,13 +4,13 @@ showModal.addEventListener("click", () => {
 	silverBox({
 		// timer: 1000,
 		// position: 'top-right', //
-		theme:"light",
+		theme: "light",
 		icon: "success",
 		title: "Title", //
 		centerContent: true,
 		html: "<p>hello sir</p>", //
 		text: "simple text",
-		footer:"<p>Dadasham footer</p>",
+		footer: "<p>Dadasham footer</p>",
 		showCloseButton: true,
 		// confirm button
 		showConfirmButton: true, //
@@ -50,7 +50,8 @@ showModal.addEventListener("click", () => {
 				inputHeight: '50px',
 				inputMaxLength: 10,
 				textAlign: 'center',
-				fontSize:'20px',
+				fontSize: '20px',
+				multiplyBy: 1
 			},
 			{
 				label: "Email",
@@ -62,7 +63,9 @@ showModal.addEventListener("click", () => {
 				inputHeight: '50px',
 				inputMaxLength: 1,
 				// textAlign: 'center',
-				fontSize:'20px',
+				fontSize: '20px',
+				multiplyBy: 1
+
 
 			},
 			{
@@ -75,7 +78,10 @@ showModal.addEventListener("click", () => {
 				inputHeight: '50px',
 				// inputMaxLength: 1,
 				// textAlign: 'center',
-				fontSize:'20px',
+				fontSize: '20px',
+				multiplyBy: 1
+
+
 			}
 		]
 	});

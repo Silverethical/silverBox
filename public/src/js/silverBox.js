@@ -50,20 +50,34 @@ export default function silverBox(config) {
 				height: selector.inputHeight,
 				inputMaxLength: selector.inputMaxLength,
 				textAlign: selector.textAlign,
-				fontSize:selector.fontSize,
+				fontSize: selector.fontSize,
 			};
 		};
+		// checks if inputs have the multiPlyBy confing or not 
+		const multiplyByCheck = (selector) => {
+			if ("multiplyBy" in selector) {
+				// loops to creates the given number of inputs
+				for (let i = 1; i <= selector.multiplyBy; i++) {
+					inputWrapper.append(inputComponent(inputConfig(selector)));
+				}
+
+			}
+			else {
+				inputWrapper.append(inputComponent(inputConfig(selector)));
+
+			}
+		}
 
 		// checks if the input key is array
 		// if true this code will be deployed
 		if (Array.isArray(config.inputs)) {
 			config.inputs.forEach((input) => {
-				inputWrapper.append(inputComponent(inputConfig(input)));
+				multiplyByCheck(input)
 			});
 		}
 		// if false, this code will be deployed
 		else {
-			inputWrapper.append(inputComponent(inputConfig(config.inputs)));
+			multiplyByCheck(config.inputs)
 		}
 		// adding inputWrapper to elementsArray
 		elementsArray.push(inputWrapper);
