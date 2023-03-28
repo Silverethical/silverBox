@@ -205,56 +205,30 @@ export default function silverBox(config) {
 	// else, the whole thing will be added to body w/o form tag
 	// also checks for positions , if we have a position, the overlay class will be changed related to the position config
 
+	// modalSampleConfig
+	const modalSampleConfig = (className) => {
+		return (
+			bodyEl.append(
+				modalSample({
+					elementsArray: elementsArray,
+					overlayClass: className,
+					isInput: true,
+					theme: config.theme,
+				})
+			)
+		)
+	}
 	// if there is input in config this code will be executed
-	if ("inputs" in config) {
-		// if there is input and position in config this code will be executed
-		if ("position" in config) {
-			bodyEl.append(
-				modalSample({
-					elementsArray: elementsArray,
-					overlayClass: `silverBox-${config.position}`,
-					isInput: true,
-					theme: config.theme,
-				})
-			);
-		}
-		// if there is input and no position in config this code will be executed
-		else {
-			bodyEl.append(
-				modalSample({
-					elementsArray: elementsArray,
-					overlayClass: "silverBox-overlay",
-					isInput: true,
-					theme: config.theme,
-				})
-			);
-		}
+
+	// if there is input and position in config this code will be executed
+	if ("position" in config) {
+		modalSampleConfig(`silverBox-${config.position}`)
 	}
-	// if there is not input in config this code will be executed
+	// if there is input and no position in config this code will be executed
 	else {
-		// if there is no input in config and position is in config this code will be executed
-		if ("position" in config) {
-			bodyEl.append(
-				modalSample({
-					elementsArray: elementsArray,
-					overlayClass: `silverBox-${config.position}`,
-					isInput: false,
-					theme: config.theme,
-				})
-			);
-		}
-		// if there is no input and position in config this code will be executed
-		else {
-			bodyEl.append(
-				modalSample({
-					elementsArray: elementsArray,
-					overlayClass: "silverBox-overlay",
-					isInput: false,
-					theme: config.theme,
-				})
-			);
-		}
+		modalSampleConfig("silverBox-overlay")
 	}
+
 
 	// checks if we have time config, true => the modal will be removed after the given time
 	if ("timer" in config) {
