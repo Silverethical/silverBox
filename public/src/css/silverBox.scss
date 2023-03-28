@@ -48,48 +48,48 @@ body {
         }
     }
 
-    .silverBox-top-right,
-    .silverBox-top-center,
-    .silverBox-top-left,
-    .silverBox-bottom-right,
-    .silverBox-bottom-center,
-    .silverBox-bottom-left {
+    &.silverBox-top-right,
+    &.silverBox-top-center,
+    &.silverBox-top-left,
+    &.silverBox-bottom-right,
+    &.silverBox-bottom-center,
+    &.silverBox-bottom-left {
         position: absolute;
         width: -moz-fit-content;
         width: fit-content;
         height: fit-content;
     }
 
-    .silverBox-top-right {
+    &.silverBox-top-right {
         right: 10px;
     }
 
-    .silverBox-top-center {
+    &.silverBox-top-center {
         transform: translateX(50%);
         right: 50%;
     }
 
-    .silverBox-top-left {
+    &.silverBox-top-left {
         left: 10px;
     }
 
     // bottom
-    .silverBox-bottom-right,
-    .silverBox-bottom-left,
-    .silverBox-bottom-center {
+    &.silverBox-bottom-right,
+    &.silverBox-bottom-left,
+    &.silverBox-bottom-center {
         bottom: 10px;
     }
 
-    .silverBox-bottom-right {
+    &.silverBox-bottom-right {
         right: 10px;
     }
 
-    .silverBox-bottom-center {
+    &.silverBox-bottom-center {
         transform: translateX(50%);
         right: 50%;
     }
 
-    .silverBox-bottom-left {
+    &.silverBox-bottom-left {
         left: 10px;
     }
 }
