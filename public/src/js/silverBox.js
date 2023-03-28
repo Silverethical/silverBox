@@ -14,15 +14,14 @@ const log = console.log;
  * puts the config keys as component arguments and creates a component based on given keys from object
  */
 export default function silverBox(config) {
-
 	/** selectors(before creating elements)*/
 	/** array of all the elements in the modal (inputs/texts/icons/buttons) */
 	let elementsArray = [],
 		bodyEl = document.body,
-		inputWrapper = document.createElement('div'),
+		inputWrapper = document.createElement("div"),
 		buttonWrapper = document.createElement("div");
 	buttonWrapper.classList.add("silverBox-button-wrapper");
-	inputWrapper.classList.add("silverBox-input-wrapper")
+	inputWrapper.classList.add("silverBox-input-wrapper");
 
 	/** pushes header into the modal */
 
@@ -32,57 +31,53 @@ export default function silverBox(config) {
 			htmlText: config.html,
 			simpleText: config.text,
 			imageSource: iconsComponent(config.icon),
-			closeButton: config.showCloseButton
+			closeButton: config.showCloseButton,
 		})
 	);
 	/** inputs */
 
 	/** if inputs exist */
 	if ("inputs" in config) {
+		const inputConfig = (selector) => {
+			return {
+				inputType: selector.type,
+				hint: selector.hint,
+				label: selector.label,
+				placeHolder: selector.placeHolder,
+				readOnly: selector.readOnly,
+				width: selector.inputWidth,
+				height: selector.inputHeight,
+				inputMaxLength: selector.inputMaxLength,
+				textAlign: selector.textAlign,
+			};
+		};
 
 		// checks if the input key is array
 		// if true this code will be deployed
 		if (Array.isArray(config.inputs)) {
 			config.inputs.forEach((input) => {
-				inputWrapper.append(
-					inputComponent({
-						inputType: input.type,
-						hint: input.hint,
-						label: input.label,
-						placeHolder: input.placeHolder,
-						readOnly: input.readOnly,
-						width: input.inputWidth,
-						height: input.inputHeight,
-						inputMaxLength: input.inputMaxLength,
-						textAlign: input.textAlign
-					})
-				);
+				inputWrapper.append(inputComponent(inputConfig(input)));
 			});
 		}
 		// if false, this code will be deployed
 		else {
-			inputWrapper.append(
-				inputComponent({
-					inputType: config.inputs.type,
-					hint: config.inputs.hint,
-					label: config.inputs.label,
-					placeHolder: config.inputs.placeHolder,
-					readOnly: config.inputs.readOnly,
-					width: config.inputs.inputWidth,
-					height: config.inputs.inputHeight,
-					inputMaxLength: config.inputs.inputMaxLength,
-					textAlign: config.inputs.textAlign
-				})
-			);
+			inputWrapper.append(inputComponent(inputConfig(config.inputs)));
 		}
 		// adding inputWrapper to elementsArray
-		elementsArray.push(inputWrapper)
+		elementsArray.push(inputWrapper);
 	} else {
 		// if there is no showCancelButton in config this code will be executed
-		if (!("showCancelButton" in config) || config.showCancelButton.valueOf() === true) {
+		if (
+			!("showCancelButton" in config) ||
+			config.showCancelButton.valueOf() === true
+		) {
 			// if the key of "icon" in config is either question or warning
 			// (and also no showCancelButton in config)the code will be executed
-			if ("icon" in config && (config.icon.valueOf() === "question" || config.icon.valueOf() === "warning")) {
+			if (
+				"icon" in config &&
+				(config.icon.valueOf() === "question" ||
+					config.icon.valueOf() === "warning")
+			) {
 				buttonWrapper.append(
 					buttonComponent({
 						text: config.cancelButtonText
@@ -98,9 +93,10 @@ export default function silverBox(config) {
 								: config.cancelButtonColor,
 						textColor: config.cancelButtonTextColor,
 						closeOnClick:
-							config.cancelButtonCloseOnClick === false ? false : true,
+							config.cancelButtonCloseOnClick === false
+								? false
+								: true,
 					})
-
 				);
 			}
 		}
@@ -128,9 +124,10 @@ export default function silverBox(config) {
 							: config.cancelButtonColor,
 					textColor: config.cancelButtonTextColor,
 					closeOnClick:
-						config.cancelButtonCloseOnClick === false ? false : true,
+						config.cancelButtonCloseOnClick === false
+							? false
+							: true,
 				})
-
 			);
 		}
 	}
@@ -190,56 +187,75 @@ export default function silverBox(config) {
 
 	// if there is input in config this code will be executed
 	if ("inputs" in config) {
-
 		// if there is input and position in config this code will be executed
-		if ('position' in config) {
-			bodyEl.append(modalSample({ elementsArray: elementsArray, overlayClass: `silverBox-${config.position}`, isInput: true }))
+		if ("position" in config) {
+			bodyEl.append(
+				modalSample({
+					elementsArray: elementsArray,
+					overlayClass: `silverBox-${config.position}`,
+					isInput: true,
+				})
+			);
 		}
 		// if there is input and no position in config this code will be executed
 		else {
-			bodyEl.append(modalSample({ elementsArray: elementsArray, overlayClass: "silverBox-overlay", isInput: true }))
+			bodyEl.append(
+				modalSample({
+					elementsArray: elementsArray,
+					overlayClass: "silverBox-overlay",
+					isInput: true,
+				})
+			);
 		}
-
 	}
 	// if there is not input in config this code will be executed
 	else {
 		// if there is no input in config and position is in config this code will be executed
-		if ('position' in config) {
-			bodyEl.append(modalSample({ elementsArray: elementsArray, overlayClass: `silverBox-${config.position}`, isInput: false }))
+		if ("position" in config) {
+			bodyEl.append(
+				modalSample({
+					elementsArray: elementsArray,
+					overlayClass: `silverBox-${config.position}`,
+					isInput: false,
+				})
+			);
 		}
 		// if there is no input and position in config this code will be executed
 		else {
-			bodyEl.append(modalSample({ elementsArray: elementsArray, overlayClass: "silverBox-overlay", isInput: false }))
+			bodyEl.append(
+				modalSample({
+					elementsArray: elementsArray,
+					overlayClass: "silverBox-overlay",
+					isInput: false,
+				})
+			);
 		}
-
 	}
 
 	// checks if we have time config, true => the modal will be removed after the given time
 	if ("timer" in config) {
 		setTimeout(() => {
-			closeButtonOnClick()
-		}, config.timer)
+			closeButtonOnClick();
+		}, config.timer);
 	}
 
-
-	// selecting overLay 
-	const silverBoxOverlay = document.querySelector('.silverBox-overlay')
-	const silverBoxOver = document.querySelector('.silverBox')
+	// selecting overLay
+	const silverBoxOverlay = document.querySelector(".silverBox-overlay");
+	const silverBoxOver = document.querySelector(".silverBox");
 
 	// if centerContent key is true in config this code will be executed
-	if (("centerContent" in config) && config.centerContent.valueOf() === true) {
-		const silverBoxIcon = document.querySelector('.silverBox-icon')
-		silverBoxIcon.style.justifySelf = "center"
-		silverBoxIcon.style.gridColumnStart = 2
-		silverBoxOver.style.textAlign = "center"
+	if ("centerContent" in config && config.centerContent.valueOf() === true) {
+		const silverBoxIcon = document.querySelector(".silverBox-icon");
+		silverBoxIcon.style.justifySelf = "center";
+		silverBoxIcon.style.gridColumnStart = 2;
+		silverBoxOver.style.textAlign = "center";
 	}
 	// adding event listener for overlay
 	// if the clicked element has classList of silverBox-overlay this code will be executed
 	silverBoxOverlay.addEventListener("click", (e) => {
-		silverBoxOverlay.remove()
-	})
-	silverBoxOver.addEventListener('click', (e) => {
-		e.stopPropagation()
-	})
-
+		silverBoxOverlay.remove();
+	});
+	silverBoxOver.addEventListener("click", (e) => {
+		e.stopPropagation();
+	});
 }
