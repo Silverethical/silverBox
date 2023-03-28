@@ -50,6 +50,7 @@ export default function silverBox(config) {
 				height: selector.inputHeight,
 				inputMaxLength: selector.inputMaxLength,
 				textAlign: selector.textAlign,
+				fontsize:selector.fontSize,
 			};
 		};
 
@@ -180,7 +181,6 @@ export default function silverBox(config) {
 	}
 	// pushes the buttonWrapper inside the elements Array
 	elementsArray.push(buttonWrapper);
-	console.log(elementsArray);
 
 	// adds footer if it is inside the config
 	elementsArray.push(footerComponent({

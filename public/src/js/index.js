@@ -50,6 +50,7 @@ showModal.addEventListener("click", () => {
 				inputHeight: '50px',
 				inputMaxLength: 10,
 				textAlign: 'center',
+				fontSize:'20px',
 			},
 			{
 				label: "Email",
@@ -61,6 +62,7 @@ showModal.addEventListener("click", () => {
 				inputHeight: '50px',
 				inputMaxLength: 1,
 				// textAlign: 'center',
+				fontSize:'20px',
 
 			},
 			{
@@ -73,6 +75,7 @@ showModal.addEventListener("click", () => {
 				inputHeight: '50px',
 				// inputMaxLength: 1,
 				// textAlign: 'center',
+				fontSize:'20px',
 			}
 		]
 	});
