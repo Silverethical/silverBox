@@ -244,9 +244,9 @@ export default function silverBox(config) {
 	// if centerContent key is true in config this code will be executed
 	if ("centerContent" in config && config.centerContent.valueOf() === true) {
 		const silverBoxIcon = document.querySelector(".silverBox-icon");
+		silverBoxOver.style.textAlign = "center";
 		silverBoxIcon.style.justifySelf = "center";
 		silverBoxIcon.style.gridColumnStart = 2;
-		silverBoxOver.style.textAlign = "center";
 	}
 	// adding event listener for overlay
 	// if the clicked element has classList of silverBox-overlay this code will be executed
