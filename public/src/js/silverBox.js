@@ -196,10 +196,10 @@ export default function silverBox(config) {
 	// pushes the buttonWrapper inside the elements Array
 	elementsArray.push(buttonWrapper);
 
-	// adds footer if it is inside the config
-	elementsArray.push(footerComponent({
+	// adds footer if it is inside the config and it exists
+	config.footer ? elementsArray.push(footerComponent({
 		footerInside: config.footer
-	}))
+	})) : ''
 
 	// checks if we have inputs in config, the whole thing will be added into a form
 	// else, the whole thing will be added to body w/o form tag
