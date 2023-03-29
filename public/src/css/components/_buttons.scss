@@ -20,6 +20,10 @@
     transition: 0.2s ease;
     min-width: 200px;
 
+    .silverBox-button-icon {
+        border-radius: var(--silverBox-button-custon-icon-border-radius);
+    }
+
     &.silverBox-confirm-button {
         border-color: var(--silverBox-confirm-border-color);
         background-color: var(--silverBox-confirm-bg-color);

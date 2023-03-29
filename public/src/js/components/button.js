@@ -46,6 +46,7 @@ function buttonComponent({
 	if (leftIcon) {
 		let buttonLeftIcon = document.createElement("img");
 		buttonLeftIcon.setAttribute("src", leftIcon);
+		buttonLeftIcon.classList.add('silverBox-button-icon')
 		button.appendChild(buttonLeftIcon);
 	}
 	// button text
@@ -58,6 +59,7 @@ function buttonComponent({
 	if (rightIcon) {
 		let buttonRightIcon = document.createElement("img");
 		buttonRightIcon.setAttribute("src", rightIcon);
+		buttonRightIcon.classList.add('silverBox-button-icon')
 		button.appendChild(buttonRightIcon);
 	}
 	// appends everything into button
