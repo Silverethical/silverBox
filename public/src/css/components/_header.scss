@@ -1,0 +1,26 @@
+.silverBox-close-button {
+    cursor: pointer;
+    grid-column-start: 3;
+
+}
+
+.icon-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+
+    .silverBox-close-button {
+        justify-self: end;
+        align-self: start;
+    }
+}
+
+.header-wrapper {
+    .silverBox-header-title {
+        color: var(--silverBox-title-color);
+    }
+
+    .silverBox-header-description {
+        color: var(--silverBox-text-color);
+    }
+}

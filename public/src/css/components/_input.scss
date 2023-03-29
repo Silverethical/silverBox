@@ -1,1 +1,48 @@
-// input
+ .silverBox-input-wrapper {
+     margin: 10px 0 10px 0;
+     display: flex;
+     flex-wrap: wrap;
+     gap: var(--silverBox-input-parent-gap);
+     justify-content: var(--silverBox-input-parent-justify-content);
+     align-items: var(--silverBox-input-parent-align-items);
+
+
+     .silverBox-input {
+         display: inline-flex;
+         flex-direction: column;
+         gap: 10px 0;
+         text-align: start;
+         width: 100%;
+
+
+         &>input,
+         &>textarea {
+             outline: none;
+             border: 1px solid var(--silverBox-input-border-color);
+             color: var(--silverBox-input-color);
+             padding: var(--silverBox-input-padding);
+             border-radius: var(--silverBox-input-border-radius);
+             resize: none;
+             font-size: var(--silverBox-input-fontSize);
+             box-shadow: var(--silverBox-boxShadow);
+
+
+             &::placeholder {
+                 color: var(--silverBox-input-placeHolder-color);
+                 font-size: var(--silverBox-placeHolder-fontSize);
+             }
+         }
+
+
+         label {
+             color: var(--silverBox-label-color);
+         }
+
+         .silverBox-input-hint {
+             font-size: var(--silverBox-hint-fontSize);
+             color: var(--silverBox-hint-color);
+         }
+
+
+     }
+ }

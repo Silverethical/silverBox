@@ -1,0 +1,91 @@
+.silverBox-button-wrapper {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px 10px;
+}
+
+.silverBox-button {
+    display: flex;
+    column-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--silverBox-button-border-radius);
+    font-size: var(--silverBox-button-font-size);
+    font-weight: var(--silverBox-button-font-weight);
+    padding: var(--silverBox-button-padding);
+    cursor: pointer;
+    transition: 0.2s ease;
+    min-width: 200px;
+
+    .silverBox-button-icon {
+        border-radius: var(--silverBox-button-icon-border-radius);
+    }
+
+    &.silverBox-confirm-button {
+        border-color: var(--silverBox-confirm-border-color);
+        background-color: var(--silverBox-confirm-bg-color);
+        color: var(--silverBox-confirm-color);
+    }
+
+    &.silverBox-cancel-button {
+        border-color: var(--silverBox-cancel-border-color);
+        background-color: var(--silverBox-cancel-bg-color);
+        color: var(--silverBox-cancel-color);
+    }
+
+    &.silverBox-deny-button {
+        border-color: var(--silverBox-deny-border-color);
+        background-color: var(--silverBox-deny-bg-color);
+        color: var(--silverBox-deny-color);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    &:active:disabled {
+        transform: scale(1);
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    img {
+        max-width: 40px;
+    }
+
+    .silverBox-button-text {
+        min-height: 30px;
+        display: flex;
+        align-items: center;
+    }
+
+    .silverBox-button-loading-animation {
+        display: none;
+    }
+
+    &.silverBox-loading-button {
+        .silverBox-button-loading-animation {
+            display: inline;
+        }
+
+        .silverBox-button-text {
+            display: none;
+        }
+
+        img {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .silverBox-button-wrapper {
+        flex-direction: column-reverse;
+    }
+}

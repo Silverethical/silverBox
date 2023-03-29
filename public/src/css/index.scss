@@ -1,6 +1,35 @@
-@import "./components/input";
+@import "./components/reset";
+@import "./silverBox.scss";
 
+// default font size for desktop
+:root {
+	font-size: 16px;
+}
+
+// default font size for mobile
+@media only screen and (max-width: 900px) {
+	:root {
+		font-size: 14px;
+	}
+}
+
+html {
+	&[data-theme="light"] {
+		--gray-900: gray;
+	}
+	&[data-theme="dark"] {
+		--gray-900: gray;
+	}
+}
+
+// general text color
 body {
-	background-color: rgb(76, 76, 76);
-	color: rgb(244, 244, 244);
+	color: var(--gray-900);
+}
+
+@media only screen and (max-width: 900px) {
+	// overflow
+	body {
+		overflow-x: hidden;
+	}
 }

@@ -1,0 +1,92 @@
+.silverBox-wrapper {
+    &[data-theme="light"] {
+        // header
+        --silverBox-title-color: #000;
+        --silverBox-text-color: #475467;
+        // confirm button
+        --silverBox-confirm-color: #fff;
+        --silverBox-confirm-bg-color: #7f56d9;
+        --silverBox-confirm-border-color: #7f56d9;
+        --silverBox-confirm-hover-color: #d6bbfb;
+        // deny button
+        --silverBox-deny-color: #fff;
+        --silverBox-deny-bg-color: #d33;
+        --silverBox-deny-border-color: #d33;
+        --silverBox-deny-hover-color: #f75555;
+        // cancel button
+        --silverBox-cancel-color: #475467;
+        --silverBox-cancel-bg-color: #fff;
+        --silverBox-cancel-border-color: #d0d5dd;
+        --silverBox-cancel-hover-color: #838383;
+        // inputs
+        --silverBox-input-border-color: #d0d5dd;
+        --silverBox-input-color: #000;
+        --silverBox-input-placeHolder-color: #475467;
+        --silverBox-label-color: #1d2939;
+        --silverBox-hint-color: #101828;
+    }
+
+    &[data-theme="dark"] {
+        // header
+        --silverBox-title-color: #000;
+        --silverBox-text-color: #475467;
+        // confirm button
+        --silverBox-confirm-color: #fff;
+        --silverBox-confirm-bg-color: #7f56d9;
+        --silverBox-confirm-border-color: #7f56d9;
+        --silverBox-confirm-hover-color: #d6bbfb;
+        // deny button
+        --silverBox-deny-color: #fff;
+        --silverBox-deny-bg-color: #d33;
+        --silverBox-deny-border-color: #d33;
+        --silverBox-deny-hover-color: #f75555;
+        // cancel button
+        --silverBox-cancel-color: #475467;
+        --silverBox-cancel-bg-color: #fff;
+        --silverBox-cancel-border-color: #d0d5dd;
+        --silverBox-cancel-hover-color: #838383;
+        // inputs
+        --silverBox-input-border-color: #d0d5dd;
+        --silverBox-input-color: #000;
+        --silverBox-input-placeHolder-color: #475467;
+        --silverBox-label-color: #1d2939;
+        --silverBox-hint-color: #101828;
+    }
+
+    // font sizes
+    // title
+    --silverBox-title-font-size: 24px;
+    --silverBox-title-font-weight: 600;
+    // text
+    --silverBox-text-font-size: 18px;
+    --silverBox-text-font-weight: 600;
+    // buttons
+    --silverBox-button-font-size: 16px;
+    --silverBox-button-font-weight: 600;
+    --silverBox-button-padding: 7px 20px;
+
+    // border radius
+    --silverBox-card-border-radius: 8px;
+    --silverBox-button-border-radius: 8px;
+    --silverBox-input-border-radius: 8px;
+    // inputs
+    --silverBox-input-padding: 10px;
+    // silver box
+    --silverBox-padding: 30px;
+    --silverBox-border-radius: 20px;
+    --silverBox-border: 1px solid #fff;
+
+    // inputs
+    --silverBox-input-parent-justify-content: center;
+    --silverBox-input-parent-align-items: center;
+    --silverBox-input-parent-gap: 10px;
+    --silverBox-hint-fontSize: 12px;
+    --silverBox-input-fontSize: 14px;
+    --silverBox-placeHolder-fontSize: 14px;
+    --silverBox-boxShadow: 0 0 5px -1px #0000001a;
+
+    // icons
+    --silverBox-custom-icon-width:100px;
+    --silverBox-custom-icon-border-radius:10px;
+    --silverBox-button-icon-border-radius:10px;
+}

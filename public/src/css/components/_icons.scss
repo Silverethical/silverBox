@@ -1,0 +1,206 @@
+/* tick */
+#silverBox-tick-mark {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #15b79e;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    animation: 1s appear;
+
+    #inside {
+        position: absolute;
+        width: 50%;
+        height: 10px;
+        border-left: 3px solid #15b79e;
+        border-bottom: 3px solid #15b79e;
+        transform: rotate(-45deg);
+        margin-bottom: 6px;
+    }
+}
+
+
+/* info */
+#silverBox-info {
+    border: 3px solid;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    border-color: #2e90fa;
+    color: #2e90fa;
+    animation: rotate .25s;
+
+}
+
+/* question */
+#silverBox-question {
+    border: 3px solid;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #A4BCFd;
+    border-color: #A4BCFd;
+    animation: rotate .25s;
+}
+
+
+/* warning */
+#silverBox-warning {
+    border: 3px solid;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #eaaa08;
+    border-color: #eaaa08;
+    animation: warning .5s;
+}
+
+/* x mark */
+#silverBox-error {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #E62E05;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: error .25s;
+
+    .x {
+        width: 30px;
+        height: 4px;
+        position: relative;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -1px;
+            width: 30px;
+            height: 3px;
+            background-color: #E62E05;
+            border-radius: 10px;
+        }
+
+        &::before {
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+#silverBox-custom-icon {
+    max-width: var(--silverBox-custom-icon-width);
+    border-radius: var(--silverBox-custom-icon-border-radius);
+}
+
+// animations
+@keyframes rotate {
+    0% {
+        transform: scale(1) rotate(0);
+    }
+
+    25% {
+        transform: rotate(25deg)
+    }
+
+    50% {
+        transform: scale(1.1) rotate(-25deg);
+    }
+
+    75% {
+        transform: rotate(25deg)
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+// error
+@keyframes error {
+    0% {
+        transform: translateX(0)
+    }
+
+    25% {
+        transform: translateX(5px) scale(1.05)
+    }
+
+    50% {
+        transform: translateX(-5px)scale(1.1)
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(0)
+    }
+}
+
+// appear
+@keyframes appear {
+    0% {
+        transform: scale(1) rotate(0);
+    }
+
+    50% {
+        transform: scale(1.1)
+    }
+
+    100% {
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+// warning
+@keyframes warning {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    25% {
+        opacity: 0;
+        transform: scale(.6);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    75% {
+        opacity: 0;
+        transform: scale(.6);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
