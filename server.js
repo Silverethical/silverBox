@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // Define a route for the root URL
 app.get("/", (req, res) => {
 	// Construct the file path for the index.html file
-	const filePath = path.join(__dirname, "./public/index.html");
+	const filePath = path.join(__dirname, "./index.html");
 	// Send the index.html file to the client
 	res.sendFile(filePath);
 });
