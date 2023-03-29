@@ -5,13 +5,13 @@ showModal.addEventListener("click", () => {
 		// timer: 1000,
 		// position: 'top-right', //
 		theme: "light",
-		alertIcon: "warning",
-		userIcon: "../src/images/anya.png",
+		// alertIcon: "warning",
+		// userIcon: "../src/images/anya.png",
 		title: "Title", //
 		centerContent: true,
 		html: "<p>hello sir</p>", //
 		text: "simple text",
-		footer: "<p>Dadasham footer</p>",
+		footer: "<p>Abjim footer AYAYA</p>",
 		showCloseButton: true,
 		// confirm button
 		showConfirmButton: true, //
