@@ -90,7 +90,7 @@ export default function silverBox(config) {
 			// if the key of "icon" in config is either question or warning
 			// (and also no showCancelButton in config)the code will be executed
 			if (
-				"icon" in config &&
+				"alertIcon" in config &&
 				(config.alertIcon.valueOf() === "question" ||
 					config.alertIcon.valueOf() === "warning")
 			) {
