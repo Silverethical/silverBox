@@ -43,7 +43,7 @@ export default function silverBox(config) {
 		if ("inputs" in config) {
 			const inputConfig = (selector) => {
 				return {
-					type: selector.type,
+					type: "type" in selector ? selector.type : '',
 					hint: selector.hint,
 					label: selector.label,
 					placeHolder: selector.placeHolder,
@@ -82,7 +82,7 @@ export default function silverBox(config) {
 				multiplyByCheck(config.inputs)
 			}
 			// adding inputWrapper to elementsArray
-			elementsArray.push(inputWrapper);
+			inputWrapper.childElementCount !== 0 ? elementsArray.push(inputWrapper) : ''
 		} else {
 			// if there is no showCancelButton in config this code will be executed
 			if (
