@@ -8,29 +8,20 @@ import loadingAnimation from "./loadingAnimation";
  * @param {string} elementUniqueClassList - button classList
  * @returns
  */
-function buttonComponent({
-	text,
-	buttonBgColor,
-	elementUniqueClassList,
-	leftIcon,
-	rightIcon,
-	borderColor,
-	textColor,
-	closeOnClick,
-}) {
+function buttonComponent(buttonName, uniqClass) {
 	// button
 	let button = document.createElement("button");
-	button.style.background = buttonBgColor;
+	button.style.background = buttonName.bgColor;
 	// background color
-	if (buttonBgColor)
+	if (buttonName.bgColor)
 		button.setAttribute(
 			"style",
-			`background-color:${buttonBgColor}; border-color:${borderColor}; color:${textColor};`
+			`background-color:${buttonName.bgColor}; border-color:${buttonName.borderColor}; color:${buttonName.textColor};`
 		);
-	button.classList.add(elementUniqueClassList, "silverBox-button");
+	button.classList.add("silverBox-button",uniqClass);
 
 	// if closeOnClick in config is true the code will be executed
-	if (closeOnClick === true) {
+	if (buttonName.closeOnClick === true) {
 		button.onclick = closeButtonOnClick;
 	}
 	// if closeOnClick in config is false the code will be executed
@@ -43,22 +34,22 @@ function buttonComponent({
 
 
 	// button left icon
-	if (leftIcon) {
+	if (buttonName.leftIcon) {
 		let buttonLeftIcon = document.createElement("img");
-		buttonLeftIcon.setAttribute("src", leftIcon);
+		buttonLeftIcon.setAttribute("src", buttonName.leftIcon);
 		buttonLeftIcon.classList.add('silverBox-button-icon')
 		button.appendChild(buttonLeftIcon);
 	}
 	// button text
 	let buttonTextSpan = document.createElement("span");
 	buttonTextSpan.classList.add("silverBox-button-text");
-	buttonTextSpan.textContent = text;
+	buttonTextSpan.textContent = buttonName.text;
 	button.appendChild(buttonTextSpan);
 	button.append(loadingAnimation())
 	// button right icon
-	if (rightIcon) {
+	if (buttonName.rightIcon) {
 		let buttonRightIcon = document.createElement("img");
-		buttonRightIcon.setAttribute("src", rightIcon);
+		buttonRightIcon.setAttribute("src", buttonName.rightIcon);
 		buttonRightIcon.classList.add('silverBox-button-icon')
 		button.appendChild(buttonRightIcon);
 	}
