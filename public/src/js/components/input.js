@@ -1,9 +1,9 @@
 
 
-function inputComponent({ inputType = "text", placeHolder, readOnly, label, hint, width, height, inputMaxLength, textAlign,fontSize }) {
+function inputComponent({ type = "text", placeHolder, readOnly, label, hint, width, height, inputMaxLength, textAlign,fontSize }) {
 
-	// changing the inputType case to lowerCase to avoid case conflict problem
-	inputType = inputType.toLowerCase()
+	// changing the type case to lowerCase to avoid case conflict problem
+	type = type.toLowerCase()
 
 	// parent and children element creation
 	let inputWrapper = document.createElement('div')
@@ -16,9 +16,9 @@ function inputComponent({ inputType = "text", placeHolder, readOnly, label, hint
 	// input or textArea selection conditions
 	let inputEl
 
-	if (inputType !== "textarea") {
+	if (type !== "textarea") {
 		inputEl = document.createElement('input')
-		inputEl.setAttribute('type', inputType)
+		inputEl.setAttribute('type', type)
 	}
 	else {
 		inputEl = document.createElement('textArea')
