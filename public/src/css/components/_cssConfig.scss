@@ -1,5 +1,9 @@
 .silverBox-wrapper {
     &[data-theme="light"] {
+        // silverBox 
+        --silverBox-background-color: white;
+        --silverBox-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        --silverBox-border: 1px solid #fff;
         // header
         --silverBox-title-color: #000;
         --silverBox-text-color: #475467;
@@ -27,6 +31,10 @@
     }
 
     &[data-theme="dark"] {
+        // silverBox 
+        --silverBox-background-color: white;
+        --silverBox-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        --silverBox-border: 1px solid #fff;
         // header
         --silverBox-title-color: #000;
         --silverBox-text-color: #475467;
@@ -74,7 +82,6 @@
     // silver box
     --silverBox-padding: 30px;
     --silverBox-border-radius: 20px;
-    --silverBox-border: 1px solid #fff;
 
     // inputs
     --silverBox-input-parent-justify-content: center;
@@ -83,7 +90,7 @@
     --silverBox-hint-fontSize: 12px;
     --silverBox-input-fontSize: 14px;
     --silverBox-placeHolder-fontSize: 14px;
-    --silverBox-boxShadow: 0 0 5px -1px #0000001a;
+
 
     // icons
     --silverBox-custom-icon-width:100px;

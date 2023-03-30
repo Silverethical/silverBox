@@ -11,6 +11,7 @@ body {
 }
 
 .silverBox-wrapper {
+
     // silver box modal
     &.silverBox-overlay {
         width: 100vw;
@@ -26,6 +27,7 @@ body {
         -webkit-backdrop-filter: blur(2px);
         background-color: #d0d5ddac;
     }
+
     .silverBox {
         box-sizing: border-box;
         width: 90vw;
@@ -37,8 +39,8 @@ body {
         border: var(--silverBox-border);
         border-radius: var(--silverBox-border-radius);
         padding: var(--silverBox-padding);
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        background-color: white;
+        box-shadow: var(--silverBox-box-shadow);
+        background-color: var(--silverBox-background-color);
     }
 
     @media only screen and (max-width: 800px) {
