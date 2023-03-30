@@ -38,7 +38,6 @@ export default function silverBox(config) {
 			})
 		);
 		/** inputs */
-
 		/** if inputs exist */
 		if ("inputs" in config) {
 			const inputConfig = (selector) => {
@@ -83,116 +82,87 @@ export default function silverBox(config) {
 			}
 			// adding inputWrapper to elementsArray
 			inputWrapper.childElementCount !== 0 ? elementsArray.push(inputWrapper) : ''
-		} else {
-			// if there is no showCancelButton in config this code will be executed
+
 			if (
-				!("showCancelButton" in config) ||
-				config.showCancelButton.valueOf() === true
+				("cancelButton" in config)
 			) {
-				// if the key of "icon" in config is either question or warning
-				// (and also no showCancelButton in config)the code will be executed
+				buttonWrapper.append(
+					buttonComponent(config.cancelButton, "silverBox-cancel-button")
+				);
+			} else {
+				buttonWrapper.append(
+					buttonComponent({
+						text: "Cancel", //
+						closeOnClick: true,
+					}, "silverBox-cancel-button")
+				);
+			}
+		} else {
+			// if there is showCancelButton in config this code will be executed
+			if (
+				("cancelButton" in config)
+			) {
+				// if the key of "alertIcon" in config is anything but question or warning
+				// the code will be executed
 				if (
 					"alertIcon" in config &&
-					(config.alertIcon.valueOf() === "question" ||
+					!(config.alertIcon.valueOf() === "question" ||
 						config.alertIcon.valueOf() === "warning")
 				) {
 					buttonWrapper.append(
+						buttonComponent(config.cancelButton, "silverBox-cancel-button")
+					);
+
+				}
+				// if there is not alertIcon in config this code will be executed 
+				else {
+					buttonWrapper.append(
+						buttonComponent(config.cancelButton, "silverBox-cancel-button")
+					);
+				}
+
+			}
+			// if there is no cancelButton in config this code will be executed
+			else {
+				// if there is not cancelButton in config and alertIcon is either question or warning this code will be executed
+				if (
+					"alertIcon" in config && (config.alertIcon.valueOf() === "question" ||
+						config.alertIcon.valueOf() === "warning")) {
+					buttonWrapper.append(
 						buttonComponent({
-							text: config.cancelButtonText
-								? config.cancelButtonText
-								: "Cancel",
-							elementUniqueClassList: `silverBox-cancel-button`,
-							buttonBgColor: config.cancelButtonColor,
-							leftIcon: config.cancelButtonIconLeft,
-							rightIcon: config.cancelButtonIconRight,
-							borderColor:
-								"cancelButtonBorderColor" in config
-									? config.cancelButtonBorderColor
-									: config.cancelButtonColor,
-							textColor: config.cancelButtonTextColor,
-							closeOnClick:
-								config.cancelButtonCloseOnClick === false
-									? false
-									: true,
-						})
+							text: "Cancel", //
+							closeOnClick: true,
+						}, "silverBox-cancel-button")
 					);
 				}
 			}
 		}
 
 		// buttons
-		// cancel button
-		if (
-			!("showCancelButton" in config) ||
-			config.showCancelButton.valueOf() === true
-		) {
-			if ("inputs" in config) {
-				buttonWrapper.append(
-					buttonComponent({
-						text: config.cancelButtonText
-							? config.cancelButtonText
-							: "Cancel",
-						elementUniqueClassList: `silverBox-cancel-button`,
-						buttonBgColor: config.cancelButtonColor,
-						leftIcon: config.cancelButtonIconLeft,
-						rightIcon: config.cancelButtonIconRight,
-						borderColor:
-							"cancelButtonBorderColor" in config
-								? config.cancelButtonBorderColor
-								: config.cancelButtonColor,
-						textColor: config.cancelButtonTextColor,
-						closeOnClick:
-							config.cancelButtonCloseOnClick === false
-								? false
-								: true,
-					})
-				);
-			}
-		}
+		// cancel button is created in top
 		// deny button
-		if (
-			"showDenyButton" in config &&
-			config.showDenyButton.valueOf() === true
-		) {
+		
+		// if there is deny button in config this code will be executed
+		if ("denyButton" in config) {
 			buttonWrapper.append(
-				buttonComponent({
-					text: config.denyButtonText ? config.denyButtonText : "Deny",
-					elementUniqueClassList: `silverBox-deny-button`,
-					buttonBgColor: config.denyButtonColor,
-					leftIcon: config.denyButtonIconLeft,
-					rightIcon: config.denyButtonIconRight,
-					borderColor:
-						"denyButtonBorderColor" in config
-							? config.denyButtonBorderColor
-							: config.denyButtonColor,
-					textColor: config.denyButtonTextColor,
-					closeOnClick:
-						config.denyButtonCloseOnClick === false ? false : true,
-				})
+				buttonComponent(config.denyButton, 'silverBox-deny-button'))
+		}
+
+		// confirm button
+
+		// if there is confirm button in config this code will be executed
+		if ("confirmButton" in config) {
+			buttonWrapper.append(
+				buttonComponent(config.confirmButton, 'silverBox-confirm-button')
 			);
 		}
-		// confirm button
-		if (
-			!("showConfirmButton" in config) ||
-			config.showConfirmButton.valueOf() === true
-		) {
+		// if there is no confirm button in config this code will be executed
+		else {
 			buttonWrapper.append(
 				buttonComponent({
-					text: config.confirmButtonText
-						? config.confirmButtonText
-						: "Confirm",
-					elementUniqueClassList: `silverBox-confirm-button`,
-					buttonBgColor: config.confirmButtonColor,
-					leftIcon: config.confirmButtonIconLeft,
-					rightIcon: config.confirmButtonIconRight,
-					borderColor:
-						"confirmButtonBorderColor" in config
-							? config.confirmButtonBorderColor
-							: config.confirmButtonColor,
-					textColor: config.confirmButtonTextColor,
-					closeOnClick:
-						config.confirmButtonCloseOnClick === false ? false : true,
-				})
+					text: "Confirm",
+					closeOnClick: false,
+				}, 'silverBox-confirm-button')
 			);
 		}
 		// pushes the buttonWrapper inside the elements Array
@@ -232,7 +202,6 @@ export default function silverBox(config) {
 		else {
 			modalSampleConfig("silverBox-overlay")
 		}
-
 
 		// checks if we have time config, true => the modal will be removed after the given time
 		if ("timer" in config) {
