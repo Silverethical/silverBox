@@ -16,6 +16,10 @@
 }
 
 .header-wrapper {
+    &>* {
+        margin: 5px 0;
+    }
+
     .silverBox-header-title {
         color: var(--silverBox-title-color);
     }
