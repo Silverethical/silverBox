@@ -25,7 +25,7 @@ body {
         justify-content: center;
         backdrop-filter: blur(2px);
         -webkit-backdrop-filter: blur(2px);
-        background-color: #d0d5ddac;
+        background-color: var(--silverBox-overlay-background);
     }
 
     .silverBox {

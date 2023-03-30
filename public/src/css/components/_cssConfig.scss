@@ -1,5 +1,7 @@
 .silverBox-wrapper {
     &[data-theme="light"] {
+        // silverBox overlay
+        --silverBox-overlay-background: #d0d5ddac;
         // silverBox 
         --silverBox-background-color: white;
         --silverBox-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -31,6 +33,8 @@
     }
 
     &[data-theme="dark"] {
+        // silverBox overlay
+        --silverBox-overlay-background: #d0d5ddac;
         // silverBox 
         --silverBox-background-color: white;
         --silverBox-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
