@@ -17,6 +17,7 @@
 
          &>input,
          &>textarea {
+             background: var(--silverBox-input-background);
              outline: none;
              border: 1px solid var(--silverBox-input-border-color);
              color: var(--silverBox-input-color);
