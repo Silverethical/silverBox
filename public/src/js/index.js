@@ -95,11 +95,6 @@ const sidebar = document.querySelector("aside.sidebar"),
 	hamMenu = document.querySelector(".hamburger-menu"),
 	hamMenuInput = document.querySelector(".hamburger-menu > input");
 
-/** event listeners */
-document.addEventListener("DOMContentLoaded", () => {
-	hamMenuInput.checked = true;
-});
-
 hamMenuInput.addEventListener("change", () => {
 	if (hamMenuInput.checked) {
 		sidebar.classList.add("show-sidebar");
@@ -108,4 +103,12 @@ hamMenuInput.addEventListener("change", () => {
 		sidebar.classList.remove("show-sidebar");
 		hamMenu.classList.remove("show-x");
 	}
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+	hamMenuInput.checked = true;
+
+	setTimeout(() => {
+		hamMenuInput.click();
+	}, 300);
 });

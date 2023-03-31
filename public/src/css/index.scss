@@ -15,9 +15,9 @@
 }
 
 :root {
-	--hamburger-bar-width: 30px;
-	--hamburger-bar-height: 4px;
-	--hamburger-gap: 4px;
+	--hamburger-bar-width: 20px;
+	--hamburger-bar-height: 3px;
+	--hamburger-gap: 3px;
 	--hamburger-height: calc(
 		(var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
 	);
@@ -31,7 +31,8 @@ html {
 
 		// gray
 		--gray-100: #efefef;
-		--gray-400: #d9d9d9;
+		--gray-300: #d9d9d9;
+		--gray-400: #c0c0c0;
 		--gray-500: #717171;
 		--gray-700: #353535;
 
@@ -53,7 +54,8 @@ html {
 
 		// gray
 		--gray-100: #efefef;
-		--gray-400: #d9d9d9;
+		--gray-300: #d9d9d9;
+		--gray-400: #c0c0c0;
 		--gray-500: #454545;
 		--gray-700: #353535;
 
@@ -96,15 +98,15 @@ code {
 }
 
 .container {
-	padding: 10px;
+	margin: 0 auto;
 	width: 90vw;
-	max-width: 1300px;
-	display: flex;
-	column-gap: 100px;
+	max-width: 950px;
+	padding: 10px;
 
 	aside.sidebar {
 		transform: translateX(-75%);
-		position: relative;
+		position: fixed;
+		left: 10px;
 		display: flex;
 		column-gap: 10px;
 		transition: all 500ms;
@@ -114,6 +116,7 @@ code {
 			ul {
 				transition: all 500ms ease-in-out;
 				border-radius: 6px;
+				overflow: hidden;
 
 				a {
 					pointer-events: none;
@@ -127,11 +130,13 @@ code {
 		}
 
 		&.show-sidebar {
+			background-color: var(--white-in-white);
 			transform: translateX(0);
 
 			nav {
 				ul {
-					background-color: var(--gray-100);
+					// padding-top: 35px;
+					box-shadow: 0px 0px 10px #00000033;
 
 					a {
 						pointer-events: initial;
@@ -139,16 +144,33 @@ code {
 						li {
 							padding: 12px 20px;
 							padding-right: 60px;
-							border-radius: 6px;
-							border-bottom: 1px solid var(--gray-400);
-							border-left: 3px solid var(--gray-100);
+							border-left: 3px solid white;
 
 							&:hover {
 								border-left: 3px solid var(--primary-700);
 								color: var(--primary-700);
 							}
 						}
+
+						&.navigationTitle {
+							pointer-events: none;
+							font-size: 14px;
+							li {
+								border-left: none;
+								border-bottom: 1px solid var(--gray-100);
+								background-color: white;
+								color: var(--gray-700);
+							}
+						}
 					}
+				}
+			}
+
+			.hamburger-menu {
+				&::before,
+				&::after,
+				> input {
+					background-color: var(--gray-400);
 				}
 			}
 		}
@@ -161,8 +183,8 @@ code {
 			width: max-content;
 			height: max-content;
 			position: absolute;
-			top: 13px;
-			right: 5px;
+			top: 14px;
+			right: 7px;
 
 			&::before,
 			&::after,
@@ -170,7 +192,7 @@ code {
 				content: "";
 				width: var(--hamburger-bar-width);
 				height: var(--hamburger-bar-height);
-				background-color: var(--gray-700);
+				background-color: var(--gray-500);
 				border-radius: 900px;
 				transform-origin: left center;
 				transition: all 500ms ease-in-out;
@@ -210,19 +232,18 @@ code {
 
 	main {
 		.sectionHeader {
+			text-align: center;
 			font-size: 20px;
 			color: var(--gray-500);
 			margin-bottom: 20px;
 		}
 		section {
-			text-align: center;
 			margin-bottom: 40px;
 		}
 
 		#heroSection {
-			text-align: center;
-
 			h2.tagline {
+				text-align: center;
 				font-size: 18px;
 				font-weight: 600;
 				margin-bottom: 30px;
@@ -257,7 +278,7 @@ code {
 			.tableWrapper {
 				text-align: start;
 				row-gap: 10px;
-				border: 1px solid var(--gray-400);
+				border: 1px solid var(--gray-300);
 				border-radius: 6px;
 
 				.tableRowHeader,
@@ -276,7 +297,7 @@ code {
 				}
 
 				.tableRowHeader {
-					border-bottom: 1px solid var(--gray-400);
+					border-bottom: 1px solid var(--gray-300);
 				}
 			}
 		}
