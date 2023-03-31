@@ -52,6 +52,7 @@ export default function silverBox(config) {
 					inputMaxLength: selector.inputMaxLength,
 					textAlign: selector.textAlign,
 					fontSize: selector.fontSize,
+					placeHolderFontSize: selector.placeHolderFontSize
 				};
 			};
 			// checks if inputs have the multiPlyBy confing or not 

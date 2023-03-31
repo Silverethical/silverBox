@@ -1,6 +1,6 @@
 
 
-function inputComponent({ type, placeHolder, readOnly, label, hint, width, height, inputMaxLength, textAlign, fontSize }) {
+function inputComponent({ type, placeHolder, readOnly, label, hint, width, height, inputMaxLength, textAlign, fontSize, placeHolderFontSize }) {
 
 	if (type !== '') {
 		// changing the type case to lowerCase to avoid case conflict problem
@@ -39,6 +39,15 @@ function inputComponent({ type, placeHolder, readOnly, label, hint, width, heigh
 		inputEl.style.width = width
 		inputEl.style.height = height
 		inputEl.style.fontSize = fontSize
+
+		if (!placeHolderFontSize) {
+			inputEl.style.setProperty('--silverBox-placeHolder-fontSize', fontSize)
+		}
+		else {
+			inputEl.style.setProperty('--silverBox-placeHolder-fontSize', placeHolderFontSize)
+
+		}
+
 		// restart the inputs/textArea parent's width if the width exist
 		if (width) inputWrapper.style.width = 'fit-content'
 
