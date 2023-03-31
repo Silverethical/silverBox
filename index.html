@@ -4,6 +4,10 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="/src/css/libraries/highlightJS/atom-one-dark-reasonable.min.css"
+		/>
 		<link rel="stylesheet" href="/dist/css/index.css" />
 		<title>SilverBox</title>
 	</head>
@@ -27,8 +31,78 @@
 			</aside>
 
 			<!-- main -->
-			<main>main</main>
+			<main>
+				<!-- hero section -->
+				<section id="heroSection">
+					<h2 class="tagline">
+						Simplifying complexity, empowering creativity
+					</h2>
+
+					<div class="whySilverBox">
+						<div class="introduction">
+							Lorem ipsum dolor sit, amet consectetur adipisicing
+							elit. Qui cumque a esse eius similique assumenda
+							fuga iste, officia dolore illo inventore nam dolorem
+							non suscipit doloribus atque at natus nihil? Lorem
+							ipsum dolor sit, amet consectetur adipisicing elit.
+							Qui cumque a esse eius similique assumenda fuga
+							iste, officia dolore illo inventore nam dolorem non
+							suscipit doloribus atque at natus nihil? ipsum dolor
+							sit, amet consectetur adipisicing elit. Qui cumque a
+							esse eius similique assumenda fuga iste, officia
+							dolore illo inventore nam dolorem non suscipit
+							doloribus atque at natus nihil?
+						</div>
+						<img src="/src/images/anya.png" alt="" />
+					</div>
+				</section>
+
+				<!-- example -->
+				<section id="exampleSection">
+					<div class="example">
+						<div class="exampleColumn">
+							<div class="exampleExplanation">
+								Show a modal with 2 inputs
+							</div>
+							<button class="showExample">Hit me!</button>
+						</div>
+						<div class="exampleColumn">
+							<code class="exampleConfig">
+								<pre><code class="lang-javascript language-javascript">{
+	title: "man",
+	desc: "ye panadam"
+}</code></pre>
+							</code>
+						</div>
+					</div>
+				</section>
+
+				<!-- usage -->
+				<section id="usageSection">
+					<h2 class="sectionHeader">Usage</h2>
+				</section>
+
+				<!-- documentation -->
+				<section id="documentationSection">
+					<h2 class="sectionHeader">Documentation</h2>
+
+					<div class="tableWrapper">
+						<div class="tableRow">
+							<div class="tableColumn">title</div>
+							<div class="tableColumn">explanation</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- footer -->
+				<footer>footer</footer>
+			</main>
 		</div>
+
+		<script src="/src/js/libraries/highlightJS/highlight.min.js"></script>
+		<script>
+			hljs.highlightAll();
+		</script>
 		<script src="/dist/js/index.js"></script>
 	</body>
 </html>

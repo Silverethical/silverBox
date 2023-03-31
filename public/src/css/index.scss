@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
 @import "./modules/reset";
 @import "./silverBox.scss";
 
@@ -31,12 +32,13 @@ html {
 		// gray
 		--gray-100: #efefef;
 		--gray-400: #d9d9d9;
+		--gray-500: #717171;
 		--gray-700: #353535;
-
+		
 		// theme
 		--primary-700: #284b63;
 		--secondary-700: #3c6e71;
-
+		
 		// blue
 		--blue-100: #caf0f8;
 		--blue-300: #90e0ef;
@@ -48,10 +50,11 @@ html {
 		// white and black
 		--white-in-white: #000;
 		--black-in-white: #fff;
-
+		
 		// gray
 		--gray-100: #efefef;
 		--gray-400: #d9d9d9;
+		--gray-500: #454545;
 		--gray-700: #353535;
 
 		// theme
@@ -70,6 +73,7 @@ html {
 // general text color
 body {
 	color: var(--gray-700);
+	font-family: "Source Sans Pro", sans-serif;
 }
 
 @media only screen and (max-width: 900px) {
@@ -77,6 +81,18 @@ body {
 	body {
 		overflow-x: hidden;
 	}
+}
+
+button {
+	padding: 10px 20px;
+	border-radius: 6px;
+	color: white;
+	background-color: var(--primary-700);
+}
+
+code {
+	border-radius: 4px;
+	text-align: left;
 }
 
 .container {
@@ -145,8 +161,8 @@ body {
 			width: max-content;
 			height: max-content;
 			position: absolute;
-			top: 7%;
-			right: 5%;
+			top: 13px;
+			right: 5px;
 
 			&::before,
 			&::after,
@@ -187,6 +203,63 @@ body {
 					transform: rotate(315deg);
 					width: var(--x-width);
 					translate: 0 calc(var(--hamburger-bar-height) / 2);
+				}
+			}
+		}
+	}
+
+	main {
+		.sectionHeader {
+			font-size: 20px;
+			// font-weight: 700;
+			color: var(--gray-500);
+		}
+		section {
+			text-align: center;
+			margin-bottom: 40px;
+		}
+
+		#heroSection {
+			text-align: center;
+
+			h2.tagline {
+				font-size: 18px;
+				font-weight: 600;
+				margin-bottom: 30px;
+			}
+
+			div.whySilverBox {
+				// padding: 0 10px;
+				display: flex;
+				align-items: start;
+				justify-content: space-between;
+
+				div.introduction {
+					text-align: justify;
+					max-width: 45%;
+				}
+
+				img {
+					width: 45%;
+				}
+			}
+		}
+
+		#exampleSection {
+			.example {
+				display: flex;
+				align-items: start;
+				justify-content: space-around;
+			}
+		}
+
+		#documentationSection {
+			.tableWrapper {
+				row-gap: 10px;
+				.tableRow {
+					display: grid;
+					grid-template-columns: 1fr 3fr;
+					column-gap: 10px;
 				}
 			}
 		}
