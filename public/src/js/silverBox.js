@@ -85,19 +85,16 @@ export default function silverBox(config) {
 			inputWrapper.childElementCount !== 0 ? elementsArray.push(inputWrapper) : ''
 
 			if (
-				("cancelButton" in config)
+				!("cancelButton" in config)
 			) {
-				buttonWrapper.append(
-					buttonComponent(config.cancelButton, "silverBox-cancel-button")
-				);
-			} else {
-				buttonWrapper.append(
-					buttonComponent({
-						text: "Cancel", //
-						closeOnClick: true,
-					}, "silverBox-cancel-button")
-				);
+				config.cancelButton = {
+					text: "Cancel",
+					closeOnClick: true,
+				}
 			}
+			buttonWrapper.append(
+				buttonComponent(config.cancelButton, "silverBox-cancel-button")
+			);
 		} else {
 			// if there is no cancelButton in config:
 			if (
@@ -111,25 +108,19 @@ export default function silverBox(config) {
 						config.alertIcon.valueOf() === "warning")
 				) {
 					// default cancel button
-					buttonWrapper.append(
-						buttonComponent({
-							text: "Cancel",
-							closeOnClick: true,
-						}, "silverBox-cancel-button")
-					);
-
+					config.cancelButton = {
+						text: "Cancel",
+						closeOnClick: true,
+					}
 				}
 
-
-
 			}
-			// if there is a cancelButton in config this code will be executed
-			else {
-				buttonWrapper.append(
-					buttonComponent(config.cancelButton, "silverBox-cancel-button")
-				)
-			}
+
 		}
+		// if there is a cancelButton in config this code will be executed
+		buttonWrapper.append(
+			buttonComponent(config.cancelButton, "silverBox-cancel-button")
+		)
 
 		// buttons
 		// cancel button is created in top
@@ -143,21 +134,17 @@ export default function silverBox(config) {
 
 		// confirm button
 
-		// if there is confirm button in config this code will be executed
-		if ("confirmButton" in config) {
-			buttonWrapper.append(
-				buttonComponent(config.confirmButton, 'silverBox-confirm-button')
-			);
-		}
 		// if there is no confirm button in config this code will be executed
-		else {
-			buttonWrapper.append(
-				buttonComponent({
-					text: "Confirm",
-					closeOnClick: false,
-				}, 'silverBox-confirm-button')
-			);
+		if (!("confirmButton" in config)) {
+			config.confirmButton = {
+				text: "Confirm",
+				closeOnClick: true,
+			}
 		}
+		// if there is confirm button in config this code will be executed
+		buttonWrapper.append(
+			buttonComponent(config.confirmButton, 'silverBox-confirm-button')
+		);
 		// pushes the buttonWrapper inside the elements Array
 		elementsArray.push(buttonWrapper);
 
