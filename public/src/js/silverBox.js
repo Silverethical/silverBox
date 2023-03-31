@@ -100,48 +100,39 @@ export default function silverBox(config) {
 		} else {
 			// if there is showCancelButton in config this code will be executed
 			if (
-				("cancelButton" in config)
+				!("cancelButton" in config)
 			) {
 				// if the key of "alertIcon" in config is anything but question or warning
 				// the code will be executed
 				if (
 					"alertIcon" in config &&
-					!(config.alertIcon.valueOf() === "question" ||
+					(config.alertIcon.valueOf() === "question" ||
 						config.alertIcon.valueOf() === "warning")
 				) {
 					buttonWrapper.append(
-						buttonComponent(config.cancelButton, "silverBox-cancel-button")
+						buttonComponent({
+							text: "Cancel",
+							closeOnClick: true,
+						}, "silverBox-cancel-button")
 					);
 
 				}
-				// if there is not alertIcon in config this code will be executed 
-				else {
-					buttonWrapper.append(
-						buttonComponent(config.cancelButton, "silverBox-cancel-button")
-					);
-				}
+
+
 
 			}
 			// if there is no cancelButton in config this code will be executed
 			else {
-				// if there is not cancelButton in config and alertIcon is either question or warning this code will be executed
-				if (
-					"alertIcon" in config && (config.alertIcon.valueOf() === "question" ||
-						config.alertIcon.valueOf() === "warning")) {
-					buttonWrapper.append(
-						buttonComponent({
-							text: "Cancel", //
-							closeOnClick: true,
-						}, "silverBox-cancel-button")
-					);
-				}
+				buttonWrapper.append(
+					buttonComponent(config.cancelButton, "silverBox-cancel-button")
+				)
 			}
 		}
 
 		// buttons
 		// cancel button is created in top
 		// deny button
-		
+
 		// if there is deny button in config this code will be executed
 		if ("denyButton" in config) {
 			buttonWrapper.append(
