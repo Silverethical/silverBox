@@ -98,17 +98,18 @@ export default function silverBox(config) {
 				);
 			}
 		} else {
-			// if there is showCancelButton in config this code will be executed
+			// if there is no cancelButton in config:
 			if (
 				!("cancelButton" in config)
 			) {
-				// if the key of "alertIcon" in config is anything but question or warning
+				// if the key of "alertIcon" in config is question or warning
 				// the code will be executed
 				if (
 					"alertIcon" in config &&
 					(config.alertIcon.valueOf() === "question" ||
 						config.alertIcon.valueOf() === "warning")
 				) {
+					// default cancel button
 					buttonWrapper.append(
 						buttonComponent({
 							text: "Cancel",
@@ -121,7 +122,7 @@ export default function silverBox(config) {
 
 
 			}
-			// if there is no cancelButton in config this code will be executed
+			// if there is a cancelButton in config this code will be executed
 			else {
 				buttonWrapper.append(
 					buttonComponent(config.cancelButton, "silverBox-cancel-button")
