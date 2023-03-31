@@ -34,11 +34,11 @@ html {
 		--gray-400: #d9d9d9;
 		--gray-500: #717171;
 		--gray-700: #353535;
-		
+
 		// theme
 		--primary-700: #284b63;
 		--secondary-700: #3c6e71;
-		
+
 		// blue
 		--blue-100: #caf0f8;
 		--blue-300: #90e0ef;
@@ -50,7 +50,7 @@ html {
 		// white and black
 		--white-in-white: #000;
 		--black-in-white: #fff;
-		
+
 		// gray
 		--gray-100: #efefef;
 		--gray-400: #d9d9d9;
@@ -211,8 +211,8 @@ code {
 	main {
 		.sectionHeader {
 			font-size: 20px;
-			// font-weight: 700;
 			color: var(--gray-500);
+			margin-bottom: 20px;
 		}
 		section {
 			text-align: center;
@@ -255,11 +255,28 @@ code {
 
 		#documentationSection {
 			.tableWrapper {
+				text-align: start;
 				row-gap: 10px;
+				border: 1px solid var(--gray-400);
+				border-radius: 6px;
+
+				.tableRowHeader,
 				.tableRow {
 					display: grid;
-					grid-template-columns: 1fr 3fr;
+					grid-template-columns: 1fr 2fr;
 					column-gap: 10px;
+
+					.tableColumn {
+						padding: 20px;
+					}
+
+					.tableHeaderColumn {
+						color: var(--gray-500) !important;
+					}
+				}
+
+				.tableRowHeader {
+					border-bottom: 1px solid var(--gray-400);
 				}
 			}
 		}
