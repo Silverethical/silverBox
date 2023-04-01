@@ -1,6 +1,8 @@
 import silverBox from "./silverBox";
 import examples from "./data/example";
-import customStringify from "./helpers/customStringify"
+import teamMembers from "./data/teamMembers";
+import renderTeamMembers from "./helpers/renderTeamMembers";
+import customStringify from "./helpers/customStringify";
 import eachExample from "./components/eachExample";
 import modalSample from "./components/modalSample";
 // silverBox({
@@ -99,7 +101,6 @@ const sidebar = document.querySelector("aside.sidebar"),
 	hamMenu = document.querySelector(".hamburger-menu"),
 	hamMenuInput = document.querySelector(".hamburger-menu > input");
 
-
 hamMenuInput.addEventListener("change", () => {
 	if (hamMenuInput.checked) {
 		sidebar.classList.add("show-sidebar");
@@ -110,34 +111,36 @@ hamMenuInput.addEventListener("change", () => {
 	}
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
 	hamMenuInput.checked = true;
 
 	setTimeout(() => {
 		hamMenuInput.click();
 	}, 300);
+
+	await renderTeamMembers(teamMembers);
 });
 
-
-// example section 
+// example section
 
 // example's parent
-const exampleSection = document.querySelector('#exampleSection')
+const exampleSection = document.querySelector("#exampleSection");
 
 // adding each new example to it's parent
 
 for (let i = 0; i < examples.length; i++) {
-
 	// new example structure (filled)
-	let newExample = eachExample(examples[i].explanation, customStringify(examples[i].config))
+	let newExample = eachExample(
+		examples[i].explanation,
+		customStringify(examples[i].config)
+	);
 	// appending the newExample to example section
-	exampleSection.append(newExample)
+	exampleSection.append(newExample);
 
 	// selecting showConfig buttons
-	const button = document.querySelectorAll('.showExample')
+	const button = document.querySelectorAll(".showExample");
 
-	button[i].addEventListener('click', () => {
-		silverBox(examples[i].config)
-	})
-
+	button[i].addEventListener("click", () => {
+		silverBox(examples[i].config);
+	});
 }
