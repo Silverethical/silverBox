@@ -210,10 +210,10 @@ export default function silverBox(config) {
 		}
 		// adding event listener for overlay
 		// if the clicked element has classList of silverBox-overlay this code will be executed
-		silverBoxOverlay.addEventListener("click", (e) => {
+		if (silverBoxOverlay) silverBoxOverlay.addEventListener("click", () => {
 			silverBoxOverlay.remove();
 		});
-		silverBoxOver.addEventListener("click", (e) => {
+		silverBoxOver.addEventListener("click", () => {
 			e.stopPropagation();
 		});
 	}
