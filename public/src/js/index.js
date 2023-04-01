@@ -111,14 +111,14 @@ hamMenuInput.addEventListener("change", () => {
 	}
 });
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
 	hamMenuInput.checked = true;
 
 	setTimeout(() => {
 		hamMenuInput.click();
 	}, 300);
 
-	await renderTeamMembers(teamMembers);
+	renderTeamMembers(teamMembers);
 });
 
 // example section
