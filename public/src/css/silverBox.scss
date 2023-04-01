@@ -62,6 +62,12 @@ body {
         height: fit-content;
     }
 
+    &.silverBox-top-right,
+    &.silverBox-top-center,
+    &.silverBox-top-left {
+        top: 10px;
+    }
+
     &.silverBox-top-right {
         right: 10px;
     }
