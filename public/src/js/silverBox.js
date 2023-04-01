@@ -213,7 +213,7 @@ export default function silverBox(config) {
 		if (silverBoxOverlay) silverBoxOverlay.addEventListener("click", () => {
 			silverBoxOverlay.remove();
 		});
-		silverBoxOver.addEventListener("click", () => {
+		silverBoxOver.addEventListener("click", (e) => {
 			e.stopPropagation();
 		});
 	}
