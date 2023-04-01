@@ -10,9 +10,7 @@ async function getTeamMembersInfo(username) {
 		const response = await fetch(`//api.github.com/users/${username}`);
 
 		// Check if the response was successful, throwing an error if not.
-		if (!response.ok) {
-			throw new Error(response.statusText);
-		}
+		if (!response.ok) throw new Error(response.statusText);
 
 		// Parse the response body as JSON and return it.
 		const data = await response.json();
