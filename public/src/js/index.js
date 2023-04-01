@@ -45,7 +45,7 @@ import silverBox from "./silverBox";
 // 	// 	closeOnClick: false,
 // 	// },
 
-// 	// inputs: [
+// 	// input: [
 // 	// 	{
 // 	// 		label: "Name",
 // 	// 		type: "text",

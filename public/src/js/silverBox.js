@@ -39,7 +39,7 @@ export default function silverBox(config) {
 		);
 		/** inputs */
 		/** if inputs exist */
-		if ("inputs" in config) {
+		if ("input" in config) {
 			const inputConfig = (selector) => {
 				return {
 					type: "type" in selector ? selector.type : '',
@@ -72,14 +72,14 @@ export default function silverBox(config) {
 
 			// checks if the input key is array
 			// if true this code will be deployed
-			if (Array.isArray(config.inputs)) {
-				config.inputs.forEach((input) => {
+			if (Array.isArray(config.input)) {
+				config.input.forEach((input) => {
 					multiplyByCheck(input)
 				});
 			}
 			// if false, this code will be deployed
 			else {
-				multiplyByCheck(config.inputs)
+				multiplyByCheck(config.input)
 			}
 			// adding inputWrapper to elementsArray
 			inputWrapper.childElementCount !== 0 ? elementsArray.push(inputWrapper) : ''
