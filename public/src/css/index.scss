@@ -18,9 +18,7 @@
 	--hamburger-bar-width: 20px;
 	--hamburger-bar-height: 3px;
 	--hamburger-gap: 3px;
-	--hamburger-height: calc(
-		(var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
-	);
+	--hamburger-height: calc((var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2));
 }
 
 html {
@@ -47,6 +45,7 @@ html {
 		--blue-700: #0077b6;
 		--blue-900: #03045e;
 	}
+
 	&[data-theme="dark"] {
 		// white and black
 		--white-in-white: #000;
@@ -79,6 +78,7 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
+
 	// hide horizontal overflow
 	body {
 		overflow-x: hidden;
@@ -155,6 +155,7 @@ code {
 						&.navigationTitle {
 							pointer-events: none;
 							font-size: 14px;
+
 							li {
 								border-left: none;
 								border-bottom: 1px solid var(--gray-100);
@@ -167,9 +168,10 @@ code {
 			}
 
 			.hamburger-menu {
+
 				&::before,
 				&::after,
-				> input {
+				>input {
 					background-color: var(--gray-400);
 				}
 			}
@@ -188,7 +190,7 @@ code {
 
 			&::before,
 			&::after,
-			> input {
+			>input {
 				content: "";
 				width: var(--hamburger-bar-width);
 				height: var(--hamburger-bar-height);
@@ -198,7 +200,7 @@ code {
 				transition: all 500ms ease-in-out;
 			}
 
-			> input {
+			>input {
 				appearance: none;
 				-webkit-appearance: none;
 				padding: 0;
@@ -237,6 +239,7 @@ code {
 			color: var(--gray-500);
 			margin-bottom: 20px;
 		}
+
 		section {
 			margin-bottom: 40px;
 		}
@@ -271,6 +274,7 @@ code {
 				display: flex;
 				align-items: start;
 				justify-content: space-around;
+				margin: 10px 0;
 			}
 		}
 
