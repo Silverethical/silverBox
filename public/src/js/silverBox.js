@@ -108,19 +108,24 @@ export default function silverBox(config) {
 						config.alertIcon.valueOf() === "warning")
 				) {
 					// default cancel button
-					config.cancelButton = {
-						text: "Cancel",
-						closeOnClick: true,
-					}
+					buttonWrapper.append(
+						buttonComponent({
+							text: "Cancel",
+							closeOnClick: true,
+						}, "silverBox-cancel-button")
+					)
 				}
 
 			}
+			else {
+				// if there is a cancelButton in config this code will be executed
+				buttonWrapper.append(
+					buttonComponent(config.cancelButton, "silverBox-cancel-button")
+				)
+			}
 
 		}
-		// if there is a cancelButton in config this code will be executed
-		buttonWrapper.append(
-			buttonComponent(config.cancelButton, "silverBox-cancel-button")
-		)
+
 
 		// buttons
 		// cancel button is created in top
