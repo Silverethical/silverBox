@@ -1,4 +1,8 @@
 import silverBox from "./silverBox";
+import examples from "./data/example";
+import customStringify from "./helpers/customStringify"
+import eachExample from "./components/eachExample";
+import modalSample from "./components/modalSample";
 // silverBox({
 // 	// timer: 1000,
 // 	// position: 'top-right', //
@@ -95,6 +99,7 @@ const sidebar = document.querySelector("aside.sidebar"),
 	hamMenu = document.querySelector(".hamburger-menu"),
 	hamMenuInput = document.querySelector(".hamburger-menu > input");
 
+
 hamMenuInput.addEventListener("change", () => {
 	if (hamMenuInput.checked) {
 		sidebar.classList.add("show-sidebar");
@@ -112,3 +117,27 @@ document.addEventListener("DOMContentLoaded", () => {
 		hamMenuInput.click();
 	}, 300);
 });
+
+
+// example section 
+
+// example's parent
+const exampleSection = document.querySelector('#exampleSection')
+
+// adding each new example to it's parent
+
+for (let i = 0; i < examples.length; i++) {
+
+	// new example structure (filled)
+	let newExample = eachExample(examples[i].explanation, customStringify(examples[i].config))
+	// appending the newExample to example section
+	exampleSection.append(newExample)
+
+	// selecting showConfig buttons
+	const button = document.querySelectorAll('.showExample')
+
+	button[i].addEventListener('click', () => {
+		silverBox(examples[i].config)
+	})
+
+}
