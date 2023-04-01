@@ -1,13 +1,86 @@
 const examples = [
     {
-        explanation: "show a modal with 2 inputs",
+        explanation: "A succes modal",
         config: {
             theme: "light",
-            userIcon: "../src/images/anya.png",
-            title: "AYAYA",
+            alertIcon: "success",
+            text: "Your thing has been completed",
             centerContent: true,
-            html: "<p>weebs</p>",
-            footer: "<p>Abjim footer AYAYA</p>",
+
+            confirmButton: {
+                bgColor: "#3085d6",
+                borderColor: "#3085d6",
+                textColor: "#fff",
+                text: "Confirm",
+                closeOnClick: true,
+            }
+
+        }
+    },
+    {
+        explanation: "An error modal",
+        config: {
+            theme: "light",
+            alertIcon: "error",
+            text: "operation failed, wish to go further ?",
+            centerContent: true,
+
+            confirmButton: {
+                bgColor: "#3085d6",
+                borderColor: "#3085d6",
+                textColor: "#fff",
+                text: "Confirm",
+                closeOnClick: true,
+            },
+            denyButton: {
+                bgColor: "#d23",
+                borderColor: "#d23",
+                textColor: "#fff",
+                text: "Deny",
+                closeOnClick: true,
+            },
+
+        }
+    },
+    {
+        explanation: "A positioned info modal",
+        config: {
+            position: 'top-right',
+            theme: "light",
+            alertIcon: "info",
+            text: "changes has been saved !",
+            centerContent: true
+
+        }
+    },
+    {
+        explanation: "An auto close modal",
+        config: {
+            timer: 1500,
+            position: "top-center",
+            theme: "light",
+            text: "this message will be deleted after 1.5s",
+            centerContent: true,
+
+            confirmButton: {
+                bgColor: "#3085d6",
+                borderColor: "#3085d6",
+                textColor: "#fff",
+                text: "Confirm",
+                closeOnClick: true,
+            }
+
+        }
+    },
+    {
+        explanation: "A login page modal",
+        config: {
+            theme: "light",
+            userIcon: "https://pic.onlinewebfonts.com/svg/img_568656.png",
+            title: "Login Page",
+            centerContent: true,
+            text: "enter your account informations",
+            footer: "<a>forgot your password?</a>",
             showCloseButton: true,
 
             confirmButton: {
@@ -31,37 +104,31 @@ const examples = [
 
             input: [
                 {
-                    label: "Name",
+                    label: "User Name",
                     type: "text",
-                    placeHolder: "Enter your name",
+                    placeHolder: "Enter your user name",
                     readOnly: false,
-                    textAlign: 'center',
+                    textAlign: 'left',
+                    fontSize: '20px',
+                },
+                {
+                    label: "Email",
+                    type: "email",
+                    placeHolder: "Enter your email",
+                    readOnly: false,
+                    textAlign: 'left',
                     fontSize: '20px',
                 },
                 {
                     label: "Password",
                     type: "password",
                     placeHolder: "Enter your password",
-                    hint: 'must contain 8 chars',
+                    hint: 'must contain 8 charactars',
                     readOnly: false,
                     inputMaxLength: 8,
-                    textAlign: 'center',
+                    textAlign: 'left',
                     fontSize: '20px',
-                },
-
-            ]
-        },
-    },
-    {
-        explanation: "show a succes modal",
-        config: {
-            theme: "light",
-            alertIcon: 'success',
-            title: "AYAYA",
-            centerContent: true,
-            html: "<p>weebs</p>",
-            showCloseButton: true
-
+                },]
         },
     },
 ];
