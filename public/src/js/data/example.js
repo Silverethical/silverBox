@@ -62,14 +62,6 @@ const examples = [
             text: "this message will be deleted after 1.5s",
             centerContent: true,
 
-            confirmButton: {
-                bgColor: "#3085d6",
-                borderColor: "#3085d6",
-                textColor: "#fff",
-                text: "Confirm",
-                closeOnClick: true,
-            }
-
         }
     },
     {

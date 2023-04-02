@@ -3,8 +3,7 @@ import examples from "./data/example";
 import teamMembers from "./data/teamMembers";
 import renderTeamMembers from "./helpers/renderTeamMembers";
 import customStringify from "./helpers/customStringify";
-import eachExample from "./components/eachExample";
-import modalSample from "./components/modalSample";
+import renderExample from "./components/renderExample";
 // silverBox({
 // 	// timer: 1000,
 // 	// position: 'top-right', //
@@ -20,6 +19,7 @@ import modalSample from "./components/modalSample";
 
 // 	// confirm button
 // 	confirmButton: {
+// 		showButton: false,
 // 		bgColor: "#3085d6",//
 // 		borderColor: "#3085d6",
 // 		textColor: "#fff",
@@ -30,26 +30,28 @@ import modalSample from "./components/modalSample";
 // 	},
 
 // 	// cancel button
-// 	// cancelButton: {
-// 	// 	bgColor: "#fff",//
-// 	// 	// borderColor: "#000",
-// 	// 	textColor: "#000",
-// 	// 	text: "Cancel", //
-// 	// 	iconRight: "/path/to/icon",//
-// 	// 	iconLeft: "/path/to/icon",//
-// 	// 	closeOnClick: false,
-// 	// },
+// 	cancelButton: {
+// 		showButton: false,
+// 		bgColor: "#fff",//
+// 		// borderColor: "#000",
+// 		textColor: "#000",
+// 		text: "Cancel", //
+// 		iconRight: "/path/to/icon",//
+// 		iconLeft: "/path/to/icon",//
+// 		closeOnClick: false,
+// 	},
 
 // 	// deny button
-// 	// denyButton: {
-// 	// 	bgColor: "#d23",
-// 	// 	borderColor: "#d23",
-// 	// 	textColor: "#fff",
-// 	// 	text: "Deny", //
-// 	// 	iconRight: "/path/to/icon", //
-// 	// 	iconLeft: "/path/to/icon", //
-// 	// 	closeOnClick: false,
-// 	// },
+// 	denyButton: {
+// 		showButton: false,
+// 		bgColor: "#d23",
+// 		borderColor: "#d23",
+// 		textColor: "#fff",
+// 		text: "Deny", //
+// 		iconRight: "/path/to/icon", //
+// 		iconLeft: "/path/to/icon", //
+// 		closeOnClick: false,
+// 	},
 
 // 	// input: [
 // 	// 	{
@@ -130,7 +132,7 @@ const exampleSection = document.querySelector("#exampleSection");
 
 for (let i = 0; i < examples.length; i++) {
 	// new example structure (filled)
-	let newExample = eachExample(
+	let newExample = renderExample(
 		examples[i].explanation,
 		customStringify(examples[i].config)
 	);

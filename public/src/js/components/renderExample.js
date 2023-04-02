@@ -1,4 +1,4 @@
-function exampleSectionCreation(explanation, config) {
+function renderExample(explanation, config) {
 
     // create a example wrapper
     const exampleWrapper = document.createElement('div')
@@ -48,4 +48,4 @@ function exampleSectionCreation(explanation, config) {
 
 }
 
-export default exampleSectionCreation
+export default renderExample

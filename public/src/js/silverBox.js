@@ -84,17 +84,27 @@ export default function silverBox(config) {
 			// adding inputWrapper to elementsArray
 			inputWrapper.childElementCount !== 0 ? elementsArray.push(inputWrapper) : ''
 
+			// if cancel button config does not exist
 			if (
 				!("cancelButton" in config)
 			) {
-				config.cancelButton = {
-					text: "Cancel",
-					closeOnClick: true,
+
+				buttonWrapper.append(
+					buttonComponent(config.cancelButton = {
+						text: "Cancel",
+						closeOnClick: true,
+					}, "silverBox-cancel-button")
+				);
+			}
+			// if cancel button config exists and show button is false
+			else {
+				if (config.cancelButton.showButton !== false) {
+					buttonWrapper.append(
+						buttonComponent(config.cancelButton, "silverBox-cancel-button")
+					);
 				}
 			}
-			buttonWrapper.append(
-				buttonComponent(config.cancelButton, "silverBox-cancel-button")
-			);
+
 		} else {
 			// if there is no cancelButton in config:
 			if (
@@ -118,10 +128,13 @@ export default function silverBox(config) {
 
 			}
 			else {
-				// if there is a cancelButton in config this code will be executed
-				buttonWrapper.append(
-					buttonComponent(config.cancelButton, "silverBox-cancel-button")
-				)
+				// if the cancelButton config exists and showButton is not false
+				if (config.cancelButton.showButton !== false) {
+					buttonWrapper.append(
+						buttonComponent(config.cancelButton, "silverBox-cancel-button")
+					);
+				}
+
 			}
 
 		}
@@ -132,7 +145,7 @@ export default function silverBox(config) {
 		// deny button
 
 		// if there is deny button in config this code will be executed
-		if ("denyButton" in config) {
+		if ("denyButton" in config && config.denyButton.showButton !== false) {
 			buttonWrapper.append(
 				buttonComponent(config.denyButton, 'silverBox-deny-button'))
 		}
@@ -146,10 +159,16 @@ export default function silverBox(config) {
 				closeOnClick: true,
 			}
 		}
-		// if there is confirm button in config this code will be executed
-		buttonWrapper.append(
-			buttonComponent(config.confirmButton, 'silverBox-confirm-button')
-		);
+		else {
+			if (config.confirmButton.showButton !== false) {
+				// if there is confirm button in config and if the showButton is not false this code will be executed
+				buttonWrapper.append(
+					buttonComponent(config.confirmButton, 'silverBox-confirm-button')
+				);
+			}
+
+		}
+
 		// pushes the buttonWrapper inside the elements Array
 		elementsArray.push(buttonWrapper);
 
