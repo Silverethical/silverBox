@@ -5,6 +5,7 @@ import renderTeamMembers from "./helpers/renderTeamMembers";
 import customStringify from "./helpers/customStringify";
 import renderExample from "./components/renderExample";
 // silverBox({
+// 	// direction: 'rtl',
 // 	// timer: 1000,
 // 	// position: 'top-right', //
 // 	theme: "light",

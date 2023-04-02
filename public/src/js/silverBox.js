@@ -192,6 +192,7 @@ export default function silverBox(config) {
 						overlayClass: className,
 						isInput: true,
 						theme: config.theme,
+						direction: config.direction,
 					})
 				)
 			)
