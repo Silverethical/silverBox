@@ -43,6 +43,18 @@ const documentation = {
         default: "false",
         explanation: "Shows the close button at top of the box based on given value which Is either 'true' or 'false'. If true Is given as the value, the button will be shown."
     },
+    showConfirmButton: {
+        default: "true",
+        explanation: "If the value is 'true' the button will be created, If the value Is 'false', the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not."
+    },
+    showDenyButton: {
+        default: "true",
+        explanation: "If the value is 'true' the button will be created, If the value Is 'false', the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not."
+    },
+    showCancelButton: {
+        default: "true",
+        explanation: "If the value is 'true' the button will be created, If the value Is 'false', the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not."
+    },
     confirmButton: {
         defaultValue: "shown",
         explanation: "Creates a confirm button based on given config.",
@@ -157,7 +169,7 @@ const documentation = {
             },
             multiplyBy: {
                 defaultValue: "1",
-                explanation:"Gets a value as number and repeats the Input based on the given value."
+                explanation: "Gets a value as number and repeats the Input based on the given value."
             }
         },
     },
