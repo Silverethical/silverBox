@@ -1,5 +1,6 @@
 function modalSample({ direction, elementsArray, overlayClass, isInput, theme = 'light' }) {
 
+
     // form 
     let form = document.createElement('form')
     form.classList.add('silverBox-form')
@@ -17,7 +18,7 @@ function modalSample({ direction, elementsArray, overlayClass, isInput, theme = 
     // the modalBox
     let silverBoxModal = document.createElement('div')
     silverBoxModal.classList.add('silverBox')
-    if (direction && (direction === "rtl" || direction === "ltr")) silverBoxModal.setAttribute('dir', direction)
+    if (direction) silverBoxModal.setAttribute('dir', direction)
 
     // checks if we have inputs in the given config, if true the elements will be added to a form elements, else there will be no form elements
     if (isInput) {
