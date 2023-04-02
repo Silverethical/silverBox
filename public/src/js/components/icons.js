@@ -4,9 +4,13 @@
  * @param {string} customIcon - The URL for a custom icon (optional).
  * @returns {Element} - The icon element.
  */
-const iconsComponent = (alertIcon, customIcon) => {
+const iconsComponent = (alertIcon, customIcon, isCentred) => {
+
+	// center the alerIcon if the centerConetent config is given and its true ( gives it a class)
+	if (isCentred && icons[alertIcon]) icons[alertIcon].classList.add('centered-icon')
+
 	// If customIcon is defined, create a user icon using the provided URL.
-	if (customIcon) return createUserIcon(customIcon);
+	if (customIcon) return createUserIcon(customIcon, isCentred);
 
 	// Return the requested icon based on alertIcon.
 	return icons[alertIcon];
@@ -55,12 +59,13 @@ function createIcon(className, text, childClass) {
  * @param {string} userIcon - The URL for the user icon.
  * @returns {Element} - The user icon element.
  */
-function createUserIcon(userIcon) {
+function createUserIcon(userIcon, isCentred) {
 	// Create a new img element with the specified class and ID, and set its src attribute to the provided URL.
 	const img = document.createElement("img");
 	img.setAttribute("src", userIcon);
 	img.classList.add("silverBox-icon");
 	img.id = "silverBox-custom-icon";
+	if (isCentred) img.classList.add('centered-icon')
 
 	return img;
 }

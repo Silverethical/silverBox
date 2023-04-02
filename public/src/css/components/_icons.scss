@@ -1,3 +1,11 @@
+/* centered icon */
+.silverBox-icon {
+    &.centered-icon {
+        justify-self: center;
+        grid-column-start: 2;
+    }
+}
+
 /* tick */
 .silverBox-tick-mark {
     position: relative;
@@ -115,6 +123,8 @@
     max-width: var(--silverBox-custom-icon-width);
     border-radius: var(--silverBox-custom-icon-border-radius);
 }
+
+
 
 // animations
 @keyframes rotate {

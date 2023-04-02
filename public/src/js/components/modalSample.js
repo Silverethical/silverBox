@@ -1,4 +1,4 @@
-function modalSample({ direction, elementsArray, overlayClass, isInput, theme = 'light' }) {
+function modalSample({ direction, elementsArray, overlayClass, isInput, theme = 'light', centerContent }) {
 
 
     // form 
@@ -19,6 +19,8 @@ function modalSample({ direction, elementsArray, overlayClass, isInput, theme = 
     let silverBoxModal = document.createElement('div')
     silverBoxModal.classList.add('silverBox')
     if (direction) silverBoxModal.setAttribute('dir', direction)
+    // centers the modal contents if the config is given
+    if (centerContent) silverBoxModal.style.textAlign = "center";
 
     // checks if we have inputs in the given config, if true the elements will be added to a form elements, else there will be no form elements
     if (isInput) {
