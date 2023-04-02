@@ -90,8 +90,12 @@ button {
 	padding: 10px 20px;
 	border-radius: 6px;
 	color: white;
+	width: 100%;
 	background-color: var(--primary-700);
+	margin-top: 20px;
 }
+
+
 
 code {
 	border-radius: 4px;
@@ -270,12 +274,16 @@ code {
 		}
 
 		#exampleSection {
+			row-gap: 20px;
+			display: grid;
+
 			.example {
-				display: flex;
-				align-items: start;
-				justify-content: space-around;
-				margin: 10px 0;
+				display: grid;
+				grid-template-columns: 2.5fr 3fr;
+				gap: 0 20px;
+
 			}
+
 		}
 
 		#documentationSection {
