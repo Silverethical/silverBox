@@ -13,10 +13,10 @@ async function renderTeamMembers(teamMembers) {
 	// Iterate over each team member object and create the necessary elements to display their information.
 	for (const teamMember of teamMembers) {
 		// Destructure the properties we need from the team member object.
-		const { githubUsername, position } = teamMember;
+		const { githubUsername, position, showName } = teamMember;
 
-		// Get the avatar URL of the team member from their GitHub profile.
-		const { avatar_url, login } = await getTeamMembersInfo(githubUsername);
+		// Destructure the properties we need from their GitHub profile.
+		const { login, avatar_url, name } = await getTeamMembersInfo(githubUsername);
 
 		// if user exists
 		if (login) {
@@ -30,7 +30,7 @@ async function renderTeamMembers(teamMembers) {
 			newTeamMember.innerHTML = `
 				  <img class="memberImage" src="${avatar_url}">
 				  <div class="memberInfo">
-					  <p class="memberName">${githubUsername}</p>
+					  <p class="memberName">${showName ? name : githubUsername}</p>
 					  <p class="memberPosition">${position}</p>
 				  </div>`;
 

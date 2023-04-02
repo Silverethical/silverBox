@@ -10,6 +10,7 @@ const teamMembers = [
 	{
 		githubUsername: "fulcain",
 		position: "Developer",
+		showName: true,
 	},
 ];
 
