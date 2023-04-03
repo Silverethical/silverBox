@@ -70,7 +70,7 @@ const documentation = [
         explanation: "If the value is 'true' the button will be created, If the value Is 'false', the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not."
     },
     {
-        configName: "confirmButton: ",
+        configName: "confirmButton",
         defaultValue: "shown",
         config: {
             explanation: "Gets a config like confirmButton:{} and creates The button based on given keys",
@@ -115,7 +115,7 @@ const documentation = [
         }
     },
     {
-        configName: "cancelButton: ",
+        configName: "cancelButton",
         defaultValue: "shown",
         config: {
             explanation: "Gets a config like cancelButton:{} and creates The button based on given keys",
@@ -160,7 +160,7 @@ const documentation = [
         }
     },
     {
-        configName: "denyButton: ",
+        configName: "denyButton",
         defaultValue: "hidden",
         config: {
             explanation: "Gets a config like denyButton:{} and creates The button based on given keys",
@@ -207,7 +207,7 @@ const documentation = [
         }
     },
     {
-        configName: "input: ",
+        configName: "input",
         defaultValue: "null",
         config: {
             label: {
