@@ -1,84 +1,73 @@
-function iconsComponent(alertIcon, customIcon) {
-    if (customIcon) return userIcon(customIcon)
-    if (alertIcon == "warning") return warningIcon()
-    else if (alertIcon == "success") return successIcon()
-    else if (alertIcon == "info") return infoIcon()
-    else if (alertIcon == "error") return errorIcon()
-    else if (alertIcon == "question") return questionIcon()
-}
-function warningIcon() {
-    // create parent element
-    let warningIcon = document.createElement('div')
-    warningIcon.id = 'silverBox-warning'
-    warningIcon.classList.add("silverBox-icon")
-    // create child element
-    let span = document.createElement('span')
-    span.textContent = '!'
-    // append child to parent
-    warningIcon.append(span)
-    return warningIcon
-}
-function successIcon() {
-    // create parent element
-    let silverBoxTick = document.createElement("div")
-    silverBoxTick.id = "silverBox-tick-mark"
-    silverBoxTick.classList.add("silverBox-icon")
-    // create child element
-    let silverBoxTickInside = document.createElement("div")
-    silverBoxTickInside.id = "inside"
-    // append child to parent
-    silverBoxTick.append(silverBoxTickInside)
-    return silverBoxTick
+/**
+ * Returns an icon element based on the alert icon type and custom icon URL.
+ * @param {string} alertIcon - The alert icon type.
+ * @param {string} customIcon - The URL for a custom icon (optional).
+ * @returns {Element} - The icon element.
+ */
+const iconsComponent = (alertIcon, customIcon, isCentred) => {
+
+	// center the alerIcon if the centerConetent config is given and its true ( gives it a class)
+	if (isCentred && icons[alertIcon]) icons[alertIcon].classList.add('centered-icon')
+
+	// If customIcon is defined, create a user icon using the provided URL.
+	if (customIcon) return createUserIcon(customIcon, isCentred);
+
+	// Return the requested icon based on alertIcon.
+	return icons[alertIcon];
+};
+
+// Create an object to store the available icons.
+const icons = {
+	warning: createIcon("silverBox-warning", "!"),
+	success: createIcon("silverBox-tick-mark", "", "inside"),
+	info: createIcon("silverBox-info", "i"),
+	error: createIcon("silverBox-error", "", "x"),
+	question: createIcon("silverBox-question", "?"),
+};
+
+/**
+ * Creates an icon element with the specified class name and child element (if any).
+ * @param {string} className - The class name for the icon element.
+ * @param {string} text - The text to display in the icon element (if any).
+ * @param {string} childClass - The class name for a child element (if any).
+ * @returns {Element} - The icon element.
+ */
+function createIcon(className, text, childClass) {
+	// Create a new div element with the specified class name and class.
+	const icon = document.createElement("div");
+	icon.classList = className;
+	icon.classList.add("silverBox-icon");
+
+	// If childClass is defined, create a child div element with the specified class name and append it to the icon element.
+	if (childClass) {
+		const child = document.createElement("div");
+		child.classList = childClass;
+		icon.appendChild(child);
+	}
+	// If text is defined, create a new span element with the text and append it to the icon element.
+	else if (text) {
+		const span = document.createElement("span");
+		span.textContent = text;
+		icon.appendChild(span);
+	}
+
+	return icon;
 }
 
-function infoIcon() {
-    // create parent element
-    let silverBoxInfo = document.createElement("div")
-    silverBoxInfo.id = "silverBox-info"
-    silverBoxInfo.classList.add("silverBox-icon")
-    // create child element
-    let silverBoxInfoSpan = document.createElement("span")
-    // create child text
-    silverBoxInfoSpan.textContent = "i"
-    // append child to parent
-    silverBoxInfo.append(silverBoxInfoSpan)
-    return silverBoxInfo
+/**
+ * Creates a user icon element with the specified URL.
+ * @param {string} userIcon - The URL for the user icon.
+ * @returns {Element} - The user icon element.
+ */
+function createUserIcon(userIcon, isCentred) {
+	// Create a new img element with the specified class and ID, and set its src attribute to the provided URL.
+	const img = document.createElement("img");
+	img.setAttribute("src", userIcon);
+	img.classList.add("silverBox-icon");
+	img.id = "silverBox-custom-icon";
+	if (isCentred) img.classList.add('centered-icon')
+
+	return img;
 }
 
-function errorIcon() {
-    // create parent element
-    let errorIcon = document.createElement('div')
-    errorIcon.id = 'silverBox-error'
-    errorIcon.classList.add("silverBox-icon")
-    // create child element
-    let xIcon = document.createElement('div')
-    xIcon.classList.add('x')
-    // append child to parent
-    errorIcon.append(xIcon)
-    return errorIcon
-}
-
-function questionIcon() {
-    // create parent element
-    let silverBoxQuestion = document.createElement("div")
-    silverBoxQuestion.id = "silverBox-question"
-    silverBoxQuestion.classList.add("silverBox-icon")
-    // create child element
-    let silverBoxQuestionSpan = document.createElement("span")
-    // create child text
-    silverBoxQuestionSpan.textContent = "?"
-    // append child to parent
-    silverBoxQuestion.append(silverBoxQuestionSpan)
-    return silverBoxQuestion
-}
-function userIcon(userIcon) {
-    // create img tag
-    let img = document.createElement('img')
-    // setting the src for img
-    img.setAttribute('src', userIcon)
-    img.classList.add("silverBox-icon")
-    img.id = "silverBox-custom-icon"
-
-    return img
-}
-export default iconsComponent
+export default iconsComponent;

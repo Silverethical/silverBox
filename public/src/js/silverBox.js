@@ -33,7 +33,7 @@ export default function silverBox(config) {
 				titleText: config.title,
 				htmlText: config.html,
 				simpleText: config.text,
-				imageSource: iconsComponent(config.alertIcon, config.userIcon),
+				imageSource: iconsComponent(config.alertIcon, config.userIcon, config.centerContent),
 				closeButton: config.showCloseButton,
 			})
 		);
@@ -193,6 +193,7 @@ export default function silverBox(config) {
 						isInput: true,
 						theme: config.theme,
 						direction: config.direction,
+						centerContent: config.centerContent
 					})
 				)
 			)
@@ -219,15 +220,7 @@ export default function silverBox(config) {
 		const silverBoxOverlay = document.querySelector(".silverBox-overlay");
 		const silverBoxOver = document.querySelector(".silverBox");
 
-		// if centerContent key is true in config this code will be executed
-		if ("centerContent" in config && config.centerContent.valueOf() === true) {
-			const silverBoxIcon = document.querySelector(".silverBox-icon");
-			if (silverBoxOver) silverBoxOver.style.textAlign = "center";
-			if (silverBoxIcon) {
-				silverBoxIcon.style.justifySelf = "center"
-				silverBoxIcon.style.gridColumnStart = 2;
-			}
-		}
+
 		// adding event listener for overlay
 		// if the clicked element has classList of silverBox-overlay this code will be executed
 		if (silverBoxOverlay) silverBoxOverlay.addEventListener("click", () => {

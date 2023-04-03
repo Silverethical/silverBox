@@ -18,9 +18,7 @@
 	--hamburger-bar-width: 20px;
 	--hamburger-bar-height: 3px;
 	--hamburger-gap: 3px;
-	--hamburger-height: calc(
-		(var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
-	);
+	--hamburger-height: calc((var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2));
 }
 
 html {
@@ -80,6 +78,7 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
+
 	// hide horizontal overflow
 	body {
 		overflow-x: hidden;
@@ -90,10 +89,16 @@ button {
 	padding: 10px 20px;
 	border-radius: 6px;
 	color: white;
-	width: 100%;
+	width: 50%;
 	background-color: var(--primary-700);
 	margin-top: 20px;
+	transition: 0.1s;
+
+	&:hover {
+		background-color: var(--secondary-700);
+	}
 }
+
 
 
 
@@ -173,9 +178,10 @@ code {
 			}
 
 			.hamburger-menu {
+
 				&::before,
 				&::after,
-				> input {
+				>input {
 					background-color: var(--gray-400);
 				}
 			}
@@ -194,7 +200,7 @@ code {
 
 			&::before,
 			&::after,
-			> input {
+			>input {
 				content: "";
 				width: var(--hamburger-bar-width);
 				height: var(--hamburger-bar-height);
@@ -204,7 +210,7 @@ code {
 				transition: all 500ms ease-in-out;
 			}
 
-			> input {
+			>input {
 				appearance: none;
 				-webkit-appearance: none;
 				padding: 0;
@@ -279,9 +285,16 @@ code {
 
 			.example {
 				display: grid;
-				grid-template-columns: 2.5fr 3fr;
+				grid-template-columns: 2fr 3fr;
 				gap: 0 20px;
 
+				.exampleColumn {
+					&:first-of-type {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+					}
+				}
 			}
 
 		}
