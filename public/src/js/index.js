@@ -1,9 +1,11 @@
 import silverBox from "./silverBox";
 import examples from "./data/example";
 import teamMembers from "./data/teamMembers";
+import documentation from "./data/documentation";
 import renderTeamMembers from "./helpers/renderTeamMembers";
 import customStringify from "./helpers/customStringify";
 import renderExample from "./components/renderExample";
+import renderDocumentation from "./components/renderDocumentation";
 // silverBox({
 // 	// direction: 'rtl',
 // 	// timer: 1000,
@@ -147,3 +149,22 @@ for (let i = 0; i < examples.length; i++) {
 		silverBox(examples[i].config);
 	});
 }
+
+// documentation section
+
+// documentation parent 
+const tableWrapper = document.querySelector(".tableWrapper")
+// loops the documentation array and renders values inside elements using renderDocumentation object
+for (let i = 0; i < documentation.length; i++) {
+	let newDocument
+	// if the object doesn't have config key in it this code will be executed
+	if (!("config" in documentation[i])) {
+		newDocument = renderDocumentation({ documentArgument: documentation[i].configName, documentExplanation: documentation[i].explanation })
+	} else {
+		// if the object has config key in it this code will be executed
+		newDocument = renderDocumentation({ documentArgument: documentation[i].configName, documentCode: customStringify(documentation[i].config) })
+	}
+	// appends the documents inside the tableWrapper
+	tableWrapper.append(newDocument)
+}
+
