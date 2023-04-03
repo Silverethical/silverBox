@@ -1,5 +1,14 @@
+/**
+ * Returns silverBox overlay based on given argument from config
+ * @param {string} direction - html direction value
+ * @param {object} elementsArray - array of elements
+ * @param {string} overlayClass - overlay of silverBox className
+ * @param {boolean} isInput - boolean value
+ * @param {string} theme - html data-theme attribute value which is either light or dark
+ * @param {boolean} centerContent - specifies wether the content is centered or not
+ * @returns {Element} - silverBox overlay
+ */
 function modalSample({ direction, elementsArray, overlayClass, isInput, theme = 'light', centerContent }) {
-
 
     // form 
     let form = document.createElement('form')

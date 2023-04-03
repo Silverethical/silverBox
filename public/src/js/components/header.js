@@ -1,5 +1,15 @@
+/** imports */
 import closeButtonOnClick from "./closeButtonOnClick"
 
+/**
+ * Returns headerWrapper based on given arguments from config
+ * @param {string} titleText - silverBox title text
+ * @param {string} htmlText - silverBox html element under title
+ * @param {string} simpleText - silverBox paragraph under title
+ * @param {string} imageSource - silverBox icon
+ * @param {string} closeButton - silverBox closeButton
+ * @returns {Element} - headerWrapper element
+ */
 function headerComponent({ titleText, htmlText, simpleText, imageSource, closeButton }) {
     // header wrapper
     let headerWrapper = document.createElement("header")

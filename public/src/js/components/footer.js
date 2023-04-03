@@ -1,3 +1,8 @@
+/**
+ * Returns footer element based on arguments as text
+ * @param {string} footerInside - footer element textContent
+ * @returns {Element} footer element
+ */
 function footerComponent({footerInside}){
     // creates footer
     let footerEl = document.createElement("footer")

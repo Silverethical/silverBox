@@ -1,5 +1,18 @@
-
-
+/**
+ * Returns inputWrapper element based on given arguments from config
+ * @param {string} type - type of input
+ * @param {string} placeHolder - placeHolder of input
+ * @param {boolean} readOnly - value of input readonly attribute which is either true or false
+ * @param {string} label - label name of input
+ * @param {string} hint - hint of input
+ * @param {string} width - width of input
+ * @param {string} height - height of input
+ * @param {string} inputMaxLength - maxLength attribute of input
+ * @param {string} textAlign - specifies the position of texts in input
+ * @param {string} fontSize - text fontSize of input
+ * @param {string} fontSize - placeHolder fontSize of input
+ * @returns {Element} - inputWrapper element
+ */
 function inputComponent({ type, placeHolder, readOnly, label, hint, width, height, inputMaxLength, textAlign, fontSize, placeHolderFontSize }) {
 
 	if (type !== '') {

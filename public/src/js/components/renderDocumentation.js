@@ -1,3 +1,10 @@
+/**
+ * Returns tableRow element based on given arguments from documentation config
+ * @param {string} documentArgument - documentation object configName key's value
+ * @param {string} documentExplanation - documentation object explanation key's value
+ * @param {object} documentCode - documentation config object key's value
+ * @returns {Element} - tableRow element
+ */
 function renderDocumentation({ documentArgument, documentExplanation, documentCode }) {
     // table row
     const tableRow = document.createElement("div")

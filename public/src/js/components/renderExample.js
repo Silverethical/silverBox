@@ -1,3 +1,9 @@
+/**
+ * Returns an example wrapper based on given config
+ * @param {string} explanation - example object explanation key's value
+ * @param {object} config - example object config key's value
+ * @returns {Element} - example wrapper element
+ */
 function renderExample(explanation, config) {
 
     // create a example wrapper
