@@ -15,10 +15,7 @@ function renderDocumentation({ documentArgument, documentExplanation, documentCo
     docArgumentColumn.classList.add("tableColumn")
     docArgumentColumn.textContent = documentArgument
     docArgumentColumn.id = documentArgument
-    docArgumentColumn.style.fontWeight = "700"
-    docArgumentColumn.style.fontStyle = "italic"
-    docArgumentColumn.style.fontSize = "20px"
-    docArgumentColumn.style.color = "#f56636"
+    docArgumentColumn.classList.add("document-argument")
 
     // explanation column 
     const docExplanationColumn = document.createElement("div")
@@ -31,10 +28,9 @@ function renderDocumentation({ documentArgument, documentExplanation, documentCo
     const code = document.createElement('code')
     code.textContent = documentCode
     // if there is a value of config in objects
-    if (documentCode){
+    if (documentCode) {
         pre.append(code)
-        tableRow.style.gridTemplateRows = "2fr"
-        tableRow.style.gridTemplateColumns = "none"
+        tableRow.classList.add("document-has-config")
     }
 
     // adds columns to tableRow
