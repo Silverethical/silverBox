@@ -184,13 +184,13 @@ export default function silverBox(config) {
 		// also checks for positions , if we have a position, the overlay class will be changed related to the position config
 
 		// modalSampleConfig
-		const modalSampleConfig = (className) => {
+		const modalSampleConfig = (className, isInputValue) => {
 			return (
 				bodyEl.append(
 					modalSample({
 						elementsArray: elementsArray,
 						overlayClass: className,
-						isInput: true,
+						isInput: isInputValue,
 						theme: config.theme,
 						direction: config.direction,
 						centerContent: config.centerContent
@@ -198,15 +198,31 @@ export default function silverBox(config) {
 				)
 			)
 		}
-		// if there is input in config this code will be executed
 
-		// if there is input and position in config this code will be executed
+
+		// if there is position in config this code will be executed
 		if ("position" in config) {
-			modalSampleConfig(`silverBox-${config.position}`)
+			// if the modal has the input config
+			if ("input" in config) {
+				modalSampleConfig(`silverBox-${config.position}`, true)
+			}
+			// if the modal doesnt have the input config
+			else {
+				modalSampleConfig(`silverBox-${config.position}`, false)
+			}
+
 		}
-		// if there is input and no position in config this code will be executed
+		// if there is no position in config this code will be executed
 		else {
-			modalSampleConfig("silverBox-overlay")
+			// if the modal has the input config
+			if ("input" in config) {
+				modalSampleConfig("silverBox-overlay", true)
+			}
+			// if the modal doesnt have the input config
+			else {
+				modalSampleConfig("silverBox-overlay", false)
+			}
+
 		}
 
 		// checks if we have time config, true => the modal will be removed after the given time
