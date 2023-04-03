@@ -74,6 +74,16 @@ const documentation = [
         defaultValue: "shown",
         config: {
             explanation: "Gets a config like confirmButton:{} and creates The button based on given keys",
+            example: {
+                showButton: false,
+                bgColor: "#3085d6",//
+                borderColor: "#3085d6",
+                textColor: "#fff",
+                text: "Confirm", //
+                iconRight: "/path/to/icon",//
+                iconLeft: "/path/to/icon",//
+                closeOnClick: false,
+            },
             text: {
                 defaultValue: "Confirm",
                 explanation: "Gets a value as a text and puts It as the button's text.",
@@ -100,7 +110,7 @@ const documentation = [
             },
             closeOnClick: {
                 defaultValue: "false",
-                explanation: "Either closes the button on click or not based on the given values which Is either 'true' or 'false'. If It's true the button will be closed."
+                explanation: "Gets values which Is either 'true' or 'false'. If It's true the button will be closed."
             }
         }
     },
@@ -109,6 +119,16 @@ const documentation = [
         defaultValue: "shown",
         config: {
             explanation: "Gets a config like cancelButton:{} and creates The button based on given keys",
+            example: {
+                showButton: false,
+                bgColor: "#fff",
+                borderColor: "#000",
+                textColor: "#000",
+                text: "Cancel",
+                iconRight: "/path/to/icon",
+                iconLeft: "/path/to/icon",
+                closeOnClick: false,
+            },
             text: {
                 defaultValue: "Cancel",
                 explanation: "Gets a value as a text and puts It as the button's text.",
@@ -135,7 +155,7 @@ const documentation = [
             },
             closeOnClick: {
                 defaultValue: "false",
-                explanation: "Either closes the button on click or not based on the given values which Is either 'true' or 'false'. If It's true the button will be closed."
+                explanation: "Gets values which Is either 'true' or 'false'. If It's true the button will be closed."
             }
         }
     },
@@ -144,6 +164,18 @@ const documentation = [
         defaultValue: "hidden",
         config: {
             explanation: "Gets a config like denyButton:{} and creates The button based on given keys",
+            example: {
+                denyButton: {
+                    showButton: false,
+                    bgColor: "#d23",
+                    borderColor: "#d23",
+                    textColor: "#fff",
+                    text: "Deny", //
+                    iconRight: "/path/to/icon", //
+                    iconLeft: "/path/to/icon", //
+                    closeOnClick: false,
+                },
+            },
             text: {
                 defaultValue: "Deny",
                 explanation: "Gets a value as a text and puts It as the button's text.",
@@ -170,7 +202,7 @@ const documentation = [
             },
             closeOnClick: {
                 defaultValue: "true",
-                explanation: "Either closes the button on click or not based on the given values which Is either 'true' or 'false'. If It's true the button will be closed."
+                explanation: "Gets values which Is either 'true' or 'false'. If It's true the button will be closed."
             }
         }
     },
