@@ -22,6 +22,7 @@
 }
 
 html {
+	scroll-behavior: smooth;
 	&[data-theme="light"] {
 		// white and black
 		--white-in-white: #fff;
