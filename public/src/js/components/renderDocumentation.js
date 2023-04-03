@@ -7,6 +7,7 @@ function renderDocumentation({ documentArgument, documentExplanation, documentCo
     const docArgumentColumn = document.createElement("div")
     docArgumentColumn.classList.add("tableColumn")
     docArgumentColumn.textContent = documentArgument
+    docArgumentColumn.id = documentArgument
 
     // explanation column 
     const docExplanationColumn = document.createElement("div")
