@@ -15,19 +15,27 @@ function renderDocumentation({ documentArgument, documentExplanation, documentCo
     docArgumentColumn.classList.add("tableColumn")
     docArgumentColumn.textContent = documentArgument
     docArgumentColumn.id = documentArgument
+    docArgumentColumn.style.fontWeight = "700"
+    docArgumentColumn.style.fontStyle = "italic"
+    docArgumentColumn.style.fontSize = "20px"
+    docArgumentColumn.style.color = "#f56636"
 
     // explanation column 
     const docExplanationColumn = document.createElement("div")
     docExplanationColumn.classList.add("tableColumn")
-    docExplanationColumn.textContent = documentExplanation
+    docExplanationColumn.textContent = "- " + documentExplanation
 
     // create documentConfig
     const pre = document.createElement('pre')
     pre.classList.add("tableColumn")
     const code = document.createElement('code')
     code.textContent = documentCode
-    // if there is a value in config
-    if (documentCode) pre.append(code)
+    // if there is a value of config in objects
+    if (documentCode){
+        pre.append(code)
+        tableRow.style.gridTemplateRows = "2fr"
+        tableRow.style.gridTemplateColumns = "none"
+    }
 
     // adds columns to tableRow
 
@@ -38,7 +46,7 @@ function renderDocumentation({ documentArgument, documentExplanation, documentCo
     // if there is no documentCode argument given
     if (!documentCode) tableRow.append(docExplanationColumn)
     // config column
-    tableRow.append(pre)
+    if (documentCode) tableRow.append(pre)
 
     // returns table wrapper
 
