@@ -155,16 +155,16 @@ for (let i = 0; i < examples.length; i++) {
 // documentation parent 
 const tableWrapper = document.querySelector(".tableWrapper")
 // loops the documentation array and renders values inside elements using renderDocumentation object
-for (let i = 0; i < documentation.length; i++) {
+
+documentation.forEach(documentConfig => {
 	let newDocument
 	// if the object doesn't have config key in it this code will be executed
-	if (!("config" in documentation[i])) {
-		newDocument = renderDocumentation({ documentArgument: documentation[i].configName, documentExplanation: documentation[i].explanation })
+	if (!("config" in documentConfig)) {
+		newDocument = renderDocumentation({ documentArgument: documentConfig.configName, documentExplanation: documentConfig.explanation })
 	} else {
 		// if the object has config key in it this code will be executed
-		newDocument = renderDocumentation({ documentArgument: documentation[i].configName, documentCode: customStringify(documentation[i].config) })
+		newDocument = renderDocumentation({ documentArgument: documentConfig.configName, documentCode: customStringify(documentConfig.config) })
 	}
 	// appends the documents inside the tableWrapper
 	tableWrapper.append(newDocument)
-}
-
+})
