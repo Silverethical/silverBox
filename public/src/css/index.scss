@@ -166,11 +166,13 @@ code {
                             // the level 2 menu
                             ul {
                                 display: flex;
-                                overflow: scroll;
+                                // x y
+                                overflow: hidden scroll;
                                 flex-wrap: wrap;
-                                height: 100px;
-                                top: 0px;
-                                left: 100%;
+                                height: 500px;
+                                top: 100%;
+                                left: -3px;
+                                width: 110%;
                                 position: absolute;
                                 background-color: #fff;
                                 transition: 0.2s;
