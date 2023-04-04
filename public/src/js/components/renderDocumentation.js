@@ -20,7 +20,7 @@ function renderDocumentation({ documentArgument, documentExplanation, documentCo
     // explanation column 
     const docExplanationColumn = document.createElement("div")
     docExplanationColumn.classList.add("tableColumn")
-    docExplanationColumn.textContent = "- " + documentExplanation
+    docExplanationColumn.textContent = documentExplanation
 
     // create documentConfig
     const pre = document.createElement('pre')
