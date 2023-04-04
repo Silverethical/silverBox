@@ -326,6 +326,10 @@ code {
                 div.introduction {
                     text-align: justify;
                     max-width: 45%;
+                    font-weight: bolder;
+                    .silverBoxName{
+                        color: var(--blue-900);
+                    }
                 }
 
                 img {
