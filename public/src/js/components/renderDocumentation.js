@@ -11,10 +11,11 @@ function renderDocumentation({ documentArgument, documentExplanation, documentCo
     tableRow.classList.add("tableRow")
 
     // argument column
-    const docArgumentColumn = document.createElement("div")
+    const docArgumentColumn = document.createElement("a")
     docArgumentColumn.classList.add("tableColumn")
     docArgumentColumn.textContent = documentArgument
     docArgumentColumn.id = documentArgument
+    docArgumentColumn.setAttribute("href","#"+documentArgument)
     docArgumentColumn.classList.add("document-argument")
 
     // explanation column 

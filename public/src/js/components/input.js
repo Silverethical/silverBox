@@ -10,7 +10,7 @@
  * @param {string} inputMaxLength - maxLength attribute of input
  * @param {string} textAlign - specifies the position of texts in input
  * @param {string} fontSize - text fontSize of input
- * @param {string} fontSize - placeHolder fontSize of input
+ * @param {string} placeHolderFontSize - placeHolder fontSize of input
  * @returns {Element} - inputWrapper element
  */
 function inputComponent({ type, placeHolder, readOnly, label, hint, width, height, inputMaxLength, textAlign, fontSize, placeHolderFontSize }) {
