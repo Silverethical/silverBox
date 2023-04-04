@@ -10,7 +10,6 @@ function footerComponent({footerInside}){
     let footerInsideEl = document.createElement("div")
     // creates hr line
     let line = document.createElement("hr")
-    line.setAttribute("style","margin-top:20px;")
     // adds given argument as HTML element to footerInsideEl
     footerInsideEl.innerHTML = footerInside
 
