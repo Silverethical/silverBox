@@ -18,7 +18,9 @@
     --hamburger-bar-width: 20px;
     --hamburger-bar-height: 3px;
     --hamburger-gap: 3px;
-    --hamburger-height: calc((var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2));
+    --hamburger-height: calc(
+        (var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
+    );
 }
 
 html {
@@ -80,7 +82,6 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
-
     // hide horizontal overflow
     body {
         overflow-x: hidden;
@@ -135,7 +136,7 @@ code {
 
                     //  the last navBar item
                     &[href="#documentationSection"] {
-                        >li {
+                        > li {
                             position: relative;
 
                             &::after {
@@ -182,7 +183,8 @@ code {
                                     border-left: 3px solid var(--white-in-white);
 
                                     &:hover {
-                                        border-left: 3px solid var(--primary-700);
+                                        border-left: 3px solid
+                                            var(--primary-700);
                                     }
 
                                     a {
@@ -234,10 +236,9 @@ code {
             }
 
             .hamburger-menu {
-
                 &::before,
                 &::after,
-                >input {
+                > input {
                     background-color: var(--gray-400);
                 }
             }
@@ -256,7 +257,7 @@ code {
 
             &::before,
             &::after,
-            >input {
+            > input {
                 content: "";
                 width: var(--hamburger-bar-width);
                 height: var(--hamburger-bar-height);
@@ -266,7 +267,7 @@ code {
                 transition: all 500ms ease-in-out;
             }
 
-            >input {
+            > input {
                 appearance: none;
                 -webkit-appearance: none;
                 padding: 0;
@@ -334,7 +335,6 @@ code {
                         color: #284b63;
                         font-weight: bold;
                     }
-
                 }
 
                 img {
@@ -372,12 +372,12 @@ code {
                 .tableRowHeader,
                 .tableRow {
                     display: grid;
-                    grid-template-columns: 1fr 2fr;
+                    grid-template-columns: 2fr 1fr 4fr;
                     column-gap: 10px;
 
                     &.document-has-config {
-                        grid-template-columns: none;
-                        grid-template-rows: 2fr;
+                        // grid-template-columns: 1fr 1fr;
+                        // grid-template-rows: 2fr;
                     }
 
                     .tableColumn {
@@ -391,7 +391,6 @@ code {
                             font-size: 18px;
                         }
                     }
-
                     .tableHeaderColumn {
                         color: var(--gray-500) !important;
                     }

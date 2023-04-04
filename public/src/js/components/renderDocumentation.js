@@ -5,7 +5,7 @@
  * @param {object} documentCode - documentation config object key's value
  * @returns {Element} - tableRow element
  */
-function renderDocumentation({ documentArgument, documentExplanation, documentCode }) {
+function renderDocumentation({ documentArgument, documentExplanation, documentCode, documentDefaultValue }) {
     // table row
     const tableRow = document.createElement("div")
     tableRow.classList.add("tableRow")
@@ -15,13 +15,18 @@ function renderDocumentation({ documentArgument, documentExplanation, documentCo
     docArgumentColumn.classList.add("tableColumn")
     docArgumentColumn.textContent = documentArgument
     docArgumentColumn.id = documentArgument
-    docArgumentColumn.setAttribute("href","#"+documentArgument)
+    docArgumentColumn.setAttribute("href", "#" + documentArgument)
     docArgumentColumn.classList.add("document-argument")
 
     // explanation column 
     const docExplanationColumn = document.createElement("div")
     docExplanationColumn.classList.add("tableColumn")
     docExplanationColumn.textContent = documentExplanation
+
+    // default value column
+    const docDefaultValueColumn = document.createElement("div")
+    docDefaultValueColumn.classList.add("tableColumn")
+    docDefaultValueColumn.textContent = documentDefaultValue
 
     // create documentConfig
     const pre = document.createElement('pre')
@@ -39,7 +44,7 @@ function renderDocumentation({ documentArgument, documentExplanation, documentCo
     // argument column
     tableRow.append(docArgumentColumn)
     // explanation column
-
+    tableRow.append(docDefaultValueColumn)
     // if there is no documentCode argument given
     if (!documentCode) tableRow.append(docExplanationColumn)
     // config column

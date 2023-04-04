@@ -161,10 +161,18 @@ documentation.forEach(documentConfig => {
 	let newDocument
 	// if the object doesn't have config key in it this code will be executed
 	if (!("config" in documentConfig)) {
-		newDocument = renderDocumentation({ documentArgument: documentConfig.configName, documentExplanation: documentConfig.explanation })
+		newDocument = renderDocumentation({
+			documentArgument: documentConfig.configName,
+			documentExplanation: documentConfig.explanation,
+			documentDefaultValue: documentConfig.defaultValue
+		})
 	} else {
 		// if the object has config key in it this code will be executed
-		newDocument = renderDocumentation({ documentArgument: documentConfig.configName, documentCode: customStringify(documentConfig.config) })
+		newDocument = renderDocumentation({
+			documentArgument: documentConfig.configName,
+			documentCode: customStringify(documentConfig.config),
+			documentDefaultValue: documentConfig.defaultValue
+		})
 	}
 	// appends the documents inside the tableWrapper
 	tableWrapper.append(newDocument)
