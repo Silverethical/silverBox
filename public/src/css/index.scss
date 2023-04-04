@@ -124,7 +124,6 @@ code {
         nav {
             ul {
                 transition: all 500ms ease-in-out;
-                border-radius: 6px;
 
                 a {
                     pointer-events: none;
@@ -172,7 +171,7 @@ code {
                                 height: 500px;
                                 top: 100%;
                                 left: -3px;
-                                width: 110%;
+                                width: 101.5%;
                                 position: absolute;
                                 background-color: #fff;
                                 transition: 0.2s;
@@ -180,6 +179,12 @@ code {
                                 opacity: 0;
 
                                 li {
+                                    border-left: 3px solid var(--primary-700);
+
+                                    &:hover {
+                                        border-left: 3px solid var(--white-in-white);
+                                    }
+
                                     a {
                                         font-size: 14px;
                                     }
@@ -199,9 +204,9 @@ code {
             transform: translateX(0);
 
             nav {
+
                 ul {
-                    // padding-top: 35px;
-                    box-shadow: 0px 0px 10px #00000033;
+                    box-shadow: 0 0 5px -1px #00000033;
 
                     a {
                         pointer-events: initial;
@@ -327,7 +332,8 @@ code {
                     text-align: justify;
                     max-width: 45%;
                     font-weight: bolder;
-                    .silverBoxName{
+
+                    .silverBoxName {
                         color: var(--blue-900);
                     }
                 }
