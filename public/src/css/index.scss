@@ -18,13 +18,12 @@
     --hamburger-bar-width: 20px;
     --hamburger-bar-height: 3px;
     --hamburger-gap: 3px;
-    --hamburger-height: calc(
-        (var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
-    );
+    --hamburger-height: calc((var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2));
 }
 
 html {
     scroll-behavior: smooth;
+
     &[data-theme="light"] {
         // white and black
         --white-in-white: #fff;
@@ -81,6 +80,7 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
+
     // hide horizontal overflow
     body {
         overflow-x: hidden;
@@ -113,7 +113,7 @@ code {
     padding: 10px;
 
     aside.sidebar {
-        transform: translateX(-75%);
+        transform: translateX(-85%);
         position: fixed;
         left: 10px;
         display: flex;
@@ -125,7 +125,6 @@ code {
             ul {
                 transition: all 500ms ease-in-out;
                 border-radius: 6px;
-                overflow: hidden;
 
                 a {
                     pointer-events: none;
@@ -134,7 +133,62 @@ code {
                         padding-right: 60px;
                         transition: all 500ms ease-in-out;
                     }
+
+                    //  the last navBar item
+                    &[href="#documentationSection"] {
+                        >li {
+                            position: relative;
+
+                            &::after {
+                                position: absolute;
+                                content: '';
+                                width: 5px;
+                                height: 5px;
+                                top: calc(50% - 1px);
+                                right: 45px;
+                                border-top: 1px solid;
+                                border-right: 1px solid;
+                                transform: rotate(45deg);
+                                transition: 0.2s;
+                            }
+
+                            &:hover {
+                                &::after {
+                                    transform: rotate(135deg);
+                                }
+
+                                ul {
+                                    visibility: visible;
+                                    opacity: 1;
+                                }
+                            }
+
+                            // the level 2 menu
+                            ul {
+                                display: flex;
+                                overflow: scroll;
+                                flex-wrap: wrap;
+                                height: 100px;
+                                top: 0px;
+                                left: 100%;
+                                position: absolute;
+                                background-color: #fff;
+                                transition: 0.2s;
+                                visibility: hidden;
+                                opacity: 0;
+
+                                li {
+                                    a {
+                                        font-size: 14px;
+                                    }
+                                }
+
+                            }
+
+                        }
+                    }
                 }
+
             }
         }
 
@@ -177,9 +231,10 @@ code {
             }
 
             .hamburger-menu {
+
                 &::before,
                 &::after,
-                > input {
+                >input {
                     background-color: var(--gray-400);
                 }
             }
@@ -198,7 +253,7 @@ code {
 
             &::before,
             &::after,
-            > input {
+            >input {
                 content: "";
                 width: var(--hamburger-bar-width);
                 height: var(--hamburger-bar-height);
@@ -208,7 +263,7 @@ code {
                 transition: all 500ms ease-in-out;
             }
 
-            > input {
+            >input {
                 appearance: none;
                 -webkit-appearance: none;
                 padding: 0;
@@ -308,6 +363,7 @@ code {
                     display: grid;
                     grid-template-columns: 1fr 2fr;
                     column-gap: 10px;
+
                     &.document-has-config {
                         grid-template-columns: none;
                         grid-template-rows: 2fr;
@@ -316,6 +372,7 @@ code {
                     .tableColumn {
                         padding: 20px;
                         overflow-x: hidden;
+
                         &.document-argument {
                             font-weight: 700;
                             font-style: italic;

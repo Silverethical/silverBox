@@ -6,6 +6,7 @@ import renderTeamMembers from "./helpers/renderTeamMembers";
 import customStringify from "./helpers/customStringify";
 import renderExample from "./components/renderExample";
 import renderDocumentation from "./components/renderDocumentation";
+import renderNavBarLinks from "./components/renderNavBarLinks";
 // silverBox({
 // 	// direction: 'rtl',
 // 	// timer: 1000,
@@ -168,3 +169,9 @@ documentation.forEach(documentConfig => {
 	// appends the documents inside the tableWrapper
 	tableWrapper.append(newDocument)
 })
+
+
+// appending the created ul of the documentation keys ID's to the navBar
+let documentationInNavBar = document.querySelector('nav ul a[href="#documentationSection"] li')
+
+documentationInNavBar.append(renderNavBarLinks())
