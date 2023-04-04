@@ -18,7 +18,9 @@
     --hamburger-bar-width: 20px;
     --hamburger-bar-height: 3px;
     --hamburger-gap: 3px;
-    --hamburger-height: calc((var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2));
+    --hamburger-height: calc(
+        (var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
+    );
 }
 
 html {
@@ -80,7 +82,6 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
-
     // hide horizontal overflow
     body {
         overflow-x: hidden;
@@ -135,12 +136,12 @@ code {
 
                     //  the last navBar item
                     &[href="#documentationSection"] {
-                        >li {
+                        > li {
                             position: relative;
 
                             &::after {
                                 position: absolute;
-                                content: '';
+                                content: "";
                                 width: 5px;
                                 height: 5px;
                                 top: calc(50% - 1px);
@@ -179,23 +180,21 @@ code {
                                 opacity: 0;
 
                                 li {
-                                    border-left: 3px solid var(--primary-700);
+                                    border-left: 3px solid var(--white-in-white);
 
                                     &:hover {
-                                        border-left: 3px solid var(--white-in-white);
+                                        border-left: 3px solid
+                                            var(--primary-700);
                                     }
 
                                     a {
                                         font-size: 14px;
                                     }
                                 }
-
                             }
-
                         }
                     }
                 }
-
             }
         }
 
@@ -204,7 +203,6 @@ code {
             transform: translateX(0);
 
             nav {
-
                 ul {
                     box-shadow: 0 0 5px -1px #00000033;
 
@@ -238,10 +236,9 @@ code {
             }
 
             .hamburger-menu {
-
                 &::before,
                 &::after,
-                >input {
+                > input {
                     background-color: var(--gray-400);
                 }
             }
@@ -260,7 +257,7 @@ code {
 
             &::before,
             &::after,
-            >input {
+            > input {
                 content: "";
                 width: var(--hamburger-bar-width);
                 height: var(--hamburger-bar-height);
@@ -270,7 +267,7 @@ code {
                 transition: all 500ms ease-in-out;
             }
 
-            >input {
+            > input {
                 appearance: none;
                 -webkit-appearance: none;
                 padding: 0;
