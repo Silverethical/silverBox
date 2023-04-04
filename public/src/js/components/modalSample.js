@@ -8,7 +8,7 @@
  * @param {boolean} centerContent - specifies wether the content is centered or not
  * @returns {Element} - silverBox overlay
  */
-function modalSample({ direction, elementsArray, overlayClass, isInput, theme = 'light', centerContent }) {
+function silverBoxmodalSample({ direction, elementsArray, overlayClass, isInput, theme = 'light', centerContent }) {
 
     // form 
     let form = document.createElement('form')
@@ -52,4 +52,4 @@ function modalSample({ direction, elementsArray, overlayClass, isInput, theme = 
 
 }
 
-export default modalSample
+export default silverBoxmodalSample

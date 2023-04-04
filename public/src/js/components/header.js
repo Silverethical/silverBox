@@ -1,5 +1,5 @@
 /** imports */
-import closeButtonOnClick from "./closeButtonOnClick"
+import silverBoxcloseButtonOnClick from "./closeButtonOnClick"
 
 /**
  * Returns headerWrapper based on given arguments from config
@@ -36,7 +36,7 @@ function headerComponent({ titleText, htmlText, simpleText, imageSource, closeBu
     // svg of closeButton button
     let closeButtonEl = document.createElement("span")
     closeButtonEl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512"><line x1="368" y1="368" x2="144" y2="144" style="fill:none;stroke:#667085;stroke-linecap:round;stroke-linejoin:round;stroke-width:33px"/><line x1="368" y1="144" x2="144" y2="368" style="fill:none;stroke:#667085;stroke-linecap:round;stroke-linejoin:round;stroke-width:33px"/></svg>'
-    closeButtonEl.onclick = closeButtonOnClick
+    closeButtonEl.onclick = silverBoxcloseButtonOnClick
     closeButtonEl.classList.add("silverBox-close-button")
 
     // add icon to iconWrapper

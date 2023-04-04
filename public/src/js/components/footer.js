@@ -3,7 +3,7 @@
  * @param {string} footerInside - footer element textContent
  * @returns {Element} footer element
  */
-function footerComponent({footerInside}){
+function silverBoxfooterComponent({ footerInside }) {
     // creates footer
     let footerEl = document.createElement("footer")
     // creates footer inside div
@@ -19,4 +19,4 @@ function footerComponent({footerInside}){
     // returns the footer
     return footerEl
 }
-export default footerComponent;
+export default silverBoxfooterComponent;
