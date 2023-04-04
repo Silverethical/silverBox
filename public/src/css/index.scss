@@ -323,7 +323,6 @@ code {
             }
 
             div.whySilverBox {
-                // padding: 0 10px;
                 display: flex;
                 align-items: start;
                 justify-content: space-between;
@@ -331,7 +330,8 @@ code {
                 div.introduction {
                     text-align: justify;
                     max-width: 45%;
-                    font-weight: bolder;
+                    font-size: 18px;
+                    font-weight: 600;
 
                     .silverBoxName {
                         color: var(--blue-900);
