@@ -28,19 +28,29 @@
         border-color: var(--silverBox-confirm-border-color);
         background-color: var(--silverBox-confirm-bg-color);
         color: var(--silverBox-confirm-color);
+        &:hover{
+            background-color: var(--silverBox-confirm-hover-color) !important;
+        }
     }
 
     &.silverBox-cancel-button {
         border-color: var(--silverBox-cancel-border-color);
         background-color: var(--silverBox-cancel-bg-color);
         color: var(--silverBox-cancel-color);
+        &:hover{
+            background-color: var(--silverBox-cancel-hover-color) !important;
+        }
     }
 
     &.silverBox-deny-button {
         border-color: var(--silverBox-deny-border-color);
         background-color: var(--silverBox-deny-bg-color);
         color: var(--silverBox-deny-color);
+        &:hover{
+            background-color: var(--silverBox-deny-hover-color) !important;
+        }
     }
+
 
     &:active {
         transform: scale(0.95);
