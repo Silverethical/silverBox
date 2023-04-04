@@ -7,17 +7,17 @@ const documentation = [
     {
         configName: "userIcon",
         defaultValue: "null",
-        explanation: "Path to user's Icon. example: userIcon:'../src/images/image.png'; .",
+        explanation: "Path to user's Icon.For example userIcon: '../src/images/image.png'; .",
     },
     {
         configName: "timer",
         defaultValue: "null",
-        explanation: "SilverBox closes after given time in milliseconds. example: timer:3000; timer will be closed after 3s with this given value."
+        explanation: "SilverBox closes after given time in milliseconds. example: timer: 3000; timer will be closed after 3s with this given value."
     },
     {
         configName: "position",
         defaultValue: "null",
-        explanation: "Positions the box according to given values from following list:'top-right', 'top-center', 'top-left', 'bottom-right', 'bottom-center', 'bottom-left'."
+        explanation: "Positions the box according to given values from following list: 'top-right', 'top-center', 'top-left', 'bottom-right', 'bottom-center', 'bottom-left'."
     },
     {
         configName: "theme",
@@ -37,7 +37,7 @@ const documentation = [
     {
         configName: "html",
         defaultValue: "null",
-        explanation: "Gets a HTML tag and puts It under the title. example: html: <p> I am a text </p>. If this value Is given with text key, html key will be shown."
+        explanation: "Gets a HTML tag and puts It under the title.For example html: <p> I am a text </p>. If this value Is given with text key, html key will be shown."
     },
     {
         configName: "text",
@@ -73,7 +73,7 @@ const documentation = [
         configName: "confirmButton",
         defaultValue: "shown",
         config: {
-            explanation: "Gets a config like confirmButton:{} and creates The button based on given keys",
+            explanation: "Gets a config like confirmButton: {} and creates The button based on given keys",
             example: {
                 showButton: false,
                 bgColor: "#3085d6",//
@@ -118,7 +118,7 @@ const documentation = [
         configName: "cancelButton",
         defaultValue: "shown",
         config: {
-            explanation: "Gets a config like cancelButton:{} and creates The button based on given keys",
+            explanation: "Gets a config like cancelButton: {} and creates The button based on given keys",
             example: {
                 showButton: false,
                 bgColor: "#fff",
@@ -163,7 +163,7 @@ const documentation = [
         configName: "denyButton",
         defaultValue: "hidden",
         config: {
-            explanation: "Gets a config like denyButton:{} and creates The button based on given keys",
+            explanation: "Gets a config like denyButton: {} and creates The button based on given keys",
             example: {
                 denyButton: {
                     showButton: false,
@@ -211,7 +211,7 @@ const documentation = [
         defaultValue: "null",
         config: {
             label: {
-                explanation: "Creates an Input based on given config Inside input:{}. The value can also be given as objects Inside of an array.",
+                explanation: "Creates an Input based on given config Inside input: {}. The value can also be given as objects Inside of an array.",
                 defaultValue: "null",
                 explanation: "Gets a value and puts It as the Input's label name.",
             },
