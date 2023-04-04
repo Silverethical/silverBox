@@ -1,19 +1,39 @@
 /**
- * Returns an icon element based on the alert icon type and custom icon URL.
- * @param {string} alertIcon - The alert icon type.
- * @param {string} customIcon - The URL for a custom icon (optional).
- * @returns {Element} - The icon element.
+ * Returns an icon based on the alert icon type and custom icon URL. If a custom icon URL is provided,
+ * the function will create a user icon using the provided URL. Otherwise, it retrieves the requested icon
+ * from the icons object and optionally centers it if the isCentred parameter is true.
+ *
+ * @param {string} alertIcon - The name of the alert icon to retrieve from the icons object (e.g. "warning").
+ * @param {string} customIcon - The URL of a custom icon, if one is specified.
+ * @param {boolean} isCentred - Determines whether to center the icon or not (default is false).
+ *
+ * @returns {Element|null} - The requested icon element or null if no matching icon was found.
  */
-const iconsComponent = (alertIcon, customIcon, isCentred) => {
+const iconsComponent = (alertIcon, customIcon, isCentred = false) => {
+	// Check if a custom icon URL was provided.
+	if (customIcon) {
+		// Create a new user icon element using the provided URL and clone it to avoid modifying the original icon.
+		const clonedIcon = createUserIcon(customIcon, isCentred).cloneNode(
+			true
+		);
 
-	// center the alerIcon if the centerConetent config is given and its true ( gives it a class)
-	if (isCentred && icons[alertIcon]) icons[alertIcon].classList.add('centered-icon')
+		return clonedIcon;
+	}
 
-	// If customIcon is defined, create a user icon using the provided URL.
-	if (customIcon) return createUserIcon(customIcon, isCentred);
+	// Check if isCentred is true and if the requested icon exists in the icons object.
+	if (isCentred && icons[alertIcon]) {
+		// Retrieve the requested icon from the icons object and clone it to avoid modifying the original icon.
+		const clonedIcon = icons[alertIcon].cloneNode(true);
 
-	// Return the requested icon based on alertIcon.
-	return icons[alertIcon];
+		// Add the "centered-icon" class to the cloned icon element.
+		clonedIcon.classList.add("centered-icon");
+
+		// Return the cloned icon element.
+		return clonedIcon;
+	}
+
+	// Return null if no matching icon was found.
+	return null;
 };
 
 // Create an object to store the available icons.
@@ -65,7 +85,7 @@ function createUserIcon(userIcon, isCentred) {
 	img.setAttribute("src", userIcon);
 	img.classList.add("silverBox-icon");
 	img.id = "silverBox-custom-icon";
-	if (isCentred) img.classList.add('centered-icon')
+	if (isCentred) img.classList.add("centered-icon");
 
 	return img;
 }
