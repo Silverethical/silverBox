@@ -10,7 +10,7 @@
      .silverBox-input {
          display: inline-flex;
          flex-direction: column;
-         gap: 10px 0;
+         gap: var(--silverBox-inside-input-gap);
          text-align: start;
          width: 100%;
 

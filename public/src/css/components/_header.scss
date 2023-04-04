@@ -17,7 +17,7 @@
 
 .header-wrapper {
     &>* {
-        margin: 5px 0;
+        margin: var(--silverBox-header-items-margin);
     }
 
     .silverBox-header-title {

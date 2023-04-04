@@ -112,7 +112,7 @@ const examples = [
                     placeHolder: "Enter your user name",
                     readOnly: false,
                     textAlign: 'left',
-                    fontSize: '20px',
+                    fontSize: '16px',
                 },
                 {
                     label: "Email",
@@ -120,7 +120,7 @@ const examples = [
                     placeHolder: "Enter your email",
                     readOnly: false,
                     textAlign: 'left',
-                    fontSize: '20px',
+                    fontSize: '16px',
                 },
                 {
                     label: "Password",
@@ -130,12 +130,12 @@ const examples = [
                     readOnly: false,
                     inputMaxLength: 8,
                     textAlign: 'left',
-                    fontSize: '20px',
+                    fontSize: '16px',
                 },]
         },
     },
     {
-        explanation: "A code verification modal wich you can display on screen to verify the code you sent to your user. ( you can multiply a single styled input many times to match the requirements for this modal )",
+        explanation: "A code verification modal wich you can display on screen to verify the code you sent to your user. (you can multiply a single styled input many times to match the requirements for this modal)",
         config: {
             theme: "light",
             userIcon: "https://cdn-icons-png.flaticon.com/512/181/181535.png",
