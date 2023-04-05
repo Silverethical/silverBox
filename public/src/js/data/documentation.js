@@ -1,22 +1,22 @@
 const documentation = [
     {
         configName: "alertIcon",
-        defaultValue: "null",
+        defaultValue: "",
         explanation: "Displays Icons according to given values from following list: 'success', 'error', 'warning', 'info', 'question'.",
     },
     {
         configName: "userIcon",
-        defaultValue: "null",
+        defaultValue: "",
         explanation: "Path to user's Icon.For example userIcon: '../src/images/image.png'; .",
     },
     {
         configName: "timer",
-        defaultValue: "null",
+        defaultValue: undefined,
         explanation: "SilverBox closes after given time in milliseconds. example: timer: 3000; timer will be closed after 3s with this given value."
     },
     {
         configName: "position",
-        defaultValue: "null",
+        defaultValue: "",
         explanation: "Positions the box according to given values from following list: 'top-right', 'top-center', 'top-left', 'bottom-right', 'bottom-center', 'bottom-left'."
     },
     {
@@ -26,47 +26,47 @@ const documentation = [
     },
     {
         configName: "title",
-        defaultValue: "null",
+        defaultValue: "",
         explanation: "Get a text and puts It at the top of the box as title"
     },
     {
         configName: "centerContent",
-        defaultValue: "false",
+        defaultValue: false,
         explanation: "Positions the contents based on given value which Is either 'true' or 'false'. If true Is given as the value, all content will be centered."
     },
     {
         configName: "html",
-        defaultValue: "null",
+        defaultValue: "",
         explanation: "Gets a HTML tag and puts It under the title.For example html: <p> I am a text </p>. If this value Is given with text key, html key will be shown."
     },
     {
         configName: "text",
-        default: "null",
+        defaultValue: "",
         explanation: "Get a text and puts It under the tile. If this value Is given with html key, html key will be shown."
     },
     {
         configName: "footer",
-        default: "null",
+        defaultValue: "",
         explanation: "Gets a HTML tag and puts It Into a footer tag at the very end of the box with a horizontal line above it."
     },
     {
         configName: "showCloseButton",
-        default: "false",
+        defaultValue: false,
         explanation: "Shows the close button at top of the box based on given value which Is either 'true' or 'false'. If true Is given as the value, the button will be shown."
     },
     {
         configName: "showConfirmButton",
-        default: "true",
+        defaultValue: true,
         explanation: "If the value is 'true' the button will be created, If the value Is 'false', the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not."
     },
     {
         configName: "showDenyButton",
-        default: "true",
+        defaultValue: false,
         explanation: "If the value is 'true' the button will be created, If the value Is 'false', the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not."
     },
     {
         configName: "showCancelButton",
-        default: "true",
+        defaultValue: true,
         explanation: "If the value is 'true' the button will be created, If the value Is 'false', the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not."
     },
     {
@@ -101,15 +101,15 @@ const documentation = [
                 explanation: "Get a value as a color and puts It as the button's text color.",
             },
             iconRight: {
-                defaultValue: "null",
+                defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the end of the button's text.",
             },
             iconLeft: {
-                defaultValue: "null",
+                defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the start of the button's text.",
             },
             closeOnClick: {
-                defaultValue: "false",
+                defaultValue: false,
                 explanation: "Gets values which Is either 'true' or 'false'. If It's true the button will be closed."
             }
         }
@@ -146,15 +146,15 @@ const documentation = [
                 explanation: "Get a value as a color and puts It as the button's text color.",
             },
             iconRight: {
-                defaultValue: "null",
+                defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the end of the button's text.",
             },
             iconLeft: {
-                defaultValue: "null",
+                defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the start of the button's text.",
             },
             closeOnClick: {
-                defaultValue: "false",
+                defaultValue: false,
                 explanation: "Gets values which Is either 'true' or 'false'. If It's true the button will be closed."
             }
         }
@@ -193,26 +193,26 @@ const documentation = [
                 explanation: "Get a value as a color and puts It as the button's text color.",
             },
             iconRight: {
-                defaultValue: "null",
+                defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the end of the button's text.",
             },
             iconLeft: {
-                defaultValue: "null",
+                defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the start of the button's text.",
             },
             closeOnClick: {
-                defaultValue: "true",
+                defaultValue: true,
                 explanation: "Gets values which Is either 'true' or 'false'. If It's true the button will be closed."
             }
         }
     },
     {
         configName: "input",
-        defaultValue: "null",
+        defaultValue: "",
         config: {
             label: {
                 explanation: "Creates an Input based on given config Inside input: {}. The value can also be given as objects Inside of an array.",
-                defaultValue: "null",
+                defaultValue: "",
                 explanation: "Gets a value and puts It as the Input's label name.",
             },
             type: {
@@ -220,15 +220,15 @@ const documentation = [
                 explanation: "Gets a value and puts It as the Input's type.",
             },
             placeHolder: {
-                defaultValue: "null",
+                defaultValue: "",
                 explanation: "Gets a value and puts It as the Input's placeHolder.",
             },
             hint: {
-                defaultValue: "null",
+                defaultValue: "",
                 explanation: "Gets a value and puts It as the Input's hint under the input.",
             },
             readOnly: {
-                defaultValue: "false",
+                defaultValue: false,
                 explanation: "Gets a value of either 'true' or 'false' and sets it as the input attribute.",
             },
             inputWidth: {
@@ -240,7 +240,7 @@ const documentation = [
                 explanation: "Gets a value as string and puts It as the Input's height.",
             },
             inputMaxLength: {
-                defaultValue: "null",
+                defaultValue: "",
                 explanation: "Gets a value as number and puts It as the Inputs maxLength attribute."
             },
             textAlign: {
@@ -252,7 +252,7 @@ const documentation = [
                 explanation: "Gets a value and puts It as the Inputs font size."
             },
             multiplyBy: {
-                defaultValue: "1",
+                defaultValue: 1,
                 explanation: "Gets a value as number and repeats the Input based on the given value."
             }
         }
