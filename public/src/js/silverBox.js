@@ -233,14 +233,14 @@ export default function silverBox(config) {
 		}
 
 		// selecting overLay
-		const silverBoxOverlay = document.querySelector(".silverBox-overlay");
+		const silverBoxWrapper = document.querySelector(".silverBox-wrapper");
 		const silverBoxOver = document.querySelector(".silverBox");
 
 
 		// adding event listener for overlay
 		// if the clicked element has classList of silverBox-overlay this code will be executed
-		if (silverBoxOverlay) silverBoxOverlay.addEventListener("click", () => {
-			silverBoxOverlay.remove();
+		if (silverBoxWrapper) silverBoxWrapper.addEventListener("click", () => {
+			silverBoxWrapper.remove();
 		});
 		silverBoxOver.addEventListener("click", (e) => {
 			e.stopPropagation();
