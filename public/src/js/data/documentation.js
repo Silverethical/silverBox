@@ -37,7 +37,7 @@ const documentation = [
     {
         configName: "html",
         defaultValue: "",
-        explanation: "Gets a HTML tag and puts It under the title.For example html: <p> I am a text </p>. If this value Is given with text key, html key will be shown."
+        explanation: "Gets a HTML tag and puts It under the title. If this value Is given with text key, html key will be shown."
     },
     {
         configName: "text",
@@ -110,7 +110,7 @@ const documentation = [
             },
             closeOnClick: {
                 defaultValue: false,
-                explanation: `Gets values which Is either "true" or "false". If It's true the button will be closed.`
+                explanation: "Gets values which Is either 'true' or 'false'. If It's true the button will be closed."
             }
         }
     },
@@ -155,7 +155,7 @@ const documentation = [
             },
             closeOnClick: {
                 defaultValue: false,
-                explanation: `Gets values which Is either "true" or "false". If It's true the button will be closed.`
+                explanation: "Gets values which Is either 'true' or 'false'. If It's true the button will be closed."
             }
         }
     },
@@ -170,9 +170,9 @@ const documentation = [
                     bgColor: "#d23",
                     borderColor: "#d23",
                     textColor: "#fff",
-                    text: "Deny", //
-                    iconRight: "/path/to/icon", //
-                    iconLeft: "/path/to/icon", //
+                    text: "Deny",
+                    iconRight: "/path/to/icon",
+                    iconLeft: "/path/to/icon",
                     closeOnClick: false,
                 },
             },
@@ -202,7 +202,7 @@ const documentation = [
             },
             closeOnClick: {
                 defaultValue: true,
-                explanation: `Gets values which Is either "true" or "false". If It's true the button will be closed.`
+                explanation: "Gets values which Is either 'true' or 'false'. If It's true the button will be closed."
             }
         }
     },

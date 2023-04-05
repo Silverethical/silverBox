@@ -1,34 +1,48 @@
 /**
  * Replaces quoted text with a span element with class "document-string".
+ * Also Replaces the text inside quotes if its either true or false with class "document-boolean"
  * @param {string} explanation - The string to replace quoted text in.
  * @returns {string} The modified string with span elements.
  */
 function replaceQuotedTextWithSpan(explanation) {
     let insideQuote = false;
     let result = '';
+
     for (let i = 0; i < explanation.length; i++) {
-      // checks if the current character is a double quote
+        // If the current character is a double quote
         if (explanation[i] === '"') {
-      // if "insideQuote" is true then it means we have reached the end of a quoted text, so we add a closing span tag to "result".
+            // If we are already inside a quote, close the span tag
             if (insideQuote) {
-                result += '"</span>';
-            } 
-       // If "insideQuote" is false, then we are starting a new quoted text, so we add an opening span tag with class "document-string" to "result".
-            else {
-                result += '<span class="document-string">"';
+                result += '</span>';
             }
-       // We toggle the value of "insideQuote" to indicate whether we are currently inside or outside of a quoted text.
+            // Otherwise, open a new span tag with class "document-string"
+            else {
+                result += '<span class="document-string">';
+            }
+            // Toggle the value of insideQuote
             insideQuote = !insideQuote;
-        } 
-       // If the current character is not a double quote, then we simply add it to "result". 
-         else {
+        }
+        // If we are currently inside a quote and the next few characters are "true" or "false"
+        else if (insideQuote && (explanation.slice(i, i + 4) === 'true' || explanation.slice(i, i + 5) === 'false')) {
+            // Get the boolean value as a string ("true" or "false")
+            const booleanValue = explanation.slice(i, i + 4) === 'true' ? 'true' : 'false';
+            // Add a new span tag with class "document-boolean" and insert the boolean value as text content
+            result += `<span class="document-boolean">${booleanValue}</span>`;
+            // Increment i by the length of the boolean value minus one to skip over it in the next iteration of the loop
+            i += booleanValue.length - 1;
+        }
+        // If none of the above conditions are met, simply add the current character to result
+        else {
             result += explanation[i];
         }
     }
-    // if there are any unclosed quotes by checking if "insideQuote" is still true. If it is, then we add a closing span tag to "result". 
+
+    // If we are still inside a quote at the end of the loop, close the span tag
     if (insideQuote) {
         result += '</span>';
     }
+
+    // Return the modified string
     return result;
 }
 export default replaceQuotedTextWithSpan
