@@ -1,3 +1,4 @@
+import replaceQuotedTextWithSpan from "../helpers/replaceQuotedTextWithSpan"
 /**
  * Returns tableRow element based on given arguments from documentation config
  * @param {string} documentArgument - documentation object configName key's value
@@ -17,10 +18,10 @@ function renderDocumentation({ documentArgument, documentExplanation, documentCo
     docArgumentColumn.id = documentArgument
     docArgumentColumn.setAttribute("href", "#" + documentArgument)
 
-    // explanation column 
     const docExplanationColumn = document.createElement("div")
     docExplanationColumn.classList.add("tableColumn", "document-explanation")
-    docExplanationColumn.textContent = documentExplanation
+    docExplanationColumn.innerHTML = replaceQuotedTextWithSpan(documentExplanation)
+
 
     // default value column
     const docDefaultValueColumn = document.createElement("div")
@@ -49,7 +50,7 @@ function renderDocumentation({ documentArgument, documentExplanation, documentCo
 
     // create documentConfig
     const pre = document.createElement('pre')
-    pre.classList.add("tableColumn","silverBox-document-code")
+    pre.classList.add("tableColumn", "silverBox-document-code")
     const code = document.createElement('code')
     code.textContent = documentCode
     // if there is a value of config in objects

@@ -2,12 +2,12 @@ const documentation = [
     {
         configName: "alertIcon",
         defaultValue: "",
-        explanation: "Displays Icons according to given values from following list: 'success', 'error', 'warning', 'info', 'question'.",
+        explanation: `Displays Icons according to given values from following list: "success", "error", "warning", "info", "question".`,
     },
     {
         configName: "userIcon",
         defaultValue: "",
-        explanation: "Path to user's Icon.For example userIcon: '../src/images/image.png'; .",
+        explanation: `Path to user's Icon.For example userIcon: "../src/images/image.png"; .`,
     },
     {
         configName: "timer",
@@ -17,12 +17,12 @@ const documentation = [
     {
         configName: "position",
         defaultValue: "",
-        explanation: "Positions the box according to given values from following list: 'top-right', 'top-center', 'top-left', 'bottom-right', 'bottom-center', 'bottom-left'."
+        explanation: `Positions the box according to given values from following list: "top-right", "top-center", "top-left", "bottom-right", "bottom-center", "bottom-left".`
     },
     {
         configName: "theme",
         defaultValue: "light",
-        explanation: "Changes the box theme according to given value from following list: 'light', 'dark'."
+        explanation: `Changes the box theme according to given value from following list: "light", "dark".`
     },
     {
         configName: "title",
@@ -32,7 +32,7 @@ const documentation = [
     {
         configName: "centerContent",
         defaultValue: false,
-        explanation: "Positions the contents based on given value which Is either 'true' or 'false'. If true Is given as the value, all content will be centered."
+        explanation: `Positions the contents based on given value which Is either "true" or "false". If true Is given as the value, all content will be centered.`
     },
     {
         configName: "html",
@@ -52,22 +52,22 @@ const documentation = [
     {
         configName: "showCloseButton",
         defaultValue: false,
-        explanation: "Shows the close button at top of the box based on given value which Is either 'true' or 'false'. If true Is given as the value, the button will be shown."
+        explanation: `Shows the close button at top of the box based on given value which Is either "true" or "false". If true Is given as the value, the button will be shown.`
     },
     {
         configName: "showConfirmButton",
         defaultValue: true,
-        explanation: "If the value is 'true' the button will be created, If the value Is 'false', the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not."
+        explanation: `If the value is "true" the button will be created, If the value Is "false", the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not.`
     },
     {
         configName: "showDenyButton",
         defaultValue: false,
-        explanation: "If the value is 'true' the button will be created, If the value Is 'false', the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not."
+        explanation: `If the value is "true" the button will be created, If the value Is "false", the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not.`
     },
     {
         configName: "showCancelButton",
         defaultValue: true,
-        explanation: "If the value is 'true' the button will be created, If the value Is 'false', the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not."
+        explanation: `If the value is "true" the button will be created, If the value Is "false", the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not.`
     },
     {
         configName: "confirmButton",
@@ -110,7 +110,7 @@ const documentation = [
             },
             closeOnClick: {
                 defaultValue: false,
-                explanation: "Gets values which Is either 'true' or 'false'. If It's true the button will be closed."
+                explanation: `Gets values which Is either "true" or "false". If It's true the button will be closed.`
             }
         }
     },
@@ -155,7 +155,7 @@ const documentation = [
             },
             closeOnClick: {
                 defaultValue: false,
-                explanation: "Gets values which Is either 'true' or 'false'. If It's true the button will be closed."
+                explanation: `Gets values which Is either "true" or "false". If It's true the button will be closed.`
             }
         }
     },
@@ -202,7 +202,7 @@ const documentation = [
             },
             closeOnClick: {
                 defaultValue: true,
-                explanation: "Gets values which Is either 'true' or 'false'. If It's true the button will be closed."
+                explanation: `Gets values which Is either "true" or "false". If It's true the button will be closed.`
             }
         }
     },
@@ -229,7 +229,7 @@ const documentation = [
             },
             readOnly: {
                 defaultValue: false,
-                explanation: "Gets a value of either 'true' or 'false' and sets it as the input attribute.",
+                explanation: `Gets a value of either "true" or "false" and sets it as the input attribute.`,
             },
             inputWidth: {
                 defaultValue: "100%",
@@ -245,7 +245,7 @@ const documentation = [
             },
             textAlign: {
                 defaultValue: "start",
-                explanation: "Gets a value from the following list and puts It as the Inputs text-align value: 'start', 'center', 'end'."
+                explanation: `Gets a value from the following list and puts It as the Inputs text-align value: "start", "center", "end".`
             },
             fontSize: {
                 defaultValue: "14px",
