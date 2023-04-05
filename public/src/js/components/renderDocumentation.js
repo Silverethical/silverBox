@@ -12,21 +12,40 @@ function renderDocumentation({ documentArgument, documentExplanation, documentCo
 
     // argument column
     const docArgumentColumn = document.createElement("a")
-    docArgumentColumn.classList.add("tableColumn")
+    docArgumentColumn.classList.add("tableColumn", "document-argument")
     docArgumentColumn.textContent = documentArgument
     docArgumentColumn.id = documentArgument
     docArgumentColumn.setAttribute("href", "#" + documentArgument)
-    docArgumentColumn.classList.add("document-argument")
 
     // explanation column 
     const docExplanationColumn = document.createElement("div")
-    docExplanationColumn.classList.add("tableColumn")
+    docExplanationColumn.classList.add("tableColumn", "document-explanation")
     docExplanationColumn.textContent = documentExplanation
 
     // default value column
     const docDefaultValueColumn = document.createElement("div")
     docDefaultValueColumn.classList.add("tableColumn")
     docDefaultValueColumn.textContent = documentDefaultValue
+    // if type of the default value is string this code will be executed
+    if (typeof documentDefaultValue === "string") {
+        // if the string is empty this code will be executed
+        if (documentDefaultValue === "") {
+            docDefaultValueColumn.classList.add("document-string")
+            docDefaultValueColumn.textContent = '" "'
+        } else {
+            docDefaultValueColumn.textContent = `"${documentDefaultValue}"`
+            docDefaultValueColumn.classList.add("document-string")
+        }
+    }
+    // if type of the default value is boolean this code will be executed
+    else if (typeof documentDefaultValue === "boolean") {
+        docDefaultValueColumn.classList.add("document-boolean")
+    } 
+    // if type of the default value is object this code will be executed
+    else if (typeof documentDefaultValue === "undefined") {
+        docDefaultValueColumn.classList.add("document-undefined")
+        docDefaultValueColumn.textContent = `${documentDefaultValue}`
+    } 
 
     // create documentConfig
     const pre = document.createElement('pre')
@@ -34,10 +53,8 @@ function renderDocumentation({ documentArgument, documentExplanation, documentCo
     const code = document.createElement('code')
     code.textContent = documentCode
     // if there is a value of config in objects
-    if (documentCode) {
-        pre.append(code)
-        tableRow.classList.add("document-has-config")
-    }
+    if (documentCode) pre.append(code)
+
 
     // adds columns to tableRow
 
