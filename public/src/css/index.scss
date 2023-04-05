@@ -48,6 +48,12 @@ html {
         --blue-500: #00b4d8;
         --blue-700: #0077b6;
         --blue-900: #03045e;
+
+        // documentation
+        --document-string: #0ce60c;
+        --document-boolean: #a0a003;
+        --document-explanation: #ff0000;
+        --document-undefined: #0476bd;
     }
 
     &[data-theme="dark"] {
@@ -72,6 +78,12 @@ html {
         --blue-500: #00b4d8;
         --blue-700: #0077b6;
         --blue-900: #03045e;
+
+        // documentation
+        --document-string: #005f00;
+        --document-boolean: #6a6a01;
+        --document-explanation: #ff0000;
+        --document-undefined: #bd04bd;
     }
 }
 
@@ -375,11 +387,6 @@ code {
                     grid-template-columns: 2fr 1fr 4fr;
                     column-gap: 10px;
 
-                    &.document-has-config {
-                        // grid-template-columns: 1fr 1fr;
-                        // grid-template-rows: 2fr;
-                    }
-
                     .tableColumn {
                         padding: 20px;
                         overflow-x: hidden;
@@ -390,9 +397,22 @@ code {
                             color: #3c6e71;
                             font-size: 18px;
                         }
+                        &.document-string {
+                            color: var(--document-string);
+                        }
+                        &.document-boolean {
+                            color: var(--document-boolean);
+                        }
+                        &.document-explanation {
+                            color: var(--document-explanation);
+                        }
+                        &.document-undefined {
+                            color: var(--document-undefined);
+                        }
                     }
                     .tableHeaderColumn {
                         color: var(--gray-500) !important;
+                        min-width: max-content;
                     }
                 }
 
