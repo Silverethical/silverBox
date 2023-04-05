@@ -13,11 +13,11 @@ function replaceQuotedTextWithSpan(explanation) {
         if (explanation[i] === '"') {
             // If we are already inside a quote, close the span tag
             if (insideQuote) {
-                result += '"</span>';
+                result += '</span>';
             }
             // Otherwise, open a new span tag with class "document-string"
             else {
-                result += '<span class="document-string">"';
+                result += '<span class="document-string">';
             }
             // Toggle the value of insideQuote
             insideQuote = !insideQuote;
