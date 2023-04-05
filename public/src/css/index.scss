@@ -390,6 +390,18 @@ code {
                         display: grid;
                         grid-template-columns: 2fr 1fr 4fr;
                     }
+                    .document-string {
+                        color: var(--document-string);
+                    }
+                    .document-boolean {
+                        color: var(--document-boolean);
+                    }
+                    .document-explanation {
+                        color: var(--document-explanation);
+                    }
+                    .document-undefined {
+                        color: var(--document-undefined);
+                    }
                     .tableColumn {
                         padding: 20px;
                         overflow-x: hidden;
@@ -402,21 +414,6 @@ code {
                             font-style: italic;
                             color: #3c6e71;
                             font-size: 18px;
-                        }
-                        &.document-string {
-                            color: var(--document-string);
-                        }
-                        .document-string {
-                            color: var(--document-string);
-                        }
-                        &.document-boolean {
-                            color: var(--document-boolean);
-                        }
-                        &.document-explanation {
-                            color: var(--document-explanation);
-                        }
-                        &.document-undefined {
-                            color: var(--document-undefined);
                         }
                     }
                     .tableHeaderColumn {
