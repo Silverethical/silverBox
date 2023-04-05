@@ -18,9 +18,7 @@
     --hamburger-bar-width: 20px;
     --hamburger-bar-height: 3px;
     --hamburger-gap: 3px;
-    --hamburger-height: calc(
-        (var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
-    );
+    --hamburger-height: calc((var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2));
 }
 
 html {
@@ -50,10 +48,10 @@ html {
         --blue-900: #03045e;
 
         // documentation
-        --document-string: #0ce60c;
-        --document-boolean: #a0a003;
-        --document-explanation: #ff0000;
-        --document-undefined: #0476bd;
+        --document-string: #367E18;
+        --document-boolean: #11144C;
+        --document-explanation: #FC2947;
+        --document-undefined: #70A1D7;
     }
 
     &[data-theme="dark"] {
@@ -94,6 +92,7 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
+
     // hide horizontal overflow
     body {
         overflow-x: hidden;
@@ -148,7 +147,7 @@ code {
 
                     //  the last navBar item
                     &[href="#documentationSection"] {
-                        > li {
+                        >li {
                             position: relative;
 
                             &::after {
@@ -195,8 +194,7 @@ code {
                                     border-left: 3px solid var(--white-in-white);
 
                                     &:hover {
-                                        border-left: 3px solid
-                                            var(--primary-700);
+                                        border-left: 3px solid var(--primary-700);
                                     }
 
                                     a {
@@ -248,9 +246,10 @@ code {
             }
 
             .hamburger-menu {
+
                 &::before,
                 &::after,
-                > input {
+                >input {
                     background-color: var(--gray-400);
                 }
             }
@@ -269,7 +268,7 @@ code {
 
             &::before,
             &::after,
-            > input {
+            >input {
                 content: "";
                 width: var(--hamburger-bar-width);
                 height: var(--hamburger-bar-height);
@@ -279,7 +278,7 @@ code {
                 transition: all 500ms ease-in-out;
             }
 
-            > input {
+            >input {
                 appearance: none;
                 -webkit-appearance: none;
                 padding: 0;
@@ -386,22 +385,28 @@ code {
                     display: grid;
                     grid-template-columns: 2fr 1fr 4fr;
                     column-gap: 10px;
+
                     &.silverBox-document-has-config {
                         display: grid;
                         grid-template-columns: 2fr 1fr 4fr;
                     }
+
                     .document-string {
                         color: var(--document-string);
                     }
+
                     .document-boolean {
                         color: var(--document-boolean);
                     }
+
                     .document-explanation {
                         color: var(--document-explanation);
                     }
+
                     .document-undefined {
                         color: var(--document-undefined);
                     }
+
                     .tableColumn {
                         padding: 20px;
                         overflow-x: hidden;
@@ -409,6 +414,7 @@ code {
                         &.silverBox-document-code {
                             grid-column: 1 / 4;
                         }
+
                         &.document-argument {
                             font-weight: 700;
                             font-style: italic;
@@ -416,6 +422,7 @@ code {
                             font-size: 18px;
                         }
                     }
+
                     .tableHeaderColumn {
                         color: var(--gray-500) !important;
                         min-width: max-content;
