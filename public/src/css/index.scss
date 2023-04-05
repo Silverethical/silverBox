@@ -386,11 +386,17 @@ code {
                     display: grid;
                     grid-template-columns: 2fr 1fr 4fr;
                     column-gap: 10px;
-
+                    &.silverBox-document-has-config {
+                        display: grid;
+                        grid-template-columns: 2fr 1fr 4fr;
+                    }
                     .tableColumn {
                         padding: 20px;
                         overflow-x: hidden;
 
+                        &.silverBox-document-code {
+                            grid-column: 1 / 4;
+                        }
                         &.document-argument {
                             font-weight: 700;
                             font-style: italic;

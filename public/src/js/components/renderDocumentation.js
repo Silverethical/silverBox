@@ -40,16 +40,16 @@ function renderDocumentation({ documentArgument, documentExplanation, documentCo
     // if type of the default value is boolean this code will be executed
     else if (typeof documentDefaultValue === "boolean") {
         docDefaultValueColumn.classList.add("document-boolean")
-    } 
+    }
     // if type of the default value is object this code will be executed
     else if (typeof documentDefaultValue === "undefined") {
         docDefaultValueColumn.classList.add("document-undefined")
         docDefaultValueColumn.textContent = `${documentDefaultValue}`
-    } 
+    }
 
     // create documentConfig
     const pre = document.createElement('pre')
-    pre.classList.add("tableColumn")
+    pre.classList.add("tableColumn","silverBox-document-code")
     const code = document.createElement('code')
     code.textContent = documentCode
     // if there is a value of config in objects
@@ -63,9 +63,12 @@ function renderDocumentation({ documentArgument, documentExplanation, documentCo
     // explanation column
     tableRow.append(docDefaultValueColumn)
     // if there is no documentCode argument given
-    if (!documentCode) tableRow.append(docExplanationColumn)
+    tableRow.append(docExplanationColumn)
     // config column
-    if (documentCode) tableRow.append(pre)
+    if (documentCode) {
+        tableRow.append(pre)
+        tableRow.classList.add("silverBox-document-has-config")
+    }
 
     // returns table wrapper
 

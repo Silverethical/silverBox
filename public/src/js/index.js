@@ -171,6 +171,7 @@ documentation.forEach(documentConfig => {
 		newDocument = renderDocumentation({
 			documentArgument: documentConfig.configName,
 			documentCode: customStringify(documentConfig.config),
+			documentExplanation: documentConfig.explanation,
 			documentDefaultValue: documentConfig.defaultValue
 		})
 	}

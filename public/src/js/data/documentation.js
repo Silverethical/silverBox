@@ -72,8 +72,8 @@ const documentation = [
     {
         configName: "confirmButton",
         defaultValue: "shown",
+        explanation: "Gets a config like confirmButton: {} and creates The button based on given keys",
         config: {
-            explanation: "Gets a config like confirmButton: {} and creates The button based on given keys",
             example: {
                 showButton: false,
                 bgColor: "#3085d6",//
@@ -117,8 +117,8 @@ const documentation = [
     {
         configName: "cancelButton",
         defaultValue: "shown",
+        explanation: "Gets a config like cancelButton: {} and creates The button based on given keys",
         config: {
-            explanation: "Gets a config like cancelButton: {} and creates The button based on given keys",
             example: {
                 showButton: false,
                 bgColor: "#fff",
@@ -162,8 +162,8 @@ const documentation = [
     {
         configName: "denyButton",
         defaultValue: "hidden",
+        explanation: "Gets a config like denyButton: {} and creates The button based on given keys",
         config: {
-            explanation: "Gets a config like denyButton: {} and creates The button based on given keys",
             example: {
                 denyButton: {
                     showButton: false,
@@ -209,9 +209,9 @@ const documentation = [
     {
         configName: "input",
         defaultValue: "",
+        explanation: "Creates an Input based on given config Inside input: {}. The value can also be given as objects Inside of an array.",
         config: {
             label: {
-                explanation: "Creates an Input based on given config Inside input: {}. The value can also be given as objects Inside of an array.",
                 defaultValue: "",
                 explanation: "Gets a value and puts It as the Input's label name.",
             },
