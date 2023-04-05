@@ -48,10 +48,11 @@ html {
         --blue-900: #03045e;
 
         // documentation
-        --document-string: #367E18;
-        --document-boolean: #11144C;
-        --document-explanation: #FC2947;
-        --document-undefined: #70A1D7;
+        --document-argument: #E0144C;
+        --document-string: #2d6714;
+        --document-boolean: #7149C6;
+        --document-explanation: #001253;
+        --document-undefined: #850000;
     }
 
     &[data-theme="dark"] {
@@ -78,6 +79,7 @@ html {
         --blue-900: #03045e;
 
         // documentation
+        --document-argument: #E0144C;
         --document-string: #005f00;
         --document-boolean: #6a6a01;
         --document-explanation: #ff0000;
@@ -418,7 +420,7 @@ code {
                         &.document-argument {
                             font-weight: 700;
                             font-style: italic;
-                            color: #3c6e71;
+                            color: var(--document-argument);
                             font-size: 18px;
                         }
                     }
