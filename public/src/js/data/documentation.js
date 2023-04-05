@@ -7,7 +7,7 @@ const documentation = [
     {
         configName: "userIcon",
         defaultValue: "",
-        explanation: `Path to user's Icon.For example userIcon: "../src/images/image.png"; .`,
+        explanation: `Path to user's Icon. For example userIcon: "path/to/icon"; .`,
     },
     {
         configName: "timer",
@@ -229,7 +229,7 @@ const documentation = [
             },
             readOnly: {
                 defaultValue: false,
-                explanation: `Gets a value of either "true" or "false" and sets it as the input attribute.`,
+                explanation: "Gets a value of either 'true' or 'false' and sets it as the input attribute.",
             },
             inputWidth: {
                 defaultValue: "100%",
@@ -245,7 +245,7 @@ const documentation = [
             },
             textAlign: {
                 defaultValue: "start",
-                explanation: `Gets a value from the following list and puts It as the Inputs text-align value: "start", "center", "end".`
+                explanation: "Gets a value from the following list and puts It as the Inputs text-align value: 'start', 'center', 'end' ."
             },
             fontSize: {
                 defaultValue: "14px",

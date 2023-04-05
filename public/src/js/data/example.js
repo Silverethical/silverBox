@@ -19,7 +19,7 @@ const examples = [
         }
     },
     {
-        explanation: "An modal with an error message which you can use to inform the user about their outcome of the operation and will be lead out of the situation.",
+        explanation: "A modal with an error message which you can use to inform the user about their outcome of the operation and will be lead out of the situation.",
         config: {
             theme: "light",
             alertIcon: "error",
