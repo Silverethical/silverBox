@@ -362,16 +362,20 @@ code {
                 gap: 0 20px;
 
                 .exampleColumn {
-
                     &:first-of-type {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
                         text-align: left;
                     }
+
+                    &:last-of-type {
+                        justify-self: end;
+                    }
                 }
 
                 .exampleConfig {
+                    min-width: 500px;
                     max-width: 500px;
                 }
             }
