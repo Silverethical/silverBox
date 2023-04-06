@@ -32,19 +32,20 @@
         --silverBox-label-color: #1d2939;
         --silverBox-hint-color: #101828;
         // footer
-        --solverBox-hr-line-color: #bbbbbb;
+        --silverBox-hr-line-color: #bbbbbb;
+        --silverBox-footer-color: #474747;
     }
 
     &[data-theme="dark"] {
         // silverBox overlay
-        --silverBox-overlay-background: #d0d5ddac;
+        --silverBox-overlay-background: #191919c7;
         // silverBox 
-        --silverBox-background-color: white;
+        --silverBox-background-color: #1f2637;
         --silverBox-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        --silverBox-border: 1px solid #fff;
+        --silverBox-border: 1px solid #171E2E;
         // header
-        --silverBox-title-color: #000;
-        --silverBox-text-color: #475467;
+        --silverBox-title-color: #fff;
+        --silverBox-text-color: #9fa3ad;
         // confirm button
         --silverBox-confirm-color: #fff;
         --silverBox-confirm-bg-color: #7f56d9;
@@ -61,12 +62,15 @@
         --silverBox-cancel-border-color: #d0d5dd;
         --silverBox-cancel-hover-color: #838383;
         // inputs
-        --silverBox-input-border-color: #d0d5dd;
-        --silverBox-input-background: #667085;
-        --silverBox-input-color: #000;
-        --silverBox-input-placeHolder-color: #475467;
-        --silverBox-label-color: #1d2939;
-        --silverBox-hint-color: #101828;
+        --silverBox-input-border-color: #39363f;
+        --silverBox-input-background: #515864;
+        --silverBox-input-color: #fff;
+        --silverBox-input-placeHolder-color: #A1A4A9;
+        --silverBox-label-color: #fff;
+        --silverBox-hint-color: #fff;
+        // footer 
+        --silverBox-hr-line-color: #bbbbbb;
+        --silverBox-footer-color: #A1A4A9;
     }
 
     // font sizes

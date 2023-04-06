@@ -1,7 +1,11 @@
-footer{
-    hr{
+footer {
+    a {
+        color: var(--silverBox-footer-color);
+    }
+
+    hr {
         margin: 20px 0 10px;
-        background-color: var(--solverBox-hr-line-color);
+        background-color: var(--silverBox-hr-line-color);
         border: none;
         height: 1px;
     }
