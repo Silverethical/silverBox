@@ -64,9 +64,24 @@ const examples = [
         explanation: "An auto close modal with a custom time to notify user with a custom message in a period of time.",
         config: {
             timer: 1500,
-            userIcon: 'https://cdn-icons-png.flaticon.com/128/8928/8928656.png',
+            userIcon: '//cdn-icons-png.flaticon.com/128/8928/8928656.png',
             theme: "light",
-            text: "You are so cute UwU",
+            title: "You are so cute",
+            centerContent: true,
+
+            confirmButton: {
+                showButton: false,
+            }
+
+        }
+    },
+    {
+        explanation: "A dark theme pop-up message. (you can also change the theme of the modal you want to light/dark) ",
+        config: {
+            timer: 1500,
+            userIcon: '//freepngimg.com/thumb/star_wars/98619-baby-yoda-download-free-image.png',
+            theme: "dark",
+            title: "You are not cute at all.",
             centerContent: true,
 
             confirmButton: {
