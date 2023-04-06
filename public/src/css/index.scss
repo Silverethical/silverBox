@@ -198,10 +198,6 @@ code {
                                     &:hover {
                                         border-left: 3px solid var(--primary-700);
                                     }
-
-                                    a {
-                                        font-size: 14px;
-                                    }
                                 }
                             }
                         }
@@ -366,11 +362,17 @@ code {
                 gap: 0 20px;
 
                 .exampleColumn {
+
                     &:first-of-type {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
+                        text-align: left;
                     }
+                }
+
+                .exampleConfig {
+                    max-width: 500px;
                 }
             }
         }
