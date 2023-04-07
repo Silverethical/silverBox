@@ -1,116 +1,116 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="stylesheet"
-            href="/src/css/libraries/highlightJS/atom-one-dark-reasonable.min.css"
-        />
-        <link rel="icon" href="src/images/silverBox-TransParent.png" />
-        <link rel="stylesheet" href="/dist/css/index.css" />
-        <title>SilverBox</title>
-    </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="/dist/css/libraries/highlightJS/atom-one-dark-reasonable.min.css"
+		/>
+		<link rel="icon" href="src/images/silverBox-TransParent.png" />
+		<link rel="stylesheet" href="/dist/css/index.css" />
+		<title>SilverBox</title>
+	</head>
 
-    <body>
-        <div class="container">
-            <aside class="sidebar show-sidebar">
-                <!-- nav -->
-                <nav>
-                    <ul>
-                        <a class="navigationTitle">
-                            <li>Navigation Menu</li>
-                        </a>
-                        <a href="#heroSection">
-                            <li>Why SilverBox?</li>
-                        </a>
-                        <a href="#exampleSection">
-                            <li>Example</li>
-                        </a>
-                        <a href="#usageSection">
-                            <li>Usage</li>
-                        </a>
-                        <a href="#documentationSection">
-                            <li>Documentation</li>
-                        </a>
-                    </ul>
-                </nav>
+	<body>
+		<div class="container">
+			<aside class="sidebar show-sidebar">
+				<!-- nav -->
+				<nav>
+					<ul>
+						<a class="navigationTitle">
+							<li>Navigation Menu</li>
+						</a>
+						<a href="#heroSection">
+							<li>Why SilverBox?</li>
+						</a>
+						<a href="#exampleSection">
+							<li>Example</li>
+						</a>
+						<a href="#usageSection">
+							<li>Usage</li>
+						</a>
+						<a href="#documentationSection">
+							<li>Documentation</li>
+						</a>
+					</ul>
+				</nav>
 
-                <!-- hamburger icon -->
-                <label class="hamburger-menu show-x">
-                    <input checked type="checkbox" />
-                </label>
-            </aside>
+				<!-- hamburger icon -->
+				<label class="hamburger-menu show-x">
+					<input checked type="checkbox" />
+				</label>
+			</aside>
 
-            <!-- main -->
-            <main>
-                <!-- hero section -->
-                <section id="heroSection">
-                    <h2 class="tagline">
-                        Simplifying complexity, empowering creativity
-                    </h2>
+			<!-- main -->
+			<main>
+				<!-- hero section -->
+				<section id="heroSection">
+					<h2 class="tagline">
+						Simplifying complexity, empowering creativity
+					</h2>
 
-                    <div class="whySilverBox">
-                        <div class="introduction">
-                            A customizable, user-friendly JavaScript modal
-                            library that simplifies the creation of modals based
-                            on specific configurations, catering to developers
-                            of all skill levels. With
-                            <span id="silverBox-name-tag">SilverBox</span>,
-                            create modals hassle-free, enhance the user
-                            experience, and streamline development work.
-                        </div>
-                        <img src="src/images/silverBoxHeroSection.png" alt="" />
-                    </div>
-                </section>
+					<div class="whySilverBox">
+						<div class="introduction">
+							A customizable, user-friendly JavaScript modal
+							library that simplifies the creation of modals based
+							on specific configurations, catering to developers
+							of all skill levels. With
+							<span id="silverBox-name-tag">SilverBox</span>,
+							create modals hassle-free, enhance the user
+							experience, and streamline development work.
+						</div>
+						<img src="src/images/silverBoxHeroSection.png" alt="" />
+					</div>
+				</section>
 
-                <!-- example -->
-                <section id="exampleSection">
-                    <h2 class="sectionHeader">Example</h2>
-                </section>
+				<!-- example -->
+				<section id="exampleSection">
+					<h2 class="sectionHeader">Example</h2>
+				</section>
 
-                <!-- usage -->
-                <section id="usageSection">
-                    <h2 class="sectionHeader">Usage</h2>
-                </section>
+				<!-- usage -->
+				<section id="usageSection">
+					<h2 class="sectionHeader">Usage</h2>
+				</section>
 
-                <!-- documentation -->
-                <section id="documentationSection">
-                    <h2 class="sectionHeader">Documentation</h2>
+				<!-- documentation -->
+				<section id="documentationSection">
+					<h2 class="sectionHeader">Documentation</h2>
 
-                    <div class="tableWrapper">
-                        <div class="tableRow tableRowHeader">
-                            <div class="tableColumn tableHeaderColumn">
-                                Argument
-                            </div>
-                            <div class="tableColumn tableHeaderColumn">
-                                Default Value
-                            </div>
-                            <div class="tableColumn tableHeaderColumn">
-                                Explanation
-                            </div>
-                        </div>
-                    </div>
-                </section>
+					<div class="tableWrapper">
+						<div class="tableRow tableRowHeader">
+							<div class="tableColumn tableHeaderColumn">
+								Argument
+							</div>
+							<div class="tableColumn tableHeaderColumn">
+								Default Value
+							</div>
+							<div class="tableColumn tableHeaderColumn">
+								Explanation
+							</div>
+						</div>
+					</div>
+				</section>
 
-                <!-- team -->
-                <section id="theTeamSection">
-                    <h2 class="sectionHeader">The Team</h2>
+				<!-- credits -->
+				<section id="theCreditsSection" class="hidden">
+					<h2 class="sectionHeader">Credits</h2>
 
-                    <!-- team members -->
-                    <div class="teamMembers"></div>
-                </section>
+					<!-- team members -->
+					<div class="teamMembers"></div>
+				</section>
 
-                <!-- footer -->
-                <footer>footer</footer>
-            </main>
-        </div>
+				<!-- footer -->
+				<footer>footer</footer>
+			</main>
+		</div>
 
-        <script src="/src/js/libraries/highlightJS/highlight.min.js"></script>
-        <script>
-            hljs.highlightAll();
-        </script>
-        <script src="/dist/js/index.js"></script>
-    </body>
+		<script src="/dist/js/libraries/highlightJS/highlight.min.js"></script>
+		<script>
+			hljs.highlightAll();
+		</script>
+		<script src="/dist/js/index.js"></script>
+	</body>
 </html>

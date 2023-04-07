@@ -6,9 +6,10 @@ import getTeamMembersInfo from "./getTeamMembersInfo";
  */
 async function renderTeamMembers(teamMembers) {
 	// Select the parent element where team members will be added.
-	const teamMembersParent = document.querySelector(
-		"#theTeamSection .teamMembers"
-	);
+	const teamSection = document.querySelector("#theCreditsSection"),
+		teamMembersParent = document.querySelector(
+			"#theCreditsSection .teamMembers"
+		);
 
 	// Iterate over each team member object and create the necessary elements to display their information.
 	for (const teamMember of teamMembers) {
@@ -16,10 +17,15 @@ async function renderTeamMembers(teamMembers) {
 		const { githubUsername, position, showName } = teamMember;
 
 		// Destructure the properties we need from their GitHub profile.
-		const { login, avatar_url, name } = await getTeamMembersInfo(githubUsername);
+		const { login, avatar_url, name } = await getTeamMembersInfo(
+			githubUsername
+		);
 
 		// if user exists
 		if (login) {
+			if (teamSection.classList.contains("hidden"))
+				teamSection.classList.remove("hidden");
+
 			// Create a new anchor element to hold the team member information.
 			const newTeamMember = document.createElement("a");
 			newTeamMember.classList.add("teamMember");
@@ -28,7 +34,7 @@ async function renderTeamMembers(teamMembers) {
 
 			// Use template literals to create the HTML structure of the team member information.
 			newTeamMember.innerHTML = `
-				  <img class="memberImage" src="${avatar_url}">
+				  ${ avatar_url ? `<img class="memberImage" src="${avatar_url}">` : '' }
 				  <div class="memberInfo">
 					  <p class="memberName">${showName ? name : githubUsername}</p>
 					  <p class="memberPosition">${position}</p>
