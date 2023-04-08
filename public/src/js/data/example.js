@@ -102,8 +102,6 @@ const examples = [
             showCloseButton: true,
 
             confirmButton: {
-                bgColor: "#3085d6",
-                borderColor: "#3085d6",
                 textColor: "#fff",
                 text: "Confirm",
                 iconRight: "../src/images/anya.png",
@@ -111,8 +109,6 @@ const examples = [
                 closeOnClick: false,
             },
             cancelButton: {
-                bgColor: "#fff",
-                borderColor: "#000",
                 textColor: "#000",
                 text: "Cancel",
                 iconRight: "/path/to/icon",
