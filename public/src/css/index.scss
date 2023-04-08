@@ -18,9 +18,7 @@
 	--hamburger-bar-width: 20px;
 	--hamburger-bar-height: 3px;
 	--hamburger-gap: 3px;
-	--hamburger-height: calc(
-		(var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
-	);
+	--hamburger-height: calc((var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2));
 }
 
 html {
@@ -50,11 +48,11 @@ html {
 		--blue-900: #03045e;
 
 		// documentation
-		--document-argument: #e0144c;
+		--document-argument: #a42f4e;
 		--document-string: #2d6714;
 		--document-boolean: #7149c6;
 		--document-explanation: #001253;
-		--document-undefined: #850000;
+		--document-undefined: #aa9027;
 	}
 
 	&[data-theme="dark"] {
@@ -96,6 +94,7 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
+
 	// hide horizontal overflow
 	body {
 		overflow-x: hidden;
@@ -154,7 +153,7 @@ code {
 
 					//  the last navBar item
 					&[href="#documentationSection"] {
-						> li {
+						>li {
 							position: relative;
 
 							&::after {
@@ -201,8 +200,7 @@ code {
 									border-left: 3px solid var(--white-in-white);
 
 									&:hover {
-										border-left: 3px solid
-											var(--primary-700);
+										border-left: 3px solid var(--primary-700);
 									}
 								}
 							}
@@ -250,9 +248,10 @@ code {
 			}
 
 			.hamburger-menu {
+
 				&::before,
 				&::after,
-				> input {
+				>input {
 					background-color: var(--gray-400);
 				}
 			}
@@ -271,7 +270,7 @@ code {
 
 			&::before,
 			&::after,
-			> input {
+			>input {
 				content: "";
 				width: var(--hamburger-bar-width);
 				height: var(--hamburger-bar-height);
@@ -281,7 +280,7 @@ code {
 				transition: all 500ms ease-in-out;
 			}
 
-			> input {
+			>input {
 				appearance: none;
 				-webkit-appearance: none;
 				padding: 0;
