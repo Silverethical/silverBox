@@ -2,7 +2,7 @@
 import silverBoxbuttonComponen from "./components/button";
 import silverBoxinputComponent from "./components/input";
 import silverBoxmodalSample from "./components/modalSample";
-import headerComponent from "./components/header";
+import silverBoxheaderComponent from "./components/header";
 import silverBoxiconsComponent from "./components/icons";
 import silverBoxcloseButtonOnClick from "./components/closeButtonOnClick";
 import silverBoxfooterComponent from "./components/footer";
@@ -29,7 +29,7 @@ export default function silverBox(config) {
 		/** pushes header into the modal */
 
 		elementsArray.push(
-			headerComponent({
+			silverBoxheaderComponent({
 				titleText: config.title,
 				htmlText: config.html,
 				simpleText: config.text,
