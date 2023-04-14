@@ -5,9 +5,10 @@
  */
 function silverBoxfooterComponent({ footerInside }) {
     // creates footer
-    let footerEl = document.createElement("footer")
+    let footerEl = document.createElement("div")
     // creates footer inside div
     let footerInsideEl = document.createElement("div")
+    footerEl.classList.add("silverBox-footer")
     // creates hr line
     let line = document.createElement("hr")
     // adds given argument as HTML element to footerInsideEl
