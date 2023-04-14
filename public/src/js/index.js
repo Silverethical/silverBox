@@ -191,12 +191,7 @@ documentation.forEach((documentConfig) => {
 		// if the object has config key in it this code will be executed
 		newDocument = renderDocumentation({
 			documentArgument: documentConfig.configName,
-			documentCode: documentConfig.config.forEach(config => {
-				code = renderDocumentation({
-					documentArgument: config.configName, documentExplanation: config.explanation,
-					documentDefaultValue: config.defaultValue
-				})
-			}),
+			documentCode: customStringify(documentConfig.config),
 			documentExplanation: documentConfig.explanation,
 			documentDefaultValue: documentConfig.defaultValue,
 		});
