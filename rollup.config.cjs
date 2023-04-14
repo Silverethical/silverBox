@@ -31,4 +31,18 @@ module.exports = [
 		},
 		context: "window",
 	},
+	{
+		input: "./public/src/js/silverBox.js",
+		output: {
+			file: "./public/dist/js/silverBox.js",
+			format: "cjs", // CommonJS output
+			sourceMap: "inline",
+			plugins: [
+				babel({
+					exclude: "node_modules/**",
+				}),
+			],
+		},
+		context: "window",
+	},
 ];
