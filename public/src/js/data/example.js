@@ -173,7 +173,8 @@ const examples = [
 
             input: [
                 {
-                    type: "number",
+                    type: "text",
+                    numberOnly: true,
                     placeHolder: "0",
                     readOnly: false,
                     textAlign: 'center',
