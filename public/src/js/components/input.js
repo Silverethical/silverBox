@@ -13,7 +13,7 @@
  * @param {string} placeHolderFontSize - placeHolder fontSize of input
  * @returns {Element} - inputWrapper element
  */
-function silverBoxinputComponent({ type, placeHolder, readOnly, label, hint, width, height, inputMaxLength, textAlign, fontSize, placeHolderFontSize }) {
+function silverBoxInputComponent({ type, placeHolder, readOnly, label, hint, width, height, inputMaxLength, textAlign, fontSize, placeHolderFontSize }) {
 
 	if (type !== '') {
 		// changing the type case to lowerCase to avoid case conflict problem
@@ -77,5 +77,5 @@ function silverBoxinputComponent({ type, placeHolder, readOnly, label, hint, wid
 		return ''
 	}
 }
-export default silverBoxinputComponent
+export default silverBoxInputComponent
 

@@ -1,11 +1,11 @@
 // import components
-import silverBoxbuttonComponen from "./components/button";
-import silverBoxinputComponent from "./components/input";
-import silverBoxmodalSample from "./components/modalSample";
-import silverBoxheaderComponent from "./components/header";
-import silverBoxiconsComponent from "./components/icons";
-import silverBoxcloseButtonOnClick from "./components/closeButtonOnClick";
-import silverBoxfooterComponent from "./components/footer";
+import silverBoxButtonComponent from "./components/button";
+import silverBoxInputComponent from "./components/input";
+import silverBoxModalSample from "./components/modalSample";
+import silverBoxHeaderComponent from "./components/header";
+import silverBoxIconsComponent from "./components/icons";
+import silverBoxCloseButtonOnClick from "./components/closeButtonOnClick";
+import silverBoxFooterComponent from "./components/footer";
 
 const log = console.log;
 
@@ -29,11 +29,11 @@ export default function silverBox(config) {
 		/** pushes header into the modal */
 
 		elementsArray.push(
-			silverBoxheaderComponent({
+			silverBoxHeaderComponent({
 				titleText: config.title,
 				htmlText: config.html,
 				simpleText: config.text,
-				imageSource: silverBoxiconsComponent(config.alertIcon, config.userIcon, config.centerContent),
+				imageSource: silverBoxIconsComponent(config.alertIcon, config.userIcon, config.centerContent),
 				closeButton: config.showCloseButton,
 			})
 		);
@@ -60,12 +60,12 @@ export default function silverBox(config) {
 				if ("multiplyBy" in selector) {
 					// loops to creates the given number of inputs
 					for (let i = 1; i <= selector.multiplyBy; i++) {
-						inputWrapper.append(silverBoxinputComponent(inputConfig(selector)));
+						inputWrapper.append(silverBoxInputComponent(inputConfig(selector)));
 					}
 
 				}
 				else {
-					inputWrapper.append(silverBoxinputComponent(inputConfig(selector)));
+					inputWrapper.append(silverBoxInputComponent(inputConfig(selector)));
 
 				}
 			}
@@ -90,7 +90,7 @@ export default function silverBox(config) {
 			) {
 
 				buttonWrapper.append(
-					silverBoxbuttonComponen(config.cancelButton = {
+					silverBoxButtonComponent(config.cancelButton = {
 						text: "Cancel",
 						closeOnClick: true,
 					}, "silverBox-cancel-button")
@@ -100,7 +100,7 @@ export default function silverBox(config) {
 			else {
 				if (config.cancelButton.showButton !== false) {
 					buttonWrapper.append(
-						silverBoxbuttonComponen(config.cancelButton, "silverBox-cancel-button")
+						silverBoxButtonComponent(config.cancelButton, "silverBox-cancel-button")
 					);
 				}
 			}
@@ -119,7 +119,7 @@ export default function silverBox(config) {
 				) {
 					// default cancel button
 					buttonWrapper.append(
-						silverBoxbuttonComponen({
+						silverBoxButtonComponent({
 							text: "Cancel",
 							closeOnClick: true,
 						}, "silverBox-cancel-button")
@@ -131,7 +131,7 @@ export default function silverBox(config) {
 				// if the cancelButton config exists and showButton is not false
 				if (config.cancelButton.showButton !== false) {
 					buttonWrapper.append(
-						silverBoxbuttonComponen(config.cancelButton, "silverBox-cancel-button")
+						silverBoxButtonComponent(config.cancelButton, "silverBox-cancel-button")
 					);
 				}
 
@@ -147,7 +147,7 @@ export default function silverBox(config) {
 		// if there is deny button in config this code will be executed
 		if ("denyButton" in config && config.denyButton.showButton !== false) {
 			buttonWrapper.append(
-				silverBoxbuttonComponen(config.denyButton, 'silverBox-deny-button'))
+				silverBoxButtonComponent(config.denyButton, 'silverBox-deny-button'))
 		}
 
 		// confirm button
@@ -163,7 +163,7 @@ export default function silverBox(config) {
 			if (config.confirmButton.showButton !== false) {
 				// if there is confirm button in config and if the showButton is not false this code will be executed
 				buttonWrapper.append(
-					silverBoxbuttonComponen(config.confirmButton, 'silverBox-confirm-button')
+					silverBoxButtonComponent(config.confirmButton, 'silverBox-confirm-button')
 				);
 			}
 
@@ -174,7 +174,7 @@ export default function silverBox(config) {
 
 		// adds footer if it is inside the config and it exists
 		if (config.footer) {
-			elementsArray.push(silverBoxfooterComponent({
+			elementsArray.push(silverBoxFooterComponent({
 				footerInside: config.footer
 			}))
 		}
@@ -187,7 +187,7 @@ export default function silverBox(config) {
 		const modalSampleConfig = (className, isInputValue) => {
 			return (
 				bodyEl.append(
-					silverBoxmodalSample({
+					silverBoxModalSample({
 						elementsArray: elementsArray,
 						overlayClass: className,
 						isInput: isInputValue,
@@ -228,7 +228,7 @@ export default function silverBox(config) {
 		// checks if we have time config, true => the modal will be removed after the given time
 		if ("timer" in config) {
 			setTimeout(() => {
-				silverBoxcloseButtonOnClick();
+				silverBoxCloseButtonOnClick();
 			}, config.timer);
 		}
 

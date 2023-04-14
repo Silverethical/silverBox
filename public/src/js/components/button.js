@@ -1,5 +1,5 @@
-import closeButtonOnClick from "./closeButtonOnClick";
-import silverBoxloadingAnimation from "./loadingAnimation";
+import silverBoxCloseButtonOnClick from "./closeButtonOnClick";
+import silverBoxLoadingAnimation from "./loadingAnimation";
 
 /**
  *
@@ -8,7 +8,7 @@ import silverBoxloadingAnimation from "./loadingAnimation";
  * @param {string} elementUniqueClassList - button classList
  * @returns
  */
-function silverBoxbuttonComponent(buttonName, uniqClass) {
+function silverBoxButtonComponent(buttonName, uniqClass) {
 	// button
 	let button = document.createElement("button");
 	button.style.background = buttonName.bgColor;
@@ -22,7 +22,7 @@ function silverBoxbuttonComponent(buttonName, uniqClass) {
 
 	// if closeOnClick in config is true the code will be executed
 	if (buttonName.closeOnClick === true) {
-		button.onclick = closeButtonOnClick;
+		button.onclick = silverBoxCloseButtonOnClick;
 	}
 	// if closeOnClick in config is false the code will be executed
 	else {
@@ -45,7 +45,7 @@ function silverBoxbuttonComponent(buttonName, uniqClass) {
 	buttonTextSpan.classList.add("silverBox-button-text");
 	buttonTextSpan.textContent = buttonName.text;
 	button.appendChild(buttonTextSpan);
-	button.append(silverBoxloadingAnimation())
+	button.append(silverBoxLoadingAnimation())
 	// button right icon
 	if (buttonName.rightIcon) {
 		let buttonRightIcon = document.createElement("img");
@@ -56,4 +56,4 @@ function silverBoxbuttonComponent(buttonName, uniqClass) {
 	// appends everything into button
 	return button;
 }
-export default silverBoxbuttonComponent;
+export default silverBoxButtonComponent;

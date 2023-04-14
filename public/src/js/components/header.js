@@ -10,7 +10,7 @@ import silverBoxcloseButtonOnClick from "./closeButtonOnClick"
  * @param {string} closeButton - silverBox closeButton
  * @returns {Element} - headerWrapper element
  */
-function silverBoxheaderComponent({ titleText, htmlText, simpleText, imageSource, closeButton }) {
+function silverBoxHeaderComponent({ titleText, htmlText, simpleText, imageSource, closeButton }) {
     // header wrapper
     let headerWrapper = document.createElement("header")
     headerWrapper.classList.add('header-wrapper')
@@ -65,4 +65,4 @@ function silverBoxheaderComponent({ titleText, htmlText, simpleText, imageSource
 
 
 }
-export default silverBoxheaderComponent;
+export default silverBoxHeaderComponent;
