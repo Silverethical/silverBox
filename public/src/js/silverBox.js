@@ -43,6 +43,7 @@ export default function silverBox(config) {
 			const inputConfig = (selector) => {
 				return {
 					type: "type" in selector ? selector.type : '',
+					select: selector.select,
 					numberOnly: selector.numberOnly,
 					hint: selector.hint,
 					label: selector.label,

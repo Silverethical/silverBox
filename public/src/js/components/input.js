@@ -13,8 +13,7 @@
  * @param {string} placeHolderFontSize - placeHolder fontSize of input
  * @returns {Element} - inputWrapper element
  */
-function silverBoxInputComponent({ type, numberOnly, placeHolder, readOnly, label, hint, width, height, inputMaxLength, textAlign, fontSize, placeHolderFontSize }) {
-
+function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOnly, label, hint, width, height, inputMaxLength, textAlign, fontSize, placeHolderFontSize }) {
 	// changing the type case to lowerCase to avoid case conflict problem
 	type = type.toLowerCase()
 
@@ -26,8 +25,29 @@ function silverBoxInputComponent({ type, numberOnly, placeHolder, readOnly, labe
 	let labelEl = document.createElement("label")
 	labelEl.textContent = label
 
+	// select
+	let selectEl = document.createElement('select')
+	selectEl.classList.add('silverBox-select')
+
+	// checks if the select config exists
+	if (select) {
+		let optionsArray = []
+		// creates option elemets based on the given configs
+		select.forEach(option => {
+			let optionEl = document.createElement('option')
+			optionEl.setAttribute('value', option)
+			optionEl.textContent = option
+			optionsArray.push(optionEl)
+		})
+		// appends the option into the selectEl
+		optionsArray.forEach(optionEl => {
+			selectEl.append(optionEl)
+		})
+
+	}
 	// input or textArea selection conditions
 	let inputEl
+
 
 	if (type !== "textarea") {
 		inputEl = document.createElement('input')
@@ -56,7 +76,7 @@ function silverBoxInputComponent({ type, numberOnly, placeHolder, readOnly, labe
 	if (numberOnly) {
 		inputEl.addEventListener('keyup', (e) => {
 			if (e.key.match(/[^0-9]/g)) {
-				inputEl.value = ''
+				inputEl.value = inputEl.value.replace(/[^0-9]/g, '')
 			}
 		})
 	}
@@ -74,10 +94,20 @@ function silverBoxInputComponent({ type, numberOnly, placeHolder, readOnly, labe
 	// readOnly condition for inputs
 	if (readOnly) inputEl.setAttribute('readonly', '')
 
-	// appending label and inputs to the main div
-	if (label) inputWrapper.append(labelEl)
-	inputWrapper.appendChild(inputEl)
-	if (hint) inputWrapper.appendChild(hintEl)
+	// appending either the select or input to the inputWrapper
+	if (select) {
+		inputWrapper.append(selectEl)
+	}
+	else {
+		// appending label and hint to the main div
+		if (label) inputWrapper.append(labelEl)
+		inputWrapper.appendChild(inputEl)
+		if (hint) inputWrapper.appendChild(hintEl)
+	}
+
+
+
+
 
 	return inputWrapper
 

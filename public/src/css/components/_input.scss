@@ -14,6 +14,9 @@
          text-align: start;
          width: 100%;
 
+         .silverBox-select {
+             width: fit-content;
+         }
 
          &>input,
          &>textarea {
