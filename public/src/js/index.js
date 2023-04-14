@@ -151,36 +151,66 @@ for (let i = 0; i < examples.length; i++) {
 	});
 }
 
+// usage section
+const usageCode1 = document.querySelector("#usageInstructions code.step1");
+usageCode1.textContent += `<link rel="stylesheet" href="silverBox.min.css">`;
+usageCode1.textContent += `\n<script src="silverBox.min.js"></script>`;
+
+const usageCode2 = document.querySelector("#usageInstructions code.step2");
+usageCode2.textContent = `silverBox({
+	alertIcon: "success",
+	text: "Your task has been completed.",
+	centerContent: true,
+	confirmButton: {
+		   showButton: true,
+		   bgColor: "#3085d6",
+		   borderColor: "#3085d6",
+		   textColor: "#fff",
+		   text: "Confirm",
+		   closeOnClick: true
+	}
+})`
+
+
 // documentation section
 
-// documentation parent 
-const tableWrapper = document.querySelector(".tableWrapper")
+// documentation parent
+const tableWrapper = document.querySelector(".tableWrapper");
 // loops the documentation array and renders values inside elements using renderDocumentation object
 
-documentation.forEach(documentConfig => {
-	let newDocument
+documentation.forEach((documentConfig) => {
+	let newDocument;
 	// if the object doesn't have config key in it this code will be executed
 	if (!("config" in documentConfig)) {
 		newDocument = renderDocumentation({
 			documentArgument: documentConfig.configName,
 			documentExplanation: documentConfig.explanation,
-			documentDefaultValue: documentConfig.defaultValue
-		})
+			documentDefaultValue: documentConfig.defaultValue,
+		});
 	} else {
 		// if the object has config key in it this code will be executed
 		newDocument = renderDocumentation({
 			documentArgument: documentConfig.configName,
-			documentCode: customStringify(documentConfig.config),
+			documentCode: documentConfig.config.forEach(config => {
+				code = renderDocumentation({
+					documentArgument: config.configName, documentExplanation: config.explanation,
+					documentDefaultValue: config.defaultValue
+				})
+			}),
 			documentExplanation: documentConfig.explanation,
-			documentDefaultValue: documentConfig.defaultValue
-		})
+			documentDefaultValue: documentConfig.defaultValue,
+		});
 	}
 	// appends the documents inside the tableWrapper
-	tableWrapper.append(newDocument)
-})
-
+	tableWrapper.append(newDocument);
+});
 
 // appending the created ul of the documentation keys ID's to the navBar
-let documentationInNavBar = document.querySelector('nav ul a[href="#documentationSection"] li')
+let documentationInNavBar = document.querySelector(
+	'nav ul a[href="#documentationSection"] li'
+);
 
-documentationInNavBar.append(renderNavBarLinks())
+documentationInNavBar.append(renderNavBarLinks());
+
+// highlight codes (highlightJS library)
+hljs.highlightAll();
