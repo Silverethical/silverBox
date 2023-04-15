@@ -16,6 +16,9 @@
 
          .silverBox-select {
              width: fit-content;
+             padding: var(--silverBox-input-select-padding);
+             border-radius: var(--silverBox-input-select-border-radius);
+
          }
 
          &>input,

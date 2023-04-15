@@ -35,8 +35,8 @@ function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOn
 		// creates option elemets based on the given configs
 		select.forEach(option => {
 			let optionEl = document.createElement('option')
-			optionEl.setAttribute('value', option)
-			optionEl.textContent = option
+			optionEl.setAttribute('value', option.value)
+			optionEl.textContent = option.text
 			optionsArray.push(optionEl)
 		})
 		// appends the option into the selectEl
