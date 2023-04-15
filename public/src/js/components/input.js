@@ -35,7 +35,7 @@ function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOn
 		// creates option elemets based on the given configs
 		select.forEach(option => {
 			let optionEl = document.createElement('option')
-			optionEl.setAttribute('value', option.value)
+			optionEl.setAttribute('value', option.value ? option.value : option.text)
 			optionEl.textContent = option.text
 			optionsArray.push(optionEl)
 		})
@@ -74,11 +74,11 @@ function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOn
 
 	// converts text input to numberOnly input
 	if (numberOnly) {
-		inputEl.addEventListener('keyup', (e) => {
-			if (e.key.match(/[^0-9]/g)) {
-				inputEl.value = inputEl.value.replace(/[^0-9]/g, '')
-			}
+
+		inputEl.addEventListener('input', () => {
+			inputEl.value = inputEl.value.replace(/[^0-9۰-۹]/g, '');
 		})
+
 	}
 	if (!placeHolderFontSize) {
 		inputEl.style.setProperty('--silverBox-placeHolder-fontSize', fontSize)
