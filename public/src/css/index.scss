@@ -18,9 +18,7 @@
 	--hamburger-bar-width: 20px;
 	--hamburger-bar-height: 3px;
 	--hamburger-gap: 3px;
-	--hamburger-height: calc(
-		(var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
-	);
+	--hamburger-height: calc((var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2));
 }
 
 html {
@@ -92,10 +90,11 @@ html {
 // general text color
 body {
 	color: var(--gray-700);
-	font-family: "Source Sans Pro", sans-serif;
+	font-family: sp;
 }
 
 @media only screen and (max-width: 900px) {
+
 	// hide horizontal overflow
 	body {
 		overflow-x: hidden;
@@ -157,7 +156,7 @@ code {
 
 					//  the last navBar item
 					&[href="#documentationSection"] {
-						> li {
+						>li {
 							position: relative;
 
 							&::after {
@@ -204,8 +203,7 @@ code {
 									border-left: 3px solid var(--white-in-white);
 
 									&:hover {
-										border-left: 3px solid
-											var(--primary-700);
+										border-left: 3px solid var(--primary-700);
 									}
 								}
 							}
@@ -253,9 +251,10 @@ code {
 			}
 
 			.hamburger-menu {
+
 				&::before,
 				&::after,
-				> input {
+				>input {
 					background-color: var(--gray-400);
 				}
 			}
@@ -274,7 +273,7 @@ code {
 
 			&::before,
 			&::after,
-			> input {
+			>input {
 				content: "";
 				width: var(--hamburger-bar-width);
 				height: var(--hamburger-bar-height);
@@ -284,7 +283,7 @@ code {
 				transition: all 500ms ease-in-out;
 			}
 
-			> input {
+			>input {
 				appearance: none;
 				-webkit-appearance: none;
 				padding: 0;
@@ -333,7 +332,7 @@ code {
 				text-align: center;
 				font-size: 30px;
 				color: #284b63;
-				font-weight: 600;
+				font-weight: 500;
 				margin-bottom: 30px;
 			}
 
@@ -399,6 +398,7 @@ code {
 						margin-top: 0;
 					}
 				}
+
 				pre {
 					margin-bottom: 30px;
 				}
@@ -520,9 +520,11 @@ footer {
 	background: #f3f3f3;
 	margin-top: 220px;
 	padding-block: 12px;
+
 	#sweetAlert {
 		color: #7066e0;
 	}
+
 	#Untitled-UI {
 		color: #7f56d9;
 	}
