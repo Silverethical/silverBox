@@ -73,189 +73,199 @@ const documentation = [
         configName: "confirmButton",
         defaultValue: "shown",
         explanation: "Gets a config like confirmButton: {} and creates The button based on given keys",
-        config: {
-            example: {
-                showButton: false,
-                bgColor: "#3085d6",//
-                borderColor: "#3085d6",
-                textColor: "#fff",
-                text: "Confirm", //
-                iconRight: "/path/to/icon",//
-                iconLeft: "/path/to/icon",//
-                closeOnClick: false,
-            },
-            text: {
+        config: [
+            {
+                configName: "text",
                 defaultValue: "Confirm",
                 explanation: "Gets a value as a text and puts It as the button's text.",
             },
-            bgColor: {
+            {
+                configName: "bgColor",
                 defaultValue: "#7f56d9",
                 explanation: "Get a value as a color and puts It as the button's background color.",
             },
-            borderColor: {
+            {
+                configName: "borderColor",
                 defaultValue: "#7f56d9",
                 explanation: "Get a value as a color and puts It as the button's border color.",
             },
-            textColor: {
+            {
+                configName: "textColor",
                 defaultValue: "#fff",
                 explanation: "Get a value as a color and puts It as the button's text color.",
             },
-            iconRight: {
+            {
+                configName: "iconRight",
                 defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the end of the button's text.",
             },
-            iconLeft: {
+            {
+                configName: "iconLeft",
                 defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the start of the button's text.",
             },
-            closeOnClick: {
+            {
+                configName: "closeOnClick",
                 defaultValue: false,
-                explanation: "Gets values which Is either 'true' or 'false'. If It's true the button will be closed."
+                explanation: `Gets values which Is either "true" or "false". If It's true the button will be closed.`
             }
-        }
+        ]
     },
     {
         configName: "cancelButton",
         defaultValue: "shown",
         explanation: "Gets a config like cancelButton: {} and creates The button based on given keys",
-        config: {
-            example: {
-                showButton: false,
-                bgColor: "#fff",
-                borderColor: "#000",
-                textColor: "#000",
-                text: "Cancel",
-                iconRight: "/path/to/icon",
-                iconLeft: "/path/to/icon",
-                closeOnClick: false,
-            },
-            text: {
+        config: [
+            {
+                configName: "text",
                 defaultValue: "Cancel",
                 explanation: "Gets a value as a text and puts It as the button's text.",
             },
-            bgColor: {
+            {
+                configName: "bgColor",
                 defaultValue: "#fff",
                 explanation: "Get a value as a color and puts It as the button's background color.",
             },
-            borderColor: {
+            {
+                configName: "borderColor",
                 defaultValue: "#d0d5dd",
                 explanation: "Get a value as a color and puts It as the button's border color.",
             },
-            textColor: {
+            {
+                configName: "textColor",
                 defaultValue: "#475467",
                 explanation: "Get a value as a color and puts It as the button's text color.",
             },
-            iconRight: {
+            {
+                configName: "iconRight",
                 defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the end of the button's text.",
             },
-            iconLeft: {
+            {
+                configName: "iconLeft",
                 defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the start of the button's text.",
             },
-            closeOnClick: {
+            {
+                configName: "closeOnClick",
                 defaultValue: false,
-                explanation: "Gets values which Is either 'true' or 'false'. If It's true the button will be closed."
+                explanation: `Gets values which Is either "true" or "false". If It's true the button will be closed.`
             }
-        }
+        ]
     },
     {
         configName: "denyButton",
         defaultValue: "hidden",
         explanation: "Gets a config like denyButton: {} and creates The button based on given keys",
-        config: {
-            example: {
-                denyButton: {
-                    showButton: false,
-                    bgColor: "#d23",
-                    borderColor: "#d23",
-                    textColor: "#fff",
-                    text: "Deny",
-                    iconRight: "/path/to/icon",
-                    iconLeft: "/path/to/icon",
-                    closeOnClick: false,
-                },
-            },
-            text: {
+        config: [
+            {
+                configName: "text",
                 defaultValue: "Deny",
                 explanation: "Gets a value as a text and puts It as the button's text.",
             },
-            bgColor: {
+            {
+                configName: "bgColor",
                 defaultValue: "#d33",
                 explanation: "Get a value as a color and puts It as the button's background color.",
             },
-            borderColor: {
+            {
+                configName: "borderColor",
                 defaultValue: "#d33",
                 explanation: "Get a value as a color and puts It as the button's border color.",
             },
-            textColor: {
+            {
+                configName: "textColor",
                 defaultValue: "#fff",
                 explanation: "Get a value as a color and puts It as the button's text color.",
             },
-            iconRight: {
+            {
+                configName: "iconRight",
                 defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the end of the button's text.",
             },
-            iconLeft: {
+            {
+                configName: "iconLeft",
                 defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the start of the button's text.",
             },
-            closeOnClick: {
+            {
+                configName: "closeOnClick",
                 defaultValue: true,
-                explanation: "Gets values which Is either 'true' or 'false'. If It's true the button will be closed."
+                explanation: `Gets values which Is either "true" or "false". If It's true the button will be closed.`
             }
-        }
+        ]
     },
     {
         configName: "input",
         defaultValue: "",
         explanation: "Creates an Input based on given config Inside input: {}. The value can also be given as objects Inside of an array.",
-        config: {
-            label: {
+        config: [
+            {
+                configName: "label",
                 defaultValue: "",
                 explanation: "Gets a value and puts It as the Input's label name.",
             },
-            type: {
+            {
+                configName: "type",
                 defaultValue: "text",
                 explanation: "Gets a value and puts It as the Input's type.",
             },
-            placeHolder: {
+            {
+                configName: "placeHolder",
                 defaultValue: "",
                 explanation: "Gets a value and puts It as the Input's placeHolder.",
             },
-            hint: {
+            {
+                configName: "hint",
                 defaultValue: "",
                 explanation: "Gets a value and puts It as the Input's hint under the input.",
             },
-            readOnly: {
+            {
+                configName: "readOnly",
                 defaultValue: false,
-                explanation: "Gets a value of either 'true' or 'false' and sets it as the input attribute.",
+                explanation: `Gets a value of either "true" or "false" and sets it as the input attribute.`,
             },
-            inputWidth: {
+            {
+                configName: "inputWidth",
                 defaultValue: "100%",
                 explanation: "Gets a value and puts It as the Input's width.",
             },
-            inputHeight: {
+            {
+                configName:"inputHeight",
                 defaultValue: "100%",
                 explanation: "Gets a value as string and puts It as the Input's height.",
             },
-            inputMaxLength: {
+            {
+                configName:"inputMaxLength",
                 defaultValue: "",
                 explanation: "Gets a value as number and puts It as the Inputs maxLength attribute."
             },
-            textAlign: {
+            {
+                configName:"textAlign",
                 defaultValue: "start",
-                explanation: "Gets a value from the following list and puts It as the Inputs text-align value: 'start', 'center', 'end' ."
+                explanation: `Gets a value from the following list and puts It as the Inputs text-align value: "start", "center", "end" .`
             },
-            fontSize: {
+            {
+                configName: "fontSize",
                 defaultValue: "14px",
                 explanation: "Gets a value and puts It as the Inputs font size."
             },
-            multiplyBy: {
+            {
+                configName: "multiplyBy",
                 defaultValue: 1,
                 explanation: "Gets a value as number and repeats the Input based on the given value."
-            }
-        }
+            },   
+            {
+                configName: "numberOnly",
+                defaultValue: false,
+                explanation: `Gets either "true" or "false" and determines wether the input in numberOnly or not.`
+            }, 
+            {
+                configName: "select",
+                defaultValue: "",
+                explanation: `.`
+            }, 
+        ]
     }
 ];
 

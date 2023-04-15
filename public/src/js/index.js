@@ -1,12 +1,11 @@
 import silverBox from "./silverBox";
 import examples from "./data/example";
 import teamMembers from "./data/teamMembers";
-import documentation from "./data/documentation";
 import renderTeamMembers from "./helpers/renderTeamMembers";
 import customStringify from "./helpers/customStringify";
 import renderExample from "./components/renderExample";
-import renderDocumentation from "./components/renderDocumentation";
 import renderNavBarLinks from "./components/renderNavBarLinks";
+import tableComponent from "./components/tableComponent";
 // silverBox({
 // 	// direction: 'rtl',
 // 	// timer: 1000,
@@ -150,7 +149,7 @@ for (let i = 0; i < examples.length; i++) {
 		silverBox(examples[i].config);
 	});
 }
-
+tableComponent()
 // usage section
 const usageCode1 = document.querySelector("#usageInstructions code.step1");
 usageCode1.textContent += `<link rel="stylesheet" href="silverBox.min.css">`;
@@ -178,27 +177,27 @@ usageCode2.textContent = `silverBox({
 const tableWrapper = document.querySelector(".tableWrapper");
 // loops the documentation array and renders values inside elements using renderDocumentation object
 
-documentation.forEach((documentConfig) => {
-	let newDocument;
-	// if the object doesn't have config key in it this code will be executed
-	if (!("config" in documentConfig)) {
-		newDocument = renderDocumentation({
-			documentArgument: documentConfig.configName,
-			documentExplanation: documentConfig.explanation,
-			documentDefaultValue: documentConfig.defaultValue,
-		});
-	} else {
-		// if the object has config key in it this code will be executed
-		newDocument = renderDocumentation({
-			documentArgument: documentConfig.configName,
-			documentCode: customStringify(documentConfig.config),
-			documentExplanation: documentConfig.explanation,
-			documentDefaultValue: documentConfig.defaultValue,
-		});
-	}
-	// appends the documents inside the tableWrapper
-	tableWrapper.append(newDocument);
-});
+// documentation.forEach((documentConfig) => {
+// 	let newDocument;
+// 	// if the object doesn't have config key in it this code will be executed
+// 	if (!("config" in documentConfig)) {
+// 		newDocument = renderDocumentation({
+// 			documentArgument: documentConfig.configName,
+// 			documentExplanation: documentConfig.explanation,
+// 			documentDefaultValue: documentConfig.defaultValue,
+// 		});
+// 	} else {
+// 		// if the object has config key in it this code will be executed
+// 		newDocument = renderDocumentation({
+// 			documentArgument: documentConfig.configName,
+// 			documentCode: customStringify(documentConfig.config),
+// 			documentExplanation: documentConfig.explanation,
+// 			documentDefaultValue: documentConfig.defaultValue,
+// 		});
+// 	}
+// 	// appends the documents inside the tableWrapper
+// 	tableWrapper.append(newDocument);
+// });
 
 // appending the created ul of the documentation keys ID's to the navBar
 let documentationInNavBar = document.querySelector(
