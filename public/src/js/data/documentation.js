@@ -231,17 +231,17 @@ const documentation = [
                 explanation: "Gets a value and puts It as the Input's width.",
             },
             {
-                configName:"inputHeight",
+                configName: "inputHeight",
                 defaultValue: "100%",
                 explanation: "Gets a value as string and puts It as the Input's height.",
             },
             {
-                configName:"inputMaxLength",
+                configName: "inputMaxLength",
                 defaultValue: "",
                 explanation: "Gets a value as number and puts It as the Inputs maxLength attribute."
             },
             {
-                configName:"textAlign",
+                configName: "textAlign",
                 defaultValue: "start",
                 explanation: `Gets a value from the following list and puts It as the Inputs text-align value: "start", "center", "end" .`
             },
@@ -254,17 +254,17 @@ const documentation = [
                 configName: "multiplyBy",
                 defaultValue: 1,
                 explanation: "Gets a value as number and repeats the Input based on the given value."
-            },   
+            },
             {
                 configName: "numberOnly",
                 defaultValue: false,
                 explanation: `Gets either "true" or "false" and determines wether the input in numberOnly or not.`
-            }, 
+            },
             {
                 configName: "select",
                 defaultValue: "",
-                explanation: `.`
-            }, 
+                explanation: `gets an array of objects that have 2 keys: "text" and "value". "text" is the textContent of the option, "value" is the value of option. If value is not given, the "text"'s value will be set as the value.`,
+            },
         ]
     }
 ];
