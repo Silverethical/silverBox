@@ -15,7 +15,7 @@ function tableComponent() {
         argument: selector.configName,
         explanation: selector.explanation,
         defaultValue: selector.defaultValue,
-        getsId: true,
+        id: "noConfig",
     })
     let eachConfig = []
     // for loop
@@ -35,6 +35,7 @@ function tableComponent() {
                     argument: config.configName,
                     explanation: config.explanation,
                     defaultValue: config.defaultValue,
+                    id: "hasConfig",
                 })
                 tableWrapper.append(tableConfigWrapper(configTableRow))
             });
@@ -80,9 +81,10 @@ function tableHeader() {
  * @param {string} explanation - document explanation
  * @param {string} defaultValue - document defaultValue
  * @param {string} config - document config
+ * @param {string} id - determines the status of id (how the id is added)
  * @returns {element} - table row element
  */
-function tableRow({ argument, explanation, defaultValue, getsId }) {
+function tableRow({ argument, explanation, defaultValue, id }) {
     // selectors
     const tableRowEl = document.createElement("div")
     tableRowEl.classList.add("tableRow")
@@ -92,9 +94,21 @@ function tableRow({ argument, explanation, defaultValue, getsId }) {
     const docArgumentColumn = document.createElement("a")
     docArgumentColumn.classList.add("tableColumn", "document-argument")
     docArgumentColumn.textContent = argument
-    if (getsId) {
+
+    // if id == noConfig this code will be executed
+    if (id == "noConfig") {
         docArgumentColumn.id = `${argument}`
         docArgumentColumn.setAttribute("href", "#" + argument)
+    }
+    // if id == hasConfig this code will be executed
+    else if (id == "hasConfig") {
+        // if the given argument is text
+        // the defaultValue of that text is gonna be added at the begging of the ID
+        if (argument === "text") {
+            docArgumentColumn.id = `${defaultValue}Button${argument}`
+            docArgumentColumn.setAttribute("href", `#${defaultValue}Button${argument}`)
+        }
+
     }
 
     // explanation column ----
