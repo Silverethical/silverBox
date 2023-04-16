@@ -18,7 +18,9 @@
     --hamburger-bar-width: 20px;
     --hamburger-bar-height: 3px;
     --hamburger-gap: 3px;
-    --hamburger-height: calc((var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2));
+    --hamburger-height: calc(
+        (var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
+    );
 }
 
 html {
@@ -94,7 +96,6 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
-
     // hide horizontal overflow
     body {
         overflow-x: hidden;
@@ -156,7 +157,7 @@ code {
 
                     //  the last navBar item
                     &[href="#documentationSection"] {
-                        >li {
+                        > li {
                             position: relative;
 
                             &::after {
@@ -203,7 +204,8 @@ code {
                                     border-left: 3px solid var(--white-in-white);
 
                                     &:hover {
-                                        border-left: 3px solid var(--primary-700);
+                                        border-left: 3px solid
+                                            var(--primary-700);
                                     }
                                 }
                             }
@@ -251,10 +253,9 @@ code {
             }
 
             .hamburger-menu {
-
                 &::before,
                 &::after,
-                >input {
+                > input {
                     background-color: var(--gray-400);
                 }
             }
@@ -273,7 +274,7 @@ code {
 
             &::before,
             &::after,
-            >input {
+            > input {
                 content: "";
                 width: var(--hamburger-bar-width);
                 height: var(--hamburger-bar-height);
@@ -283,7 +284,7 @@ code {
                 transition: all 500ms ease-in-out;
             }
 
-            >input {
+            > input {
                 appearance: none;
                 -webkit-appearance: none;
                 padding: 0;
@@ -404,7 +405,8 @@ code {
                             transition: 0.2s;
 
                             &.silverBox-copied {
-                                filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
+                                filter: grayscale(100%) sepia(100%)
+                                    hue-rotate(90deg);
                             }
                         }
 
@@ -442,9 +444,30 @@ code {
 
                 .silverBox-document-has-config {
                     padding: 40px;
+                    max-height: unset;
+                    overflow: hidden;
                     background-color: #eee;
+                    transition: 0.5s ease-in-out;
+                    &.hide {
+                        max-height: 0 !important;
+                        padding: 0 !important;
+                    }
                 }
-
+                .silverBox-document-show-more {
+                    cursor: pointer;
+                    background-color: var(--primary-700);
+                    width: fit-content;
+                    margin-left: 10px;
+                    padding: 1px 8px;
+                    border-radius: 5px;
+                    color: var(--gray-100);
+                    transition: .2s linear;
+                    border: 1px solid var(--primary-700);
+                    &:hover {
+                        color: var(--primary-700);
+                        background-color: transparent;
+                    }
+                }
                 .tableRowHeader,
                 .tableRow {
                     display: grid;

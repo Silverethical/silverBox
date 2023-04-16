@@ -4,24 +4,22 @@ import documentation from "../data/documentation";
 function tableComponent() {
     // tableWrapper selector
     const tableWrapper = document.querySelector(".tableWrapper");
-    const configWrapper = document.createElement("div")
-    configWrapper.classList.add("silverBox-document-has-config")
     // adds tableHeader to tableWrapper
     tableWrapper.append(tableHeader())
-    let configTableRow
 
     // document argument
-    let tableRowFunctionConfig = (selector) => tableRow({
+    let tableRowFunctionConfig = (selector,idValue,configValue) => tableRow({
         argument: selector.configName,
         explanation: selector.explanation,
         defaultValue: selector.defaultValue,
-        id: "noConfig",
+        id:idValue,
+        config: configValue,
     })
     // for loop
     documentation.forEach(documentItem => {
 
         // tableRowFunctionConfig
-        tableWrapper.append(tableRowFunctionConfig(documentItem))
+        tableWrapper.append(tableRowFunctionConfig(documentItem,"noConfig",documentItem))
 
         // if there is no config in object item this code will be executed
         if (("config" in documentItem)) {
@@ -31,20 +29,16 @@ function tableComponent() {
             documentConfigWrapper.classList.add('silverBox-document-has-config')
 
             documentItem.config.forEach(config => {
-
-                let configTableRow = tableRow({
-                    argument: config.configName,
-                    explanation: config.explanation,
-                    defaultValue: config.defaultValue,
-                    id: documentItem,
-                })
+                let configTableRow = tableRowFunctionConfig(config,"hasConfig",documentItem)
                 // appending each config to the parent div
                 documentConfigWrapper.append(configTableRow)
             });
             // appending the whole parent div after the related config explanation
             tableWrapper.append(documentConfigWrapper)
+
         }
     })
+    toggleConfig()
 }
 /**
  * creates tableHeader
@@ -87,7 +81,7 @@ function tableHeader() {
  * @param {string} id - determines the status of id (how the id is added)
  * @returns {element} - table row element
  */
-function tableRow({ argument, explanation, defaultValue, id }) {
+function tableRow({ argument, explanation, defaultValue, id, config }) {
     // selectors
     const tableRowEl = document.createElement("div")
     tableRowEl.classList.add("tableRow")
@@ -98,17 +92,6 @@ function tableRow({ argument, explanation, defaultValue, id }) {
     docArgumentColumn.classList.add("tableColumn", "document-argument")
     docArgumentColumn.textContent = argument
 
-    // if id == noConfig this code will be executed
-    if (id == "noConfig") {
-        docArgumentColumn.id = `${argument}`
-        docArgumentColumn.setAttribute("href", "#" + argument)
-    }
-    // if id != noConfig this code will be executed
-    else {
-        // gets the id of the configName that contains the config
-        docArgumentColumn.id = `${id.configName}${argument}`
-        docArgumentColumn.setAttribute("href", `#${id.configName}${argument}`)
-    }
 
     // explanation column ----
 
@@ -143,6 +126,28 @@ function tableRow({ argument, explanation, defaultValue, id }) {
         docDefaultValueColumn.textContent = `${defaultValue}`
     }
 
+    // if id == "noConfig" this code will be executed
+    if (id == "noConfig") {
+        docArgumentColumn.id = `${argument}`
+        docArgumentColumn.setAttribute("href", "#" + argument)
+
+        // if there is config keyword in the value of config which is documentation in our case
+        // this code will be executed
+        if ("config" in config) {
+            // creates the show more button
+            let documentShowMore = document.createElement('span')
+            documentShowMore.innerHTML = "show more"
+            documentShowMore.classList.add("silverBox-document-show-more")
+            docExplanationColumn.append(documentShowMore)
+        }
+    }
+    // if id == "hasConfig" this code will be executed
+    else if (id == "hasConfig"){
+        // gets the id of the configName that contains the config
+        docArgumentColumn.id = `${config.configName}${argument}`
+        docArgumentColumn.setAttribute("href", `#${config.configName}${argument}`)
+
+    }
     // appends the items to table row
 
     // argument
@@ -154,13 +159,15 @@ function tableRow({ argument, explanation, defaultValue, id }) {
 
     return tableRowEl
 }
-function tableConfigWrapper(config) {
-    // documentation config 
-    const documentConfig = document.createElement("div")
-    documentConfig.classList.add("silverBox-document-has-config")
-    documentConfig.append(config)
-    return documentConfig
+function toggleConfig() {
+    // select all configs
+    const config = document.querySelectorAll('.silverBox-document-show-more')
 
+    config.forEach(item => {
+        item.addEventListener("click", () => {
+            item.parentElement.parentElement.nextElementSibling.classList.toggle("hide")
+        })
+    })
 }
 
 export default tableComponent;
