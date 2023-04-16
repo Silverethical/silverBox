@@ -37,17 +37,20 @@ function renderExample(explanation, config) {
     const code = document.createElement('code')
     code.textContent = config
     pre.append(code)
-    // code.onclick = modalSample(config)
 
     // create copy example button
-    const copyExample = document.createElement("button")
-    copyExample.textContent = "copy"
-    copyExample.classList.add("silverBox-exampleCopyButton")
+    const copyExampleWrapper = document.createElement("button")
+    const copyExampleIcon = document.createElement('img')
+    copyExampleIcon.setAttribute('src', "/src/images/copyIcon.png")
+    copyExampleWrapper.classList.add("silverBox-exampleCopyButton")
+
+    // appending the children
+    copyExampleWrapper.append(copyExampleIcon)
 
     // event for each button
-    copyExample.addEventListener("click", () => {
+    copyExampleWrapper.addEventListener("click", () => {
         // calls the copyConfig
-        copyConfig(config,copyExample,1500)
+        copyConfig(config, copyExampleIcon, 1500)
     })
 
 
@@ -57,7 +60,7 @@ function renderExample(explanation, config) {
     exampleColumn1.append(button)
     // appending second column children
     // appending button to exampleConfig
-    exampleConfig.append(copyExample)
+    exampleConfig.append(copyExampleWrapper)
     exampleColumn2.append(exampleConfig)
 
     // appending the columns into example (parent div)

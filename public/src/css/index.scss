@@ -18,9 +18,7 @@
     --hamburger-bar-width: 20px;
     --hamburger-bar-height: 3px;
     --hamburger-gap: 3px;
-    --hamburger-height: calc(
-        (var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
-    );
+    --hamburger-height: calc((var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2));
 }
 
 html {
@@ -96,6 +94,7 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
+
     // hide horizontal overflow
     body {
         overflow-x: hidden;
@@ -106,7 +105,7 @@ body {
     display: none !important;
 }
 
-button {
+.silverBox-showExample {
     padding: 10px 20px;
     border-radius: 6px;
     color: white;
@@ -157,7 +156,7 @@ code {
 
                     //  the last navBar item
                     &[href="#documentationSection"] {
-                        > li {
+                        >li {
                             position: relative;
 
                             &::after {
@@ -204,8 +203,7 @@ code {
                                     border-left: 3px solid var(--white-in-white);
 
                                     &:hover {
-                                        border-left: 3px solid
-                                            var(--primary-700);
+                                        border-left: 3px solid var(--primary-700);
                                     }
                                 }
                             }
@@ -253,9 +251,10 @@ code {
             }
 
             .hamburger-menu {
+
                 &::before,
                 &::after,
-                > input {
+                >input {
                     background-color: var(--gray-400);
                 }
             }
@@ -274,7 +273,7 @@ code {
 
             &::before,
             &::after,
-            > input {
+            >input {
                 content: "";
                 width: var(--hamburger-bar-width);
                 height: var(--hamburger-bar-height);
@@ -284,7 +283,7 @@ code {
                 transition: all 500ms ease-in-out;
             }
 
-            > input {
+            >input {
                 appearance: none;
                 -webkit-appearance: none;
                 padding: 0;
@@ -386,17 +385,32 @@ code {
                     min-width: 500px;
                     max-width: 500px;
                     position: relative;
+
                     .silverBox-exampleCopyButton {
-                        display:flex;
-                        justify-content:center;
-                        align-items:center;
-						width: 70px;
                         position: absolute;
-                        top: -12px;
-                        right:2%;
-						&:hover{
-							background-color: transparent;
-						}
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: 300;
+                        top: 2%;
+                        right: 2%;
+                        border: none;
+                        background: none;
+                        color: #fff;
+
+                        img {
+                            max-width: 30px;
+                            transition: 0.2s;
+
+                            &.silverBox-copied {
+                                filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
+                            }
+                        }
+
+                        img:hover {
+                            transform: scale(0.8);
+                        }
                     }
                 }
             }
