@@ -458,14 +458,36 @@ code {
                     background-color: var(--primary-700);
                     width: fit-content;
                     margin-left: 10px;
-                    padding: 1px 8px;
+                    padding: 1px 15px 1px 5px;
                     border-radius: 5px;
                     color: var(--gray-100);
-                    transition: .2s linear;
+                    transition: 0.2s linear;
                     border: 1px solid var(--primary-700);
+                    &.hide{
+                        &::after{
+                            transform: rotate(45deg);
+                            top: 8px;
+                        }
+                    }
+                    position: relative;
                     &:hover {
                         color: var(--primary-700);
                         background-color: transparent;
+                        &::after{
+                            border-color: var(--primary-700);
+                        }
+                    }
+                    &::after{
+                        content: '';
+                        width: 6px;
+                        height: 6px;
+                        position: absolute;
+                        border-top:1px solid var(--gray-100);
+                        border-right:1px solid var(--gray-100);
+                        top: 6px;
+                        right: 5px;
+                        transform: rotate(134deg);
+                        transition: 0.2s linear;
                     }
                 }
                 .tableRowHeader,

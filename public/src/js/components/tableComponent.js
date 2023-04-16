@@ -8,18 +8,18 @@ function tableComponent() {
     tableWrapper.append(tableHeader())
 
     // document argument
-    let tableRowFunctionConfig = (selector,idValue,configValue) => tableRow({
+    let tableRowFunctionConfig = (selector, idValue, configValue) => tableRow({
         argument: selector.configName,
         explanation: selector.explanation,
         defaultValue: selector.defaultValue,
-        id:idValue,
+        id: idValue,
         config: configValue,
     })
     // for loop
     documentation.forEach(documentItem => {
 
         // tableRowFunctionConfig
-        tableWrapper.append(tableRowFunctionConfig(documentItem,"noConfig",documentItem))
+        tableWrapper.append(tableRowFunctionConfig(documentItem, "noConfig", documentItem))
 
         // if there is no config in object item this code will be executed
         if (("config" in documentItem)) {
@@ -29,7 +29,7 @@ function tableComponent() {
             documentConfigWrapper.classList.add('silverBox-document-has-config')
 
             documentItem.config.forEach(config => {
-                let configTableRow = tableRowFunctionConfig(config,"hasConfig",documentItem)
+                let configTableRow = tableRowFunctionConfig(config, "hasConfig", documentItem)
                 // appending each config to the parent div
                 documentConfigWrapper.append(configTableRow)
             });
@@ -136,13 +136,13 @@ function tableRow({ argument, explanation, defaultValue, id, config }) {
         if ("config" in config) {
             // creates the show more button
             let documentShowMore = document.createElement('span')
-            documentShowMore.innerHTML = "show more"
+            documentShowMore.innerHTML = "show less"
             documentShowMore.classList.add("silverBox-document-show-more")
             docExplanationColumn.append(documentShowMore)
         }
     }
     // if id == "hasConfig" this code will be executed
-    else if (id == "hasConfig"){
+    else if (id == "hasConfig") {
         // gets the id of the configName that contains the config
         docArgumentColumn.id = `${config.configName}${argument}`
         docArgumentColumn.setAttribute("href", `#${config.configName}${argument}`)
@@ -163,9 +163,17 @@ function toggleConfig() {
     // select all configs
     const config = document.querySelectorAll('.silverBox-document-show-more')
 
-    config.forEach(item => {
-        item.addEventListener("click", () => {
-            item.parentElement.parentElement.nextElementSibling.classList.toggle("hide")
+    config.forEach(configItem => {
+        configItem.addEventListener("click", () => {
+                if (configItem.parentElement.parentElement.nextElementSibling.classList.contains("hide")) {
+                    configItem.parentElement.parentElement.nextElementSibling.classList.remove("hide")
+                    configItem.classList.remove("hide")
+                    configItem.textContent = "show less"
+                } else {
+                    configItem.parentElement.parentElement.nextElementSibling.classList.add("hide")
+                    configItem.classList.add("hide")
+                    configItem.textContent = "show more"
+                }
         })
     })
 }
