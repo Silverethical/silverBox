@@ -137,7 +137,7 @@ for (let i = 0; i < examples.length; i++) {
 	// new example structure (filled)
 	let newExample = renderExample(
 		examples[i].explanation,
-		customStringify(examples[i].config)
+		`silverBox(${customStringify(examples[i].config)})`
 	);
 	// appending the newExample to example section
 	exampleSection.append(newExample);
