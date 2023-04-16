@@ -120,12 +120,39 @@ const examples = [
                 {
                     label: "User Name",
                     type: "text",
+                    select: [
+                        {
+                            text: 'ourtext',
+                            value: 'tst'
+                        },
+                        {
+                            text: 'ourtext',
+                            value: 'tst'
+                        },
+                        {
+                            text: 'ourtext',
+                            value: 'tst'
+                        },
+                        {
+                            text: 'ourtextseleceted',
+                            selected: true,
+                            disabled: true,
+
+                            value: 'tst'
+                        },
+                        {
+                            text: 'ourtext',
+                            selected: true,
+                            value: 'tst'
+                        },
+                    ],
                     placeHolder: "Enter your user name",
                     readOnly: false,
                     textAlign: 'left',
                     fontSize: '16px',
                 },
                 {
+                    numberOnly: true,
                     label: "Email",
                     type: "email",
                     placeHolder: "Enter your email",
