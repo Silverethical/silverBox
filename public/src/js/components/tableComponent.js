@@ -35,7 +35,7 @@ function tableComponent() {
                     argument: config.configName,
                     explanation: config.explanation,
                     defaultValue: config.defaultValue,
-                    id: "hasConfig",
+                    id: documentItem,
                 })
                 tableWrapper.append(tableConfigWrapper(configTableRow))
             });
@@ -100,15 +100,11 @@ function tableRow({ argument, explanation, defaultValue, id }) {
         docArgumentColumn.id = `${argument}`
         docArgumentColumn.setAttribute("href", "#" + argument)
     }
-    // if id == hasConfig this code will be executed
-    else if (id == "hasConfig") {
-        // if the given argument is text
-        // the defaultValue of that text is gonna be added at the begging of the ID
-        if (argument === "text") {
-            docArgumentColumn.id = `${defaultValue}Button${argument}`
-            docArgumentColumn.setAttribute("href", `#${defaultValue}Button${argument}`)
-        }
-
+    // if id != noConfig this code will be executed
+    else {
+        // gets the id of the configName that contains the config
+        docArgumentColumn.id = `${id.configName}${argument}`
+        docArgumentColumn.setAttribute("href", `#${id.configName}${argument}`)
     }
 
     // explanation column ----
