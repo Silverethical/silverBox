@@ -17,31 +17,34 @@ function tableComponent() {
         defaultValue: selector.defaultValue,
         id: "noConfig",
     })
-    let eachConfig = []
     // for loop
     documentation.forEach(documentItem => {
+
+        // tableRowFunctionConfig
+        tableWrapper.append(tableRowFunctionConfig(documentItem))
+
         // if there is no config in object item this code will be executed
-        if (!("config" in documentItem)) {
-            // tableRowFunctionConfig
-            tableWrapper.append(tableRowFunctionConfig(documentItem))
-        }
-        // if there is config in object item this code will be executed
-        else {
-            // tableRowFunctionConfig
-            tableWrapper.append(tableRowFunctionConfig(documentItem))
-            // parent config name
+        if (("config" in documentItem)) {
+
+            // creates document configs wrapper
+            let documentConfigWrapper = document.createElement('div')
+            documentConfigWrapper.classList.add('silverBox-document-has-config')
+
             documentItem.config.forEach(config => {
-                configTableRow = tableRow({
+
+                let configTableRow = tableRow({
                     argument: config.configName,
                     explanation: config.explanation,
                     defaultValue: config.defaultValue,
                     id: documentItem,
                 })
-                tableWrapper.append(tableConfigWrapper(configTableRow))
+                // appending each config to the parent div
+                documentConfigWrapper.append(configTableRow)
             });
+            // appending the whole parent div after the related config explanation
+            tableWrapper.append(documentConfigWrapper)
         }
     })
-
 }
 /**
  * creates tableHeader
