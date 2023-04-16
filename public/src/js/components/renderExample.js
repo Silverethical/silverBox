@@ -1,3 +1,4 @@
+import copyConfig from "../helpers/copyConfig"
 /**
  * Returns an example wrapper based on given config
  * @param {string} explanation - example object explanation key's value
@@ -38,12 +39,25 @@ function renderExample(explanation, config) {
     pre.append(code)
     // code.onclick = modalSample(config)
 
+    // create copy example button
+    const copyExample = document.createElement("button")
+    copyExample.textContent = "copy"
+    copyExample.classList.add("exampleCopyButton")
+
+    // event for each button
+    copyExample.addEventListener("click", () => {
+        // calls the copyConfig
+        copyConfig(config,copyExample,1500)
+    })
+
 
 
     // appending first column children
     exampleColumn1.append(exampleExplanation)
     exampleColumn1.append(button)
     // appending second column children
+    // appending button to exampleConfig
+    exampleConfig.append(copyExample)
     exampleColumn2.append(exampleConfig)
 
     // appending the columns into example (parent div)
