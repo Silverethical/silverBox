@@ -364,12 +364,12 @@ code {
             row-gap: 20px;
             display: grid;
 
-            .example {
+            .silverBox-example {
                 display: grid;
                 grid-template-columns: 2fr 3fr;
                 gap: 0 20px;
 
-                .exampleColumn {
+                .silverBox-exampleColumn {
                     &:first-of-type {
                         display: flex;
                         flex-direction: column;
@@ -382,17 +382,17 @@ code {
                     }
                 }
 
-                .exampleConfig {
+                .silverBox-exampleConfig {
                     min-width: 500px;
                     max-width: 500px;
                     position: relative;
-                    .exampleCopyButton {
+                    .silverBox-exampleCopyButton {
                         display:flex;
                         justify-content:center;
                         align-items:center;
 						width: 70px;
                         position: absolute;
-                        top: 0;
+                        top: -12px;
                         right:2%;
 						&:hover{
 							background-color: transparent;

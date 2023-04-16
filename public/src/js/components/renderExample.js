@@ -9,29 +9,29 @@ function renderExample(explanation, config) {
 
     // create a example wrapper
     const exampleWrapper = document.createElement('div')
-    exampleWrapper.classList.add('example')
+    exampleWrapper.classList.add('silverBox-example')
 
     // create first exampleColumn 
     const exampleColumn1 = document.createElement('div')
-    exampleColumn1.classList.add('exampleColumn')
+    exampleColumn1.classList.add('silverBox-exampleColumn')
 
     // create example explanation div
     const exampleExplanation = document.createElement('div')
-    exampleExplanation.classList.add('exampleExplanation')
+    exampleExplanation.classList.add('silverBox-exampleExplanation')
     exampleExplanation.textContent = explanation
 
     // create a button to show the config output
     const button = document.createElement('button')
-    button.classList.add('showExample')
+    button.classList.add('silverBox-showExample')
     button.textContent = 'Hit me!'
 
     // create second exampleColumn
     const exampleColumn2 = document.createElement('div')
-    exampleColumn2.classList.add('exampleColumn')
+    exampleColumn2.classList.add('silverBox-exampleColumn')
 
     // create exampleConfig
     const exampleConfig = document.createElement('div')
-    exampleConfig.classList.add('exampleConfig')
+    exampleConfig.classList.add('silverBox-exampleConfig')
     const pre = document.createElement('pre')
     exampleConfig.append(pre)
     const code = document.createElement('code')
@@ -42,7 +42,7 @@ function renderExample(explanation, config) {
     // create copy example button
     const copyExample = document.createElement("button")
     copyExample.textContent = "copy"
-    copyExample.classList.add("exampleCopyButton")
+    copyExample.classList.add("silverBox-exampleCopyButton")
 
     // event for each button
     copyExample.addEventListener("click", () => {

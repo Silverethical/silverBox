@@ -143,7 +143,7 @@ for (let i = 0; i < examples.length; i++) {
 	exampleSection.append(newExample);
 
 	// selecting showConfig buttons
-	const button = document.querySelectorAll(".showExample");
+	const button = document.querySelectorAll(".silverBox-showExample");
 
 	button[i].addEventListener("click", () => {
 		silverBox(examples[i].config);
