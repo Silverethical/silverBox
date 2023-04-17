@@ -64,7 +64,7 @@ const examples = [
         explanation: "An auto close modal with a custom time to notify user with a custom message in a period of time.",
         config: {
             timer: 1500,
-            userIcon: '//cdn-icons-png.flaticon.com/128/8928/8928656.png',
+            userIcon: '/src/images/lightTimeout.png',
             theme: "light",
             title: "You are so cute",
             centerContent: true,
@@ -79,7 +79,7 @@ const examples = [
         explanation: "A dark theme pop-up message. (you can also change the theme of the modal you want to light/dark) ",
         config: {
             timer: 1500,
-            userIcon: '//freepngimg.com/thumb/star_wars/98619-baby-yoda-download-free-image.png',
+            userIcon: '/src/images/darkTimeout.png',
             theme: "dark",
             title: "You are not cute at all.",
             centerContent: true,
@@ -94,7 +94,7 @@ const examples = [
         explanation: "A simple login modal which you can use to make a login form for your users with custom input types and etc.",
         config: {
             theme: "light",
-            userIcon: "https://pic.onlinewebfonts.com/svg/img_568656.png",
+            userIcon: "/src/images/loginExample.png",
             title: "Login Page",
             centerContent: true,
             text: "enter your account informations",
@@ -150,7 +150,7 @@ const examples = [
         explanation: "A code verification modal wich you can display on screen to verify the code you sent to your user. (you can multiply a single styled input many times to match the requirements for this modal)",
         config: {
             theme: "light",
-            userIcon: "https://cdn-icons-png.flaticon.com/512/181/181535.png",
+            userIcon: "/src/images/emailVerify.png",
             text: "please check your email for the code we've sent you.",
             title: "Code verification",
             centerContent: true,
