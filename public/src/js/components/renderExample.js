@@ -28,6 +28,7 @@ function renderExample(explanation, config) {
     // create second exampleColumn
     const exampleColumn2 = document.createElement('div')
     exampleColumn2.classList.add('silverBox-exampleColumn')
+    exampleColumn2.classList.add('silverBox-exampleColumn-code')
 
     // create exampleConfig
     const exampleConfig = document.createElement('div')
