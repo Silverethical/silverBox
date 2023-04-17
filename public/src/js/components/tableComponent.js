@@ -170,15 +170,19 @@ function toggleConfig() {
         showMoreBtn[i].addEventListener("click", () => {
             // if each document that has config contains "hide" class this code will be executed
             if (documentThatHasConfig[i].classList.contains("hide")) {
+                // remove "hide" class from document that has config
                 documentThatHasConfig[i].classList.remove("hide")
-                documentThatHasConfig[i].classList.remove("hide")
-                configItem.textContent = "show less"
+                // remove "hide" class from show more button
+                showMoreBtn[i].classList.remove("hide")
+                showMoreBtn[i].textContent = "show less"
             }
             // if each document that has config doesn't contain "hide" class this code will be executed
             else {
+                // add "hide" class to document that has config 
                 documentThatHasConfig[i].classList.add("hide")
+                // add "hide" class to show more button 
                 showMoreBtn[i].classList.add("hide")
-                configItem.textContent = "show more"
+                showMoreBtn[i].textContent = "show more"
             }
         })
     }

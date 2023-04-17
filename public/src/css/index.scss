@@ -18,7 +18,12 @@
     --hamburger-bar-width: 20px;
     --hamburger-bar-height: 3px;
     --hamburger-gap: 3px;
-    --hamburger-height: calc((var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2));
+    --hamburger-height: calc(
+        (var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
+    );
+    --rotate-start-end-amount: 134deg;
+    --rotate-middle-one-amount: 50deg;
+    --rotate-middle-two-amount: 220deg;
 }
 
 html {
@@ -94,7 +99,6 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
-
     // hide horizontal overflow
     body {
         overflow-x: hidden;
@@ -156,7 +160,7 @@ code {
 
                     //  the last navBar item
                     &[href="#documentationSection"] {
-                        >li {
+                        > li {
                             position: relative;
 
                             &::after {
@@ -203,7 +207,8 @@ code {
                                     border-left: 3px solid var(--white-in-white);
 
                                     &:hover {
-                                        border-left: 3px solid var(--primary-700);
+                                        border-left: 3px solid
+                                            var(--primary-700);
                                     }
                                 }
                             }
@@ -251,10 +256,9 @@ code {
             }
 
             .hamburger-menu {
-
                 &::before,
                 &::after,
-                >input {
+                > input {
                     background-color: var(--gray-400);
                 }
             }
@@ -273,7 +277,7 @@ code {
 
             &::before,
             &::after,
-            >input {
+            > input {
                 content: "";
                 width: var(--hamburger-bar-width);
                 height: var(--hamburger-bar-height);
@@ -283,7 +287,7 @@ code {
                 transition: all 500ms ease-in-out;
             }
 
-            >input {
+            > input {
                 appearance: none;
                 -webkit-appearance: none;
                 padding: 0;
@@ -404,7 +408,8 @@ code {
                             transition: 0.2s;
 
                             &.silverBox-copied {
-                                filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
+                                filter: grayscale(100%) sepia(100%)
+                                    hue-rotate(90deg);
                             }
                         }
 
@@ -463,6 +468,7 @@ code {
                     color: var(--gray-100);
                     transition: 0.2s linear;
                     border: 1px solid var(--primary-700);
+                    position: relative;
 
                     &.hide {
                         &::after {
@@ -470,20 +476,50 @@ code {
                             top: 40%;
                         }
                     }
-
-                    position: relative;
-
                     &:hover {
                         color: var(--primary-700);
                         background-color: transparent;
-
+                        // on button hover
                         &::after {
                             border-color: var(--primary-700);
+                            animation: confusedArrow 2s;
+                        }
+                        // on button hover and when it has class of "hide"
+                        &.hide {
+                            &::after {
+                                --rotate-start-end-amount: 45deg;
+                                --rotate-middle-one-amount: -39deg;
+                                --rotate-middle-two-amount: 131deg;
+                                transform: rotate(45deg);
+                                top: 40%;
+                            }
+                        }
+                        // animations
+                        @keyframes confusedArrow {
+                            0% {
+                                transform: rotate(
+                                    var(--rotate-start-end-amount)
+                                );
+                            }
+                            35% {
+                                transform: rotate(
+                                    var(--rotate-middle-one-amount)
+                                );
+                            }
+                            70% {
+                                transform: rotate(
+                                    var(--rotate-middle-two-amount)
+                                );
+                            }
+                            100% {
+                                transform: rotate(
+                                    var(--rotate-start-end-amount)
+                                );
+                            }
                         }
                     }
-
                     &::after {
-                        content: '';
+                        content: "";
                         width: 6px;
                         height: 6px;
                         position: absolute;
