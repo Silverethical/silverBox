@@ -161,21 +161,27 @@ function tableRow({ argument, explanation, defaultValue, id, config }) {
 }
 function toggleConfig() {
     // select all configs
-    const config = document.querySelectorAll('.silverBox-document-show-more')
+    const showMoreBtn = document.querySelectorAll('.silverBox-document-show-more')
+    const documentThatHasConfig = document.querySelectorAll('.silverBox-document-has-config')
 
-    config.forEach(configItem => {
-        configItem.addEventListener("click", () => {
-                if (configItem.parentElement.parentElement.nextElementSibling.classList.contains("hide")) {
-                    configItem.parentElement.parentElement.nextElementSibling.classList.remove("hide")
-                    configItem.classList.remove("hide")
-                    configItem.textContent = "show less"
-                } else {
-                    configItem.parentElement.parentElement.nextElementSibling.classList.add("hide")
-                    configItem.classList.add("hide")
-                    configItem.textContent = "show more"
-                }
+    // for loop
+    for (let i = 0; i < showMoreBtn.length; i++) {
+        // click event for each showMoreBtn
+        showMoreBtn[i].addEventListener("click", () => {
+            // if each document that has config contains "hide" class this code will be executed
+            if (documentThatHasConfig[i].classList.contains("hide")) {
+                documentThatHasConfig[i].classList.remove("hide")
+                documentThatHasConfig[i].classList.remove("hide")
+                configItem.textContent = "show less"
+            }
+            // if each document that has config doesn't contain "hide" class this code will be executed
+            else {
+                documentThatHasConfig[i].classList.add("hide")
+                showMoreBtn[i].classList.add("hide")
+                configItem.textContent = "show more"
+            }
         })
-    })
+    }
 }
 
 export default tableComponent;
