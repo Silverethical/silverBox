@@ -136,7 +136,7 @@ function tableRow({ argument, explanation, defaultValue, id, config }) {
         if ("config" in config) {
             // creates the show more button
             let documentShowMore = document.createElement('span')
-            documentShowMore.innerHTML = "show less"
+            documentShowMore.innerHTML = "show more"
             documentShowMore.classList.add("silverBox-document-show-more")
             docExplanationColumn.append(documentShowMore)
         }
@@ -174,7 +174,6 @@ function toggleConfig() {
                 documentThatHasConfig[i].classList.remove("hide")
                 // remove "hide" class from show more button
                 showMoreBtn[i].classList.remove("hide")
-                showMoreBtn[i].textContent = "show less"
             }
             // if each document that has config doesn't contain "hide" class this code will be executed
             else {
@@ -182,7 +181,6 @@ function toggleConfig() {
                 documentThatHasConfig[i].classList.add("hide")
                 // add "hide" class to show more button 
                 showMoreBtn[i].classList.add("hide")
-                showMoreBtn[i].textContent = "show more"
             }
         })
     }
