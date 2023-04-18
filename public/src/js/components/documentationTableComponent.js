@@ -1,7 +1,7 @@
 // import
 import replaceQuotedTextWithSpan from "../helpers/replaceQuotedTextWithSpan";
 import documentation from "../data/documentation";
-function tableComponent() {
+function silverBoxDocumentationTableComponent() {
     // tableWrapper selector
     const tableWrapper = document.querySelector(".tableWrapper");
     // adds tableHeader to tableWrapper
@@ -188,4 +188,4 @@ function toggleConfig() {
     }
 }
 
-export default tableComponent;
+export default silverBoxDocumentationTableComponent;
