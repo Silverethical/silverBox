@@ -96,6 +96,17 @@ html {
 body {
     color: var(--gray-700);
     font-family: Source Sans Pro;
+    #silverBox-banner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 35px;
+        background-color: #fbfbfb;
+        span {
+            font-size: 50px;
+            color: var(--primary-700);
+        }
+    }
 }
 
 @media only screen and (max-width: 900px) {
@@ -136,11 +147,13 @@ code {
     width: 90vw;
     max-width: 950px;
     padding: 10px;
+    position: relative;
 
     aside.sidebar {
         transform: translateX(-85%);
         position: fixed;
         left: 10px;
+        top: 10px;
         display: flex;
         column-gap: 10px;
         transition: all 500ms;
@@ -335,7 +348,7 @@ code {
             h2.tagline {
                 text-align: center;
                 font-size: 30px;
-                color: #284b63;
+                color: var(--primary-700);
                 font-weight: 800;
                 margin-bottom: 30px;
             }
@@ -352,7 +365,7 @@ code {
                     font-weight: 200;
 
                     #silverBox-name-tag {
-                        color: #284b63;
+                        color: var(--primary-700);
                         font-weight: 800;
                     }
                 }
@@ -449,14 +462,18 @@ code {
                     padding: 0 5px;
                     margin: 0 auto 10px;
                     max-height: 100rem;
-                    border-radius: 10px;
+                    border-radius: 15px;
                     width: 98%;
                     overflow: hidden;
                     background-color: #f6f6f6;
                     transition: 1s ease-in-out;
+                    border: 1px solid #ededed;
+                    box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.08),
+                        -4px 2px 2px rgba(0, 0, 0, 0.08);
 
                     &.hide {
                         max-height: 0 !important;
+                        border: none;
                     }
                 }
 
