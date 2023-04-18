@@ -461,21 +461,19 @@ code {
                 .silverBox-document-show-more {
                     cursor: pointer;
                     width: fit-content;
-                    margin-left: 10px;
-                    padding: 1px 15px 1px 5px;
+					display: inline-block;
+                    padding: 1px 15px 1px 0px;
                     border-radius: 5px;
-                    color: var(--primary-700);
                     transition: 0.5s linear;
                     position: relative;
+					text-decoration: underline;
 
                     &.hide {
                         &::after {
                             transform: rotate(45deg);
-                            top: 40%;
                         }
                     }
                     &:hover {
-                        text-decoration: underline;
                         // on button hover
                         &::after {
                             animation: confusedArrow 1.5s;
@@ -487,7 +485,6 @@ code {
                                 --rotate-middle-one-amount: -39deg;
                                 --rotate-middle-two-amount: 131deg;
                                 transform: rotate(45deg);
-                                top: 40%;
                             }
                         }
                         // animations
@@ -521,7 +518,7 @@ code {
                         position: absolute;
                         border-top: 1px solid var(--primary-700);
                         border-right: 1px solid var(--primary-700);
-                        top: 30%;
+                        top: 42%;
                         right: 5px;
                         transform: rotate(134deg);
                         transition: 0.2s linear;
@@ -544,6 +541,9 @@ code {
 
                     .document-explanation {
                         color: var(--document-explanation);
+                        .silverBox-explanation-span {
+                            padding-right: 10px;
+                        }
                     }
 
                     .document-undefined {
@@ -637,18 +637,6 @@ footer {
     }
 }
 
-@media screen and (max-width: 980px) {
-    main {
-    }
-    section#documentationSection {
-        .silverBox-document-show-more {
-            display: block;
-			margin-left: unset !important;
-			// padding left
-			padding-inline-start: 0 !important;
-        }
-    }
-}
 @media only screen and (max-width: 900px) {
     aside {
         nav {
