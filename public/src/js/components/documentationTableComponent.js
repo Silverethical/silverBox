@@ -97,7 +97,10 @@ function tableRow({ argument, explanation, defaultValue, id, config }) {
 
     const docExplanationColumn = document.createElement("div")
     docExplanationColumn.classList.add("tableColumn", "document-explanation")
-    docExplanationColumn.innerHTML = replaceQuotedTextWithSpan(explanation)
+    const explanationSpan = document.createElement("span")
+    explanationSpan.classList.add("silverBox-explanation-span")
+    explanationSpan.innerHTML = replaceQuotedTextWithSpan(explanation)
+    docExplanationColumn.append(explanationSpan) 
 
     // default value column ----
 
