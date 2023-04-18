@@ -9,8 +9,6 @@ const examples = [
 
             confirmButton: {
                 showButton: true,
-                bgColor: "#3085d6",
-                borderColor: "#3085d6",
                 textColor: "#fff",
                 text: "Confirm",
                 closeOnClick: true,
@@ -28,16 +26,12 @@ const examples = [
 
             confirmButton: {
                 showButton: true,
-                bgColor: "#3085d6",
-                borderColor: "#3085d6",
                 textColor: "#fff",
                 text: "YES",
                 closeOnClick: true,
             },
             denyButton: {
                 showButton: true,
-                bgColor: "#d23",
-                borderColor: "#d23",
                 textColor: "#fff",
                 text: "NO, go back",
                 closeOnClick: true,
@@ -158,15 +152,11 @@ const examples = [
             showCloseButton: true,
 
             confirmButton: {
-                bgColor: '#72b072',
-                borderColor: '#72b072',
                 textColor: "#000",
                 text: "Verify",
                 closeOnClick: false,
             },
             cancelButton: {
-                bgColor: "#fff",
-                borderColor: "#000",
                 textColor: "#000",
                 text: "Cancel",
                 closeOnClick: true,
