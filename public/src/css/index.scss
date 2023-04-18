@@ -461,12 +461,12 @@ code {
                 .silverBox-document-show-more {
                     cursor: pointer;
                     width: fit-content;
-					display: inline-block;
+                    display: inline-block;
                     padding: 1px 15px 1px 0px;
                     border-radius: 5px;
                     transition: 0.5s linear;
                     position: relative;
-					text-decoration: underline;
+                    text-decoration: underline;
 
                     &.hide {
                         &::after {
@@ -641,7 +641,7 @@ footer {
     aside {
         nav {
             ul {
-                li:has(#documentation-links) {
+                a[href="#documentationSection"] {
                     display: none !important;
                 }
             }
