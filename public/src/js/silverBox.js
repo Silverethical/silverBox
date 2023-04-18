@@ -6,7 +6,7 @@ import silverBoxHeaderComponent from "./components/header";
 import silverBoxIconsComponent from "./components/icons";
 import silverBoxCloseButtonOnClick from "./components/closeButtonOnClick";
 import silverBoxFooterComponent from "./components/footer";
-import uniqueNumberMaker from "./helpers/uniqueNumber";
+import silverBoxUniqueNumberMaker from "./helpers/uniqueNumber";
 
 const log = console.log;
 
@@ -230,18 +230,19 @@ export default function silverBox(config) {
 
 		// selecting overLay
 		const silverBoxOver = document.querySelector(".silverBox");
-		const silverBoxWrapper = document.querySelector(".silverBox-wrapper")
+		let silverBoxWrapper = document.querySelectorAll(".silverBox-wrapper")
+		silverBoxWrapper = silverBoxWrapper[silverBoxWrapper.length - 1]
 
 		// checks if we have time config, true => the modal will be removed after the given time
 		if ("timer" in config) {
 			// uniqueID
-			let uniqueID = uniqueNumberMaker(1_000_000)
+			let uniqueID = silverBoxUniqueNumberMaker(1_000_000)
 
 			// sets the unique ID as an attr to the modal
 			silverBoxWrapper.setAttribute('uniqueID', uniqueID)
 
 			// removes the sepecefi element after the given timeout
-			silverBoxCloseButtonOnClick({ uniqueID: uniqueID, timer: config.timer })
+			silverBoxCloseButtonOnClick({ uniqueID, timer: config.timer })
 
 		}
 
