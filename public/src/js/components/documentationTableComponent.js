@@ -139,7 +139,7 @@ function tableRow({ argument, explanation, defaultValue, id, config }) {
         if ("config" in config) {
             // creates the show more button
             let documentShowMore = document.createElement('span')
-            documentShowMore.innerHTML = "show more"
+            documentShowMore.innerHTML = "More"
             documentShowMore.classList.add("silverBox-document-show-more")
             docExplanationColumn.append(documentShowMore)
         }

@@ -446,15 +446,17 @@ code {
                 border-radius: 6px;
 
                 .silverBox-document-has-config {
-                    padding: 0 40px;
-                    max-height: unset;
+                    padding: 0 5px;
+                    margin: 0 auto 10px;
+                    max-height: 100rem;
+                    border-radius: 10px;
+                    width: 98%;
                     overflow: hidden;
-                    background-color: #f8f8f8;
-                    transition: 0.5s ease-in-out;
+                    background-color: #f6f6f6;
+                    transition: 1s ease-in-out;
 
                     &.hide {
                         max-height: 0 !important;
-                        padding: 0 !important;
                     }
                 }
 
