@@ -34,9 +34,9 @@ function silverBoxButtonComponent(buttonName, uniqClass) {
 
 
 	// button left icon
-	if (buttonName.leftIcon) {
+	if (buttonName.iconStart) {
 		let buttonLeftIcon = document.createElement("img");
-		buttonLeftIcon.setAttribute("src", buttonName.leftIcon);
+		buttonLeftIcon.setAttribute("src", buttonName.iconStart);
 		buttonLeftIcon.classList.add('silverBox-button-icon')
 		button.appendChild(buttonLeftIcon);
 	}
@@ -47,9 +47,9 @@ function silverBoxButtonComponent(buttonName, uniqClass) {
 	button.appendChild(buttonTextSpan);
 	button.append(silverBoxLoadingAnimation())
 	// button right icon
-	if (buttonName.rightIcon) {
+	if (buttonName.iconEnd) {
 		let buttonRightIcon = document.createElement("img");
-		buttonRightIcon.setAttribute("src", buttonName.rightIcon);
+		buttonRightIcon.setAttribute("src", buttonName.iconEnd);
 		buttonRightIcon.classList.add('silverBox-button-icon')
 		button.appendChild(buttonRightIcon);
 	}
