@@ -41,6 +41,38 @@ body {
         padding: var(--silverBox-padding);
         box-shadow: var(--silverBox-box-shadow);
         background-color: var(--silverBox-background-color);
+        // modal Animation
+        animation: popUp 0.3s ease-in;
+    }
+
+    // popUp animation
+    @keyframes popUp {
+        0% {
+            opacity: 0;
+            transform: rotate(0deg);
+
+        }
+
+        20% {
+            transform: rotate(1deg);
+        }
+
+        40% {
+            transform: rotate(-1deg);
+        }
+
+        60% {
+            transform: rotate(1deg);
+        }
+
+        80% {
+            transform: rotate(-1deg);
+        }
+
+        100% {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
     }
 
     @media only screen and (max-width: 800px) {
