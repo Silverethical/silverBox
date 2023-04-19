@@ -42,36 +42,13 @@ body {
         box-shadow: var(--silverBox-box-shadow);
         background-color: var(--silverBox-background-color);
         // modal Animation
-        animation: popUp 0.3s ease-in;
+        animation: popUp 0.3s linear;
     }
 
     // popUp animation
     @keyframes popUp {
-        0% {
-            opacity: 0;
-            transform: rotate(0deg);
-
-        }
-
-        20% {
-            transform: rotate(1deg);
-        }
-
-        40% {
-            transform: rotate(-1deg);
-        }
-
-        60% {
-            transform: rotate(1deg);
-        }
-
-        80% {
-            transform: rotate(-1deg);
-        }
-
-        100% {
-            opacity: 1;
-            transform: rotate(0deg);
+        50% {
+            transform: scale(1.05);
         }
     }
 

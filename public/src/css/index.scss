@@ -164,69 +164,68 @@ code {
             ul {
                 transition: all 500ms ease-in-out;
 
-                a {
+                li {
                     pointer-events: none;
-
-                    li {
-                        padding-right: 60px;
-                        transition: all 500ms ease-in-out;
-                    }
+                    transition: all 500ms ease-in-out;
+                    padding-right: 60px;
 
                     //  the last navBar item
-                    &[href="#documentationSection"] {
-                        >li {
-                            position: relative;
+                    &#drop-down {
+                        position: relative;
 
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            width: 5px;
+                            height: 5px;
+                            top: calc(50% - 1px);
+                            right: 45px;
+                            border-top: 1px solid;
+                            border-right: 1px solid;
+                            transform: rotate(45deg);
+                            transition: 0.2s;
+                        }
+
+                        &:hover {
                             &::after {
-                                position: absolute;
-                                content: "";
-                                width: 5px;
-                                height: 5px;
-                                top: calc(50% - 1px);
-                                right: 45px;
-                                border-top: 1px solid;
-                                border-right: 1px solid;
-                                transform: rotate(45deg);
-                                transition: 0.2s;
+                                transform: rotate(135deg);
                             }
 
-                            &:hover {
-                                &::after {
-                                    transform: rotate(135deg);
-                                }
-
-                                #documentation-links {
-                                    visibility: visible;
-                                    opacity: 1;
-                                }
-                            }
-
-                            // the level 2 menu
                             #documentation-links {
-                                display: flex;
-                                // x y
-                                overflow: hidden scroll;
-                                flex-wrap: wrap;
-                                max-height: 40vh;
-                                top: 100%;
-                                left: -3px;
-                                width: 101.5%;
-                                position: absolute;
-                                background-color: #fff;
-                                transition: 0.2s;
-                                visibility: hidden;
-                                opacity: 0;
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                        }
 
-                                li {
-                                    border-left: 3px solid var(--white-in-white);
+                        // the level 2 menu
+                        #documentation-links {
+                            display: flex;
+                            // x y
+                            overflow: hidden scroll;
+                            flex-wrap: wrap;
+                            max-height: 40vh;
+                            top: 100%;
+                            left: -3px;
+                            width: 101.5%;
+                            position: absolute;
+                            background-color: #fff;
+                            transition: 0.2s;
+                            visibility: hidden;
+                            opacity: 0;
 
-                                    &:hover {
-                                        border-left: 3px solid var(--primary-700);
-                                    }
+                            li {
+                                border-left: 3px solid var(--white-in-white);
+
+                                &:hover {
+                                    border-left: 3px solid var(--primary-700);
                                 }
                             }
                         }
+
                     }
+
+
+
                 }
             }
         }
@@ -239,30 +238,26 @@ code {
                 ul {
                     box-shadow: 0 0 5px -1px #00000033;
 
-                    a {
+                    li {
                         pointer-events: initial;
+                        padding: 12px 20px;
+                        border-left: 3px solid white;
+                        padding-right: 60px;
+                        transition: 0.3s;
 
-                        li {
-                            padding: 12px 20px;
-                            padding-right: 60px;
-                            border-left: 3px solid white;
-
-                            &:hover {
-                                border-left: 3px solid var(--primary-700);
-                                color: var(--primary-700);
-                            }
+                        &:hover {
+                            border-left: 3px solid var(--primary-700);
+                            color: var(--primary-700);
                         }
 
                         &.navigationTitle {
                             pointer-events: none;
                             font-size: 14px;
+                            border-left: none;
+                            border-bottom: 1px solid var(--gray-100);
+                            background-color: white;
+                            color: var(--gray-700);
 
-                            li {
-                                border-left: none;
-                                border-bottom: 1px solid var(--gray-100);
-                                background-color: white;
-                                color: var(--gray-700);
-                            }
                         }
                     }
                 }
@@ -674,8 +669,10 @@ footer {
     aside {
         nav {
             ul {
-                a[href="#documentationSection"] {
-                    display: none !important;
+                li {
+                    &#drop-down {
+                        display: none !important;
+                    }
                 }
             }
         }

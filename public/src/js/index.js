@@ -164,7 +164,7 @@ usageCode2.textContent = `silverBox({
 		   showButton: true,
 		   bgColor: "#3085d6",
 		   borderColor: "#3085d6",
-		   textColor: "#fff",
+		   textColor: "#fff",	
 		   text: "Confirm",
 		   closeOnClick: true
 	}
@@ -175,9 +175,7 @@ usageCode2.textContent = `silverBox({
 silverBoxDocumentationTableComponent()
 
 // appending the created ul of the documentation keys ID's to the navBar
-let documentationInNavBar = document.querySelector(
-	'nav ul a[href="#documentationSection"] li'
-);
+let documentationInNavBar = document.querySelector('#drop-down');
 
 documentationInNavBar.append(renderNavBarLinks());
 
