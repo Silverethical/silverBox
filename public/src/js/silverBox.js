@@ -34,7 +34,7 @@ export default function silverBox(config) {
 				titleText: config.title,
 				htmlText: config.html,
 				simpleText: config.text,
-				imageSource: silverBoxIconsComponent(config.alertIcon, config.userIcon, config.centerContent),
+				imageSource: silverBoxIconsComponent(config.alertIcon, config.customIcon, config.centerContent),
 				closeButton: config.showCloseButton,
 			})
 		);

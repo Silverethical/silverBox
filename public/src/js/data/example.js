@@ -58,7 +58,7 @@ const examples = [
         explanation: "An auto close modal with a custom time to notify user with a custom message in a period of time.",
         config: {
             timer: 1500,
-            userIcon: '/src/images/lightTimeout.png',
+            customIcon: '/src/images/lightTimeout.png',
             theme: "light",
             title: "You are so cute",
             centerContent: true,
@@ -73,7 +73,7 @@ const examples = [
         explanation: "A dark theme pop-up message. (you can also change the theme of the modal you want to light/dark) ",
         config: {
             timer: 1500,
-            userIcon: '/src/images/darkTimeout.png',
+            customIcon: '/src/images/darkTimeout.png',
             theme: "dark",
             title: "You are not cute at all.",
             centerContent: true,
@@ -88,7 +88,7 @@ const examples = [
         explanation: "A simple login modal which you can use to make a login form for your users with custom input types and etc.",
         config: {
             theme: "light",
-            userIcon: "/src/images/loginExample.png",
+            customIcon: "/src/images/loginExample.png",
             title: "Login Page",
             centerContent: true,
             text: "enter your account information",

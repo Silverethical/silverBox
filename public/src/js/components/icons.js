@@ -13,7 +13,7 @@ const silverBoxIconsComponent = (alertIcon, customIcon, isCentred = false) => {
 	// Check if a custom icon URL was provided.
 	if (customIcon) {
 		// Create a new user icon element using the provided URL and clone it to avoid modifying the original icon.
-		const clonedIcon = createUserIcon(customIcon, isCentred).cloneNode(
+		const clonedIcon = silverBoxCreateCustomIcon(customIcon, isCentred).cloneNode(
 			true
 		);
 
@@ -76,13 +76,13 @@ function createIcon(className, text, childClass) {
 
 /**
  * Creates a user icon element with the specified URL.
- * @param {string} userIcon - The URL for the user icon.
+ * @param {string} customIcon - The URL for the user icon.
  * @returns {Element} - The user icon element.
  */
-function createUserIcon(userIcon, isCentred) {
+function silverBoxCreateCustomIcon(customIcon, isCentred) {
 	// Create a new img element with the specified class and ID, and set its src attribute to the provided URL.
 	const img = document.createElement("img");
-	img.setAttribute("src", userIcon);
+	img.setAttribute("src", customIcon);
 	img.classList.add("silverBox-icon");
 	img.id = "silverBox-custom-icon";
 	if (isCentred) img.classList.add("centered-icon");
