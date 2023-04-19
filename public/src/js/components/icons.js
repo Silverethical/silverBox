@@ -21,12 +21,12 @@ const silverBoxIconsComponent = (alertIcon, customIcon, isCentred = false) => {
 	}
 
 	// Check if isCentred is true and if the requested icon exists in the icons object.
-	if (isCentred && icons[alertIcon]) {
+	if (icons[alertIcon]) {
 		// Retrieve the requested icon from the icons object and clone it to avoid modifying the original icon.
 		const clonedIcon = icons[alertIcon].cloneNode(true);
 
 		// Add the "centered-icon" class to the cloned icon element.
-		clonedIcon.classList.add("centered-icon");
+		if (isCentred) clonedIcon.classList.add("centered-icon");
 
 		// Return the cloned icon element.
 		return clonedIcon;
