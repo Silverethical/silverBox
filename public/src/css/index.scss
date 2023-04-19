@@ -463,17 +463,29 @@ code {
                     margin: 0 auto 10px;
                     max-height: 100rem;
                     border-radius: 15px;
-                    width: 98%;
+                    width: 90%;
                     overflow: hidden;
                     background-color: #f6f6f6;
                     transition: 1s ease-in-out;
-                    border: 1px solid #ededed;
-                    box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.08),
-                        -4px 2px 2px rgba(0, 0, 0, 0.08);
 
                     &.hide {
                         max-height: 0 !important;
-                        border: none;
+                    }
+                }
+
+                .silverBox-documentConfig-indicator {
+                    width: 10px;
+                    height: 30px;
+                    display: inline-block;
+                    border-left: 2px solid var(--primary-700);
+                    border-bottom: 2px solid var(--primary-700);
+                    margin: 0 0 -2% 3%;
+                    transition: 1s ease-in-out;
+
+                    &.hide {
+                        width: 0 !important;
+                        height: 0 !important;
+                        border-color:transparent;
                     }
                 }
 

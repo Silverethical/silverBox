@@ -27,6 +27,9 @@ function silverBoxDocumentationTableComponent() {
             // creates document configs wrapper
             let documentConfigWrapper = document.createElement('div')
             documentConfigWrapper.classList.add('silverBox-document-has-config')
+            // create indicator
+            let documentConfigWrapperIndicator = document.createElement('span')
+            documentConfigWrapperIndicator.classList.add("silverBox-documentConfig-indicator")
 
             documentItem.config.forEach(config => {
                 let configTableRow = tableRowFunctionConfig(config, "hasConfig", documentItem)
@@ -34,6 +37,7 @@ function silverBoxDocumentationTableComponent() {
                 documentConfigWrapper.append(configTableRow)
             });
             // appending the whole parent div after the related config explanation
+            tableWrapper.append(documentConfigWrapperIndicator)
             tableWrapper.append(documentConfigWrapper)
 
         }
@@ -100,7 +104,7 @@ function tableRow({ argument, explanation, defaultValue, id, config }) {
     const explanationSpan = document.createElement("span")
     explanationSpan.classList.add("silverBox-explanation-span")
     explanationSpan.innerHTML = replaceQuotedTextWithSpan(explanation)
-    docExplanationColumn.append(explanationSpan) 
+    docExplanationColumn.append(explanationSpan)
 
     // default value column ----
 
@@ -166,6 +170,7 @@ function toggleConfig() {
     // select all configs
     const showMoreBtn = document.querySelectorAll('.silverBox-document-show-more')
     const documentThatHasConfig = document.querySelectorAll('.silverBox-document-has-config')
+    const silverBoxDocumentConfigIndicator = document.querySelectorAll('.silverBox-documentConfig-indicator')
 
     // for loop
     for (let i = 0; i < showMoreBtn.length; i++) {
@@ -177,6 +182,8 @@ function toggleConfig() {
                 documentThatHasConfig[i].classList.remove("hide")
                 // remove "hide" class from show more button
                 showMoreBtn[i].classList.remove("hide")
+                // remove "hide" class from Document Config Indicator
+                silverBoxDocumentConfigIndicator[i].classList.remove("hide")
             }
             // if each document that has config doesn't contain "hide" class this code will be executed
             else {
@@ -184,6 +191,8 @@ function toggleConfig() {
                 documentThatHasConfig[i].classList.add("hide")
                 // add "hide" class to show more button 
                 showMoreBtn[i].classList.add("hide")
+                // add "hide" class to Document Config Indicator
+                silverBoxDocumentConfigIndicator[i].classList.add("hide")
             }
         })
     }
