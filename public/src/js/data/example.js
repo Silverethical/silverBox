@@ -91,40 +91,33 @@ const examples = [
             userIcon: "/src/images/loginExample.png",
             title: "Login Page",
             centerContent: true,
-            text: "enter your account informations",
+            text: "enter your account information",
             footer: "<a>forgot your password?</a>",
             showCloseButton: true,
 
             confirmButton: {
                 textColor: "#fff",
                 text: "Confirm",
-                iconRight: "../src/images/anya.png",
-                iconLeft: "../src/images/anya.png",
                 closeOnClick: false,
             },
             cancelButton: {
                 textColor: "#000",
                 text: "Cancel",
-                iconRight: "/path/to/icon",
-                iconLeft: "/path/to/icon",
                 closeOnClick: true,
             },
 
             input: [
                 {
-                    label: "User Name",
+                    label: "Username",
                     type: "text",
                     placeHolder: "Enter your user name",
-                    readOnly: false,
                     textAlign: 'left',
                     fontSize: '16px',
                 },
                 {
-                    numberOnly: true,
                     label: "Email",
                     type: "email",
                     placeHolder: "Enter your email",
-                    readOnly: false,
                     textAlign: 'left',
                     fontSize: '16px',
                 },
@@ -132,52 +125,13 @@ const examples = [
                     label: "Password",
                     type: "password",
                     placeHolder: "Enter your password",
-                    hint: 'must contain 8 charactars',
-                    readOnly: false,
+                    hint: 'must contain 8 characters',
                     inputMaxLength: 8,
                     textAlign: 'left',
                     fontSize: '16px',
                 },]
         },
-    },
-    {
-        explanation: "A code verification modal wich you can display on screen to verify the code you sent to your user. (you can multiply a single styled input many times to match the requirements for this modal)",
-        config: {
-            theme: "light",
-            userIcon: "/src/images/emailVerify.png",
-            text: "please check your email for the code we've sent you.",
-            title: "Code verification",
-            centerContent: true,
-            footer: "<a>resend the code.</a>",
-            showCloseButton: true,
-
-            confirmButton: {
-                textColor: "#000",
-                text: "Verify",
-                closeOnClick: false,
-            },
-            cancelButton: {
-                textColor: "#000",
-                text: "Cancel",
-                closeOnClick: true,
-            },
-
-            input: [
-                {
-                    type: "text",
-                    numberOnly: true,
-                    placeHolder: "0",
-                    readOnly: false,
-                    textAlign: 'center',
-                    fontSize: '50px',
-                    inputWidth: "80px",
-                    inputHeight: "80px",
-                    inputMaxLength: 1,
-                    multiplyBy: 4,
-                },
-            ]
-        },
-    },
+    }
 ];
 
 
