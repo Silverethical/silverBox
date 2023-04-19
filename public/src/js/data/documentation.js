@@ -2,76 +2,56 @@ const documentation = [
     {
         configName: "alertIcon",
         defaultValue: "",
-        explanation: `Displays Icons according to given values from following list: "success", "error", "warning", "info", "question".`,
+        explanation: `Predefined icons including: "success", "error", "warning", "info", "question".`,
     },
     {
-        configName: "userIcon",
+        configName: "customIcon",
         defaultValue: "",
-        explanation: `Path to user's Icon. For example userIcon: "path/to/icon"; .`,
+        explanation: `Path to a customIcon. For example customIcon: "path/to/icon"; .`,
     },
     {
         configName: "timer",
         defaultValue: undefined,
-        explanation: "SilverBox closes after given time in milliseconds. example: timer: 3000; timer will be closed after 3s with this given value."
+        explanation: "SilverBox closes after given time in milliseconds."
     },
     {
         configName: "position",
         defaultValue: "",
-        explanation: `Positions the box according to given values from following list: "top-right", "top-center", "top-left", "bottom-right", "bottom-center", "bottom-left".`
+        explanation: `Position SilverBox in: "top-right", "top-center", "top-left", "bottom-right", "bottom-center", "bottom-left".`
     },
     {
         configName: "theme",
         defaultValue: "light",
-        explanation: `Changes the box theme according to given value from following list: "light", "dark".`
+        explanation: `Changes SilverBox theme. Predefined themes: "light", "dark".`
     },
     {
         configName: "title",
         defaultValue: "",
-        explanation: "Get a text and puts It at the top of the box as title"
+        explanation: "SilverBox title"
     },
     {
         configName: "centerContent",
         defaultValue: false,
-        explanation: `Positions the contents based on given value which Is either "true" or "false". If true Is given as the value, all content will be centered.`
+        explanation: `Aligns the content center. "true" or "false".`
     },
     {
         configName: "html",
         defaultValue: "",
-        explanation: "Gets a HTML tag and puts It under the title. If this value Is given with text key, html key will be shown."
+        explanation: `HTML as SilverBox body. If "text" parameter is given at the same time as "html" parameter, "text" will be ignored. example: "&lt;a href='/recovery'&gt;recover password&lt;/a&gt;" `
     },
     {
         configName: "text",
         defaultValue: "",
-        explanation: "Get a text and puts It under the tile. If this value Is given with html key, html key will be shown."
+        explanation: `Text as SilverBox body. If "text" parameter is given at the same time as "html" parameter, "text" will be ignored.`
     },
     {
         configName: "footer",
         defaultValue: "",
-        explanation: "Gets a HTML tag and puts It Into a footer tag at the very end of the box with a horizontal line above it."
-    },
-    {
-        configName: "showCloseButton",
-        defaultValue: false,
-        explanation: `Shows the close button at top of the box based on given value which Is either "true" or "false". If true Is given as the value, the button will be shown.`
-    },
-    {
-        configName: "showConfirmButton",
-        defaultValue: true,
-        explanation: `If the value is "true" the button will be created, If the value Is "false", the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not.`
-    },
-    {
-        configName: "showDenyButton",
-        defaultValue: false,
-        explanation: `If the value is "true" the button will be created, If the value Is "false", the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not.`
-    },
-    {
-        configName: "showCancelButton",
-        defaultValue: true,
-        explanation: `If the value is "true" the button will be created, If the value Is "false", the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not.`
+        explanation: "HTML as SilverBox footer."
     },
     {
         configName: "confirmButton",
-        defaultValue: "shown",
+        defaultValue: "emptyDefaultValue",
         explanation: "Gets a config like confirmButton: {} and creates The button based on given keys",
         config: [
             {
@@ -95,12 +75,12 @@ const documentation = [
                 explanation: "Get a value as a color and puts It as the button's text color.",
             },
             {
-                configName: "iconRight",
+                configName: "iconEnd",
                 defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the end of the button's text.",
             },
             {
-                configName: "iconLeft",
+                configName: "iconStart",
                 defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the start of the button's text.",
             },
@@ -108,12 +88,17 @@ const documentation = [
                 configName: "closeOnClick",
                 defaultValue: false,
                 explanation: `Gets values which Is either "true" or "false". If It's true the button will be closed.`
-            }
+            },
+            {
+                configName: "showButton",
+                defaultValue: true,
+                explanation: `If the value is "true" the button will be created, If the value Is "false", the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not.`
+            },
         ]
     },
     {
         configName: "cancelButton",
-        defaultValue: "shown",
+        defaultValue: "emptyDefaultValue",
         explanation: "Gets a config like cancelButton: {} and creates The button based on given keys",
         config: [
             {
@@ -137,12 +122,12 @@ const documentation = [
                 explanation: "Get a value as a color and puts It as the button's text color.",
             },
             {
-                configName: "iconRight",
+                configName: "iconEnd",
                 defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the end of the button's text.",
             },
             {
-                configName: "iconLeft",
+                configName: "iconStart",
                 defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the start of the button's text.",
             },
@@ -150,12 +135,17 @@ const documentation = [
                 configName: "closeOnClick",
                 defaultValue: false,
                 explanation: `Gets values which Is either "true" or "false". If It's true the button will be closed.`
-            }
+            },
+            {
+                configName: "showButton",
+                defaultValue: true,
+                explanation: `If the value is "true" the button will be created, If the value Is "false", the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not.`
+            },
         ]
     },
     {
         configName: "denyButton",
-        defaultValue: "hidden",
+        defaultValue: "emptyDefaultValue",
         explanation: "Gets a config like denyButton: {} and creates The button based on given keys",
         config: [
             {
@@ -179,12 +169,12 @@ const documentation = [
                 explanation: "Get a value as a color and puts It as the button's text color.",
             },
             {
-                configName: "iconRight",
+                configName: "iconEnd",
                 defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the end of the button's text.",
             },
             {
-                configName: "iconLeft",
+                configName: "iconStart",
                 defaultValue: "",
                 explanation: "Get an Icon path and puts the Icon at the start of the button's text.",
             },
@@ -192,12 +182,17 @@ const documentation = [
                 configName: "closeOnClick",
                 defaultValue: true,
                 explanation: `Gets values which Is either "true" or "false". If It's true the button will be closed.`
-            }
+            },
+            {
+                configName: "showButton",
+                defaultValue: false,
+                explanation: `If the value is "true" the button will be created, If the value Is "false", the button won't be created, If the config Is not given, It depends on wether the Config for the button exists or not.`
+            },
         ]
     },
     {
         configName: "input",
-        defaultValue: "",
+        defaultValue: "emptyDefaultValue",
         explanation: "Creates an Input based on given config Inside input: {}. The value can also be given as objects Inside of an array.",
         config: [
             {

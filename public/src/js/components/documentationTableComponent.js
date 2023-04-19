@@ -110,27 +110,28 @@ function tableRow({ argument, explanation, defaultValue, id, config }) {
 
     const docDefaultValueColumn = document.createElement("div")
     docDefaultValueColumn.classList.add("tableColumn")
-    docDefaultValueColumn.textContent = defaultValue
 
-    // if type of the default value is string this code will be executed
-    if (typeof defaultValue === "string") {
-        // if the string is empty this code will be executed
-        if (defaultValue === "") {
-            docDefaultValueColumn.classList.add("document-string")
-            docDefaultValueColumn.textContent = '" "'
-        } else {
-            docDefaultValueColumn.textContent = `"${defaultValue}"`
-            docDefaultValueColumn.classList.add("document-string")
+    if (defaultValue != "emptyDefaultValue") {
+        // if type of the default value is string this code will be executed
+        if (typeof defaultValue === "string") {
+            // if the string is empty this code will be executed
+            if (defaultValue === "") {
+                docDefaultValueColumn.classList.add("document-string")
+                docDefaultValueColumn.textContent = '" "'
+            } else {
+                docDefaultValueColumn.textContent = `"${defaultValue}"`
+                docDefaultValueColumn.classList.add("document-string")
+            }
         }
-    }
-    // if type of the default value is boolean this code will be executed
-    else if (typeof defaultValue === "boolean") {
-        docDefaultValueColumn.classList.add("document-boolean")
-    }
-    // if type of the default value is object this code will be executed
-    else if (typeof defaultValue === "undefined") {
-        docDefaultValueColumn.classList.add("document-undefined")
-        docDefaultValueColumn.textContent = `${defaultValue}`
+        // if type of the default value is boolean this code will be executed
+        else if (typeof defaultValue === "boolean") {
+            docDefaultValueColumn.classList.add("document-boolean")
+        }
+        // if type of the default value is object this code will be executed
+        else if (typeof defaultValue === "undefined") {
+            docDefaultValueColumn.classList.add("document-undefined")
+            docDefaultValueColumn.textContent = `${defaultValue}`
+        }
     }
 
     // if id == "noConfig" this code will be executed
