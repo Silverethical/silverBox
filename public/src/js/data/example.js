@@ -2,7 +2,6 @@ const examples = [
     {
         explanation: "A modal with a success icon and message which you can use to inform a user about their operation being successful. ",
         config: {
-            theme: "light",
             alertIcon: "success",
             text: "Your task has been completed.",
             centerContent: true,
@@ -19,7 +18,6 @@ const examples = [
     {
         explanation: "A modal with an error message which you can use to inform the user about their outcome of the operation and will be lead out of the situation.",
         config: {
-            theme: "light",
             alertIcon: "error",
             text: "operation failed, wish to go further ?",
             centerContent: true,
@@ -43,7 +41,6 @@ const examples = [
         explanation: "A positioned info modal which you can use to notify the user about the outcome of their operation and you can display it anywhere you want.",
         config: {
             position: 'top-right',
-            theme: "light",
             alertIcon: "info",
             text: "changes has been saved !",
             centerContent: true,
@@ -130,6 +127,25 @@ const examples = [
                     textAlign: 'left',
                     fontSize: '16px',
                 },]
+        },
+    },
+    {
+        explanation: "A simple error message that popsup in the right bottom conrner (eye pleasing)",
+        config: {
+            timer: 1500,
+            position: 'bottom-right',
+            text: "You've got an error!",
+            centerContent: true,
+
+            confirmButton: {
+                showButton: false
+            },
+
+            cancelButton: {
+                showButton: false
+            },
+
+
         },
     }
 ];
