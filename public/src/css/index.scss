@@ -101,10 +101,10 @@ body {
         justify-content: center;
         margin-bottom: 35px;
         background-color: #fbfbfb;
-
         span {
             font-size: 50px;
             color: var(--primary-700);
+            font-weight: 700;
         }
     }
 }
@@ -345,7 +345,7 @@ code {
                 text-align: center;
                 font-size: 30px;
                 color: var(--primary-700);
-                font-weight: 800;
+                font-weight: 600;
                 margin-bottom: 30px;
             }
 
@@ -362,7 +362,7 @@ code {
 
                     #silverBox-name-tag {
                         color: var(--primary-700);
-                        font-weight: 800;
+                        font-weight: 500;
                     }
                 }
 
