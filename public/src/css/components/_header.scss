@@ -1,7 +1,6 @@
 .silverBox-close-button {
     cursor: pointer;
     grid-column-start: 3;
-
 }
 
 .icon-wrapper {
@@ -16,14 +15,14 @@
 }
 
 .header-wrapper {
-    &>* {
-        margin: var(--silverBox-header-items-margin);
+    display: flex;
+    align-items: center;
+    & > * {
+        margin-top: var(--silverBox-header-items-margin);
     }
-
-    .icon-wrapper {
-        margin: 0;
+    .icon-wrapper{
+        margin-top: 0;
     }
-
 
     .silverBox-header-title {
         color: var(--silverBox-title-color);

@@ -12,7 +12,6 @@ body {
 }
 
 .silverBox-wrapper {
-
     // silver box modal
     &.silverBox-overlay {
         width: 100vw;
@@ -35,7 +34,6 @@ body {
         max-width: min-content;
         display: flex;
         flex-direction: column;
-        gap: 10px 0;
         border: var(--silverBox-border);
         border-radius: var(--silverBox-border-radius);
         padding: var(--silverBox-padding);
