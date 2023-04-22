@@ -50,9 +50,9 @@ export default function silverBox(config) {
 					label: selector.label,
 					placeHolder: selector.placeHolder,
 					readOnly: selector.readOnly,
-					width: selector.inputWidth,
-					height: selector.inputHeight,
-					inputMaxLength: selector.inputMaxLength,
+					width: selector.width,
+					height: selector.height,
+					maxLength: selector.maxLength,
 					textAlign: selector.textAlign,
 					fontSize: selector.fontSize,
 					placeHolderFontSize: selector.placeHolderFontSize

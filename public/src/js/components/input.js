@@ -7,13 +7,13 @@
  * @param {string} hint - hint of input
  * @param {string} width - width of input
  * @param {string} height - height of input
- * @param {string} inputMaxLength - maxLength attribute of input
+ * @param {string} maxLength - maxLength attribute of input
  * @param {string} textAlign - specifies the position of texts in input
  * @param {string} fontSize - text fontSize of input
  * @param {string} placeHolderFontSize - placeHolder fontSize of input
  * @returns {Element} - inputWrapper element
  */
-function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOnly, label, hint, width, height, inputMaxLength, textAlign, fontSize, placeHolderFontSize }) {
+function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOnly, label, hint, width, height, maxLength, textAlign, fontSize, placeHolderFontSize }) {
 	// changing the type case to lowerCase to avoid case conflict problem
 	type = type.toLowerCase()
 
@@ -75,7 +75,7 @@ function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOn
 
 	// general input/textArea configs
 	if (placeHolder) inputEl.setAttribute('placeholder', placeHolder)
-	if (inputMaxLength) inputEl.setAttribute('maxlength', inputMaxLength)
+	if (maxLength) inputEl.setAttribute('maxlength', maxLength)
 	inputEl.style.textAlign = textAlign
 
 	// add input elements custom height and width and fontSize if their given

@@ -123,7 +123,7 @@ const examples = [
                     type: "password",
                     placeHolder: "Enter your password",
                     hint: 'must contain 8 characters',
-                    inputMaxLength: 8,
+                    maxLength: 8,
                     textAlign: 'left',
                     fontSize: '16px',
                 },]
