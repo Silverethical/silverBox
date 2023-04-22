@@ -15,8 +15,6 @@
 }
 
 .header-wrapper {
-    display: flex;
-    align-items: center;
     & > * {
         margin-top: var(--silverBox-header-items-margin);
     }

@@ -58,14 +58,14 @@ export default function silverBox(config) {
 					placeHolderFontSize: selector.placeHolderFontSize
 				};
 			};
-			// checks if inputs have the multiPlyBy confing or not 
+			// checks if inputs have the multiPlyBy config or not 
 			const multiplyByCheck = (selector) => {
 				if ("multiplyBy" in selector) {
+					if (selector.multiplyBy <= 1) selector.multiplyBy = 1
 					// loops to creates the given number of inputs
 					for (let i = 1; i <= selector.multiplyBy; i++) {
 						inputWrapper.append(silverBoxInputComponent(inputConfig(selector)));
 					}
-
 				}
 				else {
 					inputWrapper.append(silverBoxInputComponent(inputConfig(selector)));

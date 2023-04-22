@@ -102,20 +102,17 @@ const examples = [
                 text: "Cancel",
                 closeOnClick: true,
             },
-
             input: [
                 {
                     label: "Username",
                     type: "text",
                     placeHolder: "Enter your user name",
-                    textAlign: 'left',
                     fontSize: '16px',
                 },
                 {
                     label: "Email",
                     type: "email",
                     placeHolder: "Enter your email",
-                    textAlign: 'left',
                     fontSize: '16px',
                 },
                 {
@@ -124,13 +121,14 @@ const examples = [
                     placeHolder: "Enter your password",
                     hint: 'must contain 8 characters',
                     maxLength: 8,
-                    textAlign: 'left',
                     fontSize: '16px',
-                },]
+                },
+
+            ]
         },
     },
     {
-        explanation: "A simple error message that popsup in the right bottom conrner (eye pleasing)",
+        explanation: "A simple error message that pops up in the right bottom corner (eye pleasing)",
         config: {
             timer: 1500,
             position: 'bottom-right',

@@ -126,6 +126,7 @@ function tableRow({ argument, explanation, defaultValue, id, config }) {
         // if type of the default value is boolean this code will be executed
         else if (typeof defaultValue === "boolean") {
             docDefaultValueColumn.classList.add("document-boolean")
+            docDefaultValueColumn.textContent = `${defaultValue}`
         }
         // if type of the default value is object this code will be executed
         else if (typeof defaultValue === "undefined") {
