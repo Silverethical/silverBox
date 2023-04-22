@@ -169,11 +169,10 @@ export default function silverBox(config) {
 					silverBoxButtonComponent(config.confirmButton, 'silverBox-confirm-button')
 				);
 			}
-
 		}
 
 		// pushes the buttonWrapper inside the elements Array
-		elementsArray.push(buttonWrapper);
+		if (buttonWrapper) elementsArray.push(buttonWrapper);
 
 		// adds footer if it is inside the config and it exists
 		if (config.footer) {
