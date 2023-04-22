@@ -1,15 +1,14 @@
 // import components
-import silverBoxButtonComponent from "./components/button";
-import silverBoxInputComponent from "./components/input";
-import silverBoxModalSample from "./components/modalSample";
-import silverBoxHeaderComponent from "./components/header";
-import silverBoxIconsComponent from "./components/icons";
-import silverBoxCloseButtonOnClick from "./components/closeButtonOnClick";
-import silverBoxFooterComponent from "./components/footer";
-import silverBoxUniqueNumberMaker from "./helpers/uniqueNumber";
-import silverBoxDisableScroll from "./helpers/disableScroll";
+import silverBoxButtonComponent from "./components/silverBox/button";
+import silverBoxInputComponent from "./components/silverBox/input";
+import silverBoxModalSample from "./components/silverBox/modalSample";
+import silverBoxHeaderComponent from "./components/silverBox/header";
+import silverBoxIconsComponent from "./components/silverBox/icons";
+import silverBoxCloseButtonOnClick from "./components/silverBox/closeButtonOnClick";
+import silverBoxFooterComponent from "./components/silverBox/footer";
+import silverBoxUniqueNumberMaker from "./helpers/silverBox/uniqueNumber";
+import silverBoxDisableScroll from "./helpers/silverBox/disableScroll";
 
-const log = console.log;
 
 /**
  * SilverBox modal

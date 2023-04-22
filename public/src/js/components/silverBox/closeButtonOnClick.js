@@ -1,5 +1,5 @@
 // import
-import silverBoxDisableScroll from '../helpers/disableScroll';
+import silverBoxDisableScroll from '../../helpers/silverBox/disableScroll';
 /** selects the silverBox wrapper and closes the element*/
 function silverBoxCloseButtonOnClick({ uniqueID, timer }) {
 	// if the modal doesn't have a timer, the modal will be closed on click
