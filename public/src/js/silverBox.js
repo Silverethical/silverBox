@@ -7,6 +7,7 @@ import silverBoxIconsComponent from "./components/icons";
 import silverBoxCloseButtonOnClick from "./components/closeButtonOnClick";
 import silverBoxFooterComponent from "./components/footer";
 import silverBoxUniqueNumberMaker from "./helpers/uniqueNumber";
+import silverBoxDisableScroll from "./helpers/disableScroll";
 
 const log = console.log;
 
@@ -17,7 +18,6 @@ const log = console.log;
  */
 export default function silverBox(config) {
 	if (Object.keys(config).length !== 0) {
-
 		/** selectors(before creating elements)*/
 		/** array of all the elements in the modal (inputs/texts/icons/buttons) */
 		let elementsArray = [],
@@ -208,7 +208,7 @@ export default function silverBox(config) {
 			if ("input" in config) {
 				modalSampleConfig(`silverBox-${config.position}`, true)
 			}
-			// if the modal doesnt have the input config
+			// if the modal doesn't have the input config
 			else {
 				modalSampleConfig(`silverBox-${config.position}`, false)
 			}
@@ -220,7 +220,7 @@ export default function silverBox(config) {
 			if ("input" in config) {
 				modalSampleConfig("silverBox-overlay", true)
 			}
-			// if the modal doesnt have the input config
+			// if the modal doesn't have the input config
 			else {
 				modalSampleConfig("silverBox-overlay", false)
 			}
@@ -240,7 +240,7 @@ export default function silverBox(config) {
 			// sets the unique ID as an attr to the modal
 			silverBoxWrapper.setAttribute('uniqueID', uniqueID)
 
-			// removes the sepecefi element after the given timeout
+			// removes the specific element after the given timeout
 			silverBoxCloseButtonOnClick({ uniqueID, timer: config.timer })
 
 		}
@@ -249,9 +249,14 @@ export default function silverBox(config) {
 		// if the clicked element has classList of silverBox-overlay this code will be executed
 		if (silverBoxWrapper) silverBoxWrapper.addEventListener("click", () => {
 			silverBoxWrapper.remove();
+			// checks for silverBox after removing wrapper
+			silverBoxDisableScroll(".silverBox-overlay")
 		});
 		silverBoxOver.addEventListener("click", (e) => {
 			e.stopPropagation();
 		});
+
+		// checks for silverBox after creating the box
+		silverBoxDisableScroll(".silverBox-overlay")
 	}
 }

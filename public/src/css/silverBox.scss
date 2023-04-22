@@ -9,6 +9,10 @@
 body {
     background-color: white;
     color: var(--success-700);
+    &.stop-scrolling {
+        height: 100%;
+        overflow: hidden;
+    }
 }
 
 .silverBox-wrapper {
