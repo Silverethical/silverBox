@@ -32,6 +32,8 @@ body {
         width: 90vw;
         min-width: 400px;
         max-width: min-content;
+        max-height: 75vh;
+        overflow-y: auto;
         display: flex;
         flex-direction: column;
         border: var(--silverBox-border);
