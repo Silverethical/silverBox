@@ -36,7 +36,7 @@ body {
         width: 90vw;
         min-width: 400px;
         max-width: min-content;
-        max-height: 75vh;
+        max-height: 90vh;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
@@ -47,6 +47,9 @@ body {
         background-color: var(--silverBox-background-color);
         // modal Animation
         animation: popUp 0.3s linear;
+        *:first-child{
+            margin-top: 0;
+        }
     }
 
     // popUp animation
