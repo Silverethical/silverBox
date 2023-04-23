@@ -45,10 +45,9 @@ function silverBoxModalSample({ direction, elementsArray, overlayClass, isInput,
             silverBoxModal.append(element)
         })
     }
-
-    overlay.append(silverBoxModal)
+    if (silverBoxModal.childElementCount !== 0) overlay.append(silverBoxModal)
     // returns the whole thing
-    return overlay
+    if (overlay.childElementCount !== 0) return overlay
 
 }
 
