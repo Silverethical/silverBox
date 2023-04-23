@@ -106,16 +106,19 @@ function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOn
 	// readOnly condition for inputs
 	if (readOnly) inputEl.setAttribute('readonly', '')
 
-	// appending either the select or input to the inputWrapper
+	// apending label,hint and input/select to the inputwrapper
+	if (label) inputWrapper.append(labelEl)
+	// checks if the select config is given, if it's true the select element will be replaced as the input
 	if (select) {
+
 		inputWrapper.append(selectEl)
+
 	}
 	else {
-		// appending label and hint to the main div
-		if (label) inputWrapper.append(labelEl)
 		inputWrapper.appendChild(inputEl)
-		if (hint) inputWrapper.appendChild(hintEl)
 	}
+	if (hint) inputWrapper.appendChild(hintEl)
+
 
 
 
