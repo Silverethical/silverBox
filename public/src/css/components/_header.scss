@@ -3,7 +3,7 @@
     grid-column-start: 3;
 }
 
-.icon-wrapper {
+.silverBox-icon-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
@@ -14,7 +14,7 @@
     }
 }
 
-.header-wrapper {
+.silverBox-header-wrapper {
     & > * {
         margin-top: var(--silverBox-items-top-margin);
     }

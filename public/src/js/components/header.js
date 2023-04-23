@@ -13,10 +13,10 @@ import silverBoxCloseButtonOnClick from "./closeButtonOnClick"
 function silverBoxHeaderComponent({ titleText, htmlText, simpleText, imageSource, closeButton }) {
     // header wrapper
     let headerWrapper = document.createElement("div")
-    headerWrapper.classList.add('header-wrapper')
+    headerWrapper.classList.add('silverBox-header-wrapper')
     // icon and closeButton wrapper
     let iconWrapper = document.createElement('div')
-    iconWrapper.classList.add('icon-wrapper')
+    iconWrapper.classList.add('silverBox-icon-wrapper')
 
     // title 
     let title = document.createElement("h2")
