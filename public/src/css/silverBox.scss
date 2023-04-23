@@ -47,6 +47,9 @@ body {
         background-color: var(--silverBox-background-color);
         // modal Animation
         animation: popUp 0.3s linear;
+        *:first-child{
+            margin-top: 0;
+        }
     }
 
     // popUp animation

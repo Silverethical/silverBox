@@ -1,5 +1,5 @@
  .silverBox-input-wrapper {
-     margin: 20px 0;
+     margin-top: var(--silverBox-items-top-margin);
      display: flex;
      flex-wrap: wrap;
      gap: var(--silverBox-input-parent-gap);

@@ -16,10 +16,7 @@
 
 .header-wrapper {
     & > * {
-        margin-top: var(--silverBox-header-items-margin);
-    }
-    .icon-wrapper{
-        margin-top: 0;
+        margin-top: var(--silverBox-items-top-margin);
     }
 
     .silverBox-header-title {
