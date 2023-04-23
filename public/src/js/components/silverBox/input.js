@@ -37,7 +37,7 @@ function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOn
 			// each option element creation
 			let optionEl = document.createElement('option')
 			// sets the option value
-			optionEl.setAttribute('value', option.value)
+			optionEl.setAttribute('value', option.value ? option.value : '')
 			// sets the optio text (if text doesn't exist, the text value would be the option value )
 			optionEl.textContent = option.text ? option.text : option.value
 			// gives the option element a disabled attr if the config exists
