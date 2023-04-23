@@ -172,7 +172,7 @@ export default function silverBox(config) {
 		}
 
 		// pushes the buttonWrapper inside the elements Array
-		if (buttonWrapper) elementsArray.push(buttonWrapper);
+		if (buttonWrapper.innerHTML != '') elementsArray.push(buttonWrapper);
 
 		// adds footer if it is inside the config and it exists
 		if (config.footer) {
