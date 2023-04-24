@@ -102,7 +102,7 @@ export default function silverBox(config) {
 			else {
 				if (config.cancelButton.showButton !== false) {
 					buttonWrapper.append(
-						silverBoxButtonComponent(config.cancelButton, "silverBox-cancel-button")
+						silverBoxButtonComponent(config.cancelButton, "silverBox-cancel-button", "Cancel")
 					);
 				}
 			}
@@ -133,7 +133,7 @@ export default function silverBox(config) {
 				// if the cancelButton config exists and showButton is not false
 				if (config.cancelButton.showButton !== false) {
 					buttonWrapper.append(
-						silverBoxButtonComponent(config.cancelButton, "silverBox-cancel-button")
+						silverBoxButtonComponent(config.cancelButton, "silverBox-cancel-button", "Cancel")
 					);
 				}
 
@@ -149,7 +149,7 @@ export default function silverBox(config) {
 		// if there is deny button in config this code will be executed
 		if ("denyButton" in config && config.denyButton.showButton !== false) {
 			buttonWrapper.append(
-				silverBoxButtonComponent(config.denyButton, 'silverBox-deny-button'))
+				silverBoxButtonComponent(config.denyButton, 'silverBox-deny-button', "Deny"))
 		}
 
 		// confirm button
@@ -165,7 +165,7 @@ export default function silverBox(config) {
 			if (config.confirmButton.showButton !== false) {
 				// if there is confirm button in config and if the showButton is not false this code will be executed
 				buttonWrapper.append(
-					silverBoxButtonComponent(config.confirmButton, 'silverBox-confirm-button')
+					silverBoxButtonComponent(config.confirmButton, 'silverBox-confirm-button', 'Confirm')
 				);
 			}
 		}

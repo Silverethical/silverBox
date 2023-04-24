@@ -3,12 +3,12 @@ import silverBoxLoadingAnimation from "./loadingAnimation";
 
 /**
  *
- * @param {string} text - button text
- * @param {string} buttonBgColor - button background color
- * @param {string} elementUniqueClassList - button classList
+ * @param {object} buttonName - button config
+ * @param {string} uniqClass - button classList
  * @returns
  */
-function silverBoxButtonComponent(buttonName, uniqClass) {
+function silverBoxButtonComponent(buttonName, uniqClass, defaultText) {
+
 	// button
 	let button = document.createElement("button");
 	button.style.background = buttonName.bgColor;
@@ -43,7 +43,7 @@ function silverBoxButtonComponent(buttonName, uniqClass) {
 	// button text
 	let buttonTextSpan = document.createElement("span");
 	buttonTextSpan.classList.add("silverBox-button-text");
-	buttonTextSpan.textContent = buttonName.text;
+	buttonTextSpan.textContent = buttonName.text ? buttonName.text : defaultText;
 	button.appendChild(buttonTextSpan);
 	button.append(silverBoxLoadingAnimation())
 	// button right icon
