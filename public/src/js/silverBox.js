@@ -8,7 +8,7 @@ import silverBoxCloseButtonOnClick from "./components/silverBox/closeButtonOnCli
 import silverBoxFooterComponent from "./components/silverBox/footer";
 import silverBoxUniqueNumberMaker from "./helpers/silverBox/uniqueNumber";
 import silverBoxDisableScroll from "./helpers/silverBox/disableScroll";
-
+import removeAllSilverBoxes from "./helpers/silverBox/removeAllSilverBoxes";
 
 /**
  * SilverBox modal
@@ -260,5 +260,10 @@ export default function silverBox(config) {
 
 		// checks for silverBox after creating the box
 		silverBoxDisableScroll(".silverBox-overlay")
+
+		// if there is removePrevBoxes in config
+		if ("removePrevBoxes" in config){
+			removeAllSilverBoxes(config.removePrevBoxes)
+		}
 	}
 }
