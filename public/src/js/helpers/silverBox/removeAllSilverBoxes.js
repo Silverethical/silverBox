@@ -2,26 +2,26 @@
  * removes all silverBox's
  * @param {string} - value of silverBox that wants to be removed
  */
-function removeAllSilverBoxes(value) {
+function removeAllSilverBoxes(index) {
+    // converts the index to lowercase
+    index = index.toLowerCase()
     // selector
     const silverBoxes = document.querySelectorAll('.silverBox-wrapper')
+
+    // changes the indexes
+    if (index === "first") index = 1
+    if (index === "last") index = silverBoxes.length
+
     // all
-    if (value === "all") {
+    if (index === "all") {
         for (let i = 0; i < silverBoxes.length - 1; i++) {
             silverBoxes[i].remove()
         }
     }
-    // first
-    else if (value === "first") {
-        silverBoxes[0].remove()
-    }
-    // last
-    else if (value === "last") {
-        silverBoxes[silverBoxes.length - 1].remove()
-    }
+
     // number
-    else if (Number(value) > 0) {
-        silverBoxes[Number(value) - 1].remove()
+    else if (Number(index) > 0) {
+        silverBoxes[Number(index) - 1].remove()
     }
 }
 

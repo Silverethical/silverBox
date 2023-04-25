@@ -80,6 +80,12 @@ const documentation = [
         explanation: `Predefined values to remove buttons loading animation in silverBoxes: "first", "last", "number of box" (a number instead of "'number of box'". example: "'1'") .`
     },
     {
+        configName: "buttonsDirection",
+        defaultValue: "",
+        type: "string",
+        explanation: 'Predefined values to change direction of buttonWrapper: "rtl" , "ltr".'
+    },
+    {
         configName: "confirmButton",
         defaultValue: "emptyDefaultValue",
         type: "object",
