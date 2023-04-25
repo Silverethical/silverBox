@@ -8,17 +8,17 @@ import renderNavBarLinks from "./components/renderNavBarLinks";
 import silverBoxDocumentationTableComponent from "./components/documentationTableComponent";
 
 /** selectors */
-const sidebar = document.querySelector("aside.sidebar"),
-	hamMenu = document.querySelector(".hamburger-menu"),
-	hamMenuInput = document.querySelector(".hamburger-menu > input");
+const sidebar = document.querySelector("aside.silverBox-sidebar"),
+	hamMenu = document.querySelector(".silverBox-hamburger-menu"),
+	hamMenuInput = document.querySelector(".silverBox-hamburger-menu > input");
 
 hamMenuInput.addEventListener("change", () => {
 	if (hamMenuInput.checked) {
-		sidebar.classList.add("show-sidebar");
-		hamMenu.classList.add("show-x");
+		sidebar.classList.add("silverBox-show-sidebar");
+		hamMenu.classList.add("silverBox-show-x");
 	} else {
-		sidebar.classList.remove("show-sidebar");
-		hamMenu.classList.remove("show-x");
+		sidebar.classList.remove("silverBox-show-sidebar");
+		hamMenu.classList.remove("silverBox-show-x");
 	}
 });
 
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // example section
 
 // example's parent
-const exampleSection = document.querySelector("#exampleSection");
+const exampleSection = document.querySelector("#silverBox-exampleSection");
 
 // adding each new example to it's parent
 
@@ -57,11 +57,11 @@ for (let i = 0; i < examples.length; i++) {
 }
 
 // usage section
-const usageCode1 = document.querySelector("#usageInstructions code.step1");
+const usageCode1 = document.querySelector("#silverBox-usageInstructions code.step1");
 usageCode1.textContent += `<link rel="stylesheet" href="silverBox.min.css">`;
 usageCode1.textContent += `\n<script src="silverBox.min.js"></script>`;
 
-const usageCode2 = document.querySelector("#usageInstructions code.step2");
+const usageCode2 = document.querySelector("#silverBox-usageInstructions code.step2");
 usageCode2.textContent = `silverBox({
 	alertIcon: "success",
 	text: "Your task has been completed.",
@@ -87,3 +87,6 @@ documentationInNavBar.append(renderNavBarLinks());
 
 // highlight codes (highlightJS library)
 hljs.highlightAll();
+silverBox({
+	text:"test"
+})

@@ -6,9 +6,9 @@ import getTeamMembersInfo from "./getTeamMembersInfo";
  */
 async function renderTeamMembers(teamMembers) {
 	// Select the parent element where team members will be added.
-	const teamSection = document.querySelector("#theCreditsSection"),
+	const teamSection = document.querySelector("#silverBox-CreditsSection"),
 		teamMembersParent = document.querySelector(
-			"#theCreditsSection .teamMembers"
+			"#silverBox-CreditsSection .silverBox-teamMembers"
 		);
 
 	// Iterate over each team member object and create the necessary elements to display their information.

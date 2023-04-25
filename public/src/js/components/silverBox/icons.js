@@ -26,7 +26,7 @@ const silverBoxIconsComponent = (alertIcon, customIcon, isCentred = false) => {
 		const clonedIcon = icons[alertIcon].cloneNode(true);
 
 		// Add the "centered-icon" class to the cloned icon element.
-		if (isCentred) clonedIcon.classList.add("centered-icon");
+		if (isCentred) clonedIcon.classList.add("silverBox-centered-icon");
 
 		// Return the cloned icon element.
 		return clonedIcon;
@@ -85,7 +85,7 @@ function silverBoxCreateCustomIcon(customIcon, isCentred) {
 	img.setAttribute("src", customIcon);
 	img.classList.add("silverBox-icon");
 	img.id = "silverBox-custom-icon";
-	if (isCentred) img.classList.add("centered-icon");
+	if (isCentred) img.classList.add("silverBox-centered-icon");
 
 	return img;
 }

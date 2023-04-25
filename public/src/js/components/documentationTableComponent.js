@@ -3,12 +3,12 @@ import replaceQuotedTextWithSpan from "../helpers/replaceQuotedTextWithSpan";
 import documentation from "../data/documentation";
 function silverBoxDocumentationTableComponent() {
     // tableWrapper selector
-    const tableWrapper = document.querySelector(".tableWrapper");
+    const tableWrapper = document.querySelector(".silverBox-tableWrapper");
     // adds tableHeader to tableWrapper
-    tableWrapper.append(tableHeader())
+    tableWrapper.append(silverBoxTableHeader())
 
     // document argument
-    let tableRowFunctionConfig = (selector, idValue, configValue) => tableRow({
+    let silverBoxTableRowConfig = (selector, idValue, configValue) => silverBoxTableRow({
         argument: selector.configName,
         explanation: selector.explanation,
         defaultValue: selector.defaultValue,
@@ -19,7 +19,7 @@ function silverBoxDocumentationTableComponent() {
     documentation.forEach(documentItem => {
 
         // tableRowFunctionConfig
-        tableWrapper.append(tableRowFunctionConfig(documentItem, "noConfig", documentItem))
+        tableWrapper.append(silverBoxTableRowConfig(documentItem, "noConfig", documentItem))
 
         // if there is no config in object item this code will be executed
         if (("config" in documentItem)) {
@@ -32,7 +32,7 @@ function silverBoxDocumentationTableComponent() {
             documentConfigWrapperIndicator.classList.add("silverBox-documentConfig-indicator")
 
             documentItem.config.forEach(config => {
-                let configTableRow = tableRowFunctionConfig(config, "hasConfig", documentItem)
+                let configTableRow = silverBoxTableRowConfig(config, "hasConfig", documentItem)
                 // appending each config to the parent div
                 documentConfigWrapper.append(configTableRow)
             });
@@ -48,24 +48,24 @@ function silverBoxDocumentationTableComponent() {
  * creates tableHeader
  * @returns {element} - tableHeader Element
  */
-function tableHeader() {
+function silverBoxTableHeader() {
     // create tableHeader
     const tableHeader = document.createElement("div")
-    tableHeader.classList.add("tableRow", "tableRowHeader")
+    tableHeader.classList.add("silverBox-tableRow", "silverBox-tableRowHeader")
 
     // argument header
     const argumentHeader = document.createElement("div")
-    argumentHeader.classList.add("tableColumn", "tableHeaderColumn")
+    argumentHeader.classList.add("silverBox-tableColumn", "tableHeaderColumn")
     argumentHeader.textContent = "Argument"
 
     // default value header
     const defaultValueHeader = document.createElement("div")
-    defaultValueHeader.classList.add("tableColumn", "tableHeaderColumn")
+    defaultValueHeader.classList.add("silverBox-tableColumn", "tableHeaderColumn")
     defaultValueHeader.textContent = "Default Value"
 
     // default value header
     const explanationHeader = document.createElement("div")
-    explanationHeader.classList.add("tableColumn", "tableHeaderColumn")
+    explanationHeader.classList.add("silverBox-tableColumn", "tableHeaderColumn")
     explanationHeader.textContent = "Explanation"
 
     // append all items
@@ -85,22 +85,22 @@ function tableHeader() {
  * @param {string} id - determines the status of id (how the id is added)
  * @returns {element} - table row element
  */
-function tableRow({ argument, explanation, defaultValue, id, config }) {
+function silverBoxTableRow({ argument, explanation, defaultValue, id, config }) {
     // selectors
     const tableRowEl = document.createElement("div")
-    tableRowEl.classList.add("tableRow")
+    tableRowEl.classList.add("silverBox-tableRow")
 
     // argument column ----
 
     const docArgumentColumn = document.createElement("a")
-    docArgumentColumn.classList.add("tableColumn", "document-argument")
+    docArgumentColumn.classList.add("silverBox-tableColumn", "document-argument")
     docArgumentColumn.textContent = argument
 
 
     // explanation column ----
 
     const docExplanationColumn = document.createElement("div")
-    docExplanationColumn.classList.add("tableColumn", "document-explanation")
+    docExplanationColumn.classList.add("silverBox-tableColumn", "silverBox-document-explanation")
     const explanationSpan = document.createElement("span")
     explanationSpan.classList.add("silverBox-explanation-span")
     explanationSpan.innerHTML = replaceQuotedTextWithSpan(explanation)
@@ -109,28 +109,28 @@ function tableRow({ argument, explanation, defaultValue, id, config }) {
     // default value column ----
 
     const docDefaultValueColumn = document.createElement("div")
-    docDefaultValueColumn.classList.add("tableColumn")
+    docDefaultValueColumn.classList.add("silverBox-tableColumn")
 
     if (defaultValue != "emptyDefaultValue") {
         // if type of the default value is string this code will be executed
         if (typeof defaultValue === "string") {
             // if the string is empty this code will be executed
             if (defaultValue === "") {
-                docDefaultValueColumn.classList.add("document-string")
+                docDefaultValueColumn.classList.add("silverBox-document-string")
                 docDefaultValueColumn.textContent = '" "'
             } else {
                 docDefaultValueColumn.textContent = `"${defaultValue}"`
-                docDefaultValueColumn.classList.add("document-string")
+                docDefaultValueColumn.classList.add("silverBox-document-string")
             }
         }
         // if type of the default value is boolean this code will be executed
         else if (typeof defaultValue === "boolean") {
-            docDefaultValueColumn.classList.add("document-boolean")
+            docDefaultValueColumn.classList.add("silverBox-document-boolean")
             docDefaultValueColumn.textContent = `${defaultValue}`
         }
         // if type of the default value is object this code will be executed
         else if (typeof defaultValue === "undefined") {
-            docDefaultValueColumn.classList.add("document-undefined")
+            docDefaultValueColumn.classList.add("silverBox-document-undefined")
             docDefaultValueColumn.textContent = `${defaultValue}`
         }
     }
@@ -179,22 +179,22 @@ function toggleConfig() {
         // click event for each showMoreBtn
         showMoreBtn[i].addEventListener("click", () => {
             // if each document that has config contains "hide" class this code will be executed
-            if (documentThatHasConfig[i].classList.contains("hide")) {
+            if (documentThatHasConfig[i].classList.contains("silverBox-hide")) {
                 // remove "hide" class from document that has config
-                documentThatHasConfig[i].classList.remove("hide")
+                documentThatHasConfig[i].classList.remove("silverBox-hide")
                 // remove "hide" class from show more button
-                showMoreBtn[i].classList.remove("hide")
+                showMoreBtn[i].classList.remove("silverBox-hide")
                 // remove "hide" class from Document Config Indicator
-                silverBoxDocumentConfigIndicator[i].classList.remove("hide")
+                silverBoxDocumentConfigIndicator[i].classList.remove("silverBox-hide")
             }
             // if each document that has config doesn't contain "hide" class this code will be executed
             else {
                 // add "hide" class to document that has config 
-                documentThatHasConfig[i].classList.add("hide")
+                documentThatHasConfig[i].classList.add("silverBox-hide")
                 // add "hide" class to show more button 
-                showMoreBtn[i].classList.add("hide")
+                showMoreBtn[i].classList.add("silverBox-hide")
                 // add "hide" class to Document Config Indicator
-                silverBoxDocumentConfigIndicator[i].classList.add("hide")
+                silverBoxDocumentConfigIndicator[i].classList.add("silverBox-hide")
             }
         })
     }

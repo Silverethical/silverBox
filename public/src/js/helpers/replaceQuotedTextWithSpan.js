@@ -17,7 +17,7 @@ function replaceQuotedTextWithSpan(explanation) {
             }
             // Otherwise, open a new span tag with class "document-string"
             else {
-                result += '<span class="document-string">';
+                result += '<span class="silverBox-document-string">';
             }
             // Toggle the value of insideQuote
             insideQuote = !insideQuote;

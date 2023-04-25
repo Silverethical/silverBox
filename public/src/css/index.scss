@@ -143,14 +143,14 @@ code {
     text-align: left;
 }
 
-.container {
+.silverBox-container {
     margin: 0 auto;
     width: 90vw;
     max-width: 950px;
     padding: 10px;
     position: relative;
 
-    aside.sidebar {
+    aside.silverBox-sidebar {
         transform: translateX(-85%);
         position: fixed;
         left: 10px;
@@ -230,7 +230,7 @@ code {
             }
         }
 
-        &.show-sidebar {
+        &.silverBox-show-sidebar {
             background-color: var(--white-in-white);
             transform: translateX(0);
 
@@ -263,7 +263,7 @@ code {
                 }
             }
 
-            .hamburger-menu {
+            .silverBox-hamburger-menu {
 
                 &::before,
                 &::after,
@@ -273,7 +273,7 @@ code {
             }
         }
 
-        .hamburger-menu {
+        .silverBox-hamburger-menu {
             cursor: pointer;
             display: flex;
             flex-direction: column;
@@ -310,7 +310,7 @@ code {
                 }
             }
 
-            &.show-x {
+            &.silverBox-show-x {
                 --x-width: calc(var(--hamburger-height) * 1.414421356237);
 
                 &::before {
@@ -329,7 +329,7 @@ code {
     }
 
     main {
-        .sectionHeader {
+        .silverBox-sectionHeader {
             text-align: center;
             font-size: 24px;
             color: var(--gray-500);
@@ -340,8 +340,8 @@ code {
             margin-bottom: 100px;
         }
 
-        #heroSection {
-            h2.tagline {
+        #silverBox-heroSection {
+            h2.silverBox-tagline {
                 text-align: center;
                 font-size: 30px;
                 color: var(--primary-700);
@@ -355,7 +355,7 @@ code {
                 justify-content: space-between;
                 gap: 20px 40px;
 
-                div.introduction {
+                div.silverBox-introduction {
                     text-align: justify;
                     font-size: 20px;
                     font-weight: 300;
@@ -372,7 +372,7 @@ code {
             }
         }
 
-        #exampleSection {
+        #silverBox-exampleSection {
             row-gap: 20px;
             display: grid;
 
@@ -429,8 +429,8 @@ code {
             }
         }
 
-        #usageSection {
-            #usageInstructions {
+        #silverBox-usageSection {
+            #silverBox-usageInstructions {
                 p {
                     font-size: 18px;
                     margin: 10px 0;
@@ -446,8 +446,8 @@ code {
             }
         }
 
-        #documentationSection {
-            .tableWrapper {
+        #silverBox-documentationSection {
+            .silverBox-tableWrapper {
                 overflow: hidden;
                 text-align: start;
                 row-gap: 10px;
@@ -464,7 +464,7 @@ code {
                     background-color: #f6f6f6;
                     transition: 1s ease-in-out;
 
-                    &.hide {
+                    &.silverBox-hide {
                         max-height: 0 !important;
                     }
                 }
@@ -478,7 +478,7 @@ code {
                     margin: 0 0 -2% 3%;
                     transition: 1s ease-in-out;
 
-                    &.hide {
+                    &.silverBox-hide {
                         width: 0 !important;
                         height: 0 !important;
                         border-color: transparent;
@@ -495,7 +495,7 @@ code {
                     position: relative;
                     text-decoration: underline;
 
-                    &.hide {
+                    &.silverBox-hide {
                         &::after {
                             transform: rotate(45deg);
                         }
@@ -509,7 +509,7 @@ code {
                         }
 
                         // on button hover and when it has class of "hide"
-                        &.hide {
+                        &.silverBox-hide {
                             &::after {
                                 --rotate-start-end-amount: 45deg;
                                 --rotate-middle-one-amount: -39deg;
@@ -552,21 +552,21 @@ code {
                     }
                 }
 
-                .tableRowHeader,
-                .tableRow {
+                .silverBox-tableRowHeader,
+                .silverBox-tableRow {
                     display: grid;
                     grid-template-columns: 2fr 1fr 4fr;
                     column-gap: 10px;
 
-                    .document-string {
+                    .silverBox-document-string {
                         color: var(--document-string);
                     }
 
-                    .document-boolean {
+                    .silverBox-document-boolean {
                         color: var(--document-boolean);
                     }
 
-                    .document-explanation {
+                    .silverBox-document-explanation {
                         color: var(--document-explanation);
 
                         .silverBox-explanation-span {
@@ -578,7 +578,7 @@ code {
                         color: var(--document-undefined);
                     }
 
-                    .tableColumn {
+                    .silverBox-tableColumn {
                         padding: 20px;
                         overflow-x: hidden;
 
@@ -596,14 +596,14 @@ code {
                     }
                 }
 
-                .tableRowHeader {
+                .silverBox-tableRowHeader {
                     border-bottom: 1px solid var(--gray-300);
                 }
             }
         }
 
-        #theCreditsSection {
-            .teamMembers {
+        #silverBox-CreditsSection {
+            .silverBox-teamMembers {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 gap: 20px;
@@ -679,14 +679,14 @@ footer {
     }
 
     main {
-        section#heroSection {
+        section#silverBox-heroSection {
             div.whySilverBox {
                 align-items: center !important;
                 flex-direction: column-reverse;
             }
         }
 
-        section#exampleSection {
+        section#silverBox-exampleSection {
             .silverBox-example {
                 grid-template-columns: unset !important;
 
@@ -696,12 +696,12 @@ footer {
             }
         }
 
-        section#documentationSection {
+        section#silverBox-documentationSection {
             display: none;
         }
 
-        #theCreditsSection {
-            .teamMembers {
+        #silverBox-CreditsSection {
+            .silverBox-teamMembers {
                 grid-template-columns: unset !important;
             }
         }
