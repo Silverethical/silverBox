@@ -18,6 +18,11 @@ import silverBoxRemoveLoadings from "./helpers/silverBox/removeLoadings";
  */
 export default function silverBox(config) {
 
+	// if there is removePrevBoxes in config
+	if ("removePrevBoxes" in config) {
+		removeAllSilverBoxes(config.removePrevBoxes)
+	}
+	
 	// remove loading animation due to given config settings
 	if ("removePrevLoadings" in config) {
 		silverBoxRemoveLoadings(config.removePrevLoadings)
@@ -142,9 +147,7 @@ export default function silverBox(config) {
 						silverBoxButtonComponent(config.cancelButton, "silverBox-cancel-button", "Cancel")
 					);
 				}
-
 			}
-
 		}
 
 
@@ -272,10 +275,5 @@ export default function silverBox(config) {
 
 		// checks for silverBox after creating the box
 		silverBoxDisableScroll(".silverBox-overlay")
-
-		// if there is removePrevBoxes in config
-		if ("removePrevBoxes" in config) {
-			removeAllSilverBoxes(config.removePrevBoxes)
-		}
 	}
 }
