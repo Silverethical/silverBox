@@ -170,7 +170,10 @@ export default function silverBox(config) {
 			}
 		}
 
+		// sets buttonWrapper direction
+		if ("buttonsDirection" in config) buttonWrapper.style.direction = config.buttonsDirection
 		// pushes the buttonWrapper inside the elements Array
+
 		if (buttonWrapper.innerHTML != '') elementsArray.push(buttonWrapper);
 
 		// adds footer if it is inside the config and it exists
