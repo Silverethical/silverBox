@@ -29,7 +29,8 @@
         border-color: var(--silverBox-confirm-border-color);
         background-color: var(--silverBox-confirm-bg-color);
         color: var(--silverBox-confirm-color);
-        &:hover{
+
+        &:hover {
             background-color: var(--silverBox-confirm-hover-color) !important;
         }
     }
@@ -38,7 +39,8 @@
         border-color: var(--silverBox-cancel-border-color);
         background-color: var(--silverBox-cancel-bg-color);
         color: var(--silverBox-cancel-color);
-        &:hover{
+
+        &:hover {
             background-color: var(--silverBox-cancel-hover-color) !important;
         }
     }
@@ -47,23 +49,10 @@
         border-color: var(--silverBox-deny-border-color);
         background-color: var(--silverBox-deny-bg-color);
         color: var(--silverBox-deny-color);
-        &:hover{
+
+        &:hover {
             background-color: var(--silverBox-deny-hover-color) !important;
         }
-    }
-
-
-    &:active {
-        transform: scale(0.95);
-    }
-
-    &:active:disabled {
-        transform: scale(1);
-    }
-
-    &:disabled {
-        opacity: 0.7;
-        cursor: not-allowed;
     }
 
     img {
@@ -81,6 +70,8 @@
     }
 
     &.silverBox-loading-button {
+        pointer-events: none;
+
         .silverBox-button-loading-animation {
             display: inline;
         }

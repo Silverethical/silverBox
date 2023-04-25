@@ -88,5 +88,30 @@ documentationInNavBar.append(renderNavBarLinks());
 // highlight codes (highlightJS library)
 hljs.highlightAll();
 silverBox({
-	text:"test"
+	text: "test1",
+	position: "top-right",
+	confirmButton: {
+		closeOnClick: false,
+	},
 })
+silverBox({
+	text: "test2",
+	position: "top-left",
+	confirmButton: {
+		closeOnClick: false,
+	},
+})
+setTimeout(() => {
+	silverBox({
+		text: "test",
+		position: "bottom-left",
+
+		confirmButton: {
+			closeOnClick: false,
+		},
+		denyButton: {
+			closeOnClick: false,
+		},
+		removePrevLoadings: 'all',
+	})
+}, 2000)

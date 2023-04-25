@@ -9,6 +9,7 @@ import silverBoxFooterComponent from "./components/silverBox/footer";
 import silverBoxUniqueNumberMaker from "./helpers/silverBox/uniqueNumber";
 import silverBoxDisableScroll from "./helpers/silverBox/disableScroll";
 import removeAllSilverBoxes from "./helpers/silverBox/removeAllSilverBoxes";
+import silverBoxRemoveLoadings from "./helpers/silverBox/removeLoadings";
 
 /**
  * SilverBox modal
@@ -16,6 +17,11 @@ import removeAllSilverBoxes from "./helpers/silverBox/removeAllSilverBoxes";
  * puts the config keys as component arguments and creates a component based on given keys from object
  */
 export default function silverBox(config) {
+
+	// remove loading animation due to given config settings
+	if ("removePrevLoadings" in config) {
+		silverBoxRemoveLoadings(config.removePrevLoadings)
+	}
 	if (Object.keys(config).length !== 0) {
 		/** selectors(before creating elements)*/
 		/** array of all the elements in the modal (inputs/texts/icons/buttons) */
@@ -262,7 +268,7 @@ export default function silverBox(config) {
 		silverBoxDisableScroll(".silverBox-overlay")
 
 		// if there is removePrevBoxes in config
-		if ("removePrevBoxes" in config){
+		if ("removePrevBoxes" in config) {
 			removeAllSilverBoxes(config.removePrevBoxes)
 		}
 	}

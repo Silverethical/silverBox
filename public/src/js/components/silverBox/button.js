@@ -27,7 +27,6 @@ function silverBoxButtonComponent(buttonName, uniqClass, defaultText) {
 	// if closeOnClick in config is false the code will be executed
 	else {
 		button.addEventListener("click", () => {
-			button.disabled = true
 			button.classList.add('silverBox-loading-button')
 		})
 	}
