@@ -7,7 +7,7 @@ function silverBoxRemoveLoadings(animationIndex) {
 
     // removes all modal's button's loading
     if (animationIndex === 'all') {
-        for (let i = 0; i < silverBoxButtonWrapper.length - 1; i++) {
+        for (let i = 0; i < silverBoxButtonWrapper.length; i++) {
             silverBoxButtonWrapper[i].childNodes.forEach(button => {
                 button.classList.remove('silverBox-loading-button')
             })

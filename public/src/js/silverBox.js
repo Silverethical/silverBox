@@ -235,8 +235,12 @@ export default function silverBox(config) {
 
 		}
 
-		// selecting overLay
-		const silverBoxOver = document.querySelector(".silverBox");
+		// selecting overLays
+		const silverBox = document.querySelector(".silverBox");
+
+		let silverBoxOverlay = document.querySelectorAll('.silverBox-overlay')
+		silverBoxOverlay = silverBoxOverlay[silverBoxOverlay.length - 1]
+
 		let silverBoxWrapper = document.querySelectorAll(".silverBox-wrapper")
 		silverBoxWrapper = silverBoxWrapper[silverBoxWrapper.length - 1]
 
@@ -255,12 +259,14 @@ export default function silverBox(config) {
 
 		// adding event listener for overlay
 		// if the clicked element has classList of silverBox-overlay this code will be executed
-		if (silverBoxWrapper) silverBoxWrapper.addEventListener("click", () => {
-			silverBoxWrapper.remove();
-			// checks for silverBox after removing wrapper
-			silverBoxDisableScroll(".silverBox-overlay")
-		});
-		silverBoxOver.addEventListener("click", (e) => {
+		if (silverBoxOverlay) {
+			silverBoxOverlay.addEventListener("click", () => {
+				silverBoxOverlay.remove();
+				// checks for silverBox after removing wrapper
+				silverBoxDisableScroll(".silverBox-overlay")
+			});
+		}
+		silverBox.addEventListener("click", (e) => {
 			e.stopPropagation();
 		});
 
