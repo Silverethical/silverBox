@@ -28,16 +28,16 @@ async function renderTeamMembers(teamMembers) {
 
 			// Create a new anchor element to hold the team member information.
 			const newTeamMember = document.createElement("a");
-			newTeamMember.classList.add("teamMember");
+			newTeamMember.classList.add("silverBox-teamMember");
 			newTeamMember.href = `//github.com/${githubUsername}`;
 			newTeamMember.target = "_blank";
 
 			// Use template literals to create the HTML structure of the team member information.
 			newTeamMember.innerHTML = `
-				  ${ avatar_url ? `<img class="memberImage" src="${avatar_url}">` : '' }
-				  <div class="memberInfo">
-					  <p class="memberName">${showName ? name : githubUsername}</p>
-					  <p class="memberPosition">${position}</p>
+				  ${ avatar_url ? `<img class="silverBox-memberImage" src="${avatar_url}">` : '' }
+				  <div class="silverBox-memberInfo">
+					  <p class="silverBox-memberName">${showName ? name : githubUsername}</p>
+					  <p class="silverBox-memberPosition">${position}</p>
 				  </div>`;
 
 			// Add the new team member to the parent element.

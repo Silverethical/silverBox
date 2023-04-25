@@ -608,7 +608,7 @@ code {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 20px;
 
-                .teamMember {
+                .silverBox-teamMember {
                     display: flex;
                     align-items: center;
                     column-gap: 10px;
@@ -616,21 +616,21 @@ code {
                     padding: 10px;
                     transition: all 500ms ease-in-out;
 
-                    .memberImage {
+                    .silverBox-memberImage {
                         border-radius: 50%;
                         width: 60px;
                         height: 60px;
                     }
 
-                    .memberInfo {
+                    .silverBox-memberInfo {
                         padding: 10px;
 
-                        .memberName {
+                        .silverBox-memberName {
                             color: var(--primary-700);
                             transition: all 500ms ease-in-out;
                         }
 
-                        .memberPosition {
+                        .silverBox-memberPosition {
                             font-size: 13px;
                         }
                     }
@@ -639,8 +639,8 @@ code {
                         background-color: var(--primary-700);
                         color: white;
 
-                        .memberInfo {
-                            .memberName {
+                        .silverBox-memberInfo {
+                            .silverBox-memberName {
                                 color: white;
                             }
                         }

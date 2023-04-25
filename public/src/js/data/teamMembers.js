@@ -1,4 +1,4 @@
-const teamMembers = [
+const silverBoxTeamMembers = [
 	{
 		githubUsername: "Silverethical",
 		position: "Lead Developer",
@@ -14,4 +14,4 @@ const teamMembers = [
 	},
 ];
 
-export default teamMembers;
+export default silverBoxTeamMembers;

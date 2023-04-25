@@ -4,7 +4,7 @@
  * @param {string} username - The GitHub username to retrieve information for.
  * @returns {Promise<object|boolean>} - A promise that resolves to an object containing the user information if successful, or false if unsuccessful.
  */
-async function getTeamMembersInfo(username) {
+async function getSilverBoxTeamMembersInfo(username) {
 	try {
 		// Make a request to the GitHub API to retrieve information about the user.
 		const response = await fetch(`//api.github.com/users/${username}`);
@@ -22,4 +22,4 @@ async function getTeamMembersInfo(username) {
 	}
 }
 
-export default getTeamMembersInfo;
+export default getSilverBoxTeamMembersInfo;
