@@ -20,6 +20,11 @@ function silverBoxButtonComponent(buttonName, uniqClass, defaultText) {
 		);
 	button.classList.add("silverBox-button", uniqClass);
 
+	// adds an ID that user wants
+	if (buttonName.buttonId) button.id = buttonName.buttonId
+	// adds a Class that user wants	
+	if (buttonName.buttonClass) button.classList.add(buttonName.buttonClass)
+
 	// if closeOnClick in config is true the code will be executed
 	if (buttonName.closeOnClick === true) {
 		button.onclick = silverBoxCloseButtonOnClick;
