@@ -53,6 +53,7 @@ const icons = {
  * @returns {Element} - The icon element.
  */
 function createIcon(className, text, childClass) {
+
 	// Create a new div element with the specified class name and class.
 	const icon = document.createElement("div");
 	icon.classList = className;
@@ -70,7 +71,7 @@ function createIcon(className, text, childClass) {
 		span.textContent = text;
 		icon.appendChild(span);
 	}
-
+	// append icon into
 	return icon;
 }
 
@@ -85,6 +86,9 @@ function createIcon(className, text, childClass) {
 * @returns {HTMLElement} The user icon element created.
 */
 function silverBoxCreateCustomIcon(customIcon, isCentred, customIconClass, customIconId) {
+	// create customIconWrapper
+	const customIconWrapper = document.createElement("div")
+	customIconWrapper.classList.add("silverBox-userIcon-wrapper")
 	// Create a new img element with the specified class and ID, and set its src attribute to the provided URL.
 	const img = document.createElement("img");
 	img.setAttribute("src", customIcon);
@@ -93,9 +97,10 @@ function silverBoxCreateCustomIcon(customIcon, isCentred, customIconClass, custo
 	if (customIconId) img.id = customIconId;
 	// Adds customIcon class
 	if (customIconClass) img.classList.add(customIconClass)
-	if (isCentred) img.classList.add("silverBox-centered-icon");
-
-	return img;
+	if (isCentred) customIconWrapper.classList.add("silverBox-centered-icon");
+	// append icon to customIconWrapper
+	customIconWrapper.append(img)
+	return customIconWrapper;
 }
 
 export default silverBoxIconsComponent;
