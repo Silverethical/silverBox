@@ -90,7 +90,7 @@ function silverBoxCreateCustomIcon(customIcon, isCentred, customIconClass, custo
 	img.setAttribute("src", customIcon);
 	img.classList.add("silverBox-icon", "silverBox-custom-icon");
 	// Adds customIcon Id
-	img.id = customIconId;
+	if (customIconId) img.id = customIconId;
 	// Adds customIcon class
 	if (customIconClass) img.classList.add(customIconClass)
 	if (isCentred) img.classList.add("silverBox-centered-icon");
