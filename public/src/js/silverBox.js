@@ -22,7 +22,7 @@ export default function silverBox(config) {
 	if ("removePrevBoxes" in config) {
 		removeAllSilverBoxes(config.removePrevBoxes)
 	}
-	
+
 	// remove loading animation due to given config settings
 	if ("removePrevLoadings" in config) {
 		silverBoxRemoveLoadings(config.removePrevLoadings)
@@ -44,7 +44,7 @@ export default function silverBox(config) {
 				titleText: config.title,
 				htmlText: config.html,
 				simpleText: config.text,
-				imageSource: silverBoxIconsComponent(config.alertIcon, config.customIcon, config.centerContent),
+				imageSource: silverBoxIconsComponent(config.alertIcon, config.customIcon, config.centerContent, config.customIconClass, config.customIconId),
 				closeButton: config.showCloseButton,
 			})
 		);
@@ -277,11 +277,11 @@ export default function silverBox(config) {
 		silverBoxDisableScroll(".silverBox-overlay")
 
 		// if silverBoxId is in config
-		if("silverBoxId" in config) silverBoxWrapper.id = config.silverBoxId
+		if ("silverBoxId" in config) silverBoxWrapper.id = config.silverBoxId
 		// if silverBoxClass is in config
-		if("silverBoxClass" in config) silverBoxWrapper.classList.add(config.silverBoxClass)
+		if ("silverBoxClass" in config) silverBoxWrapper.classList.add(config.silverBoxClass)
 
-		
-	
+
+
 	}
 }
