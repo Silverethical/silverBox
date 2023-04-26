@@ -86,6 +86,30 @@ const documentation = [
         explanation: 'Predefined values to change direction of buttonWrapper: "rtl" , "ltr".'
     },
     {
+        configName: "silverBoxId",
+        defaultValue: "",
+        type: "string",
+        explanation: 'SilverBox custom ID.'
+    },
+    {
+        configName: "silverBoxClass",
+        defaultValue: "",
+        type: "string",
+        explanation: 'SilverBox custom Class.'
+    },
+    {
+        configName: "customIconId",
+        defaultValue: "",
+        type: "string",
+        explanation: 'SilverBox customIcon ID.'
+    },
+    {
+        configName: "customIconClass",
+        defaultValue: "",
+        type: "string",
+        explanation: 'SilverBox customIcon Class.'
+    },
+    {
         configName: "confirmButton",
         defaultValue: "emptyDefaultValue",
         type: "object",
@@ -138,6 +162,18 @@ const documentation = [
                 defaultValue: true,
                 type: "boolean",
                 explanation: "Show/Hide confirm button."
+            },
+            {
+                configName: "buttonClass",
+                defaultValue: "",
+                type: "string",
+                explanation: 'SilverBox button Class.'
+            },
+            {
+                configName: "buttonId",
+                defaultValue: "",
+                type: "string",
+                explanation: 'SilverBox button ID.'
             },
         ]
     },
@@ -195,6 +231,18 @@ const documentation = [
                 type: "boolean",
                 explanation: "Show/Hide cancel button"
             },
+            {
+                configName: "buttonClass",
+                defaultValue: "",
+                type: "string",
+                explanation: 'SilverBox button Class.'
+            },
+            {
+                configName: "buttonId",
+                defaultValue: "",
+                type: "string",
+                explanation: 'SilverBox button ID.'
+            },
         ]
     },
     {
@@ -250,6 +298,18 @@ const documentation = [
                 defaultValue: false,
                 type: "boolean",
                 explanation: "Show/Hide deny button."
+            },
+            {
+                configName: "buttonClass",
+                defaultValue: "",
+                type: "string",
+                explanation: 'SilverBox button Class.'
+            },
+            {
+                configName: "buttonId",
+                defaultValue: "",
+                type: "string",
+                explanation: 'SilverBox button ID.'
             },
         ]
     },
