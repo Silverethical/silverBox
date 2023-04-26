@@ -275,5 +275,13 @@ export default function silverBox(config) {
 
 		// checks for silverBox after creating the box
 		silverBoxDisableScroll(".silverBox-overlay")
+
+		// if silverBoxId is in config
+		if("silverBoxId" in config) silverBoxWrapper.id = config.silverBoxId
+		// if silverBoxClass is in config
+		if("silverBoxClass" in config) silverBoxWrapper.classList.add(config.silverBoxClass)
+
+		
+	
 	}
 }
