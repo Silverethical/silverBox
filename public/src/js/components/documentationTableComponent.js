@@ -1,6 +1,8 @@
 // import
 import replaceQuotedTextWithSpan from "../helpers/replaceQuotedTextWithSpan";
 import documentation from "../data/documentation";
+import copyArgument from "../helpers/copyArgument";
+
 function silverBoxDocumentationTableComponent() {
     // tableWrapper selector
     const tableWrapper = document.querySelector(".silverBox-tableWrapper");
@@ -96,6 +98,8 @@ function silverBoxTableRow({ argument, explanation, defaultValue, id, config }) 
     docArgumentColumn.classList.add("silverBox-tableColumn", "document-argument")
     docArgumentColumn.textContent = argument
 
+    // copies the argument textContent after being Clicked
+    docArgumentColumn.onclick = () => { copyArgument(docArgumentColumn) }
 
     // explanation column ----
 
