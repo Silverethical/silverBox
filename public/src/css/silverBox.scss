@@ -7,12 +7,21 @@
 @import "./components/footer";
 
 body {
-    background-color: white;
-    color: var(--success-700);
     &.stop-scrolling {
         height: 100%;
         overflow: hidden;
     }
+}
+
+// css reset
+.silverBox-wrapper,
+.silverBox-wrapper * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    border: none;
 }
 
 .silverBox-wrapper {
@@ -47,7 +56,7 @@ body {
         background-color: var(--silverBox-background-color);
         // modal Animation
         animation: popUp 0.3s linear;
-        *:first-child{
+        *:first-child {
             margin-top: 0;
         }
     }
