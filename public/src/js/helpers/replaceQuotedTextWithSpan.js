@@ -17,20 +17,21 @@ function replaceQuotedTextWithSpan(explanation) {
             }
             // Otherwise, open a new span tag with class "document-string"
             else {
-                result += '<span class="silverBox-document-string">';
+                result += '<span class="silverBox-explanation-special-values">';
             }
             // Toggle the value of insideQuote
             insideQuote = !insideQuote;
         }
+
         // If we are currently inside a quote and the next few characters are "true" or "false"
-        else if (insideQuote && (explanation.slice(i, i + 4) === 'true' || explanation.slice(i, i + 5) === 'false')) {
-            // Get the boolean value as a string ("true" or "false")
-            const booleanValue = explanation.slice(i, i + 4) === 'true' ? 'true' : 'false';
-            // Add a new span tag with class "document-boolean" and insert the boolean value as text content
-            result += `<span class="document-boolean">${booleanValue}</span>`;
-            // Increment i by the length of the boolean value minus one to skip over it in the next iteration of the loop
-            i += booleanValue.length - 1;
-        }
+        // else if (insideQuote && (explanation.slice(i, i + 4) === 'true' || explanation.slice(i, i + 5) === 'false')) {
+        //     // Get the boolean value as a string ("true" or "false")
+        //     const booleanValue = explanation.slice(i, i + 4) === 'true' ? 'true' : 'false';
+        //     // Add a new span tag with class "document-boolean" and insert the boolean value as text content
+        //     result += `<span class="document-boolean">${booleanValue}</span>`;
+        //     // Increment i by the length of the boolean value minus one to skip over it in the next iteration of the loop
+        //     i += booleanValue.length - 1;
+        // }
         // If none of the above conditions are met, simply add the current character to result
         else {
             result += explanation[i];
