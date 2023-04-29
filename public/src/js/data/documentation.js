@@ -83,7 +83,7 @@ const documentation = [
         configName: "buttonsDirection",
         defaultValue: "",
         type: "string",
-        explanation: 'Predefined values to change direction of buttonWrapper: "rtl" , "ltr".'
+        explanation: 'Predefined values to change direction of buttonWrapper: "rtl", "ltr".'
     },
     {
         configName: "silverBoxId",

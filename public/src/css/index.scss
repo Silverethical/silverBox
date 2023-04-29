@@ -426,12 +426,13 @@ main {
                 .silverBox-explanation-special-values {
                     background-color: var(--document-special-values-bgColor);
                     color: var(--white-in-white);
-                    border-radius: 10px;
-                    padding: 1px 5px;
+                    border-radius: 8px;
+                    padding: 2px 6px;
                 }
                 .silverBox-document-description {
                     color: var(--document-description);
                     line-height: 30px;
+                    padding: 5px !important;
 
                     .silverBox-explanation-span {
                         padding-right: 10px;
@@ -448,6 +449,7 @@ main {
                 .silverBox-document-description-warning {
                     color: var(--white-in-white);
                     padding: 5px;
+                    margin: 5px;
                     border-radius: 8px;
                 }
                 .silverBox-document-description-error {
@@ -462,11 +464,12 @@ main {
                     background-color: var(--document-warning-bgColor);
                     border-left: 8px solid var(--document-warning-borderColor);
                 }
-                .silverBox-tableColumn {
-                    margin: 30px 0;
-                    padding: 10px 0;
-                    overflow-x: hidden;
 
+                .silverBox-tableColumn {
+                    margin: 10px 0 20px;
+                    padding: 5px 0;
+                    overflow-x: hidden;
+                    
                     &.document-argument {
                         font-weight: 600;
                         font-style: italic;
@@ -486,6 +489,7 @@ main {
             }
             .silverBox-tableRow {
                 border-top: 1px solid var(--document-border-color);
+                font-weight: 500;
             }
             .silverBox-tableRowHeader {
                 border: none;
