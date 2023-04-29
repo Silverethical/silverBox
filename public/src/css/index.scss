@@ -51,16 +51,22 @@ html {
     --white-in-white: #cacaca;
     --black-in-white: #000;
 
+    // general
+    --primary-color: #4374a4;
+    --box-color: #282c34;
+
     // body
     --body-bg-color: #0f192d;
     --second-body-bgColor: #151f33;
+
     // button
     --button-bg-color: var(--button-bg-color);
 
-    // banner
-    --baner-bg-color: #282c34;
-    --baner-tagline-color: #4374a4;
+    // header
+    --header-bg-color: #1C2638;
+    --header-color: #CACACA;
 
+    // banner
     --banner-color: #bd855b;
 
     // documentation
