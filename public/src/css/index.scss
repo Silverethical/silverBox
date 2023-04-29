@@ -18,7 +18,9 @@
     --hamburger-bar-width: 20px;
     --hamburger-bar-height: 3px;
     --hamburger-gap: 3px;
-    --hamburger-height: calc((var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2));
+    --hamburger-height: calc(
+        (var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
+    );
     --rotate-start-end-amount: 134deg;
     --rotate-middle-one-amount: 50deg;
     --rotate-middle-two-amount: 220deg;
@@ -26,7 +28,6 @@
 
 html {
     scroll-behavior: smooth;
-
 
     // // gray
     // --gray-100: #efefef;
@@ -46,27 +47,38 @@ html {
     // --blue-700: #0077b6;
     // --blue-900: #03045e;
 
-    // // documentation
-    // --document-argument: #a42f4e;
-    // --document-string: #2d6714;
-    // --document-boolean: #7149c6;
-    // --document-explanation: #001253;
-    // --document-undefined: #aa9027;
-
     // white and black
-    --white-in-white: #CACACA;
+    --white-in-white: #cacaca;
     --black-in-white: #000;
 
     // body
-    --body-bg-color: #0F192D;
+    --body-bg-color: #0f192d;
     // button
     --button-bg-color: var(--button-bg-color);
 
     // banner
-    --baner-bg-color: #282C34;
-    --baner-tagline-color: #4374A4;
-    --banner-color: #BD855B;
+    --baner-bg-color: #282c34;
+    --baner-tagline-color: #4374a4;
+    --banner-color: #bd855b;
 
+    // documentation
+    --document-border-color: #767d8a99;
+    --document-indicator-color: #9f9f9f;
+    --document-special-values-bgColor: #282c34;
+    --document-argument: #4374a4;
+    --document-type: #10b27d;
+    // --document-boolean: #7149c6;
+    --document-default: #bd855b;
+    --document-description: #767d8a;
+    // --document-undefined: #aa9027;
+
+    //
+    --document-error-bgColor:#331925;
+    --document-error-borderColor:#EF4444;
+    --document-warning-bgColor:#aa9027;
+    --document-warning-borderColor:#fbdf6d;
+    --document-success-borderColor:#005f3f;
+    --document-success-bgColor:#10b27d;
 }
 
 // general text color
@@ -97,13 +109,11 @@ body {
         margin-top: 135px;
         margin-bottom: 85px;
 
-
         .silverBox-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 20px 0;
-
 
             h2.silverBox-tagline {
                 text-align: center;
@@ -129,7 +139,6 @@ body {
                     }
                 }
             }
-
         }
     }
 
@@ -149,7 +158,6 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
-
     // hide horizontal overflow
     body {
         overflow-x: hidden;
@@ -246,11 +254,7 @@ code {
                                 }
                             }
                         }
-
                     }
-
-
-
                 }
             }
         }
@@ -282,17 +286,15 @@ code {
                             border-bottom: 1px solid var(--gray-100);
                             background-color: white;
                             color: var(--gray-700);
-
                         }
                     }
                 }
             }
 
             .silverBox-hamburger-menu {
-
                 &::before,
                 &::after,
-                >input {
+                > input {
                     background-color: var(--gray-400);
                 }
             }
@@ -311,7 +313,7 @@ code {
 
             &::before,
             &::after,
-            >input {
+            > input {
                 content: "";
                 width: var(--hamburger-bar-width);
                 height: var(--hamburger-bar-height);
@@ -321,7 +323,7 @@ code {
                 transition: all 500ms ease-in-out;
             }
 
-            >input {
+            > input {
                 appearance: none;
                 -webkit-appearance: none;
                 padding: 0;
@@ -386,7 +388,6 @@ code {
                         gap: 20px 0;
                         margin-right: 20px;
 
-
                         .silverBox-showExample {
                             display: flex;
                             justify-content: center;
@@ -411,27 +412,21 @@ code {
                     max-width: 400px;
                     position: relative;
 
-
                     pre code.hljs {
-
                         &::-webkit-scrollbar {
                             height: 7px;
-
                         }
 
                         &::-webkit-scrollbar-track {
                             background: var(--button-bg-color);
-
                         }
 
                         &::-webkit-scrollbar-thumb {
-                            background: #767D8A;
+                            background: #767d8a;
                             border-radius: 50px;
                             transform: rotate(-90deg);
                         }
                     }
-
-
 
                     .silverBox-exampleCopyButton {
                         position: absolute;
@@ -451,7 +446,8 @@ code {
                             transition: 0.2s;
 
                             &.silverBox-copied {
-                                filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
+                                filter: grayscale(100%) sepia(100%)
+                                    hue-rotate(90deg);
                             }
                         }
 
@@ -489,13 +485,10 @@ code {
                 border-radius: 6px;
 
                 .silverBox-document-has-config {
-                    padding: 0 5px;
-                    margin: 0 auto 10px;
+                    padding-left: 40px;
                     max-height: 100rem;
                     border-radius: 15px;
-                    width: 90%;
                     overflow: hidden;
-                    background-color: #f6f6f6;
                     transition: 1s ease-in-out;
 
                     &.silverBox-hide {
@@ -504,18 +497,19 @@ code {
                 }
 
                 .silverBox-documentConfig-indicator {
+                    cursor: pointer;
                     width: 10px;
-                    height: 30px;
-                    display: inline-block;
-                    border-left: 2px solid var(--primary-700);
-                    border-bottom: 2px solid var(--primary-700);
-                    margin: 0 0 -2% 3%;
+                    height: 40px;
+                    margin-top: 20px;
+                    margin-left: 5px;
+                    border-left: 2px solid var(--document-indicator-color);
+                    border-bottom: 2px solid var(--document-indicator-color);
                     transition: 1s ease-in-out;
 
                     &.silverBox-hide {
-                        width: 0 !important;
-                        height: 0 !important;
-                        border-color: transparent;
+                        transform: rotate(-45deg);
+                        height: 20px;
+                        width: 20px;
                     }
                 }
 
@@ -536,7 +530,6 @@ code {
                     }
 
                     &:hover {
-
                         // on button hover
                         &::after {
                             animation: confusedArrow 1.5s;
@@ -555,19 +548,27 @@ code {
                         // animations
                         @keyframes confusedArrow {
                             0% {
-                                transform: rotate(var(--rotate-start-end-amount));
+                                transform: rotate(
+                                    var(--rotate-start-end-amount)
+                                );
                             }
 
                             35% {
-                                transform: rotate(var(--rotate-middle-one-amount));
+                                transform: rotate(
+                                    var(--rotate-middle-one-amount)
+                                );
                             }
 
                             70% {
-                                transform: rotate(var(--rotate-middle-two-amount));
+                                transform: rotate(
+                                    var(--rotate-middle-two-amount)
+                                );
                             }
 
                             100% {
-                                transform: rotate(var(--rotate-start-end-amount));
+                                transform: rotate(
+                                    var(--rotate-start-end-amount)
+                                );
                             }
                         }
                     }
@@ -589,31 +590,63 @@ code {
                 .silverBox-tableRowHeader,
                 .silverBox-tableRow {
                     display: grid;
-                    grid-template-columns: 2fr 1fr 4fr;
+                    grid-template-columns: 2fr 2fr 2fr 4fr;
                     column-gap: 10px;
 
-                    .silverBox-document-string {
-                        color: var(--document-string);
+                    .silverBox-document-type {
+                        color: var(--document-type);
                     }
-
-                    .silverBox-document-boolean {
-                        color: var(--document-boolean);
+                    .silverBox-document-default {
+                        color: var(--document-default);
                     }
-
-                    .silverBox-document-explanation {
-                        color: var(--document-explanation);
+                    // .silverBox-document-boolean {
+                    //     color: var(--document-boolean);
+                    // }
+                    .silverBox-explanation-special-values {
+                        background-color: var(
+                            --document-special-values-bgColor
+                        );
+                        color: var(--white-in-white);
+                        border-radius: 10px;
+                        padding: 1px 5px;
+                    }
+                    .silverBox-document-description {
+                        color: var(--document-description);
+                        line-height: 30px;
 
                         .silverBox-explanation-span {
                             padding-right: 10px;
                         }
                     }
 
-                    .document-undefined {
-                        color: var(--document-undefined);
-                    }
+                    // .document-undefined {
+                    //     color: var(--document-undefined);
+                    // }
 
+                    // silverBox-document status
+                    .silverBox-document-description-error,
+                    .silverBox-document-description-success,
+                    .silverBox-document-description-warning{
+                        color: var(--white-in-white);
+                        padding: 5px;
+                        border-radius: 8px;
+                    }
+                    .silverBox-document-description-error{
+                        background-color: var(--document-error-bgColor);
+                        border-left: 8px solid var(--document-error-borderColor);
+
+                    }
+                    .silverBox-document-description-success{
+                        background-color: var(--document-success-bgColor);
+                        border-left: 8px solid var(--document-success-borderColor);
+                    }
+                    .silverBox-document-description-warning{
+                        background-color: var(--document-warning-bgColor);
+                        border-left: 8px solid var(--document-warning-borderColor);
+                    }
                     .silverBox-tableColumn {
-                        padding: 20px;
+                        margin: 30px 0;
+                        padding: 10px 0;
                         overflow-x: hidden;
 
                         &.document-argument {
@@ -625,13 +658,19 @@ code {
                     }
 
                     .tableHeaderColumn {
-                        color: var(--gray-500) !important;
+                        color: var(--white-in-white) !important;
                         min-width: max-content;
                     }
                 }
 
                 .silverBox-tableRowHeader {
                     border-bottom: 1px solid var(--gray-300);
+                }
+                .silverBox-tableRow {
+                    border-top: 1px solid var(--document-border-color);
+                }
+                .silverBox-tableRowHeader {
+                    border: none;
                 }
             }
         }
