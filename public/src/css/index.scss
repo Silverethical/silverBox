@@ -27,73 +27,51 @@
 html {
     scroll-behavior: smooth;
 
-    &[data-theme="light"] {
-        // white and black
-        --white-in-white: #fff;
-        --black-in-white: #000;
 
-        // gray
-        --gray-100: #efefef;
-        --gray-300: #d9d9d9;
-        --gray-400: #c0c0c0;
-        --gray-500: #717171;
-        --gray-700: #353535;
+    // // gray
+    // --gray-100: #efefef;
+    // --gray-300: #d9d9d9;
+    // --gray-400: #c0c0c0;
+    // --gray-500: #717171;
+    // --gray-700: #353535;
 
-        // theme
-        --primary-700: #284b63;
-        --secondary-700: #3c6e71;
+    // // theme
+    // --primary-700: #284b63;
+    // --secondary-700: #3c6e71;
 
-        // blue
-        --blue-100: #caf0f8;
-        --blue-300: #90e0ef;
-        --blue-500: #00b4d8;
-        --blue-700: #0077b6;
-        --blue-900: #03045e;
+    // // blue
+    // --blue-100: #caf0f8;
+    // --blue-300: #90e0ef;
+    // --blue-500: #00b4d8;
+    // --blue-700: #0077b6;
+    // --blue-900: #03045e;
 
-        // documentation
-        --document-argument: #a42f4e;
-        --document-string: #2d6714;
-        --document-boolean: #7149c6;
-        --document-explanation: #001253;
-        --document-undefined: #aa9027;
-    }
+    // // documentation
+    // --document-argument: #a42f4e;
+    // --document-string: #2d6714;
+    // --document-boolean: #7149c6;
+    // --document-explanation: #001253;
+    // --document-undefined: #aa9027;
 
-    &[data-theme="dark"] {
-        // white and black
-        --white-in-white: #000;
-        --black-in-white: #fff;
+    // white and black
+    --white-in-white: #CACACA;
+    --black-in-white: #000;
 
-        // gray
-        --gray-100: #efefef;
-        --gray-300: #d9d9d9;
-        --gray-400: #c0c0c0;
-        --gray-500: #454545;
-        --gray-700: #353535;
+    // body
+    --body-bg-color: #0F192D;
 
-        // theme
-        --primary-700: #284b63;
-        --secondary-700: #3c6e71;
+    // banner
+    --baner-bg-color: #282C34;
+    --baner-tagline-color: #4374A4;
+    --banner-color: #BD855B;
 
-        // blue
-        --blue-100: #caf0f8;
-        --blue-300: #90e0ef;
-        --blue-500: #00b4d8;
-        --blue-700: #0077b6;
-        --blue-900: #03045e;
-
-        // documentation
-        --document-argument: #e0144c;
-        --document-string: #005f00;
-        --document-boolean: #6a6a01;
-        --document-explanation: #ff0000;
-        --document-undefined: #bd04bd;
-    }
 }
 
 // general text color
 body {
     color: var(--gray-700);
     font-family: Poppins;
+    background: var(--body-bg-color);
 
     #silverBox-banner {
         display: flex;
@@ -101,10 +79,69 @@ body {
         justify-content: center;
         margin-bottom: 35px;
         background-color: #fbfbfb;
+
         span {
             font-size: 50px;
             color: var(--primary-700);
             font-weight: 700;
+        }
+    }
+
+    #silverBox-heroSection {
+        background-color: var(--baner-bg-color);
+        color: var(--banner-color);
+        padding: 40px 0;
+        letter-spacing: 0.08em;
+        margin-top: 135px;
+        margin-bottom: 85px;
+
+
+        .silverBox-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px 0;
+
+
+            h2.silverBox-tagline {
+                text-align: center;
+                font-size: 20px;
+                color: var(--baner-tagline-color);
+                font-weight: 900;
+                letter-spacing: 0.035em;
+            }
+
+            div.whySilverBox {
+                display: flex;
+                align-items: start;
+                justify-content: space-between;
+                gap: 20px 40px;
+
+                div.silverBox-introduction {
+                    text-align: justify;
+                    font-size: 20px;
+                    font-weight: 700;
+
+                    #silverBox-name-tag {
+                        color: var(--baner-tagline-color);
+                    }
+                }
+            }
+
+            button.get-silverBox {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 5px 22px;
+                background: #2F3237;
+                color: var(--baner-tagline-color);
+                box-shadow: 1px 4px 5px 2px #07070740;
+                border-radius: 10px;
+                font-weight: 800;
+                font-size: 20px;
+                letter-spacing: 0.035em;
+            }
+
         }
     }
 }
@@ -331,45 +368,14 @@ code {
     main {
         .silverBox-sectionHeader {
             text-align: center;
-            font-size: 24px;
-            color: var(--gray-500);
+            color: var(--white-in-white);
             margin-bottom: 20px;
+            font-weight: 900;
+            font-size: 32px;
         }
 
         section {
             margin-bottom: 100px;
-        }
-
-        #silverBox-heroSection {
-            h2.silverBox-tagline {
-                text-align: center;
-                font-size: 30px;
-                color: var(--primary-700);
-                font-weight: 600;
-                margin-bottom: 30px;
-            }
-
-            div.whySilverBox {
-                display: flex;
-                align-items: start;
-                justify-content: space-between;
-                gap: 20px 40px;
-
-                div.silverBox-introduction {
-                    text-align: justify;
-                    font-size: 20px;
-                    font-weight: 300;
-
-                    #silverBox-name-tag {
-                        color: var(--primary-700);
-                        font-weight: 500;
-                    }
-                }
-
-                img {
-                    width: 350px;
-                }
-            }
         }
 
         #silverBox-exampleSection {
