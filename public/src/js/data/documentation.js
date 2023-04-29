@@ -71,13 +71,13 @@ const documentation = [
         configName: "removePrevBoxes",
         defaultValue: "",
         type: "string",
-        explanation: `Predefined values to remove previous silverBoxes: "first", "last", "number of box" (a number instead of "'number of box'". example: "'1'") .`
+        explanation: `Predefined values to remove previous silverBoxes: "first", "last", "all", "number of box" (a number instead of "'number of box'". example: "'1'") .`
     },
     {
         configName: "removePrevLoadings",
         defaultValue: "",
         type: "string",
-        explanation: `Predefined values to remove buttons loading animation in silverBoxes: "first", "last", "number of box" (a number instead of "'number of box'". example: "'1'") .`
+        explanation: `Predefined values to remove buttons loading animation in silverBoxes: "first", "last", "all", "number of box" (a number instead of "'number of box'". example: "'1'") .`
     },
     {
         configName: "buttonsDirection",

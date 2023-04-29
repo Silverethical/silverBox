@@ -61,8 +61,8 @@ html {
     --button-bg-color: var(--button-bg-color);
 
     // header
-    --header-bg-color: #1C2638;
-    --header-color: #CACACA;
+    --header-bg-color: #1c2638;
+    --header-color: #cacaca;
 
     // banner
     --banner-color: #bd855b;
@@ -214,7 +214,7 @@ body {
         justify-content: center;
         align-items: center;
         padding: 5px 22px;
-        background: var(--button-bg-color);
+        background: var(--box-color);
         color: var(--primary-color);
         box-shadow: 1px 4px 5px 2px #07070740;
         border-radius: 10px;
@@ -267,6 +267,9 @@ main {
             width: 95%;
             margin: 0 auto;
 
+            .silverBox-exampleExplanation {
+                color: var(--primary-color);
+            }
             .silverBox-exampleColumn {
                 &:first-of-type {
                     color: var(--primary-color);
@@ -356,7 +359,7 @@ main {
             p {
                 font-size: 18px;
                 margin: 10px 0;
-
+                color: var(--primary-color);
                 &.step1 {
                     margin-top: 0;
                 }
@@ -573,15 +576,20 @@ main {
         .silverBox-teamMembers {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 100px;
 
             .silverBox-teamMember {
                 display: flex;
                 align-items: center;
                 column-gap: 10px;
-                border-radius: 6px;
-                padding: 10px;
+                border-radius: 10px;
+                padding: 8px 10px;
                 transition: all 500ms ease-in-out;
+                background-color: var(--box-color);
+                color: var(--white-in-white);
+                font-weight: 700;
+                font-size: 18px;
+                box-shadow: 1px 4px 5px rgba(7, 7, 7, 0.25);
 
                 .silverBox-memberImage {
                     border-radius: 50%;
@@ -590,21 +598,20 @@ main {
                 }
 
                 .silverBox-memberInfo {
-                    padding: 10px;
-
                     .silverBox-memberName {
                         color: var(--primary-700);
                         transition: all 500ms ease-in-out;
                     }
 
                     .silverBox-memberPosition {
-                        font-size: 13px;
+                        font-size: 16px;
+                        color: var(--document-border-color);
+                        font-weight: 600;
                     }
                 }
 
                 &:hover {
-                    background-color: var(--primary-700);
-                    color: white;
+                    background-color:#383c3f;
 
                     .silverBox-memberInfo {
                         .silverBox-memberName {
@@ -618,7 +625,7 @@ main {
 }
 
 footer {
-    background: #fbfbfb;
+    color: var(--document-border-color);
     margin-top: 220px;
     padding-block: 12px;
 
