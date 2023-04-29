@@ -4,32 +4,15 @@ import teamMembers from "./data/teamMembers";
 import renderTeamMembers from "./helpers/renderTeamMembers";
 import customStringify from "./helpers/customStringify";
 import renderExample from "./components/renderExample";
-import renderNavBarLinks from "./components/renderNavBarLinks";
 import silverBoxDocumentationTableComponent from "./components/documentationTableComponent";
 
 /** selectors */
-const sidebar = document.querySelector("aside.silverBox-sidebar"),
-	hamMenu = document.querySelector(".silverBox-hamburger-menu"),
-	hamMenuInput = document.querySelector(".silverBox-hamburger-menu > input");
 
-hamMenuInput.addEventListener("change", () => {
-	if (hamMenuInput.checked) {
-		sidebar.classList.add("silverBox-show-sidebar");
-		hamMenu.classList.add("silverBox-show-x");
-	} else {
-		sidebar.classList.remove("silverBox-show-sidebar");
-		hamMenu.classList.remove("silverBox-show-x");
-	}
-});
 
 document.addEventListener("DOMContentLoaded", () => {
-	hamMenuInput.checked = true;
-
-	setTimeout(() => {
-		hamMenuInput.click();
-	}, 300);
-
 	renderTeamMembers(teamMembers);
+	// documentation section
+	silverBoxDocumentationTableComponent()
 });
 
 // example section
@@ -77,13 +60,9 @@ usageCode2.textContent = `silverBox({
 })`
 
 
-// documentation section
-silverBoxDocumentationTableComponent()
-
 // appending the created ul of the documentation keys ID's to the navBar
 let documentationInNavBar = document.querySelector('#drop-down');
 
-documentationInNavBar.append(renderNavBarLinks());
 
 // highlight codes (highlightJS library)
 hljs.highlightAll();
