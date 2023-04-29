@@ -53,12 +53,14 @@ html {
 
     // body
     --body-bg-color: #0f192d;
+    --second-body-bgColor: #151f33;
     // button
     --button-bg-color: var(--button-bg-color);
 
     // banner
     --baner-bg-color: #282c34;
     --baner-tagline-color: #4374a4;
+
     --banner-color: #bd855b;
 
     // documentation
@@ -73,12 +75,12 @@ html {
     // --document-undefined: #aa9027;
 
     //
-    --document-error-bgColor:#331925;
-    --document-error-borderColor:#EF4444;
-    --document-warning-bgColor:#aa9027;
-    --document-warning-borderColor:#fbdf6d;
-    --document-success-borderColor:#005f3f;
-    --document-success-bgColor:#10b27d;
+    --document-error-bgColor: #331925;
+    --document-error-borderColor: #ef4444;
+    --document-warning-bgColor: #aa9027;
+    --document-warning-borderColor: #fbdf6d;
+    --document-success-borderColor: #005f3f;
+    --document-success-bgColor: #10b27d;
 }
 
 // general text color
@@ -87,6 +89,42 @@ body {
     font-family: Poppins;
     background: var(--body-bg-color);
 
+    .silverBox-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px 0;
+        margin: 0 auto;
+        width: 90vw;
+        max-width: 950px;
+        padding: 10px;
+        position: relative;
+
+        h2.silverBox-tagline {
+            text-align: center;
+            font-size: 20px;
+            color: var(--baner-tagline-color);
+            font-weight: 900;
+            letter-spacing: 0.035em;
+        }
+
+        div.whySilverBox {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            gap: 20px 40px;
+
+            div.silverBox-introduction {
+                text-align: justify;
+                font-size: 20px;
+                font-weight: 700;
+
+                #silverBox-name-tag {
+                    color: var(--baner-tagline-color);
+                }
+            }
+        }
+    }
     #silverBox-banner {
         display: flex;
         align-items: center;
@@ -108,38 +146,6 @@ body {
         letter-spacing: 0.08em;
         margin-top: 135px;
         margin-bottom: 85px;
-
-        .silverBox-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px 0;
-
-            h2.silverBox-tagline {
-                text-align: center;
-                font-size: 20px;
-                color: var(--baner-tagline-color);
-                font-weight: 900;
-                letter-spacing: 0.035em;
-            }
-
-            div.whySilverBox {
-                display: flex;
-                align-items: start;
-                justify-content: space-between;
-                gap: 20px 40px;
-
-                div.silverBox-introduction {
-                    text-align: justify;
-                    font-size: 20px;
-                    font-weight: 700;
-
-                    #silverBox-name-tag {
-                        color: var(--baner-tagline-color);
-                    }
-                }
-            }
-        }
     }
 
     button.get-silverBox {
@@ -176,374 +182,357 @@ code {
     line-height: 30px;
 }
 
-.silverBox-container {
-    margin: 0 auto;
-    width: 90vw;
-    max-width: 950px;
-    padding: 10px;
-    position: relative;
+main {
+    .silverBox-sectionHeader {
+        text-align: center;
+        color: var(--white-in-white);
+        margin-bottom: 20px;
+        font-weight: 900;
+        font-size: 32px;
+    }
 
-    main {
-        .silverBox-sectionHeader {
-            text-align: center;
-            color: var(--white-in-white);
-            margin-bottom: 20px;
-            font-weight: 900;
-            font-size: 32px;
-        }
+    section {
+        margin-bottom: 100px;
+    }
 
-        section {
-            margin-bottom: 100px;
-        }
+    #silverBox-exampleSection {
+        row-gap: 20px;
+        display: grid;
 
-        #silverBox-exampleSection {
-            row-gap: 20px;
-            display: grid;
+        .silverBox-example {
+            display: flex;
+            width: 95%;
+            margin: 0 auto;
 
-            .silverBox-example {
-                display: flex;
-                width: 95%;
-                margin: 0 auto;
+            .silverBox-exampleColumn {
+                &:first-of-type {
+                    color: var(--baner-tagline-color);
+                    font-size: 20px;
+                    font-weight: 700;
+                    letter-spacing: 0.035em;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px 0;
+                    margin-right: 20px;
 
-                .silverBox-exampleColumn {
-                    &:first-of-type {
-                        color: var(--baner-tagline-color);
-                        font-size: 20px;
-                        font-weight: 700;
-                        letter-spacing: 0.035em;
+                    .silverBox-showExample {
                         display: flex;
-                        flex-direction: column;
-                        gap: 20px 0;
-                        margin-right: 20px;
-
-                        .silverBox-showExample {
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            padding: 5px 45px;
-                            background: var(--baner-bg-color);
-                            box-shadow: 1px 4px 5px 2px #07070740;
-                            border-radius: 10px;
-                            color: var(--white-in-white);
-                            width: fit-content;
-                            font-size: 19px;
-                        }
-                    }
-
-                    &:last-of-type {
-                        justify-self: end;
-                    }
-                }
-
-                .silverBox-exampleConfig {
-                    min-width: 400px;
-                    max-width: 400px;
-                    position: relative;
-
-                    pre code.hljs {
-                        &::-webkit-scrollbar {
-                            height: 7px;
-                        }
-
-                        &::-webkit-scrollbar-track {
-                            background: var(--button-bg-color);
-                        }
-
-                        &::-webkit-scrollbar-thumb {
-                            background: #767d8a;
-                            border-radius: 50px;
-                            transform: rotate(-90deg);
-                        }
-                    }
-
-                    .silverBox-exampleCopyButton {
-                        position: absolute;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
                         justify-content: center;
-                        font-weight: 300;
-                        top: 20px;
-                        right: 20px;
-                        border: none;
-                        background: none;
-                        color: #fff;
+                        align-items: center;
+                        padding: 5px 45px;
+                        background: var(--baner-bg-color);
+                        box-shadow: 1px 4px 5px 2px #07070740;
+                        border-radius: 10px;
+                        color: var(--white-in-white);
+                        width: fit-content;
+                        font-size: 19px;
+                    }
+                }
 
-                        img {
-                            max-width: 30px;
-                            transition: 0.2s;
+                &:last-of-type {
+                    justify-self: end;
+                }
+            }
 
-                            &.silverBox-copied {
-                                filter: grayscale(100%) sepia(100%)
-                                    hue-rotate(90deg);
-                            }
+            .silverBox-exampleConfig {
+                min-width: 400px;
+                max-width: 400px;
+                position: relative;
+
+                pre code.hljs {
+                    &::-webkit-scrollbar {
+                        height: 7px;
+                    }
+
+                    &::-webkit-scrollbar-track {
+                        background: var(--button-bg-color);
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background: #767d8a;
+                        border-radius: 50px;
+                        transform: rotate(-90deg);
+                    }
+                }
+
+                .silverBox-exampleCopyButton {
+                    position: absolute;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 300;
+                    top: 20px;
+                    right: 20px;
+                    border: none;
+                    background: none;
+                    color: #fff;
+
+                    img {
+                        max-width: 30px;
+                        transition: 0.2s;
+
+                        &.silverBox-copied {
+                            filter: grayscale(100%) sepia(100%)
+                                hue-rotate(90deg);
                         }
+                    }
 
-                        img:hover {
-                            transform: scale(0.8);
-                        }
+                    img:hover {
+                        transform: scale(0.8);
                     }
                 }
             }
         }
+    }
 
-        #silverBox-usageSection {
-            #silverBox-usageInstructions {
-                p {
-                    font-size: 18px;
-                    margin: 10px 0;
+    #silverBox-usageSection {
+        background-color: var(--second-body-bgColor);
+        color: var(--white-in-white);
+        #silverBox-usageInstructions {
+            p {
+                font-size: 18px;
+                margin: 10px 0;
 
-                    &.step1 {
-                        margin-top: 0;
-                    }
-                }
-
-                pre {
-                    margin-bottom: 30px;
+                &.step1 {
+                    margin-top: 0;
                 }
             }
-        }
 
-        #silverBox-documentationSection {
-            .silverBox-tableWrapper {
+            pre {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    #silverBox-documentationSection {
+        .silverBox-tableWrapper {
+            overflow: hidden;
+            text-align: start;
+            row-gap: 10px;
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+
+            .silverBox-document-has-config {
+                padding-left: 40px;
+                max-height: 100rem;
+                border-radius: 15px;
                 overflow: hidden;
-                text-align: start;
-                row-gap: 10px;
-                border: 1px solid var(--gray-300);
-                border-radius: 6px;
+                transition: 0.8s ease-in-out;
 
-                .silverBox-document-has-config {
-                    padding-left: 40px;
-                    max-height: 100rem;
-                    border-radius: 15px;
-                    overflow: hidden;
-                    transition: .8s ease-in-out;
+                &.silverBox-hide {
+                    max-height: 0 !important;
+                }
+            }
 
-                    &.silverBox-hide {
-                        max-height: 0 !important;
+            .silverBox-documentConfig-indicator {
+                cursor: pointer;
+                width: 10px;
+                height: 40px;
+                margin-top: 20px;
+                margin-left: 5px;
+                border-left: 2px solid var(--document-indicator-color);
+                border-bottom: 2px solid var(--document-indicator-color);
+                transition: 0.5s ease-in-out;
+
+                &.silverBox-hide {
+                    transform: rotate(-45deg);
+                    height: 20px;
+                    width: 20px;
+                }
+            }
+
+            .silverBox-document-show-more {
+                cursor: pointer;
+                width: fit-content;
+                display: inline-block;
+                padding: 1px 15px 1px 0px;
+                border-radius: 5px;
+                transition: 0.5s linear;
+                position: relative;
+                text-decoration: underline;
+
+                &.silverBox-hide {
+                    &::after {
+                        transform: rotate(45deg);
                     }
                 }
 
-                .silverBox-documentConfig-indicator {
-                    cursor: pointer;
-                    width: 10px;
-                    height: 40px;
-                    margin-top: 20px;
-                    margin-left: 5px;
-                    border-left: 2px solid var(--document-indicator-color);
-                    border-bottom: 2px solid var(--document-indicator-color);
-                    transition: .5s ease-in-out;
-
-                    &.silverBox-hide {
-                        transform: rotate(-45deg);
-                        height: 20px;
-                        width: 20px;
+                &:hover {
+                    // on button hover
+                    &::after {
+                        animation: confusedArrow 1.5s;
                     }
-                }
 
-                .silverBox-document-show-more {
-                    cursor: pointer;
-                    width: fit-content;
-                    display: inline-block;
-                    padding: 1px 15px 1px 0px;
-                    border-radius: 5px;
-                    transition: 0.5s linear;
-                    position: relative;
-                    text-decoration: underline;
-
+                    // on button hover and when it has class of "hide"
                     &.silverBox-hide {
                         &::after {
+                            --rotate-start-end-amount: 45deg;
+                            --rotate-middle-one-amount: -39deg;
+                            --rotate-middle-two-amount: 131deg;
                             transform: rotate(45deg);
                         }
                     }
 
-                    &:hover {
-                        // on button hover
-                        &::after {
-                            animation: confusedArrow 1.5s;
+                    // animations
+                    @keyframes confusedArrow {
+                        0% {
+                            transform: rotate(var(--rotate-start-end-amount));
                         }
 
-                        // on button hover and when it has class of "hide"
-                        &.silverBox-hide {
-                            &::after {
-                                --rotate-start-end-amount: 45deg;
-                                --rotate-middle-one-amount: -39deg;
-                                --rotate-middle-two-amount: 131deg;
-                                transform: rotate(45deg);
-                            }
+                        35% {
+                            transform: rotate(var(--rotate-middle-one-amount));
                         }
 
-                        // animations
-                        @keyframes confusedArrow {
-                            0% {
-                                transform: rotate(
-                                    var(--rotate-start-end-amount)
-                                );
-                            }
-
-                            35% {
-                                transform: rotate(
-                                    var(--rotate-middle-one-amount)
-                                );
-                            }
-
-                            70% {
-                                transform: rotate(
-                                    var(--rotate-middle-two-amount)
-                                );
-                            }
-
-                            100% {
-                                transform: rotate(
-                                    var(--rotate-start-end-amount)
-                                );
-                            }
+                        70% {
+                            transform: rotate(var(--rotate-middle-two-amount));
                         }
-                    }
 
-                    &::after {
-                        content: "";
-                        width: 6px;
-                        height: 6px;
-                        position: absolute;
-                        border-top: 1px solid var(--primary-700);
-                        border-right: 1px solid var(--primary-700);
-                        top: 42%;
-                        right: 5px;
-                        transform: rotate(134deg);
-                        transition: 0.2s linear;
+                        100% {
+                            transform: rotate(var(--rotate-start-end-amount));
+                        }
                     }
                 }
 
-                .silverBox-tableRowHeader,
-                .silverBox-tableRow {
-                    display: grid;
-                    grid-template-columns: 3fr 2fr 2fr 6fr;
-                    column-gap: 10px;
-
-                    .silverBox-document-type {
-                        color: var(--document-type);
-                    }
-                    .silverBox-document-default {
-                        color: var(--document-default);
-                    }
-                    // .silverBox-document-boolean {
-                    //     color: var(--document-boolean);
-                    // }
-                    .silverBox-explanation-special-values {
-                        background-color: var(
-                            --document-special-values-bgColor
-                        );
-                        color: var(--white-in-white);
-                        border-radius: 10px;
-                        padding: 1px 5px;
-                    }
-                    .silverBox-document-description {
-                        color: var(--document-description);
-                        line-height: 30px;
-
-                        .silverBox-explanation-span {
-                            padding-right: 10px;
-                        }
-                    }
-
-                    // .document-undefined {
-                    //     color: var(--document-undefined);
-                    // }
-
-                    // silverBox-document status
-                    .silverBox-document-description-error,
-                    .silverBox-document-description-success,
-                    .silverBox-document-description-warning{
-                        color: var(--white-in-white);
-                        padding: 5px;
-                        border-radius: 8px;
-                    }
-                    .silverBox-document-description-error{
-                        background-color: var(--document-error-bgColor);
-                        border-left: 8px solid var(--document-error-borderColor);
-
-                    }
-                    .silverBox-document-description-success{
-                        background-color: var(--document-success-bgColor);
-                        border-left: 8px solid var(--document-success-borderColor);
-                    }
-                    .silverBox-document-description-warning{
-                        background-color: var(--document-warning-bgColor);
-                        border-left: 8px solid var(--document-warning-borderColor);
-                    }
-                    .silverBox-tableColumn {
-                        margin: 30px 0;
-                        padding: 10px 0;
-                        overflow-x: hidden;
-
-                        &.document-argument {
-                            font-weight: 600;
-                            font-style: italic;
-                            color: var(--document-argument);
-                            font-size: 18px;
-                        }
-                    }
-
-                    .tableHeaderColumn {
-                        color: var(--white-in-white) !important;
-                        min-width: max-content;
-                    }
-                }
-
-                .silverBox-tableRowHeader {
-                    border-bottom: 1px solid var(--gray-300);
-                }
-                .silverBox-tableRow {
-                    border-top: 1px solid var(--document-border-color);
-                }
-                .silverBox-tableRowHeader {
-                    border: none;
+                &::after {
+                    content: "";
+                    width: 6px;
+                    height: 6px;
+                    position: absolute;
+                    border-top: 1px solid var(--primary-700);
+                    border-right: 1px solid var(--primary-700);
+                    top: 42%;
+                    right: 5px;
+                    transform: rotate(134deg);
+                    transition: 0.2s linear;
                 }
             }
-        }
 
-        #silverBox-CreditsSection {
-            .silverBox-teamMembers {
+            .silverBox-tableRowHeader,
+            .silverBox-tableRow {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
+                grid-template-columns: 3fr 2fr 2fr 6fr;
+                column-gap: 10px;
 
-                .silverBox-teamMember {
-                    display: flex;
-                    align-items: center;
-                    column-gap: 10px;
-                    border-radius: 6px;
-                    padding: 10px;
-                    transition: all 500ms ease-in-out;
+                .silverBox-document-type {
+                    color: var(--document-type);
+                }
+                .silverBox-document-default {
+                    color: var(--document-default);
+                }
+                // .silverBox-document-boolean {
+                //     color: var(--document-boolean);
+                // }
+                .silverBox-explanation-special-values {
+                    background-color: var(--document-special-values-bgColor);
+                    color: var(--white-in-white);
+                    border-radius: 10px;
+                    padding: 1px 5px;
+                }
+                .silverBox-document-description {
+                    color: var(--document-description);
+                    line-height: 30px;
 
-                    .silverBox-memberImage {
-                        border-radius: 50%;
-                        width: 60px;
-                        height: 60px;
+                    .silverBox-explanation-span {
+                        padding-right: 10px;
                     }
+                }
+
+                // .document-undefined {
+                //     color: var(--document-undefined);
+                // }
+
+                // silverBox-document status
+                .silverBox-document-description-error,
+                .silverBox-document-description-success,
+                .silverBox-document-description-warning {
+                    color: var(--white-in-white);
+                    padding: 5px;
+                    border-radius: 8px;
+                }
+                .silverBox-document-description-error {
+                    background-color: var(--document-error-bgColor);
+                    border-left: 8px solid var(--document-error-borderColor);
+                }
+                .silverBox-document-description-success {
+                    background-color: var(--document-success-bgColor);
+                    border-left: 8px solid var(--document-success-borderColor);
+                }
+                .silverBox-document-description-warning {
+                    background-color: var(--document-warning-bgColor);
+                    border-left: 8px solid var(--document-warning-borderColor);
+                }
+                .silverBox-tableColumn {
+                    margin: 30px 0;
+                    padding: 10px 0;
+                    overflow-x: hidden;
+
+                    &.document-argument {
+                        font-weight: 600;
+                        font-style: italic;
+                        color: var(--document-argument);
+                        font-size: 18px;
+                    }
+                }
+
+                .tableHeaderColumn {
+                    color: var(--white-in-white) !important;
+                    min-width: max-content;
+                }
+            }
+
+            .silverBox-tableRowHeader {
+                border-bottom: 1px solid var(--gray-300);
+            }
+            .silverBox-tableRow {
+                border-top: 1px solid var(--document-border-color);
+            }
+            .silverBox-tableRowHeader {
+                border: none;
+            }
+        }
+    }
+
+    #silverBox-CreditsSection {
+        .silverBox-teamMembers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+
+            .silverBox-teamMember {
+                display: flex;
+                align-items: center;
+                column-gap: 10px;
+                border-radius: 6px;
+                padding: 10px;
+                transition: all 500ms ease-in-out;
+
+                .silverBox-memberImage {
+                    border-radius: 50%;
+                    width: 60px;
+                    height: 60px;
+                }
+
+                .silverBox-memberInfo {
+                    padding: 10px;
+
+                    .silverBox-memberName {
+                        color: var(--primary-700);
+                        transition: all 500ms ease-in-out;
+                    }
+
+                    .silverBox-memberPosition {
+                        font-size: 13px;
+                    }
+                }
+
+                &:hover {
+                    background-color: var(--primary-700);
+                    color: white;
 
                     .silverBox-memberInfo {
-                        padding: 10px;
-
                         .silverBox-memberName {
-                            color: var(--primary-700);
-                            transition: all 500ms ease-in-out;
-                        }
-
-                        .silverBox-memberPosition {
-                            font-size: 13px;
-                        }
-                    }
-
-                    &:hover {
-                        background-color: var(--primary-700);
-                        color: white;
-
-                        .silverBox-memberInfo {
-                            .silverBox-memberName {
-                                color: white;
-                            }
+                            color: white;
                         }
                     }
                 }
@@ -567,7 +556,6 @@ footer {
 }
 
 @media only screen and (max-width: 900px) {
-    
     main {
         section#silverBox-heroSection {
             div.whySilverBox {

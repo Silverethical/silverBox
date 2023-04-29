@@ -1,94 +1,122 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="/dist/css/libraries/highlightJS/atom-one-dark-reasonable.min.css"
+        />
+        <link rel="icon" href="src/images/silverBox-TransParent.png" />
+        <link rel="stylesheet" href="/dist/css/index.css" />
+        <title>SilverBox</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/dist/css/libraries/highlightJS/atom-one-dark-reasonable.min.css" />
-    <link rel="icon" href="src/images/silverBox-TransParent.png" />
-    <link rel="stylesheet" href="/dist/css/index.css" />
-    <title>SilverBox</title>
-</head>
-
-<body>
-    <div id="silverBox-banner">
-        <img src="src/images/silverBox-TransParent.png" alt="test" style="width: 100px;">
-        <span>SilverBox</span>
-    </div>
-    <!-- hero section -->
-    <section id="silverBox-heroSection">
-        <!-- container -->
-        <div class="silverBox-container">
-
-            <h2 class="silverBox-tagline">
-                Simplifying complexity, Empowering creativity
-            </h2>
-
-            <div class="whySilverBox">
-                <div class="silverBox-introduction">
-                    A customizable, user-friendly JavaScript modal
-                    library that simplifies the creation of modals based
-                    on specific configurations, catering to developers
-                    of all skill levels. With
-                    <span id="silverBox-name-tag">SilverBox</span>,
-                    create modals hassle-free, enhance the user
-                    experience, and streamline development work.
-                </div>
-            </div>
-            <button class="get-silverBox">get silverbox</button>
+    <body>
+        <div id="silverBox-banner">
+            <img
+                src="src/images/silverBox-TransParent.png"
+                alt="test"
+                style="width: 100px"
+            />
+            <span>SilverBox</span>
         </div>
-    </section>
-    <div class="silverBox-container">
-        
+        <!-- hero section -->
+        <section id="silverBox-heroSection">
+            <!-- container -->
+            <div class="silverBox-container">
+                <h2 class="silverBox-tagline">
+                    Simplifying complexity, Empowering creativity
+                </h2>
+
+                <div class="whySilverBox">
+                    <div class="silverBox-introduction">
+                        A customizable, user-friendly JavaScript modal library
+                        that simplifies the creation of modals based on specific
+                        configurations, catering to developers of all skill
+                        levels. With
+                        <span id="silverBox-name-tag">SilverBox</span>, create
+                        modals hassle-free, enhance the user experience, and
+                        streamline development work.
+                    </div>
+                </div>
+                <button class="get-silverBox">get silverbox</button>
+            </div>
+        </section>
+
         <!-- main -->
         <main>
-            <!-- example -->
-            <section id="silverBox-exampleSection">
-                <h2 class="silverBox-sectionHeader">Example</h2>
-            </section>
-
+            <div class="silverBox-container">
+                <!-- example -->
+                <section id="silverBox-exampleSection">
+                    <h2 class="silverBox-sectionHeader">Example</h2>
+                </section>
+            </div>
             <!-- usage -->
-            <section id="silverBox-usageSection">
-                <h2 class="silverBox-sectionHeader">Usage</h2>
 
-                <div id="silverBox-usageInstructions">
-                    <p class="step1">Initialize the plugin by referencing the necessary files:</p>
-                    <pre><code class="language-html step1"></code></pre>
-                    <p class="step2">Call the silverBox function after the page has loaded:</p>
-                    <pre><code class="language-javascript step2"></code></pre>
+            <section id="silverBox-usageSection">
+                <div class="silverBox-container">
+                    <h2 class="silverBox-sectionHeader">Usage</h2>
+
+                    <div id="silverBox-usageInstructions">
+                        <p><a href="#">1. Download SilverBox</a></p>
+                        <p class="step1">
+                            2. Initialize the plugin by referencing the
+                            necessary files:
+                        </p>
+                        <pre><code class="language-html step1"></code></pre>
+                        <p class="step2">
+                            3. Call the silverBox function after the page has
+                            loaded:
+                        </p>
+                        <pre><code class="language-javascript step2"></code></pre>
+                    </div>
                 </div>
             </section>
 
             <!-- documentation -->
             <section id="silverBox-documentationSection">
-                <h2 class="silverBox-sectionHeader">Documentation</h2>
+                <div class="silverBox-container">
+                    <h2 class="silverBox-sectionHeader">Documentation</h2>
 
-                <div class="silverBox-tableWrapper">
+                    <div class="silverBox-tableWrapper"></div>
                 </div>
             </section>
 
             <!-- credits -->
-            <section id="silverBox-CreditsSection" class="hidden">
-                <h2 class="silverBox-sectionHeader">Credits</h2>
 
-                <!-- team members -->
-                <div class="silverBox-teamMembers"></div>
+            <section id="silverBox-CreditsSection" class="hidden">
+                <div class="silverBox-container">
+                    <h2 class="silverBox-sectionHeader">Credits</h2>
+
+                    <!-- team members -->
+                    <div class="silverBox-teamMembers"></div>
+                </div>
             </section>
         </main>
-    </div>
-    <!-- footer -->
-    <footer style="text-align: center">
-        Made with ♥️ from Bushehr
-        <br />
-        Special thanks to
-        <a href="https://sweetalert2.github.io/" target="_blank" id="sweetAlert">SweetAlert2</a>
-        and
-        <a href="https://www.untitledui.com/" target="_blank" id="Untitled-UI">Untitled UI</a>
-    </footer>
 
-    <script src="/dist/js/libraries/highlightJS/highlight.min.js"></script>
-    <script src="/dist/js/index.js"></script>
-</body>
+        <!-- footer -->
+        <footer style="text-align: center">
+            Made with ♥️ from Bushehr
+            <br />
+            Special thanks to
+            <a
+                href="https://sweetalert2.github.io/"
+                target="_blank"
+                id="sweetAlert"
+                >SweetAlert2</a
+            >
+            and
+            <a
+                href="https://www.untitledui.com/"
+                target="_blank"
+                id="Untitled-UI"
+                >Untitled UI</a
+            >
+        </footer>
 
+        <script src="/dist/js/libraries/highlightJS/highlight.min.js"></script>
+        <script src="/dist/js/index.js"></script>
+    </body>
 </html>
