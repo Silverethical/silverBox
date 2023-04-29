@@ -15,6 +15,7 @@ body {
 }
 
 .silverBox-wrapper {
+
     // silver box modal
     &.silverBox-overlay {
         width: 100vw;
@@ -46,6 +47,7 @@ body {
         background-color: var(--silverBox-background-color);
         // modal Animation
         animation: popUp 0.3s linear;
+
         *:first-child {
             margin-top: 0;
         }
