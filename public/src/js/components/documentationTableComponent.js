@@ -99,7 +99,9 @@ function silverBoxTableRow({ name, type, description, defaultValue, id, config }
 
     const docNameColumn = document.createElement("a")
     docNameColumn.classList.add("silverBox-tableColumn", "document-argument")
-    docNameColumn.textContent = name
+    const docNameSpan = document.createElement('a')
+    docNameSpan.textContent = name
+    docNameColumn.append(docNameSpan)
 
     // type column
     const docTypeColumn = document.createElement("div")
@@ -154,8 +156,8 @@ function silverBoxTableRow({ name, type, description, defaultValue, id, config }
 
     // if id == "noConfig" this code will be executed
     if (id == "noConfig") {
-        docDescriptionColumn.id = `${name}`
-        docDescriptionColumn.setAttribute("href", "#" + name)
+        docNameSpan.id = `${name}`
+        docNameSpan.setAttribute("href", "#" + name)
 
         // if there is config keyword in the value of config which is documentation in our case
         // this code will be executed
@@ -170,8 +172,8 @@ function silverBoxTableRow({ name, type, description, defaultValue, id, config }
     // if id == "hasConfig" this code will be executed
     else if (id == "hasConfig") {
         // gets the id of the configName that contains the config
-        docDescriptionColumn.id = `${config.configName}${name}`
-        docDescriptionColumn.setAttribute("href", `#${config.configName}${name}`)
+        docNameSpan.id = `${config.configName}${name}`
+        docNameSpan.setAttribute("href", `#${config.configName}${name}`)
 
     }
     // appends the items to table row
