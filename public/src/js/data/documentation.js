@@ -47,7 +47,7 @@ const documentation = [
         configName: "html",
         defaultValue: "",
         type: "string",
-        explanation: `HTML as SilverBox body. If "text" parameter is given at the same time as "html" parameter, "text" will be ignored. example: "&lt;a href='/recovery'&gt;recover password&lt;/a&gt;".`
+        explanation: `HTML as SilverBox body. If "text" parameter is given at the same time as "html" parameter, "text" will be ignored. example: <br>"&lt;a href='/recovery'&gt;recover password&lt;/a&gt;".`
     },
     {
         configName: "text",

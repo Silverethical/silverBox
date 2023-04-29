@@ -489,7 +489,7 @@ code {
                     max-height: 100rem;
                     border-radius: 15px;
                     overflow: hidden;
-                    transition: 1s ease-in-out;
+                    transition: .8s ease-in-out;
 
                     &.silverBox-hide {
                         max-height: 0 !important;
@@ -504,7 +504,7 @@ code {
                     margin-left: 5px;
                     border-left: 2px solid var(--document-indicator-color);
                     border-bottom: 2px solid var(--document-indicator-color);
-                    transition: 1s ease-in-out;
+                    transition: .5s ease-in-out;
 
                     &.silverBox-hide {
                         transform: rotate(-45deg);
@@ -590,7 +590,7 @@ code {
                 .silverBox-tableRowHeader,
                 .silverBox-tableRow {
                     display: grid;
-                    grid-template-columns: 2fr 2fr 2fr 4fr;
+                    grid-template-columns: 3fr 2fr 2fr 6fr;
                     column-gap: 10px;
 
                     .silverBox-document-type {
