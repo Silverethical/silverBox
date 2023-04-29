@@ -126,25 +126,6 @@ const examples = [
 
             ]
         },
-    },
-    {
-        explanation: "A simple error message that pops up in the right bottom corner (eye pleasing)",
-        config: {
-            timer: 1500,
-            position: 'bottom-right',
-            text: "You've got an error!",
-            centerContent: true,
-
-            confirmButton: {
-                showButton: false
-            },
-
-            cancelButton: {
-                showButton: false
-            },
-
-
-        },
     }
 ];
 

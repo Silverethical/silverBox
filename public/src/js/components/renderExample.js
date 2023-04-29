@@ -23,7 +23,7 @@ function renderExample(explanation, config) {
     // create a button to show the config output
     const button = document.createElement('button')
     button.classList.add('silverBox-showExample')
-    button.textContent = 'Hit me!'
+    button.textContent = 'Show Me'
 
     // create second exampleColumn
     const exampleColumn2 = document.createElement('div')
@@ -45,7 +45,7 @@ function renderExample(explanation, config) {
     copyExampleIcon.setAttribute('src', "/src/images/copyIcon.png")
     copyExampleWrapper.classList.add("silverBox-exampleCopyButton")
 
-    // appending the children
+    // appending the children   
     copyExampleWrapper.append(copyExampleIcon)
 
     // event for each button

@@ -59,6 +59,8 @@ html {
 
     // body
     --body-bg-color: #0F192D;
+    // button
+    --button-bg-color: var(--button-bg-color);
 
     // banner
     --baner-bg-color: #282C34;
@@ -128,21 +130,21 @@ body {
                 }
             }
 
-            button.get-silverBox {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 5px 22px;
-                background: #2F3237;
-                color: var(--baner-tagline-color);
-                box-shadow: 1px 4px 5px 2px #07070740;
-                border-radius: 10px;
-                font-weight: 800;
-                font-size: 20px;
-                letter-spacing: 0.035em;
-            }
-
         }
+    }
+
+    button.get-silverBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 22px;
+        background: var(--button-bg-color);
+        color: var(--baner-tagline-color);
+        box-shadow: 1px 4px 5px 2px #07070740;
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: 20px;
+        letter-spacing: 0.035em;
     }
 }
 
@@ -158,26 +160,12 @@ body {
     display: none !important;
 }
 
-.silverBox-showExample {
-    padding: 10px 20px;
-    border-radius: 6px;
-    color: white;
-    width: 50%;
-    background-color: var(--primary-700);
-    border: 1px solid var(--primary-700);
-    margin-top: 20px;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-        transform: scale(1.05);
-        color: var(--primary-700);
-        background-color: white;
-    }
-}
-
 code {
     border-radius: 4px;
     text-align: left;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    line-height: 30px;
 }
 
 .silverBox-container {
@@ -383,16 +371,34 @@ code {
             display: grid;
 
             .silverBox-example {
-                display: grid;
-                grid-template-columns: 2fr 3fr;
-                gap: 0 20px;
+                display: flex;
+                width: 95%;
+                margin: 0 auto;
 
                 .silverBox-exampleColumn {
                     &:first-of-type {
+                        color: var(--baner-tagline-color);
+                        font-size: 20px;
+                        font-weight: 700;
+                        letter-spacing: 0.035em;
                         display: flex;
                         flex-direction: column;
-                        align-items: center;
-                        text-align: left;
+                        gap: 20px 0;
+                        margin-right: 20px;
+
+
+                        .silverBox-showExample {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 5px 45px;
+                            background: var(--baner-bg-color);
+                            box-shadow: 1px 4px 5px 2px #07070740;
+                            border-radius: 10px;
+                            color: var(--white-in-white);
+                            width: fit-content;
+                            font-size: 19px;
+                        }
                     }
 
                     &:last-of-type {
@@ -401,9 +407,31 @@ code {
                 }
 
                 .silverBox-exampleConfig {
-                    min-width: 500px;
-                    max-width: 500px;
+                    min-width: 400px;
+                    max-width: 400px;
                     position: relative;
+
+
+                    pre code.hljs {
+
+                        &::-webkit-scrollbar {
+                            height: 7px;
+
+                        }
+
+                        &::-webkit-scrollbar-track {
+                            background: var(--button-bg-color);
+
+                        }
+
+                        &::-webkit-scrollbar-thumb {
+                            background: #767D8A;
+                            border-radius: 50px;
+                            transform: rotate(-90deg);
+                        }
+                    }
+
+
 
                     .silverBox-exampleCopyButton {
                         position: absolute;
@@ -412,8 +440,8 @@ code {
                         align-items: center;
                         justify-content: center;
                         font-weight: 300;
-                        top: 2%;
-                        right: 2%;
+                        top: 20px;
+                        right: 20px;
                         border: none;
                         background: none;
                         color: #fff;
