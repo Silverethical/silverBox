@@ -1,3 +1,4 @@
+@import "./modules/silverBoxReset";
 @import "./components/cssConfig";
 @import "./components/input";
 @import "./components/buttons";
@@ -11,17 +12,6 @@ body {
         height: 100%;
         overflow: hidden;
     }
-}
-
-// css reset
-.silverBox-wrapper,
-.silverBox-wrapper * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    color: inherit;
-    font: inherit;
-    border: none;
 }
 
 .silverBox-wrapper {
