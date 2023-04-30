@@ -14,11 +14,10 @@ function removeAllSilverBoxes(index) {
 
     // all
     if (index === "all") {
-        for (let i = 0; i < silverBoxes.length - 1; i++) {
+        for (let i = 0; i < silverBoxes.length; i++) {
             silverBoxes[i].remove()
         }
     }
-
     // number
     else if (Number(index) > 0) {
         silverBoxes[Number(index) - 1].remove()
