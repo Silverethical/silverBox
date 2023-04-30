@@ -138,6 +138,10 @@ body {
         z-index: 99;
         background-color: var(--header-bg-color);
         padding: 10px 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        min-height: 70px;
 
         .silverBox-container {
             padding: 0;
@@ -146,10 +150,22 @@ body {
             nav {
                 display: flex;
                 align-items: center;
+                transition: 0.2s linear;
+                justify-content: space-between;
+
+                &.show {
+                    gap: 10px;
+                    // justify-content: center;
+                }
 
                 #logo {
                     display: flex;
                     align-items: center;
+
+                    &.hide {
+                        transform: translateY(200%);
+                        display: none;
+                    }
 
                     img {
                         width: 50px !important;
@@ -167,6 +183,14 @@ body {
                 ul {
                     display: flex;
                     gap: 0 20px;
+                    transition: 0.3s linear;
+
+                    &.show {
+                        transform: translateY(0) !important;
+                        display: flex !important;
+                        width: 100%;
+                        justify-content: space-around;
+                    }
 
                     li {
                         a {
@@ -184,6 +208,11 @@ body {
                     gap: 5px 0;
                     width: 20px;
                     height: 20px;
+                    transition: 0.2s linear;
+
+                    &.rotate {
+                        transform: rotate(90deg);
+                    }
 
                     .row {
                         width: 100%;
@@ -270,6 +299,7 @@ main {
             .silverBox-exampleExplanation {
                 color: var(--primary-color);
             }
+
             .silverBox-exampleColumn {
                 &:first-of-type {
                     color: var(--primary-color);
@@ -360,6 +390,7 @@ main {
                 font-size: 18px;
                 margin: 10px 0;
                 color: var(--primary-color);
+
                 &.step1 {
                     margin-top: 0;
                 }
@@ -611,7 +642,7 @@ main {
                 }
 
                 &:hover {
-                    background-color:#383c3f;
+                    background-color: #383c3f;
 
                     .silverBox-memberInfo {
                         .silverBox-memberName {
@@ -670,31 +701,23 @@ footer {
         }
     }
 
-    body {
-        #silverBox-header {
-            position: fixed;
-            top: 0;
-            right: 0;
-            left: 0;
-            z-index: 99;
-            background-color: var(--header-bg-color);
-            padding: 5px 0;
 
-            nav {
-                justify-content: space-between;
-                width: 100%;
+    #silverBox-header {
 
-                ul {
-                    display: none;
-                }
+        nav {
+            width: 100%;
 
-                #hamburger-menu {
-                    display: flex;
-                }
-
+            ul {
+                transform: translateY(200%);
+                display: none !important;
             }
 
+            #hamburger-menu {
+                display: flex !important;
+            }
 
         }
+
+
     }
 }

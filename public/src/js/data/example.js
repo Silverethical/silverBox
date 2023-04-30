@@ -40,7 +40,7 @@ const examples = [
     {
         explanation: "A positioned info modal which you can use to notify the user about the outcome of their operation and you can display it anywhere you want.",
         config: {
-            position: 'top-right',
+            position: 'bottom-right',
             alertIcon: "info",
             text: "changes has been saved !",
             centerContent: true,
