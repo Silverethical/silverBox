@@ -18,9 +18,7 @@
     --hamburger-bar-width: 20px;
     --hamburger-bar-height: 3px;
     --hamburger-gap: 3px;
-    --hamburger-height: calc(
-        (var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
-    );
+    --hamburger-height: calc((var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2));
     --rotate-start-end-amount: 134deg;
     --rotate-middle-one-amount: 50deg;
     --rotate-middle-two-amount: 220deg;
@@ -45,16 +43,17 @@ html {
     --button-bg-color: var(--button-bg-color);
 
     // header
-    --header-bg-color: #1c2638;
+    --header-bg-color: #0f192d;
+    --header-scrolled-bg-color: #1c2638;
     --header-color: #cacaca;
 
     // banner
     --banner-color: #d9884c;
 
     // shadow
-    --silverBox-button-box-shadow:1px 3px 5px #07070740;
+    --silverBox-button-box-shadow: 1px 3px 5px #07070740;
     // hover
-    --silverBox-button-hover-bgColor:#383c3f;
+    --silverBox-button-hover-bgColor: #383c3f;
     // documentation
     --document-border-color: #767d8a99;
     --document-indicator-color: #9f9f9f;
@@ -130,6 +129,11 @@ body {
         display: flex;
         align-items: center;
         min-height: 70px;
+        transition: 0.3s;
+
+        &.scrolled {
+            background-color: var(--header-scrolled-bg-color);
+        }
 
         .silverBox-container {
             padding: 0;
@@ -154,7 +158,8 @@ body {
                         transform: translateY(200%);
                         display: none;
                     }
-                    img{
+
+                    img {
                         width: 50px;
                     }
 
@@ -233,13 +238,15 @@ body {
         font-size: 20px;
         letter-spacing: 0.035em;
         transition: .3s ease-in-out;
-        &:hover{
+
+        &:hover {
             background-color: var(--silverBox-button-hover-bgColor);
         }
     }
 }
 
 @media only screen and (max-width: 900px) {
+
     // hide horizontal overflow
     body {
         overflow-x: hidden;
@@ -308,7 +315,8 @@ main {
                         width: fit-content;
                         font-size: 19px;
                         transition: .3s ease-in-out;
-                        &:hover{
+
+                        &:hover {
                             background-color: var(--silverBox-button-hover-bgColor);
                         }
                     }
@@ -358,8 +366,7 @@ main {
                         transition: 0.2s;
 
                         &.silverBox-copied {
-                            filter: grayscale(100%) sepia(100%)
-                                hue-rotate(90deg);
+                            filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
                         }
                     }
 
@@ -375,9 +382,10 @@ main {
         background-color: var(--second-body-bgColor);
         color: var(--white-in-white);
 
-        .silverBox-container{
+        .silverBox-container {
             align-items: unset;
         }
+
         #silverBox-usageInstructions {
             p {
                 font-size: 18px;
@@ -449,6 +457,7 @@ main {
                 }
 
                 &:hover {
+
                     // on button hover
                     &::after {
                         animation: confusedArrow 1.5s;

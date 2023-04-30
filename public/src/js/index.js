@@ -38,6 +38,23 @@ hamburgetMenuIcon.addEventListener('click', () => {
 	}
 })
 
+// silverBox header gets a background color whenever we scroll the page 
+const header = document.querySelector("#silverBox-header")
+
+window.addEventListener('scroll', () => {
+
+	let bodyScrollHeight = window.scrollY
+
+	// if the scrollHeight is more than 50, the header will get a class
+	if (bodyScrollHeight > 50) {
+		header.classList.add('scrolled')
+	}
+	// else it will be removed
+	else {
+		header.classList.remove('scrolled')
+	}
+})
+
 // example section
 
 // example's parent
