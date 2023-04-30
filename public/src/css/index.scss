@@ -363,6 +363,9 @@ main {
         background-color: var(--second-body-bgColor);
         color: var(--white-in-white);
 
+        .silverBox-container{
+            align-items: unset;
+        }
         #silverBox-usageInstructions {
             p {
                 font-size: 18px;
