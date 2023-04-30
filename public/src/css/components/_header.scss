@@ -15,7 +15,7 @@
 }
 
 .silverBox-header-wrapper {
-    & > * {
+    &>* {
         margin-top: var(--silverBox-items-top-margin);
     }
 
@@ -27,5 +27,7 @@
 
     .silverBox-header-description {
         color: var(--silverBox-text-color);
+        font-size: var(--silverBox-text-font-size);
+        font-weight: var(--silverBox-text-font-weight);
     }
 }
