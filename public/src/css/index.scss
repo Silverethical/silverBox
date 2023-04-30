@@ -51,6 +51,10 @@ html {
     // banner
     --banner-color: #d9884c;
 
+    // shadow
+    --silverBox-button-box-shadow:1px 3px 5px #07070740;
+    // hover
+    --silverBox-button-hover-bgColor:#383c3f;
     // documentation
     --document-border-color: #767d8a99;
     --document-indicator-color: #9f9f9f;
@@ -223,11 +227,15 @@ body {
         padding: 5px 22px;
         background: var(--box-color);
         color: var(--primary-color);
-        box-shadow: 1px 4px 5px 2px #07070740;
+        box-shadow: var(--silverBox-button-box-shadow);
         border-radius: 10px;
         font-weight: 800;
         font-size: 20px;
         letter-spacing: 0.035em;
+        transition: .3s ease-in-out;
+        &:hover{
+            background-color: var(--silverBox-button-hover-bgColor);
+        }
     }
 }
 
@@ -294,11 +302,15 @@ main {
                         align-items: center;
                         padding: 5px 45px;
                         background: var(--box-color);
-                        box-shadow: 1px 4px 5px 2px #07070740;
+                        box-shadow: var(--silverBox-button-box-shadow);
                         border-radius: 10px;
                         color: var(--white-in-white);
                         width: fit-content;
                         font-size: 19px;
+                        transition: .3s ease-in-out;
+                        &:hover{
+                            background-color: var(--silverBox-button-hover-bgColor);
+                        }
                     }
                 }
 
