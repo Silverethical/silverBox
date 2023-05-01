@@ -96,10 +96,5 @@ usageCode2.textContent = `silverBox({
 	}
 })`
 
-
-// appending the created ul of the documentation keys ID's to the navBar
-let documentationInNavBar = document.querySelector('#drop-down');
-
-
 // highlight codes (highlightJS library)
 hljs.highlightAll();

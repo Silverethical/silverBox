@@ -4,7 +4,7 @@
         --silverBox-overlay-background: #d0d5ddac;
         // silverBox
         --silverBox-background-color: white;
-        --silverBox-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        --silverBox-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
         --silverBox-border: 1px solid #fff;
         // header
         --silverBox-title-color: #000;
@@ -41,7 +41,7 @@
         --silverBox-overlay-background: #191919c7;
         // silverBox
         --silverBox-background-color: #1f2637;
-        --silverBox-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        --silverBox-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
         --silverBox-border: 1px solid #171e2e;
         // header
         --silverBox-title-color: #fff;
@@ -146,6 +146,8 @@
     --silverBox-input-flex-direction: column;
     --silverBox-select-input-width: fit-content;
     --silverBox-input-border: 1px solid var(--silverBox-input-border-color);
+    --silverBox-input-font-weight:500;
+    --silverBox-input-placeHolder-font-weight:500;
 
     // inputs end -------------------
 

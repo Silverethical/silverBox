@@ -31,12 +31,14 @@
              border-radius: var(--silverBox-input-border-radius);
              resize: none;
              font-size: var(--silverBox-input-fontSize);
-             box-shadow: var(--silverBox-boxShadow);
-
-
+             box-shadow: var(--silverBox-box-shadow);
+             font-weight: var(--silverBox-input-font-weight);
+             
+             
              &::placeholder {
                  color: var(--silverBox-input-placeHolder-color);
                  font-size: var(--silverBox-placeHolder-fontSize);
+                 font-weight: var(--silverBox-input-placeHolder-font-weight);
              }
          }
 
@@ -48,8 +50,8 @@
          }
 
          .silverBox-input-hint {
-             font-size: var(--silverBox-hint-fontSize);
              color: var(--silverBox-hint-color);
+             font-size: var(--silverBox-hint-fontSize);
              font-weight: var(--silverBox-hint-font-weight);
          }
 
