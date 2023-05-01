@@ -133,6 +133,9 @@
     --silverBox-input-parent-align-items: center;
     --silverBox-input-parent-gap: 10px 0;
     --silverBox-hint-fontSize: 14px;
+    --silverBox-hint-font-weight: 500;
+    --silverBox-input-label-font-size: 16px;
+    --silverBox-input-label-font-weight: 500;
     --silverBox-input-fontSize: 14px;
     --silverBox-placeHolder-fontSize: 12px;
     --silverBox-input-select-border-radius: 2px;
@@ -141,8 +144,8 @@
     --silverBox-input-width: 100%;
     --silverBox-input-text-align: start;
     --silverBox-input-flex-direction: column;
-    --silverBox-select-input-width:fit-content;
-    --silverBox-input-border:1px solid var(--silverBox-input-border-color);
+    --silverBox-select-input-width: fit-content;
+    --silverBox-input-border: 1px solid var(--silverBox-input-border-color);
 
     // inputs end -------------------
 

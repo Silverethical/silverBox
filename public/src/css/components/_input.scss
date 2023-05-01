@@ -43,11 +43,14 @@
 
          label {
              color: var(--silverBox-label-color);
+             font-size: var(--silverBox-input-label-font-size);
+             font-weight:var(--silverBox-input-label-font-weight);
          }
 
          .silverBox-input-hint {
              font-size: var(--silverBox-hint-fontSize);
              color: var(--silverBox-hint-color);
+             font-weight: var(--silverBox-hint-font-weight);
          }
 
 
