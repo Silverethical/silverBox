@@ -18,18 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
 const hamburgetMenuIcon = document.querySelector('#hamburger-menu')
 const silverBoxLogo = document.querySelector('#logo')
 const navigationList = document.querySelector('#silverBox-header nav ul')
-const navigationParent = document.querySelector('#silverBox-header nav')
 
 // opens/closes the navigation menu on hamburger menu click
 hamburgetMenuIcon.addEventListener('click', () => {
 
 	if (!navigationList.classList.contains('show')) {
-		navigationParent.classList.add('show')
 		hamburgetMenuIcon.classList.add('rotate')
 		navigationList.classList.add('show')
 		silverBoxLogo.classList.add('hide')
 	} else {
-		navigationParent.classList.remove('show')
 		hamburgetMenuIcon.classList.remove('rotate')
 		navigationList.classList.remove('show')
 		silverBoxLogo.classList.remove('hide')
