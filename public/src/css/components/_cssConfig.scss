@@ -102,8 +102,8 @@
     --silverBox-custom-icon-border-radius: 10px;
     --silverBox-icon-wrapper-grid-template-columns: repeat(3, 1fr);
     --silverBox-icon-wrapper-align-items: center;
-    --silverBox-centered-icon-justify-self:center;
-    --silverBox-centered-icon-grid-column-start:2;
+    --silverBox-centered-icon-justify-self: center;
+    --silverBox-centered-icon-grid-column-start: 2;
 
     // header end -------------------
 
@@ -137,6 +137,12 @@
     --silverBox-placeHolder-fontSize: 12px;
     --silverBox-input-select-border-radius: 2px;
     --silverBox-input-select-padding: 5px 8px;
+    --silverBox-input-wrapper-flex-wrap: wrap;
+    --silverBox-input-width: 100%;
+    --silverBox-input-text-align: start;
+    --silverBox-input-flex-direction: column;
+    --silverBox-select-input-width:fit-content;
+    --silverBox-input-border:1px solid var(--silverBox-input-border-color);
 
     // inputs end -------------------
 

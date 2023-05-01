@@ -1,7 +1,7 @@
  .silverBox-input-wrapper {
      margin-top: var(--silverBox-items-top-margin);
      display: flex;
-     flex-wrap: wrap;
+     flex-wrap: var(--silverBox-input-wrapper-flex-wrap);
      gap: var(--silverBox-input-parent-gap);
      justify-content: var(--silverBox-input-parent-justify-content);
      align-items: var(--silverBox-input-parent-align-items);
@@ -9,13 +9,13 @@
 
      .silverBox-input {
          display: inline-flex;
-         flex-direction: column;
+         flex-direction: var(--silverBox-input-flex-direction);
          gap: var(--silverBox-inside-input-gap);
-         text-align: start;
-         width: 100%;
+         text-align: var(--silverBox-input-text-align);
+         width: var(--silverBox-input-width);
 
          .silverBox-select {
-             width: fit-content;
+             width: var(--silverBox-select-input-width);
              padding: var(--silverBox-input-select-padding);
              border-radius: var(--silverBox-input-select-border-radius);
 
@@ -25,7 +25,7 @@
          &>textarea {
              background: var(--silverBox-input-background);
              outline: none;
-             border: 1px solid var(--silverBox-input-border-color);
+             border: var(--silverBox-input-border);
              color: var(--silverBox-input-color);
              padding: var(--silverBox-input-padding);
              border-radius: var(--silverBox-input-border-radius);
