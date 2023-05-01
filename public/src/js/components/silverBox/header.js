@@ -1,5 +1,6 @@
 /** imports */
 import silverBoxCloseButtonOnClick from "./closeButtonOnClick"
+import silverBoxIconsComponent from "./icons";
 
 /**
  * Returns headerWrapper based on given arguments from config
@@ -10,7 +11,14 @@ import silverBoxCloseButtonOnClick from "./closeButtonOnClick"
  * @param {string} closeButton - silverBox closeButton
  * @returns {Element} - headerWrapper element
  */
-function silverBoxHeaderComponent({ titleText, htmlText, simpleText, imageSource, closeButton }) {
+function silverBoxHeaderComponent({
+    titleText,
+    titleIcon,
+    htmlText,
+    simpleText,
+    imageSource,
+    closeButton
+}) {
     // header wrapper
     let headerWrapper = document.createElement("div")
     headerWrapper.classList.add('silverBox-header-wrapper')
@@ -19,9 +27,18 @@ function silverBoxHeaderComponent({ titleText, htmlText, simpleText, imageSource
     iconWrapper.classList.add('silverBox-icon-wrapper')
 
     // title 
+    //title wrapper
     let title = document.createElement("h2")
     title.classList.add("silverBox-header-title")
-    title.textContent = titleText
+
+    // titleText
+    let titleSpan = document.createElement('span')
+    titleSpan.textContent = titleText
+    // titleIcon
+    if (titleIcon) title.append(silverBoxIconsComponent(titleIcon) ? silverBoxIconsComponent(titleIcon) : '')
+    // appending text to the wrapper
+    title.append(titleSpan)
+
 
     // htmlStructure
     let htmlStructure = document.createElement("div")
@@ -53,11 +70,9 @@ function silverBoxHeaderComponent({ titleText, htmlText, simpleText, imageSource
     // add htmlStructure/text to headerWrapper
     if (htmlText && simpleText) {
         headerWrapper.appendChild(htmlStructure)
-    }
-    else if (htmlText) {
+    } else if (htmlText) {
         headerWrapper.appendChild(htmlStructure)
-    }
-    else if (simpleText) {
+    } else if (simpleText) {
         headerWrapper.appendChild(textStructure)
     }
     // checks if header Element is empty or not
