@@ -1,16 +1,16 @@
 .silverBox-close-button {
     cursor: pointer;
-    grid-column-start: 3;
+    grid-column-start: var(--silverBox-close-button-grid-column-start);
 }
 
 .silverBox-icon-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
+    grid-template-columns: var(--silverBox-icon-wrapper-grid-template-columns);
+    align-items: var(--silverBox-icon-wrapper-align-items);
 
     .silverBox-close-button {
-        justify-self: end;
-        align-self: start;
+        justify-self: var(--silverBox-close-button-justify-self);
+        align-self: var(--silverBox-close-button-align-self);
     }
 }
 

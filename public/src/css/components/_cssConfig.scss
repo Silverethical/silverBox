@@ -74,9 +74,20 @@
         --silverBox-footer-color: #a1a4a9;
     }
 
-    // silver box
+    // silver box start -------------------
+
     --silverBox-items-top-margin: 25px;
-    --silverBox-card-border-radius: 8px;
+    --silverBox-padding: 20px;
+    --silverBox-border-radius: 20px;
+
+    // silver box end -------------------
+
+    // header start -------------------
+
+    // close button
+    --silverBox-close-button-grid-column-start: 3;
+    --silverBox-close-button-justify-self: end;
+    --silverBox-close-button-align-self: start;
 
     // title
     --silverBox-title-font-size: 24px;
@@ -86,8 +97,18 @@
     --silverBox-text-font-size: 17px;
     --silverBox-text-font-weight: 500;
 
-    // buttons
+    // icons
+    --silverBox-custom-icon-width: 100px;
+    --silverBox-custom-icon-border-radius: 10px;
+    --silverBox-icon-wrapper-grid-template-columns: repeat(3, 1fr);
+    --silverBox-icon-wrapper-align-items: center;
+
+    // header end -------------------
+
+    // buttons start -------------------
+
     --silverBox-button-border-radius: 8px;
+    --silverBox-button-icon-border-radius: 10px;
     --silverBox-button-font-size: 16px;
     --silverBox-button-font-weight: 600;
     --silverBox-button-padding: 7px 20px;
@@ -99,15 +120,12 @@
     --silverBox-button-image-max-width: 40px;
     --silverBox-button-text-min-height: 30px;
 
-    // inputs
+    // buttons end -------------------
+
+    // inputs start -------------------
+
     --silverBox-input-padding: 10px;
     --silverBox-input-border-radius: 8px;
-
-    // silver box
-    --silverBox-padding: 20px;
-    --silverBox-border-radius: 20px;
-
-    // inputs
     --silverBox-inside-input-gap: 7px;
     --silverBox-input-parent-justify-content: space-around;
     --silverBox-input-parent-align-items: center;
@@ -118,14 +136,14 @@
     --silverBox-input-select-border-radius: 2px;
     --silverBox-input-select-padding: 5px 8px;
 
-    // icons
-    --silverBox-custom-icon-width: 100px;
-    --silverBox-custom-icon-border-radius: 10px;
-    --silverBox-button-icon-border-radius: 10px;
+    // inputs end -------------------
 
-    // footer
-    --silverBox-footer-font-size:16px;
-    --silverBox-footer-font-weight:500;
+    // footer start -------------------
+
+    --silverBox-footer-font-size: 16px;
+    --silverBox-footer-font-weight: 500;
     --silverBox-footer-hr-margin: 20px 0 10px;
     --silverBox-footer-hr-height: 1px;
+    
+    // footer end -------------------
 }
