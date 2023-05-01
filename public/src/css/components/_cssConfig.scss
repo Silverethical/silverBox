@@ -76,32 +76,33 @@
 
     // silver box
     --silverBox-items-top-margin: 25px;
-    // font sizes
+    --silverBox-card-border-radius: 8px;
+
     // title
     --silverBox-title-font-size: 24px;
     --silverBox-title-font-weight: 600;
+
     // text
-    --silverBox-text-font-size: 18px;
-    --silverBox-text-font-weight: 600;
     --silverBox-text-font-size: 17px;
     --silverBox-text-font-weight: 500;
+
     // buttons
+    --silverBox-button-border-radius: 8px;
     --silverBox-button-font-size: 16px;
     --silverBox-button-font-weight: 600;
     --silverBox-button-padding: 7px 20px;
     --silverBox-button-min-width: 200px;
-    --silverBox-button-border-width:1px;
-    --silverBox-button-column-gap:10px;
-    --silverBox-button-transition:0.2s ease;
-    --silverBox-button-wrapper-gap:10px;
-    --silverBox-button-image-max-width:40px;
-    --silverBox-button-text-min-height:30px;
-    // border radius
-    --silverBox-card-border-radius: 8px;
-    --silverBox-button-border-radius: 8px;
-    --silverBox-input-border-radius: 8px;
+    --silverBox-button-border-width: 1px;
+    --silverBox-button-column-gap: 10px;
+    --silverBox-button-transition: 0.2s ease;
+    --silverBox-button-wrapper-gap: 10px;
+    --silverBox-button-image-max-width: 40px;
+    --silverBox-button-text-min-height: 30px;
+
     // inputs
     --silverBox-input-padding: 10px;
+    --silverBox-input-border-radius: 8px;
+
     // silver box
     --silverBox-padding: 20px;
     --silverBox-border-radius: 20px;
@@ -116,8 +117,15 @@
     --silverBox-placeHolder-fontSize: 12px;
     --silverBox-input-select-border-radius: 2px;
     --silverBox-input-select-padding: 5px 8px;
+
     // icons
     --silverBox-custom-icon-width: 100px;
     --silverBox-custom-icon-border-radius: 10px;
     --silverBox-button-icon-border-radius: 10px;
+
+    // footer
+    --silverBox-footer-font-size:16px;
+    --silverBox-footer-font-weight:500;
+    --silverBox-footer-hr-margin: 20px 0 10px;
+    --silverBox-footer-hr-height: 1px;
 }
