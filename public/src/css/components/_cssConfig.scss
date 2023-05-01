@@ -1,4 +1,6 @@
 .silverBox-wrapper {
+
+    // light theme
     &[data-theme="light"] {
         // silverBox overlay
         --silverBox-overlay-background: #d0d5ddac;
@@ -36,6 +38,7 @@
         --silverBox-footer-color: #474747;
     }
 
+    // dark theme
     &[data-theme="dark"] {
         // silverBox overlay
         --silverBox-overlay-background: #191919c7;
@@ -46,7 +49,6 @@
         // header
         --silverBox-title-color: #fff;
         --silverBox-text-color: #9fa3ad;
-
         // confirm button
         --silverBox-confirm-color: #fff;
         --silverBox-confirm-bg-color: #4c2b92;
@@ -76,9 +78,35 @@
 
     // silver box start -------------------
 
+    // silverBox
     --silverBox-items-top-margin: 25px;
     --silverBox-padding: 20px;
+
     --silverBox-border-radius: 20px;
+
+    --silverBox-z-index:1402;
+
+    --silverBox-width:90vw;
+    --silverBox-max-width:min-content;
+    --silverBox-min-width:400px;
+    --silverBox-max-height:90vh;
+
+    // silverBox overlay
+    --silverBox-overlay-width:100vw;
+    --silverBox-overlay-height:100vh;
+    --silverBox-overlay-backdrop-filter:blur(2px);
+
+    // positioned silverBox
+
+    //top
+    --silverBox-top-distance:10px;
+    --silverBox-top-right-distance:10px;
+    --silverBox-top-left-distance:10px;
+
+    // bottom
+    --silverBox-bottom-distance:10px;
+    --silverBox-bottom-right-distance:10px;
+    --silverBox-bottom-left-distance:10px;
 
     // silver box end -------------------
 
@@ -100,6 +128,7 @@
     // icons
     --silverBox-custom-icon-width: 100px;
     --silverBox-custom-icon-border-radius: 10px;
+
     --silverBox-icon-wrapper-grid-template-columns: repeat(3, 1fr);
     --silverBox-icon-wrapper-align-items: center;
     --silverBox-centered-icon-justify-self: center;
@@ -111,43 +140,59 @@
 
     --silverBox-button-border-radius: 8px;
     --silverBox-button-icon-border-radius: 10px;
+    --silverBox-button-border-width: 1px;
+
     --silverBox-button-font-size: 16px;
     --silverBox-button-font-weight: 600;
     --silverBox-button-padding: 7px 20px;
     --silverBox-button-min-width: 200px;
-    --silverBox-button-border-width: 1px;
-    --silverBox-button-column-gap: 10px;
-    --silverBox-button-transition: 0.2s ease;
-    --silverBox-button-wrapper-gap: 10px;
     --silverBox-button-image-max-width: 40px;
     --silverBox-button-text-min-height: 30px;
+
+    --silverBox-button-column-gap: 10px;
+    --silverBox-button-wrapper-gap: 10px;
+
+    --silverBox-button-transition: 0.2s ease;
 
     // buttons end -------------------
 
     // inputs start -------------------
 
+    // wrapper
+    --silverBox-input-wrapper-flex-wrap: wrap;
+
+    // input
+    --silverBox-input-fontSize: 14px;
     --silverBox-input-padding: 10px;
     --silverBox-input-border-radius: 8px;
     --silverBox-inside-input-gap: 7px;
-    --silverBox-input-parent-justify-content: space-around;
-    --silverBox-input-parent-align-items: center;
     --silverBox-input-parent-gap: 10px 0;
-    --silverBox-hint-fontSize: 14px;
-    --silverBox-hint-font-weight: 500;
-    --silverBox-input-label-font-size: 16px;
-    --silverBox-input-label-font-weight: 500;
-    --silverBox-input-fontSize: 14px;
-    --silverBox-placeHolder-fontSize: 12px;
-    --silverBox-input-select-border-radius: 2px;
-    --silverBox-input-select-padding: 5px 8px;
-    --silverBox-input-wrapper-flex-wrap: wrap;
+    --silverBox-input-font-weight:500;
     --silverBox-input-width: 100%;
+    --silverBox-input-border: 1px solid var(--silverBox-input-border-color);
+
     --silverBox-input-text-align: start;
     --silverBox-input-flex-direction: column;
-    --silverBox-select-input-width: fit-content;
-    --silverBox-input-border: 1px solid var(--silverBox-input-border-color);
-    --silverBox-input-font-weight:500;
+    --silverBox-input-parent-justify-content: space-around;
+    --silverBox-input-parent-align-items: center;
+
+    // hint
+    --silverBox-hint-fontSize: 14px;
+    --silverBox-hint-font-weight: 500;
+
+    // label
+    --silverBox-input-label-font-size: 16px;
+    --silverBox-input-label-font-weight: 500;
+
+    // place holder
+    --silverBox-placeHolder-fontSize: 12px;
     --silverBox-input-placeHolder-font-weight:500;
+
+    // select
+    --silverBox-input-select-border-radius: 2px;
+    --silverBox-input-select-padding: 5px 8px;
+    --silverBox-select-input-width: fit-content;
+
 
     // inputs end -------------------
 

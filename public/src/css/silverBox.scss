@@ -15,28 +15,28 @@ body {
 }
 
 .silverBox-wrapper {
-    z-index: 1402;
+    z-index: var(--silverBox-z-index);
     // silver box modal
     &.silverBox-overlay {
-        width: 100vw;
-        height: 100vh;
+        width: var(--silverBox-overlay-width);
+        height: var(--silverBox-overlay-height);
         position: fixed;
         top: 0;
         left: 0;
         display: flex;
         align-items: center;
         justify-content: center;
-        backdrop-filter: blur(2px);
-        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: var(--silverBox-overlay-backdrop-filter);
+        -webkit-backdrop-filter: var(--silverBox-overlay-backdrop-filter);
         background-color: var(--silverBox-overlay-background);
     }
 
     .silverBox {
         box-sizing: border-box;
-        width: 90vw;
-        min-width: 400px;
-        max-width: min-content;
-        max-height: 90vh;
+        width: var(--silverBox-width);
+        min-width: var(--silverBox-min-width);
+        max-width: var(--silverBox-max-width);
+        max-height: var(--silverBox-max-height);
         overflow-y: auto;
         display: flex;
         flex-direction: column;
@@ -82,11 +82,11 @@ body {
     &.silverBox-top-right,
     &.silverBox-top-center,
     &.silverBox-top-left {
-        top: 10px;
+        top: var(--silverBox-top-distance);
     }
 
     &.silverBox-top-right {
-        right: 10px;
+        right: var(--silverBox-top-right-distance);
     }
 
     &.silverBox-top-center {
@@ -95,18 +95,18 @@ body {
     }
 
     &.silverBox-top-left {
-        left: 10px;
+        left: var(--silverBox-top-left-distance);
     }
 
     // bottom
     &.silverBox-bottom-right,
     &.silverBox-bottom-left,
     &.silverBox-bottom-center {
-        bottom: 10px;
+        bottom: var(--silverBox-bottom-distance);
     }
 
     &.silverBox-bottom-right {
-        right: 10px;
+        right: var(--silverBox-bottom-right-distance);
     }
 
     &.silverBox-bottom-center {
@@ -115,6 +115,6 @@ body {
     }
 
     &.silverBox-bottom-left {
-        left: 10px;
+        left: var(--silverBox-bottom-left-distance);
     }
 }
