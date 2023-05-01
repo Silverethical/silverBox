@@ -1,6 +1,6 @@
 /* centered icon */
 .silverBox-icon-wrapper,
-.silverBox-icon-wrapper>*{
+.silverBox-icon-wrapper > * {
     &.silverBox-centered-icon {
         justify-self: var(--silverBox-centered-icon-justify-self);
         grid-column-start: var(--silverBox-centered-icon-grid-column-start);
@@ -8,7 +8,10 @@
 }
 
 .silverBox-custom-icon {
-    max-width: var(--silverBox-custom-icon-width);
+    width: var(--silverBox-custom-icon-width);
+    max-width: var(--silverBox-custom-icon-max-width);
+    height: var(--silverBox-custom-icon-height);
+    max-height: var(--silverBox-custom-icon-max-height);
     border-radius: var(--silverBox-custom-icon-border-radius);
 }
 
@@ -121,7 +124,6 @@
         }
     }
 }
-
 
 // animations
 @keyframes rotate {

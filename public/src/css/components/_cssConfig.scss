@@ -1,5 +1,4 @@
 .silverBox-wrapper {
-
     // light theme
     &[data-theme="light"] {
         // silverBox overlay
@@ -76,7 +75,7 @@
         --silverBox-footer-color: #a1a4a9;
     }
 
-	// silver box start -------------------
+    // silver box start -------------------
 
     // silverBox
     --silverBox-items-top-margin: 25px;
@@ -84,51 +83,54 @@
 
     --silverBox-border-radius: 20px;
 
-    --silverBox-z-index:1402;
+    --silverBox-z-index: 1402;
 
-    --silverBox-width:90vw;
-    --silverBox-max-width:min-content;
-    --silverBox-min-width:400px;
-    --silverBox-max-height:90vh;
+    --silverBox-width: 90vw;
+    --silverBox-max-width: min-content;
+    --silverBox-min-width: 400px;
+    --silverBox-max-height: 90vh;
 
     // silverBox overlay
-    --silverBox-overlay-width:100vw;
-    --silverBox-overlay-height:100vh;
-    --silverBox-overlay-backdrop-filter:blur(2px);
+    --silverBox-overlay-width: 100vw;
+    --silverBox-overlay-height: 100vh;
+    --silverBox-overlay-backdrop-filter: blur(2px);
 
     // positioned silverBox
 
     //top
-    --silverBox-top-distance:10px;
-    --silverBox-top-right-distance:10px;
-    --silverBox-top-left-distance:10px;
+    --silverBox-top-distance: 10px;
+    --silverBox-top-right-distance: 10px;
+    --silverBox-top-left-distance: 10px;
 
     // bottom
-    --silverBox-bottom-distance:10px;
-    --silverBox-bottom-right-distance:10px;
-    --silverBox-bottom-left-distance:10px;
+    --silverBox-bottom-distance: 10px;
+    --silverBox-bottom-right-distance: 10px;
+    --silverBox-bottom-left-distance: 10px;
 
     // silver box end -------------------
 
-	// header start -------------------
+    // header start -------------------
 
-	// close button
-	--silverBox-close-button-grid-column-start: 3;
-	--silverBox-close-button-justify-self: end;
-	--silverBox-close-button-align-self: start;
+    // close button
+    --silverBox-close-button-grid-column-start: 3;
+    --silverBox-close-button-justify-self: end;
+    --silverBox-close-button-align-self: start;
 
-	// title
-	--silverBox-title-font-size: 20px;
-	--silverBox-title-font-weight: 600;
-	--silverBox-title-gap:0 10px;
-	--silverBox-title-justifyContent: center;
+    // title
+    --silverBox-title-font-size: 20px;
+    --silverBox-title-font-weight: 600;
+    --silverBox-title-gap: 0 10px;
+    --silverBox-title-justifyContent: center;
 
-	// text
-	--silverBox-text-font-size: 17px;
-	--silverBox-text-font-weight: 500;
+    // text
+    --silverBox-text-font-size: 17px;
+    --silverBox-text-font-weight: 500;
 
     // icons
-    --silverBox-custom-icon-width: 100px;
+    --silverBox-custom-icon-max-width: 100px;
+    --silverBox-custom-icon-max-height: 100px;
+    --silverBox-custom-icon-width: unset;
+    --silverBox-custom-icon-height: unset;
     --silverBox-custom-icon-border-radius: 10px;
 
     --silverBox-icon-wrapper-grid-template-columns: repeat(3, 1fr);
@@ -136,9 +138,9 @@
     --silverBox-centered-icon-justify-self: center;
     --silverBox-centered-icon-grid-column-start: 2;
 
-	// header end -------------------
+    // header end -------------------
 
-	// buttons start -------------------
+    // buttons start -------------------
 
     --silverBox-button-border-radius: 8px;
     --silverBox-button-icon-border-radius: 10px;
@@ -158,7 +160,7 @@
 
     // buttons end -------------------
 
-	// inputs start -------------------
+    // inputs start -------------------
 
     // wrapper
     --silverBox-input-wrapper-flex-wrap: wrap;
@@ -169,7 +171,7 @@
     --silverBox-input-border-radius: 8px;
     --silverBox-inside-input-gap: 7px;
     --silverBox-input-parent-gap: 10px 0;
-    --silverBox-input-font-weight:500;
+    --silverBox-input-font-weight: 500;
     --silverBox-input-width: 100%;
     --silverBox-input-border: 1px solid var(--silverBox-input-border-color);
 
@@ -188,22 +190,21 @@
 
     // place holder
     --silverBox-placeHolder-fontSize: 12px;
-    --silverBox-input-placeHolder-font-weight:500;
+    --silverBox-input-placeHolder-font-weight: 500;
 
     // select
     --silverBox-input-select-border-radius: 2px;
     --silverBox-input-select-padding: 5px 8px;
     --silverBox-select-input-width: fit-content;
 
-
     // inputs end -------------------
 
-	// footer start -------------------
+    // footer start -------------------
 
-	--silverBox-footer-font-size: 16px;
-	--silverBox-footer-font-weight: 500;
-	--silverBox-footer-hr-margin: 20px 0 10px;
-	--silverBox-footer-hr-height: 1px;
+    --silverBox-footer-font-size: 16px;
+    --silverBox-footer-font-weight: 500;
+    --silverBox-footer-hr-margin: 20px 0 10px;
+    --silverBox-footer-hr-height: 1px;
 
-	// footer end -------------------
+    // footer end -------------------
 }
