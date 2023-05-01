@@ -23,6 +23,11 @@
         color: var(--silverBox-title-color);
         font-size: var(--silverBox-title-font-size);
         font-weight: var(--silverBox-title-font-weight);
+        gap: var(--silverBox-title-gap);
+        display: flex;
+        justify-content: var(--silverBox-title-justifyContent);
+        align-items: center;
+
     }
 
     .silverBox-header-description {

@@ -76,7 +76,7 @@
         --silverBox-footer-color: #a1a4a9;
     }
 
-    // silver box start -------------------
+	// silver box start -------------------
 
     // silverBox
     --silverBox-items-top-margin: 25px;
@@ -110,20 +110,22 @@
 
     // silver box end -------------------
 
-    // header start -------------------
+	// header start -------------------
 
-    // close button
-    --silverBox-close-button-grid-column-start: 3;
-    --silverBox-close-button-justify-self: end;
-    --silverBox-close-button-align-self: start;
+	// close button
+	--silverBox-close-button-grid-column-start: 3;
+	--silverBox-close-button-justify-self: end;
+	--silverBox-close-button-align-self: start;
 
-    // title
-    --silverBox-title-font-size: 24px;
-    --silverBox-title-font-weight: 600;
+	// title
+	--silverBox-title-font-size: 20px;
+	--silverBox-title-font-weight: 600;
+	--silverBox-title-gap:0 10px;
+	--silverBox-title-justifyContent: center;
 
-    // text
-    --silverBox-text-font-size: 17px;
-    --silverBox-text-font-weight: 500;
+	// text
+	--silverBox-text-font-size: 17px;
+	--silverBox-text-font-weight: 500;
 
     // icons
     --silverBox-custom-icon-width: 100px;
@@ -134,9 +136,9 @@
     --silverBox-centered-icon-justify-self: center;
     --silverBox-centered-icon-grid-column-start: 2;
 
-    // header end -------------------
+	// header end -------------------
 
-    // buttons start -------------------
+	// buttons start -------------------
 
     --silverBox-button-border-radius: 8px;
     --silverBox-button-icon-border-radius: 10px;
@@ -156,7 +158,7 @@
 
     // buttons end -------------------
 
-    // inputs start -------------------
+	// inputs start -------------------
 
     // wrapper
     --silverBox-input-wrapper-flex-wrap: wrap;
@@ -196,12 +198,12 @@
 
     // inputs end -------------------
 
-    // footer start -------------------
+	// footer start -------------------
 
-    --silverBox-footer-font-size: 16px;
-    --silverBox-footer-font-weight: 500;
-    --silverBox-footer-hr-margin: 20px 0 10px;
-    --silverBox-footer-hr-height: 1px;
+	--silverBox-footer-font-size: 16px;
+	--silverBox-footer-font-weight: 500;
+	--silverBox-footer-hr-margin: 20px 0 10px;
+	--silverBox-footer-hr-height: 1px;
 
-    // footer end -------------------
+	// footer end -------------------
 }
