@@ -14,6 +14,12 @@ const documentation = [
         explanation: `Path to a customIcon. For example customIcon: "path/to/icon"; .`,
     },
     {
+        configName: "titleIcon ",
+        defaultValue: "",
+        type: "string",
+        explanation:`Predefined title icons including: "success", "error", "warning", "info", "question".`,
+    },
+    {
         configName: "timer",
         defaultValue: undefined,
         type: "string",
