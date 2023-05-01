@@ -102,6 +102,8 @@
     --silverBox-custom-icon-border-radius: 10px;
     --silverBox-icon-wrapper-grid-template-columns: repeat(3, 1fr);
     --silverBox-icon-wrapper-align-items: center;
+    --silverBox-centered-icon-justify-self:center;
+    --silverBox-centered-icon-grid-column-start:2;
 
     // header end -------------------
 
@@ -144,6 +146,6 @@
     --silverBox-footer-font-weight: 500;
     --silverBox-footer-hr-margin: 20px 0 10px;
     --silverBox-footer-hr-height: 1px;
-    
+
     // footer end -------------------
 }

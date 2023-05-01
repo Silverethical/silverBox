@@ -2,9 +2,14 @@
 .silverBox-icon-wrapper,
 .silverBox-icon-wrapper>*{
     &.silverBox-centered-icon {
-        justify-self: center;
-        grid-column-start: 2;
+        justify-self: var(--silverBox-centered-icon-justify-self);
+        grid-column-start: var(--silverBox-centered-icon-grid-column-start);
     }
+}
+
+.silverBox-custom-icon {
+    max-width: var(--silverBox-custom-icon-width);
+    border-radius: var(--silverBox-custom-icon-border-radius);
 }
 
 /* tick */
@@ -117,10 +122,6 @@
     }
 }
 
-.silverBox-custom-icon {
-    max-width: var(--silverBox-custom-icon-width);
-    border-radius: var(--silverBox-custom-icon-border-radius);
-}
 
 // animations
 @keyframes rotate {
