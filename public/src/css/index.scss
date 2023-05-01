@@ -144,19 +144,16 @@ body {
                 align-items: center;
                 transition: 0.2s linear;
                 justify-content: space-between;
-
-                &.show {
-                    gap: 10px;
-                    // justify-content: center;
-                }
+                width: 100%;
 
                 #logo {
                     display: flex;
                     align-items: center;
+                    transition: 0.3s all;
 
                     &.hide {
                         transform: translateY(200%);
-                        display: none;
+                        position: absolute;
                     }
 
                     img {
@@ -173,13 +170,13 @@ body {
 
                 ul {
                     display: flex;
-                    gap: 0 20px;
+                    justify-content: space-evenly;
                     transition: 0.3s linear;
+                    width: 95%;
 
                     &.show {
                         transform: translateY(0) !important;
-                        display: flex !important;
-                        width: 100%;
+                        position: static;
                         justify-content: space-around;
                     }
 
@@ -202,7 +199,7 @@ body {
                     transition: 0.2s linear;
 
                     &.rotate {
-                        transform: rotate(90deg);
+                        transform: rotate(-90deg);
                     }
 
                     .row {
@@ -703,11 +700,11 @@ footer {
 
     #silverBox-header {
         nav {
-            width: 100%;
 
             ul {
-                transform: translateY(200%);
-                display: none !important;
+                transform: translateY(-200%);
+                position: absolute;
+                justify-content: space-around !important;
             }
 
             #hamburger-menu {
