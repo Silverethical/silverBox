@@ -338,6 +338,13 @@ const documentation = [
                 explanation: "Input place holder.",
             },
             {
+                configName: "placeHolderFontSize",
+                defaultValue: "",
+                type: "string",
+                explanation: "Input placeHolder font size.",
+            },
+            
+            {
                 configName: "hint",
                 defaultValue: "",
                 type: "string",
