@@ -62,7 +62,7 @@ function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOn
 
 	if (type !== "textarea") {
 		inputEl = document.createElement('input')
-		inputEl.setAttribute('type', type)
+		if (type) inputEl.setAttribute('type', type)
 	}
 	else {
 		inputEl = document.createElement('textArea')
@@ -76,7 +76,7 @@ function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOn
 	// general input/textArea configs
 	if (placeHolder) inputEl.setAttribute('placeholder', placeHolder)
 	if (maxLength) inputEl.setAttribute('maxlength', maxLength)
-	inputEl.style.textAlign = textAlign
+	if (textAlign) inputEl.style.textAlign = textAlign
 
 	// add input elements custom height and width and fontSize if their given
 	inputEl.style.width = width
@@ -93,10 +93,10 @@ function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOn
 
 	}
 	if (!placeHolderFontSize) {
-		inputEl.style.setProperty('--silverBox-placeHolder-fontSize', fontSize)
+		if (fontSize) inputEl.style.setProperty('--silverBox-placeHolder-fontSize', fontSize)
 	}
 	else {
-		inputEl.style.setProperty('--silverBox-placeHolder-fontSize', placeHolderFontSize)
+		if (placeHolderFontSize) inputEl.style.setProperty('--silverBox-placeHolder-fontSize', placeHolderFontSize)
 
 	}
 
