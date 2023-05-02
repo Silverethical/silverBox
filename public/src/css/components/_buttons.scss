@@ -1,25 +1,26 @@
 .silverBox-button-wrapper {
     display: flex;
     justify-content: space-around;
-    gap: 10px;
-    margin-top: 25px;
+    gap: var(--silverBox-button-wrapper-gap);
+    margin-top: var(--silverBox-items-top-margin);
 }
 
 .silverBox-button {
     display: flex;
-    column-gap: 10px;
+    column-gap: var(--silverBox-button-column-gap);
     justify-content: center;
     align-items: center;
     outline: none;
-    border-width: 1px;
+    border-width: var(--silverBox-button-border-width);
     border-style: solid;
     border-radius: var(--silverBox-button-border-radius);
     font-size: var(--silverBox-button-font-size);
     font-weight: var(--silverBox-button-font-weight);
     padding: var(--silverBox-button-padding);
     cursor: pointer;
-    transition: 0.2s ease;
-    min-width: 200px;
+    transition: var(--silverBox-button-transition);
+
+    min-width: var(--silverBox-button-min-width);
 
     .silverBox-button-icon {
         border-radius: var(--silverBox-button-icon-border-radius);
@@ -56,11 +57,11 @@
     }
 
     img {
-        max-width: 40px;
+        max-width: var(--silverBox-button-image-max-width);
     }
 
     .silverBox-button-text {
-        min-height: 30px;
+        min-height: var(--silverBox-button-text-min-height);
         display: flex;
         align-items: center;
     }

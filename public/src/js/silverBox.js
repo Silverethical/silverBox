@@ -44,7 +44,9 @@ export default function silverBox(config) {
 				titleText: config.title,
 				htmlText: config.html,
 				simpleText: config.text,
-				imageSource: silverBoxIconsComponent(config.alertIcon, config.customIcon, config.centerContent, config.customIconClass, config.customIconId),
+				titleAlertIcon: config.titleAlertIcon,
+				titleCustomIcon: config.titleCustomIcon,
+				imageSource: silverBoxIconsComponent({ alertIcon: config.alertIcon, customIcon: config.customIcon, isCentred: config.centerContent, customIconClass: config.customIconClass, customIconId: config.customIconId }),
 				closeButton: config.showCloseButton,
 			})
 		);
@@ -76,8 +78,7 @@ export default function silverBox(config) {
 					for (let i = 1; i <= selector.multiplyBy; i++) {
 						inputWrapper.append(silverBoxInputComponent(inputConfig(selector)));
 					}
-				}
-				else {
+				} else {
 					inputWrapper.append(silverBoxInputComponent(inputConfig(selector)));
 
 				}
@@ -139,8 +140,7 @@ export default function silverBox(config) {
 					)
 				}
 
-			}
-			else {
+			} else {
 				// if the cancelButton config exists and showButton is not false
 				if (config.cancelButton.showButton !== false) {
 					buttonWrapper.append(
@@ -169,8 +169,7 @@ export default function silverBox(config) {
 				text: "Confirm",
 				closeOnClick: true,
 			}
-		}
-		else {
+		} else {
 			if (config.confirmButton.showButton !== false) {
 				// if there is confirm button in config and if the showButton is not false this code will be executed
 				buttonWrapper.append(
@@ -251,7 +250,10 @@ export default function silverBox(config) {
 			silverBoxWrapper.setAttribute('uniqueID', uniqueID)
 
 			// removes the specific element after the given timeout
-			silverBoxCloseButtonOnClick({ uniqueID, timer: config.timer })
+			silverBoxCloseButtonOnClick({
+				uniqueID,
+				timer: config.timer
+			})
 
 		}
 

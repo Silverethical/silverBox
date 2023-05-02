@@ -1,21 +1,21 @@
 .silverBox-close-button {
     cursor: pointer;
-    grid-column-start: 3;
+    grid-column-start: var(--silverBox-close-button-grid-column-start);
 }
 
 .silverBox-icon-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
+    grid-template-columns: var(--silverBox-icon-wrapper-grid-template-columns);
+    align-items: var(--silverBox-icon-wrapper-align-items);
 
     .silverBox-close-button {
-        justify-self: end;
-        align-self: start;
+        justify-self: var(--silverBox-close-button-justify-self);
+        align-self: var(--silverBox-close-button-align-self);
     }
 }
 
 .silverBox-header-wrapper {
-    & > * {
+    &>* {
         margin-top: var(--silverBox-items-top-margin);
     }
 
@@ -23,9 +23,16 @@
         color: var(--silverBox-title-color);
         font-size: var(--silverBox-title-font-size);
         font-weight: var(--silverBox-title-font-weight);
+        gap: var(--silverBox-title-gap);
+        display: flex;
+        justify-content: var(--silverBox-title-justifyContent);
+        align-items: center;
+
     }
 
     .silverBox-header-description {
         color: var(--silverBox-text-color);
+        font-size: var(--silverBox-text-font-size);
+        font-weight: var(--silverBox-text-font-weight);
     }
 }

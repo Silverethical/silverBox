@@ -27,30 +27,12 @@
 html {
     scroll-behavior: smooth;
 
-    // // gray
-    // --gray-100: #efefef;
-    // --gray-300: #d9d9d9;
-    // --gray-400: #c0c0c0;
-    // --gray-500: #717171;
-    // --gray-700: #353535;
-
-    // // theme
-    // --primary-700: #284b63;
-    // --secondary-700: #3c6e71;
-
-    // // blue
-    // --blue-100: #caf0f8;
-    // --blue-300: #90e0ef;
-    // --blue-500: #00b4d8;
-    // --blue-700: #0077b6;
-    // --blue-900: #03045e;
-
     // white and black
     --white-in-white: #cacaca;
     --black-in-white: #000;
 
     // general
-    --primary-color: #4374a4;
+    --primary-color: #3286cf;
     --box-color: #282c34;
 
     // body
@@ -61,12 +43,17 @@ html {
     --button-bg-color: var(--button-bg-color);
 
     // header
-    --header-bg-color: #1c2638;
+    --header-bg-color: #0f192d;
+    --header-scrolled-bg-color: #1c2638;
     --header-color: #cacaca;
 
     // banner
-    --banner-color: #bd855b;
+    --banner-color: #d9884c;
 
+    // shadow
+    --silverBox-button-box-shadow: 1px 3px 5px #07070740;
+    // hover
+    --silverBox-button-hover-bgColor: #383c3f;
     // documentation
     --document-border-color: #767d8a99;
     --document-indicator-color: #9f9f9f;
@@ -133,15 +120,20 @@ body {
     #silverBox-header {
         position: fixed;
         top: 0;
-        right: 0;
         left: 0;
-        z-index: 99;
+        width: 100%;
+        z-index: 10;
         background-color: var(--header-bg-color);
         padding: 10px 0;
         overflow: hidden;
         display: flex;
         align-items: center;
         min-height: 70px;
+        transition: 0.3s;
+
+        &.scrolled {
+            background-color: var(--header-scrolled-bg-color);
+        }
 
         .silverBox-container {
             padding: 0;
@@ -152,23 +144,20 @@ body {
                 align-items: center;
                 transition: 0.2s linear;
                 justify-content: space-between;
-
-                &.show {
-                    gap: 10px;
-                    // justify-content: center;
-                }
+                width: 100%;
 
                 #logo {
                     display: flex;
                     align-items: center;
+                    transition: 0.3s all;
 
                     &.hide {
                         transform: translateY(200%);
-                        display: none;
+                        position: absolute;
                     }
 
                     img {
-                        width: 50px !important;
+                        width: 50px;
                     }
 
                     span {
@@ -177,18 +166,17 @@ body {
                         font-weight: 700;
                         margin-right: 30px;
                     }
-
                 }
 
                 ul {
                     display: flex;
-                    gap: 0 20px;
+                    justify-content: space-evenly;
                     transition: 0.3s linear;
+                    width: 95%;
 
                     &.show {
                         transform: translateY(0) !important;
-                        display: flex !important;
-                        width: 100%;
+                        position: static;
                         justify-content: space-around;
                     }
 
@@ -211,7 +199,7 @@ body {
                     transition: 0.2s linear;
 
                     &.rotate {
-                        transform: rotate(90deg);
+                        transform: rotate(-90deg);
                     }
 
                     .row {
@@ -223,10 +211,6 @@ body {
                 }
             }
         }
-
-
-
-
     }
 
     #silverBox-heroSection {
@@ -245,11 +229,16 @@ body {
         padding: 5px 22px;
         background: var(--box-color);
         color: var(--primary-color);
-        box-shadow: 1px 4px 5px 2px #07070740;
+        box-shadow: var(--silverBox-button-box-shadow);
         border-radius: 10px;
         font-weight: 800;
         font-size: 20px;
         letter-spacing: 0.035em;
+        transition: .3s ease-in-out;
+
+        &:hover {
+            background-color: var(--silverBox-button-hover-bgColor);
+        }
     }
 }
 
@@ -317,11 +306,16 @@ main {
                         align-items: center;
                         padding: 5px 45px;
                         background: var(--box-color);
-                        box-shadow: 1px 4px 5px 2px #07070740;
+                        box-shadow: var(--silverBox-button-box-shadow);
                         border-radius: 10px;
                         color: var(--white-in-white);
                         width: fit-content;
                         font-size: 19px;
+                        transition: .3s ease-in-out;
+
+                        &:hover {
+                            background-color: var(--silverBox-button-hover-bgColor);
+                        }
                     }
                 }
 
@@ -384,6 +378,10 @@ main {
     #silverBox-usageSection {
         background-color: var(--second-body-bgColor);
         color: var(--white-in-white);
+
+        .silverBox-container {
+            align-items: unset;
+        }
 
         #silverBox-usageInstructions {
             p {
@@ -671,7 +669,6 @@ footer {
 }
 
 @media only screen and (max-width: 900px) {
-
     main {
         section#silverBox-heroSection {
             div.whySilverBox {
@@ -701,23 +698,18 @@ footer {
         }
     }
 
-
     #silverBox-header {
-
         nav {
-            width: 100%;
 
             ul {
-                transform: translateY(200%);
-                display: none !important;
+                transform: translateY(-200%);
+                position: absolute;
+                justify-content: space-around !important;
             }
 
             #hamburger-menu {
                 display: flex !important;
             }
-
         }
-
-
     }
 }

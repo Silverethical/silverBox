@@ -18,23 +18,37 @@ document.addEventListener("DOMContentLoaded", () => {
 const hamburgetMenuIcon = document.querySelector('#hamburger-menu')
 const silverBoxLogo = document.querySelector('#logo')
 const navigationList = document.querySelector('#silverBox-header nav ul')
-const navigationParent = document.querySelector('#silverBox-header nav')
 
 // opens/closes the navigation menu on hamburger menu click
 hamburgetMenuIcon.addEventListener('click', () => {
 
 	if (!navigationList.classList.contains('show')) {
-		navigationParent.classList.add('show')
 		hamburgetMenuIcon.classList.add('rotate')
 		navigationList.classList.add('show')
 		silverBoxLogo.classList.add('hide')
 	} else {
-		navigationParent.classList.remove('show')
 		hamburgetMenuIcon.classList.remove('rotate')
 		navigationList.classList.remove('show')
 		silverBoxLogo.classList.remove('hide')
 
 
+	}
+})
+
+// silverBox header gets a background color whenever we scroll the page 
+const header = document.querySelector("#silverBox-header")
+
+window.addEventListener('scroll', () => {
+
+	let bodyScrollHeight = window.scrollY
+
+	// if the scrollHeight is more than 50, the header will get a class
+	if (bodyScrollHeight > 50) {
+		header.classList.add('scrolled')
+	}
+	// else it will be removed
+	else {
+		header.classList.remove('scrolled')
 	}
 })
 
@@ -81,11 +95,6 @@ usageCode2.textContent = `silverBox({
 		   closeOnClick: true
 	}
 })`
-
-
-// appending the created ul of the documentation keys ID's to the navBar
-let documentationInNavBar = document.querySelector('#drop-down');
-
 
 // highlight codes (highlightJS library)
 hljs.highlightAll();

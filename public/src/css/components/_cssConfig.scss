@@ -1,10 +1,11 @@
 .silverBox-wrapper {
+    // light theme
     &[data-theme="light"] {
         // silverBox overlay
         --silverBox-overlay-background: #d0d5ddac;
-        // silverBox 
+        // silverBox
         --silverBox-background-color: white;
-        --silverBox-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        --silverBox-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
         --silverBox-border: 1px solid #fff;
         // header
         --silverBox-title-color: #000;
@@ -36,13 +37,14 @@
         --silverBox-footer-color: #474747;
     }
 
+    // dark theme
     &[data-theme="dark"] {
         // silverBox overlay
         --silverBox-overlay-background: #191919c7;
-        // silverBox 
+        // silverBox
         --silverBox-background-color: #1f2637;
-        --silverBox-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        --silverBox-border: 1px solid #171E2E;
+        --silverBox-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+        --silverBox-border: 1px solid #171e2e;
         // header
         --silverBox-title-color: #fff;
         --silverBox-text-color: #9fa3ad;
@@ -65,50 +67,181 @@
         --silverBox-input-border-color: #39363f;
         --silverBox-input-background: #515864;
         --silverBox-input-color: #fff;
-        --silverBox-input-placeHolder-color: #A1A4A9;
+        --silverBox-input-placeHolder-color: #a1a4a9;
         --silverBox-label-color: #fff;
         --silverBox-hint-color: #fff;
-        // footer 
+        // footer
         --silverBox-hr-line-color: #bbbbbb;
-        --silverBox-footer-color: #A1A4A9;
+        --silverBox-footer-color: #a1a4a9;
     }
 
-    // silver box
-    --silverBox-items-top-margin:25px;
-    // font sizes
+    // silver box start -------------------
+
+    // silverBox
+    --silverBox-items-top-margin: 25px;
+    --silverBox-padding: 20px;
+
+    --silverBox-border-radius: 20px;
+
+    --silverBox-z-index: 1402;
+
+    --silverBox-width: 90vw;
+    --silverBox-max-width: min-content;
+    --silverBox-min-width: 400px;
+    --silverBox-max-height: 90vh;
+
+    // silverBox overlay
+    --silverBox-overlay-width: 100vw;
+    --silverBox-overlay-height: 100vh;
+    --silverBox-overlay-backdrop-filter: blur(2px);
+
+    // positioned silverBox
+
+    //top
+    --silverBox-top-distance: 10px;
+    --silverBox-top-right-distance: 10px;
+    --silverBox-top-left-distance: 10px;
+
+    // bottom
+    --silverBox-bottom-distance: 10px;
+    --silverBox-bottom-right-distance: 10px;
+    --silverBox-bottom-left-distance: 10px;
+
+    // silver box end -------------------
+
+    // header start -------------------
+
+    // close button
+    --silverBox-close-button-grid-column-start: 3;
+    --silverBox-close-button-justify-self: end;
+    --silverBox-close-button-align-self: start;
+
     // title
-    --silverBox-title-font-size: 24px;
+    --silverBox-title-font-size: 20px;
     --silverBox-title-font-weight: 600;
+    --silverBox-title-gap: 0 10px;
+    --silverBox-title-justifyContent: center;
+
     // text
-    --silverBox-text-font-size: 18px;
-    --silverBox-text-font-weight: 600;
-    // buttons
+    --silverBox-text-font-size: 17px;
+    --silverBox-text-font-weight: 500;
+
+    // icons
+    --silverBox-custom-icon-max-width: 100px;
+    --silverBox-custom-icon-max-height: 100px;
+    --silverBox-custom-icon-width: unset;
+    --silverBox-custom-icon-height: unset;
+    --silverBox-custom-icon-border-radius: 10px;
+
+    --silverBox-icon-wrapper-grid-template-columns: repeat(3, 1fr);
+    --silverBox-icon-wrapper-align-items: center;
+    --silverBox-centered-icon-justify-self: center;
+    --silverBox-centered-icon-grid-column-start: 2;
+
+    // alertIcons
+
+    // tick mark
+    --silverBox-tick-mark-size:50px;
+    --silverBox-tick-right-size:50%;
+    --silverBox-tick-left-size:10px;
+    --silverBox-tick-circle-border:3px solid #15b79e;
+    --silverBox-tick-inside-borders:3px solid #15b79e;
+
+    // info
+    --silverBox-info-circle-border:3px solid #2e90fa;
+    --silverBox-info-size:50px;
+    --silverBox-info-icon-inside-size:30px;
+    --silverBox-info-icon-width:500;
+    --silverBox-info-color:#2e90fa;
+
+    // question
+    --silverBox-question-circle-border:3px solid #a4bcfd;
+    --silverBox-question-size:50px;
+    --silverBox-question-icon-inside-size:30px;
+    --silverBox-question-icon-width:500;
+    --silverBox-question-color:#a4bcfd;
+
+    // warning
+    --silverBox-warning-circle-border:3px solid #eaaa08;
+    --silverBox-warning-size:50px;
+    --silverBox-warning-icon-inside-size:30px;
+    --silverBox-warning-icon-width:500;
+    --silverBox-warning-color:#eaaa08;
+
+    // error
+    --silverBox-error-circle-border:3px solid #e62e05;
+    --silverBox-error-size:50px;
+    --silverBox-error-icon-inside-size:30px;
+    --silverBox-error-icon-width:3px;
+    --silverBox-error-color:#e62e05;
+
+    // header end -------------------
+
+    // buttons start -------------------
+
+    --silverBox-button-border-radius: 8px;
+    --silverBox-button-icon-border-radius: 10px;
+    --silverBox-button-border-width: 1px;
+
     --silverBox-button-font-size: 16px;
     --silverBox-button-font-weight: 600;
     --silverBox-button-padding: 7px 20px;
+    --silverBox-button-min-width: 200px;
+    --silverBox-button-image-max-width: 40px;
+    --silverBox-button-text-min-height: 30px;
 
-    // border radius
-    --silverBox-card-border-radius: 8px;
-    --silverBox-button-border-radius: 8px;
-    --silverBox-input-border-radius: 8px;
-    // inputs
+    --silverBox-button-column-gap: 10px;
+    --silverBox-button-wrapper-gap: 10px;
+
+    --silverBox-button-transition: 0.2s ease;
+
+    // buttons end -------------------
+
+    // inputs start -------------------
+
+    // wrapper
+    --silverBox-input-wrapper-flex-wrap: wrap;
+
+    // input
+    --silverBox-input-fontSize: 14px;
     --silverBox-input-padding: 10px;
-    // silver box
-    --silverBox-padding: 20px;
-    --silverBox-border-radius: 20px;
+    --silverBox-input-border-radius: 8px;
+    --silverBox-inside-input-gap: 7px;
+    --silverBox-input-parent-gap: 10px 0;
+    --silverBox-input-font-weight: 500;
+    --silverBox-input-width: 100%;
+    --silverBox-input-border: 1px solid var(--silverBox-input-border-color);
 
-    // inputs
-    --silverBox-inside-input-gap:7px;
+    --silverBox-input-text-align: start;
+    --silverBox-input-flex-direction: column;
     --silverBox-input-parent-justify-content: space-around;
     --silverBox-input-parent-align-items: center;
-    --silverBox-input-parent-gap:10px 0;
+
+    // hint
     --silverBox-hint-fontSize: 14px;
-    --silverBox-input-fontSize: 14px;
+    --silverBox-hint-font-weight: 500;
+
+    // label
+    --silverBox-input-label-font-size: 16px;
+    --silverBox-input-label-font-weight: 500;
+
+    // place holder
     --silverBox-placeHolder-fontSize: 12px;
-    --silverBox-input-select-border-radius:2px;
-    --silverBox-input-select-padding:5px 8px;
-    // icons
-    --silverBox-custom-icon-width:100px;
-    --silverBox-custom-icon-border-radius:10px;
-    --silverBox-button-icon-border-radius:10px;
+    --silverBox-input-placeHolder-font-weight: 500;
+
+    // select
+    --silverBox-input-select-border-radius: 2px;
+    --silverBox-input-select-padding: 5px 8px;
+    --silverBox-select-input-width: fit-content;
+
+    // inputs end -------------------
+
+    // footer start -------------------
+
+    --silverBox-footer-font-size: 16px;
+    --silverBox-footer-font-weight: 500;
+    --silverBox-footer-hr-margin: 20px 0 10px;
+    --silverBox-footer-hr-height: 1px;
+
+    // footer end -------------------
 }

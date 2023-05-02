@@ -14,6 +14,18 @@ const documentation = [
         explanation: `Path to a customIcon. For example customIcon: "path/to/icon"; .`,
     },
     {
+        configName: "titleAlertIcon ",
+        defaultValue: "",
+        type: "string",
+        explanation: `Predefined title icons including: "success", "error", "warning", "info", "question".`,
+    },
+    {
+        configName: "titleCustomIcon ",
+        defaultValue: "",
+        type: "string",
+        explanation: `Path to a customIcon. For example customIcon: "path/to/icon"; .`,
+    },
+    {
         configName: "timer",
         defaultValue: undefined,
         type: "string",
@@ -337,6 +349,13 @@ const documentation = [
                 type: "string",
                 explanation: "Input place holder.",
             },
+            {
+                configName: "placeHolderFontSize",
+                defaultValue: "",
+                type: "string",
+                explanation: "Input placeHolder font size.",
+            },
+
             {
                 configName: "hint",
                 defaultValue: "",

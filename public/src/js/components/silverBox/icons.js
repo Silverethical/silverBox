@@ -9,7 +9,7 @@
  *
  * @returns {Element|null} - The requested icon element or null if no matching icon was found.
  */
-const silverBoxIconsComponent = (alertIcon, customIcon, isCentred = false, customIconClass, customIconId) => {
+const silverBoxIconsComponent = ({ alertIcon, customIcon, isCentred = false, customIconClass, customIconId }) => {
 	// Check if a custom icon URL was provided.
 	if (customIcon) {
 		// Create a new user icon element using the provided URL and clone it to avoid modifying the original icon.
