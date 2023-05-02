@@ -1,16 +1,12 @@
 const examples = [{
     explanation: "A modal with a success icon and message which you can use to inform a user about their operation being successful. ",
     config: {
-        titleIcon: 'success',
-        // alertIcon: "success",
+        titleAlertIcon: 'success',
         title: "Your task has been completed.",
         centerContent: true,
 
         confirmButton: {
             showButton: false,
-            textColor: "#fff",
-            text: "Confirm",
-            closeOnClick: true,
         }
 
     }

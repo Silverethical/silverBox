@@ -13,7 +13,8 @@ import silverBoxIconsComponent from "./icons";
  */
 function silverBoxHeaderComponent({
     titleText,
-    titleIcon,
+    titleAlertIcon,
+    titleCustomIcon,
     htmlText,
     simpleText,
     imageSource,
@@ -34,8 +35,14 @@ function silverBoxHeaderComponent({
     // titleText
     let titleSpan = document.createElement('span')
     titleSpan.textContent = titleText
-    // titleIcon
-    if (titleIcon) title.append(silverBoxIconsComponent(titleIcon) ? silverBoxIconsComponent(titleIcon) : '')
+
+    // title Icons conditions   
+    if ((titleCustomIcon && titleAlertIcon) || titleCustomIcon) {
+        title.append(silverBoxIconsComponent({ customIcon: titleCustomIcon }))
+    }
+    else {
+        title.append(silverBoxIconsComponent({ alertIcon: titleAlertIcon }) ? silverBoxIconsComponent({ alertIcon: titleAlertIcon }) : '')
+    }
     // appending text to the wrapper
     title.append(titleSpan)
 
