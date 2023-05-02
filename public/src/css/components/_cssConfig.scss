@@ -138,6 +138,43 @@
     --silverBox-centered-icon-justify-self: center;
     --silverBox-centered-icon-grid-column-start: 2;
 
+    // alertIcons
+
+    // tick mark
+    --silverBox-tick-mark-size:50px;
+    --silverBox-tick-right-size:50%;
+    --silverBox-tick-left-size:10px;
+    --silverBox-tick-circle-border:3px solid #15b79e;
+    --silverBox-tick-inside-borders:3px solid #15b79e;
+
+    // info
+    --silverBox-info-circle-border:3px solid #2e90fa;
+    --silverBox-info-size:50px;
+    --silverBox-info-icon-inside-size:30px;
+    --silverBox-info-icon-width:500;
+    --silverBox-info-color:#2e90fa;
+
+    // question
+    --silverBox-question-circle-border:3px solid #a4bcfd;
+    --silverBox-question-size:50px;
+    --silverBox-question-icon-inside-size:30px;
+    --silverBox-question-icon-width:500;
+    --silverBox-question-color:#a4bcfd;
+
+    // warning
+    --silverBox-warning-circle-border:3px solid #eaaa08;
+    --silverBox-warning-size:50px;
+    --silverBox-warning-icon-inside-size:30px;
+    --silverBox-warning-icon-width:500;
+    --silverBox-warning-color:#eaaa08;
+
+    // error
+    --silverBox-error-circle-border:3px solid #e62e05;
+    --silverBox-error-size:50px;
+    --silverBox-error-icon-inside-size:30px;
+    --silverBox-error-icon-width:3px;
+    --silverBox-error-color:#e62e05;
+
     // header end -------------------
 
     // buttons start -------------------

@@ -18,89 +18,86 @@
 /* tick */
 .silverBox-tick-mark {
     position: relative;
-    width: 50px;
-    height: 50px;
-    border: 3px solid #15b79e;
+    width: var(--silverBox-tick-mark-size);
+    height: var(--silverBox-tick-mark-size);
+    border: var(--silverBox-tick-circle-border);
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
     animation: 1s appear;
 
     .inside {
         position: absolute;
-        width: 50%;
-        height: 10px;
-        border-left: 3px solid #15b79e;
-        border-bottom: 3px solid #15b79e;
+        width: var(--silverBox-tick-right-size);
+        height: var(--silverBox-tick-left-size);
+        border-left: var(--silverBox-tick-inside-borders);
+        border-bottom: var(--silverBox-tick-inside-borders);
         transform: rotate(-45deg);
-        margin-bottom: 6px;
+        margin-bottom: 15%;
     }
 }
 
 /* info */
 .silverBox-info {
-    border: 3px solid;
-    width: 50px;
-    height: 50px;
-    padding: 10px;
+    border: var(--silverBox-info-circle-border);
+    width: var(--silverBox-info-size);
+    height: var(--silverBox-info-size);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
-    border-color: #2e90fa;
-    color: #2e90fa;
+    font-size: var(--silverBox-info-icon-inside-size);
+    font-weight:var(--silverBox-info-icon-width);
+    color: var(--silverBox-info-color);
     animation: rotate 0.25s;
 }
 
 /* question */
 .silverBox-question {
-    border: 3px solid;
-    width: 50px;
-    height: 50px;
-    padding: 10px;
+    border: var(--silverBox-question-circle-border);
+    width: var(--silverBox-question-size);
+    height:var(--silverBox-question-size);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
-    color: #a4bcfd;
-    border-color: #a4bcfd;
+    font-size: var(--silverBox-question-icon-inside-size);
+    font-weight: var(--silverBox-question-icon-width);
+    color: var(--silverBox-question-color);
     animation: rotate 0.25s;
 }
 
 /* warning */
 .silverBox-warning {
-    border: 3px solid;
-    width: 50px;
-    height: 50px;
-    padding: 10px;
+    border: var(--silverBox-warning-circle-border);
+    width: var(--silverBox-warning-size);
+    height: var(--silverBox-warning-size);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
-    color: #eaaa08;
-    border-color: #eaaa08;
+    font-size: var(--silverBox-warning-icon-inside-size);
+    font-weight: var(--silverBox-warning-icon-width);
+    color: var(--silverBox-warning-color);
     animation: warning 0.5s;
 }
 
 /* x mark */
 .silverBox-error {
-    width: 50px;
-    height: 50px;
+    width: var(--silverBox-error-size);
+    height: var(--silverBox-error-size);
     border-radius: 50%;
-    border: 3px solid #e62e05;
+    border: var(--silverBox-error-circle-border);
+    border-color: #e62e05;
     display: flex;
     justify-content: center;
     align-items: center;
     animation: error 0.25s;
 
     .x {
-        width: 30px;
-        height: 4px;
+        width: var(--silverBox-error-icon-inside-size);
+        height: var(--silverBox-error-icon-width);
         position: relative;
 
         &::before,
@@ -109,8 +106,8 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 30px;
-            height: 3px;
+            width: var(--silverBox-error-icon-inside-size);
+            height: var(--silverBox-error-icon-width);
             background-color: #e62e05;
             border-radius: 10px;
         }
