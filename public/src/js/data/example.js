@@ -16,7 +16,6 @@ const examples = [{
     config: {
         alertIcon: "error",
         text: "operation failed, wish to go further ?",
-        title: 'test',
         centerContent: true,
 
         confirmButton: {
@@ -64,7 +63,7 @@ const examples = [{
     }
 },
 {
-    explanation: "A dark theme pop-up message. (you can also change the theme of the modal you want to light/dark) ",
+    explanation: "A dark theme pop-up message. (dark theme example) ",
     config: {
         timer: 1500,
         customIcon: '/src/images/darkTimeout.png',
