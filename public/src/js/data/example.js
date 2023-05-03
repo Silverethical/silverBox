@@ -16,6 +16,7 @@ const examples = [{
     config: {
         alertIcon: "error",
         text: "operation failed, wish to go further ?",
+        title: 'test',
         centerContent: true,
 
         confirmButton: {
@@ -36,7 +37,7 @@ const examples = [{
 {
     explanation: "A positioned info modal which you can use to notify the user about the outcome of their operation and you can display it anywhere you want.",
     config: {
-        position: 'bottom-right',
+        position: 'top-right',
         alertIcon: "info",
         text: "changes has been saved !",
         centerContent: true,
