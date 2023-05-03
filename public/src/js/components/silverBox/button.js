@@ -13,6 +13,14 @@ function silverBoxButtonComponent(buttonName, uniqClass, defaultText) {
 	let button = document.createElement("button");
 	button.style.background = buttonName.bgColor;
 
+	// button data attributes
+	if (buttonName.dataAttribute) {
+		for (const [key, value] of Object.entries(buttonName.dataAttribute)) {
+			// sets the data attr
+			button.dataset[key] = value
+		}
+	}
+
 	// inline styles
 	if (buttonName.bgColor) button.style.backgroundColor = buttonName.bgColor
 	if (buttonName.borderColor) button.style.borderColor = buttonName.borderColor
