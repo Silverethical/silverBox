@@ -410,6 +410,25 @@ const documentation = [
                 type: "boolean",
                 explanation: "Accept only numbers from user."
             },
+            {
+                configName: "inputName",
+                defaultValue: "",
+                type: "string",
+                explanation: "Input name attribute"
+            },
+            {
+                configName: "inputClass",
+                defaultValue: "",
+                type: "string",
+                explanation: "Input class"
+            },
+            {
+                configName: "inputId",
+                defaultValue: "",
+                type: "string",
+                explanation: "Input Id"
+            },
+
             // {
             //     configName: "select",
             //     defaultValue: "",
