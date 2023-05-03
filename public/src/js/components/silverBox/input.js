@@ -13,7 +13,7 @@
  * @param {string} placeHolderFontSize - placeHolder fontSize of input
  * @returns {Element} - inputWrapper element
  */
-function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOnly, label, hint, width, height, maxLength, textAlign, fontSize, placeHolderFontSize }) {
+function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOnly, label, hint, width, height, maxLength, textAlign, fontSize, placeHolderFontSize, inputName, inputClass, inputId }) {
 	// changing the type case to lowerCase to avoid case conflict problem
 	type = type.toLowerCase()
 
@@ -100,13 +100,18 @@ function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOn
 
 	}
 
+	// giving inputs id/class and name attribute
+	// name
+	if (inputName) inputEl.setAttribute("name", inputName)
+	if (inputClass) inputEl.classList.add(inputClass)
+	if (inputId) inputEl.id = inputId
 	// restart the inputs/textArea parent's width if the width exist
 	if (width) inputWrapper.style.width = 'fit-content'
 
 	// readOnly condition for inputs
 	if (readOnly) inputEl.setAttribute('readonly', '')
 
-	// appending label,hint and input/select to the inputwrapper
+	// appending label,hint and input/select to the inputWrapper
 	if (label) inputWrapper.append(labelEl)
 	// checks if the select config is given, if it's true the select element will be replaced as the input
 	if (select) {
@@ -118,11 +123,6 @@ function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOn
 		inputWrapper.appendChild(inputEl)
 	}
 	if (hint) inputWrapper.appendChild(hintEl)
-
-
-
-
-
 
 	return inputWrapper
 

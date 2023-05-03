@@ -67,7 +67,10 @@ export default function silverBox(config) {
 					maxLength: selector.maxLength,
 					textAlign: selector.textAlign,
 					fontSize: selector.fontSize,
-					placeHolderFontSize: selector.placeHolderFontSize
+					placeHolderFontSize: selector.placeHolderFontSize,
+					inputName: selector.inputName,
+					inputClass: selector.inputClass,
+					inputId: selector.inputId,
 				};
 			};
 			// checks if inputs have the multiPlyBy config or not 
@@ -104,9 +107,9 @@ export default function silverBox(config) {
 			) {
 
 				buttonWrapper.append(
-					silverBoxButtonComponent(config.cancelButton = {
+					silverBoxButtonComponent({
 						text: "Cancel",
-						closeOnClick: true,
+						closeOnClick: false,
 					}, "silverBox-cancel-button")
 				);
 			}
