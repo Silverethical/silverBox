@@ -68,9 +68,9 @@ export default function silverBox(config) {
 					textAlign: selector.textAlign,
 					fontSize: selector.fontSize,
 					placeHolderFontSize: selector.placeHolderFontSize,
-					inputName: selector.inputName,
-					inputClass: selector.inputClass,
-					inputId: selector.inputId,
+					name: selector.name,
+					className: selector.className,
+					id: selector.id,
 				};
 			};
 			// checks if inputs have the multiPlyBy config or not 
@@ -282,8 +282,5 @@ export default function silverBox(config) {
 		if ("silverBoxId" in config) silverBoxWrapper.id = config.silverBoxId
 		// if silverBoxClass is in config
 		if ("silverBoxClass" in config) silverBoxWrapper.classList.add(config.silverBoxClass)
-
-
-
 	}
 }
