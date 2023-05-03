@@ -176,13 +176,13 @@ const documentation = [
                 explanation: "Show/Hide confirm button."
             },
             {
-                configName: "buttonClass",
+                configName: "className",
                 defaultValue: "",
                 type: "string",
                 explanation: 'SilverBox button Class.'
             },
             {
-                configName: "buttonId",
+                configName: "id",
                 defaultValue: "",
                 type: "string",
                 explanation: 'SilverBox button ID.'
@@ -244,13 +244,13 @@ const documentation = [
                 explanation: "Show/Hide cancel button"
             },
             {
-                configName: "buttonClass",
+                configName: "class",
                 defaultValue: "",
                 type: "string",
                 explanation: 'SilverBox button Class.'
             },
             {
-                configName: "buttonId",
+                configName: "id",
                 defaultValue: "",
                 type: "string",
                 explanation: 'SilverBox button ID.'
@@ -312,13 +312,13 @@ const documentation = [
                 explanation: "Show/Hide deny button."
             },
             {
-                configName: "buttonClass",
+                configName: "class",
                 defaultValue: "",
                 type: "string",
                 explanation: 'SilverBox button Class.'
             },
             {
-                configName: "buttonId",
+                configName: "id",
                 defaultValue: "",
                 type: "string",
                 explanation: 'SilverBox button ID.'
@@ -411,19 +411,19 @@ const documentation = [
                 explanation: "Accept only numbers from user."
             },
             {
-                configName: "inputName",
+                configName: "name",
                 defaultValue: "",
                 type: "string",
                 explanation: "Input name attribute"
             },
             {
-                configName: "inputClass",
+                configName: "class",
                 defaultValue: "",
                 type: "string",
                 explanation: "Input class"
             },
             {
-                configName: "inputId",
+                configName: "id",
                 defaultValue: "",
                 type: "string",
                 explanation: "Input Id"
