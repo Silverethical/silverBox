@@ -612,7 +612,7 @@ main {
                 align-items: center;
                 column-gap: 10px;
                 border-radius: 10px;
-                padding: 8px 10px;
+                padding: 8px 30px 8px 8px;
                 transition: all 500ms ease-in-out;
                 background-color: var(--box-color);
                 color: var(--white-in-white);
@@ -623,7 +623,6 @@ main {
                 .silverBox-memberImage {
                     border-radius: 50%;
                     width: 60px;
-                    height: 60px;
                 }
 
                 .silverBox-memberInfo {

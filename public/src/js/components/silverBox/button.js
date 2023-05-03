@@ -26,7 +26,7 @@ function silverBoxButtonComponent(buttonName, uniqClass, defaultText) {
 	if (buttonName.buttonClass) button.classList.add(buttonName.buttonClass)
 
 	// if closeOnClick in config is true the code will be executed
-	if (buttonName.closeOnClick === true) {
+	if (buttonName.closeOnClick === true || !("closeOnClick" in buttonName)) {
 		button.onclick = silverBoxCloseButtonOnClick;
 	}
 	// if closeOnClick in config is false the code will be executed

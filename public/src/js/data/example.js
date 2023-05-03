@@ -36,7 +36,7 @@ const examples = [{
 {
     explanation: "A positioned info modal which you can use to notify the user about the outcome of their operation and you can display it anywhere you want.",
     config: {
-        position: 'bottom-right',
+        position: 'top-right',
         alertIcon: "info",
         text: "changes has been saved !",
         centerContent: true,
@@ -63,7 +63,7 @@ const examples = [{
     }
 },
 {
-    explanation: "A dark theme pop-up message. (you can also change the theme of the modal you want to light/dark) ",
+    explanation: "A dark theme pop-up message. (dark theme example) ",
     config: {
         timer: 1500,
         customIcon: '/src/images/darkTimeout.png',

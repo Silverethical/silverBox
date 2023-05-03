@@ -43,6 +43,9 @@ function silverBoxHeaderComponent({
     else {
         title.append(silverBoxIconsComponent({ alertIcon: titleAlertIcon }) ? silverBoxIconsComponent({ alertIcon: titleAlertIcon }) : '')
     }
+    // checks if parentELement has a icon, if true the has-icon class will be given 
+    if (title.childElementCount >= 1) title.classList.add('silverBox-title-has-icon')
+
     // appending text to the wrapper
     title.append(titleSpan)
 
