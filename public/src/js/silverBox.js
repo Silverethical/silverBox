@@ -12,10 +12,10 @@ import removeAllSilverBoxes from "./helpers/silverBox/removeAllSilverBoxes";
 import silverBoxRemoveLoadings from "./helpers/silverBox/removeLoadings";
 
 /**
- * SilverBox modal
- * @param {object} config - object of related keys to silverBox settings
- * puts the config keys as component arguments and creates a component based on given keys from object
- */
+	* SilverBox modal
+	* @param {object} config - object of related keys to silverBox settings
+	* puts the config keys as component arguments and creates a component based on given keys from object
+	*/
 export default function silverBox(config) {
 
 	// if there is removePrevBoxes in config
@@ -38,7 +38,15 @@ export default function silverBox(config) {
 		inputWrapper.classList.add("silverBox-input-wrapper");
 
 		/** pushes header into the modal */
-
+		const iconsConfig = () => {
+			return {
+				alertIcon: config.alertIcon,
+				customIcon: config.customIcon,
+				isCentred: config.centerContent,
+				customIconClass: config.customIconClass,
+				customIconId: config.customIconId
+			}
+		}
 		elementsArray.push(
 			silverBoxHeaderComponent({
 				titleText: config.title,
@@ -46,7 +54,7 @@ export default function silverBox(config) {
 				simpleText: config.text,
 				titleAlertIcon: config.titleAlertIcon,
 				titleCustomIcon: config.titleCustomIcon,
-				imageSource: silverBoxIconsComponent({ alertIcon: config.alertIcon, customIcon: config.customIcon, isCentred: config.centerContent, customIconClass: config.customIconClass, customIconId: config.customIconId }),
+				imageSource: silverBoxIconsComponent(iconsConfig()),
 				closeButton: config.showCloseButton,
 			})
 		);
@@ -215,30 +223,13 @@ export default function silverBox(config) {
 		}
 
 
-		// if there is position in config this code will be executed
-		if ("position" in config) {
-			// if the modal has the input config
-			if ("input" in config) {
-				modalSampleConfig(`silverBox-${config.position}`, true)
-			}
-			// if the modal doesn't have the input config
-			else {
-				modalSampleConfig(`silverBox-${config.position}`, false)
-			}
+		// if there is position in config position will be set as the given config, otherwise it will be the main overlay
+		let position = "position" in config ? `silverBox-${config.position}` : "silverBox-overlay"
 
-		}
-		// if there is no position in config this code will be executed
-		else {
-			// if the modal has the input config
-			if ("input" in config) {
-				modalSampleConfig("silverBox-overlay", true)
-			}
-			// if the modal doesn't have the input config
-			else {
-				modalSampleConfig("silverBox-overlay", false)
-			}
+		// checks if the input config exists in out given Config, due to it's output, the second argument will be set for our function
+		modalSampleConfig(position, "input" in config)
 
-		}
+		// Timer modal
 
 		// silverBox wrapper select, to give it a timer 
 		let silverBoxWrapper = document.querySelectorAll(".silverBox-wrapper")
