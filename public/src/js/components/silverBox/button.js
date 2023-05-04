@@ -17,7 +17,7 @@ function silverBoxButtonComponent(buttonName, uniqClass, defaultText) {
 	if (buttonName.dataAttribute) {
 		for (const [key, value] of Object.entries(buttonName.dataAttribute)) {
 			// sets the data attr
-			button.dataset[key] = value
+			button.setAttribute(`data-${key}`, value)
 		}
 	}
 

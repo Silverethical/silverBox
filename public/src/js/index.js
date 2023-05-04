@@ -15,19 +15,19 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // navigation section
-const hamburgetMenuIcon = document.querySelector('#hamburger-menu')
+const hamburgerMenuIcon = document.querySelector('#hamburger-menu')
 const silverBoxLogo = document.querySelector('#logo')
 const navigationList = document.querySelector('#silverBox-header nav ul')
 
 // opens/closes the navigation menu on hamburger menu click
-hamburgetMenuIcon.addEventListener('click', () => {
+hamburgerMenuIcon.addEventListener('click', () => {
 
 	if (!navigationList.classList.contains('show')) {
-		hamburgetMenuIcon.classList.add('rotate')
+		hamburgerMenuIcon.classList.add('rotate')
 		navigationList.classList.add('show')
 		silverBoxLogo.classList.add('hide')
 	} else {
-		hamburgetMenuIcon.classList.remove('rotate')
+		hamburgerMenuIcon.classList.remove('rotate')
 		navigationList.classList.remove('show')
 		silverBoxLogo.classList.remove('hide')
 
