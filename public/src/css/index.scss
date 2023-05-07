@@ -274,6 +274,11 @@ main {
         margin-bottom: 20px;
         font-weight: 900;
         font-size: 32px;
+        // credits section
+        &:last-of-type{
+            font-size: 22px;
+            font-weight: 700;
+        }
     }
 
     #silverBox-exampleSection {
@@ -610,7 +615,7 @@ main {
         .silverBox-teamMembers {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 100px;
+            gap: 30px 70px;
 
             .silverBox-teamMember {
                 display: flex;
@@ -621,13 +626,13 @@ main {
                 transition: all 500ms ease-in-out;
                 background-color: var(--box-color);
                 color: var(--white-in-white);
-                font-weight: 700;
-                font-size: 18px;
+                font-weight: 600;
+                font-size:16px;
                 box-shadow: 1px 4px 5px rgba(7, 7, 7, 0.25);
 
                 .silverBox-memberImage {
                     border-radius: 50%;
-                    width: 60px;
+                    width: 40px;
                 }
 
                 .silverBox-memberInfo {
@@ -637,7 +642,7 @@ main {
                     }
 
                     .silverBox-memberPosition {
-                        font-size: 16px;
+                        font-size: 14px;
                         color: var(--document-border-color);
                         font-weight: 600;
                     }
