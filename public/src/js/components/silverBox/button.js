@@ -27,6 +27,7 @@ function silverBoxButtonComponent(buttonName, uniqClass, defaultText) {
 	if (buttonName.textColor) button.style.color = buttonName.textColor
 	if (buttonName.disabled) button.disabled = buttonName.disabled
 
+
 	button.classList.add("silverBox-button", uniqClass);
 
 	// adds an ID that user wants
@@ -40,9 +41,15 @@ function silverBoxButtonComponent(buttonName, uniqClass, defaultText) {
 	}
 	// if closeOnClick in config is false the code will be executed
 	else {
-		button.addEventListener("click", () => {
-			button.classList.add('silverBox-loading-button')
-		})
+		// loading animation
+		if (buttonName.loadingAnimation !== false && !buttonName.loadingAnimation) {
+			buttonName.loadingAnimation = true
+		}
+		if (buttonName.loadingAnimation === true) {
+			button.addEventListener("click", () => {
+				button.classList.add('silverBox-loading-button')
+			})
+		}
 	}
 
 
