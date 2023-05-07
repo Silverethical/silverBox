@@ -193,6 +193,12 @@ const documentation = [
                 type: "string",
                 explanation: `SilverBox button disabled attribute. 'true' or 'false'.`
             },
+            {
+                configName: "loadingAnimation",
+                defaultValue: "",
+                type: "string",
+                explanation: `SilverBox button loading animation. 'true' or 'false'.`
+            },
         ]
     },
     {
@@ -267,6 +273,12 @@ const documentation = [
                 type: "string",
                 explanation: `SilverBox button disabled attribute. 'true' or 'false'.`
             },
+            {
+                configName: "loadingAnimation",
+                defaultValue: "",
+                type: "string",
+                explanation: `SilverBox button loading animation. 'true' or 'false'.`
+            },
         ]
     },
     {
@@ -340,6 +352,12 @@ const documentation = [
                 defaultValue: "",
                 type: "string",
                 explanation: `SilverBox button disabled attribute. 'true' or 'false'.`
+            },
+            {
+                configName: "loadingAnimation",
+                defaultValue: "",
+                type: "string",
+                explanation: `SilverBox button loading animation. 'true' or 'false'.`
             },
         ]
     },
