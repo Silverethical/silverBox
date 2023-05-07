@@ -214,6 +214,7 @@ body {
     }
 
     #silverBox-heroSection {
+        scroll-margin-top: 70px;
         background-color: var(--box-color);
         color: var(--banner-color);
         padding: 40px 0;
@@ -273,10 +274,11 @@ main {
     }
 
     section {
-        margin-bottom: 100px;
+        // margin-bottom: 100px;
     }
 
     #silverBox-exampleSection {
+        scroll-margin-top: 70px;
         row-gap: 20px;
         display: grid;
 
@@ -376,6 +378,7 @@ main {
     }
 
     #silverBox-usageSection {
+        scroll-margin-top: 70px;
         background-color: var(--second-body-bgColor);
         color: var(--white-in-white);
 
@@ -401,6 +404,8 @@ main {
     }
 
     #silverBox-documentationSection {
+        scroll-margin-top: 70px;
+
         .silverBox-tableWrapper {
             overflow: hidden;
             text-align: start;
@@ -506,6 +511,7 @@ main {
 
             .silverBox-tableRowHeader,
             .silverBox-tableRow {
+                scroll-margin-top: 70px;
                 display: grid;
                 grid-template-columns: 3fr 2fr 2fr 6fr;
                 column-gap: 10px;

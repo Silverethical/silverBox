@@ -95,6 +95,7 @@ function silverBoxTableRow({ name, type, description, defaultValue, id, config }
     const tableRowEl = document.createElement("div")
     tableRowEl.classList.add("silverBox-tableRow")
 
+
     // name column ----
 
     const docNameColumn = document.createElement("a")
@@ -132,15 +133,15 @@ function silverBoxTableRow({ name, type, description, defaultValue, id, config }
         if (defaultValue === "") {
             docDefaultValueColumn.classList.add("silverBox-document-string")
             docDefaultValueColumn.textContent = '" "'
-        } 
+        }
         // if type of the default value is string this code will be executed
         // if (typeof defaultValue === "string") {
-            // if the string is empty this code will be executed
-     
-            // else {
-            //     docDefaultValueColumn.textContent = `"${defaultValue}"`
-            //     docDefaultValueColumn.classList.add("silverBox-document-string")
-            // }
+        // if the string is empty this code will be executed
+
+        // else {
+        //     docDefaultValueColumn.textContent = `"${defaultValue}"`
+        //     docDefaultValueColumn.classList.add("silverBox-document-string")
+        // }
         // }
         // if type of the default value is boolean this code will be executed
         // else if (typeof defaultValue === "boolean") {
@@ -156,8 +157,8 @@ function silverBoxTableRow({ name, type, description, defaultValue, id, config }
 
     // if id == "noConfig" this code will be executed
     if (id == "noConfig") {
-        docNameSpan.id = `${name}`
         docNameSpan.setAttribute("href", "#" + name)
+        tableRowEl.id = `${name}`
 
         // if there is config keyword in the value of config which is documentation in our case
         // this code will be executed
@@ -172,8 +173,8 @@ function silverBoxTableRow({ name, type, description, defaultValue, id, config }
     // if id == "hasConfig" this code will be executed
     else if (id == "hasConfig") {
         // gets the id of the configName that contains the config
-        docNameSpan.id = `${config.configName}${name}`
         docNameSpan.setAttribute("href", `#${config.configName}${name}`)
+        tableRowEl.id = `${config.configName}${name}`
 
     }
     // appends the items to table row
