@@ -3,11 +3,11 @@ import replaceQuotedTextWithSpan from "../helpers/replaceQuotedTextWithSpan";
 import documentation from "../data/documentation";
 import copyArgument from "../helpers/copyArgument";
 
-function silverBoxDocumentationTableComponent() {
+// selector: element that table is appended to 
+function silverBoxDocumentationTableComponent(selector) {
     // tableWrapper selector
-    const tableWrapper = document.querySelector(".silverBox-tableWrapper");
     // adds tableHeader to tableWrapper
-    tableWrapper.append(silverBoxTableHeader())
+    selector.append(silverBoxTableHeader())
 
     // document argument
     let silverBoxTableRowConfig = (selector, idValue, configValue) => silverBoxTableRow({
@@ -22,7 +22,7 @@ function silverBoxDocumentationTableComponent() {
     documentation.forEach(documentItem => {
 
         // tableRowFunctionConfig
-        tableWrapper.append(silverBoxTableRowConfig(documentItem, "noConfig", documentItem))
+        selector.append(silverBoxTableRowConfig(documentItem, "noConfig", documentItem))
 
         // if there is no config in object item this code will be executed
         if (("config" in documentItem)) {
@@ -37,7 +37,7 @@ function silverBoxDocumentationTableComponent() {
                 documentConfigWrapper.append(configTableRow)
             });
             // appending the whole parent div after the related config explanation
-            tableWrapper.append(documentConfigWrapper)
+            selector.append(documentConfigWrapper)
 
         }
     })
