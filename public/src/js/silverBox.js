@@ -117,7 +117,7 @@ export default function silverBox(config) {
 				buttonWrapper.append(
 					silverBoxButtonComponent({
 						text: "Cancel",
-						closeOnClick: false,
+						closeOnClick: true,
 					}, "silverBox-cancel-button")
 				);
 			}
