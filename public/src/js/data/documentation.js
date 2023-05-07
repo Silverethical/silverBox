@@ -80,13 +80,13 @@ const documentation = [
         explanation: "Shows a small 'x' on the top of SilverBox."
     },
     {
-        configName: "removePrevBoxes",
+        configName: "removeBox",
         defaultValue: "",
         type: "string",
         explanation: `Predefined values to remove previous silverBoxes: "first", "last", "all", "number of box" (a number instead of "'number of box'". example: "'1'") .`
     },
     {
-        configName: "removePrevLoadings",
+        configName: "removeLoading",
         defaultValue: "",
         type: "string",
         explanation: `Predefined values to remove buttons loading animation in silverBoxes: "first", "last", "all", "number of box" (a number instead of "'number of box'". example: "'1'") .`

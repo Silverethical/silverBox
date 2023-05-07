@@ -18,14 +18,14 @@ import silverBoxRemoveLoadings from "./helpers/silverBox/removeLoadings";
 	*/
 export default function silverBox(config) {
 
-	// if there is removePrevBoxes in config
-	if ("removePrevBoxes" in config) {
-		removeAllSilverBoxes(config.removePrevBoxes)
+	// if there is removeBoxes in config
+	if ("removeBox" in config) {
+		removeAllSilverBoxes(config.removeBox)
 	}
 
 	// remove loading animation due to given config settings
-	if ("removePrevLoadings" in config) {
-		silverBoxRemoveLoadings(config.removePrevLoadings)
+	if ("removeLoading" in config) {
+		silverBoxRemoveLoadings(config.removeLoading)
 	}
 	if (Object.keys(config).length !== 0) {
 		/** selectors(before creating elements)*/

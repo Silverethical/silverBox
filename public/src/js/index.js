@@ -11,7 +11,8 @@ import silverBoxDocumentationTableComponent from "./components/documentationTabl
 document.addEventListener("DOMContentLoaded", () => {
 	renderTeamMembers(teamMembers);
 	// documentation section
-	silverBoxDocumentationTableComponent()
+	const tableWrapper = document.querySelector(".silverBox-tableWrapper");
+	silverBoxDocumentationTableComponent(tableWrapper)
 });
 
 // navigation section
