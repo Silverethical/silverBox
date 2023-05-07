@@ -25,6 +25,7 @@ function silverBoxButtonComponent(buttonName, uniqClass, defaultText) {
 	if (buttonName.bgColor) button.style.backgroundColor = buttonName.bgColor
 	if (buttonName.borderColor) button.style.borderColor = buttonName.borderColor
 	if (buttonName.textColor) button.style.color = buttonName.textColor
+	if (buttonName.disabled) button.disabled = buttonName.disabled
 
 	button.classList.add("silverBox-button", uniqClass);
 
