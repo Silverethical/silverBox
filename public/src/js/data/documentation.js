@@ -199,6 +199,12 @@ const documentation = [
                 type: "string",
                 explanation: `SilverBox button loading animation. 'true' or 'false'.`
             },
+            {
+                configName: "dataAttribute",
+                defaultValue: "",
+                type: "string",
+                explanation: 'SilverBox button data attributes.'
+            },
         ]
     },
     {
@@ -279,6 +285,12 @@ const documentation = [
                 type: "string",
                 explanation: `SilverBox button loading animation. 'true' or 'false'.`
             },
+            {
+                configName: "dataAttribute",
+                defaultValue: "",
+                type: "string",
+                explanation: 'SilverBox button data attributes.'
+            }
         ]
     },
     {
@@ -359,6 +371,12 @@ const documentation = [
                 type: "string",
                 explanation: `SilverBox button loading animation. 'true' or 'false'.`
             },
+            {
+                configName: "dataAttribute",
+                defaultValue: "",
+                type: "string",
+                explanation: 'SilverBox button data attributes.'
+            }
         ]
     },
     {
