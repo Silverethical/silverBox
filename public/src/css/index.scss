@@ -38,6 +38,7 @@ html {
     // body
     --body-bg-color: #0f192d;
     --second-body-bgColor: #151f33;
+    --third-body-bgColor:#0F1726;
 
     // button
     --button-bg-color: var(--button-bg-color);
@@ -88,7 +89,7 @@ body {
         margin: 0 auto;
         width: 90vw;
         max-width: 950px;
-        padding: 10px;
+        padding: 85px 10px 85px 10px;
         position: relative;
 
         h2.silverBox-tagline {
@@ -214,13 +215,15 @@ body {
     }
 
     #silverBox-heroSection {
-        scroll-margin-top: 70px;
+        scroll-margin-top:70px;
         background-color: var(--box-color);
         color: var(--banner-color);
         padding: 40px 0;
         letter-spacing: 0.08em;
         margin-top: 135px;
-        margin-bottom: 85px;
+        .silverBox-container{
+            padding: 0;
+        }
     }
 
     button.get-silverBox {
@@ -273,12 +276,7 @@ main {
         font-size: 32px;
     }
 
-    section {
-        // margin-bottom: 100px;
-    }
-
     #silverBox-exampleSection {
-        scroll-margin-top: 70px;
         row-gap: 20px;
         display: grid;
 
@@ -378,7 +376,6 @@ main {
     }
 
     #silverBox-usageSection {
-        scroll-margin-top: 70px;
         background-color: var(--second-body-bgColor);
         color: var(--white-in-white);
 
@@ -404,7 +401,6 @@ main {
     }
 
     #silverBox-documentationSection {
-        scroll-margin-top: 70px;
 
         .silverBox-tableWrapper {
             overflow: hidden;
@@ -610,6 +606,7 @@ main {
     }
 
     #silverBox-CreditsSection {
+        background-color: var(--third-body-bgColor);
         .silverBox-teamMembers {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -662,9 +659,9 @@ main {
 
 footer {
     color: var(--document-border-color);
-    margin-top: 220px;
     padding-block: 12px;
     text-align: center;
+    background-color: var(--third-body-bgColor);
 
     #sweetAlert {
         color: #7066e0;
