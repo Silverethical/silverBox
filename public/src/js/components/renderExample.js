@@ -1,4 +1,5 @@
-import copyConfig from "../helpers/copyConfig"
+import copyConfig from "../helpers/copyConfig";
+import silverBox from "../silverBox"
 /**
  * Returns an example wrapper based on given config
  * @param {string} explanation - example object explanation key's value
@@ -20,10 +21,19 @@ function renderExample(explanation, config) {
     exampleExplanation.classList.add('silverBox-exampleExplanation')
     exampleExplanation.textContent = explanation
 
+    // create exampleButtonWrapper
+    const exampleButtonWrapper = document.createElement('div')
+    exampleButtonWrapper.classList.add("silverBox-example-button-wrapper")
+
     // create a button to show the config output
-    const button = document.createElement('button')
-    button.classList.add('silverBox-showExample')
-    button.textContent = 'Show Me'
+    const showButton = document.createElement('button')
+    showButton.classList.add('silverBox-showExample', 'silverBox-exampleButtons')
+    showButton.textContent = 'Show Me'
+
+    // create copy config button
+    const copyButton = document.createElement('button')
+    copyButton.classList.add('silverBox-copyConfig', 'silverBox-exampleButtons')
+    copyButton.textContent = 'Copy Config'
 
     // create second exampleColumn
     const exampleColumn2 = document.createElement('div')
@@ -51,14 +61,25 @@ function renderExample(explanation, config) {
     // event for each button
     copyExampleWrapper.addEventListener("click", () => {
         // calls the copyConfig
-        copyConfig(config, copyExampleIcon, 1500)
+        copyConfig({ copy: config, iconElement: copyExampleIcon, timeOut: 1500 })
+    })
+    copyButton.addEventListener("click", () => {
+        copyConfig({ copy: config })
+        silverBox({
+            timer:1500,
+            title:"Copied!",
+            theme:"dark",
+            position:"top-right",
+            centerContent:true
+        })
     })
 
 
 
     // appending first column children
     exampleColumn1.append(exampleExplanation)
-    exampleColumn1.append(button)
+    exampleButtonWrapper.append(showButton, copyButton)
+    exampleColumn1.append(exampleButtonWrapper)
     // appending second column children
     // appending button to exampleConfig
     exampleConfig.append(copyExampleWrapper)

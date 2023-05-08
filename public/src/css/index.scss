@@ -18,7 +18,9 @@
     --hamburger-bar-width: 20px;
     --hamburger-bar-height: 3px;
     --hamburger-gap: 3px;
-    --hamburger-height: calc((var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2));
+    --hamburger-height: calc(
+        (var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
+    );
     --rotate-start-end-amount: 134deg;
     --rotate-middle-one-amount: 50deg;
     --rotate-middle-two-amount: 220deg;
@@ -35,14 +37,13 @@ html {
     --primary-color: #3286cf;
     --box-color: #282c34;
 
-
     // body
     --body-bg-color: #0f192d;
     --second-body-bgColor: #151f33;
-    --third-body-bgColor: #0F1726;
+    --third-body-bgColor: #0f1726;
 
     // button
-    --button-bg-color: #2F3237;
+    --button-bg-color: #2f3237;
 
     // header
     --header-bg-color: #0f192d;
@@ -241,7 +242,7 @@ body {
         font-weight: 800;
         font-size: 20px;
         letter-spacing: 0.035em;
-        transition: .3s ease-in-out;
+        transition: 0.3s ease-in-out;
 
         &:hover {
             background-color: var(--silverBox-button-hover-bgColor);
@@ -250,7 +251,6 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
-
     // hide horizontal overflow
     body {
         overflow-x: hidden;
@@ -278,8 +278,6 @@ main {
         margin-bottom: 20px;
         font-weight: 900;
         font-size: 32px;
-
-
     }
 
     #silverBox-exampleSection {
@@ -288,13 +286,13 @@ main {
 
         .silverBox-example {
             display: flex;
+            justify-content: center;
             width: 95%;
-            margin: 0 auto;
+            margin-bottom: 20px;
 
             .silverBox-exampleExplanation {
                 color: var(--primary-color);
             }
-
             .silverBox-exampleColumn {
                 &:first-of-type {
                     color: var(--primary-color);
@@ -306,21 +304,36 @@ main {
                     gap: 20px 0;
                     margin-right: 20px;
 
-                    .silverBox-showExample {
+                    .silverBox-example-button-wrapper {
                         display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        padding: 5px 45px;
-                        background: var(--box-color);
-                        box-shadow: var(--silverBox-button-box-shadow);
-                        border-radius: 10px;
-                        color: var(--white-in-white);
-                        width: fit-content;
-                        font-size: 19px;
-                        transition: .3s ease-in-out;
-
-                        &:hover {
-                            background-color: var(--silverBox-button-hover-bgColor);
+                        .silverBox-exampleButtons {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 5px 45px;
+                            box-shadow: var(--silverBox-button-box-shadow);
+                            border-radius: 10px;
+                            color: var(--white-in-white);
+                            width: fit-content;
+                            font-size: 19px;
+                            transition: 0.3s ease-in-out;
+                            // show example
+                            &.silverBox-showExample {
+                                background: var(--box-color);
+                                &:hover {
+                                    background-color: var(
+                                        --silverBox-button-hover-bgColor
+                                    );
+                                }
+                            }
+                            // copy example code
+                            &.silverBox-copyConfig {
+                                display: none;
+                                background: var(--header-scrolled-bg-color);
+                                &:hover {
+                                    background-color: #232c3d;
+                                }
+                            }
                         }
                     }
                 }
@@ -336,7 +349,6 @@ main {
                 position: relative;
 
                 pre code.hljs {
-
                     &::-webkit-scrollbar {
                         height: 7px;
                     }
@@ -370,7 +382,8 @@ main {
                         transition: 0.2s;
 
                         &.silverBox-copied {
-                            filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
+                            filter: grayscale(100%) sepia(100%)
+                                hue-rotate(90deg);
                         }
                     }
 
@@ -409,7 +422,6 @@ main {
     }
 
     #silverBox-documentationSection {
-
         .silverBox-tableWrapper {
             overflow: hidden;
             text-align: start;
@@ -465,7 +477,6 @@ main {
                 }
 
                 &:hover {
-
                     // on button hover
                     &::after {
                         animation: confusedArrow 1.5s;
@@ -618,7 +629,6 @@ main {
     #silverBox-CreditsSection {
         background-color: var(--third-body-bgColor);
 
-
         h2 {
             font-size: 22px;
             font-weight: 700;
@@ -717,11 +727,24 @@ footer {
                 grid-template-columns: unset !important;
             }
         }
+        .silverBox-example {
+            margin-bottom: 50px !important;
+            .silverBox-example-button-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                // copy example code
+                .silverBox-copyConfig {
+                    display: inline-block !important;
+                    background: var(--header-scrolled-bg-color);
+                }
+            }
+        }
     }
 
     #silverBox-header {
         nav {
-
             ul {
                 transform: translateY(-200%);
                 position: absolute;
