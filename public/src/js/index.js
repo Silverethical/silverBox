@@ -56,7 +56,7 @@ window.addEventListener('scroll', () => {
 // example section
 
 // example's parent
-const exampleSection = document.querySelector("#silverBox-exampleSection");
+const exampleSectionContainer = document.querySelector("#silverBox-exampleSection .silverBox-container");
 
 // adding each new example to it's parent
 
@@ -67,7 +67,7 @@ for (let i = 0; i < examples.length; i++) {
 		`silverBox(${customStringify(examples[i].config)})`
 	);
 	// appending the newExample to example section
-	exampleSection.append(newExample);
+	exampleSectionContainer.append(newExample);
 
 	// selecting showConfig buttons
 	const button = document.querySelectorAll(".silverBox-showExample");
