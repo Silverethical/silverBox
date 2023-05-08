@@ -36,6 +36,7 @@ html {
     // general
     --primary-color: #3286cf;
     --box-color: #282c34;
+    --silverBox-scroll-margin-top:70px;
 
     // body
     --body-bg-color: #0f192d;
@@ -217,7 +218,7 @@ body {
     }
 
     #silverBox-heroSection {
-        scroll-margin-top: 70px;
+        scroll-margin-top: var(--silverBox-scroll-margin-top);
         background-color: var(--box-color);
         color: var(--banner-color);
         padding: 40px 0;
@@ -528,7 +529,7 @@ main {
 
             .silverBox-tableRowHeader,
             .silverBox-tableRow {
-                scroll-margin-top: 70px;
+                scroll-margin-top: var(--silverBox-scroll-margin-top);
                 display: grid;
                 grid-template-columns: 3fr 2fr 2fr 6fr;
                 column-gap: 10px;
@@ -746,13 +747,29 @@ footer {
     #silverBox-header {
         nav {
             ul {
-                transform: translateY(-200%);
+                transform: translateY(-220%);
                 position: absolute;
                 justify-content: space-around !important;
             }
 
             #hamburger-menu {
                 display: flex !important;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 360px) {
+    #silverBox-header {
+        nav {
+            ul {
+                li {
+                    a {
+                        font-size: 12px !important;
+                    }
+                    &:last-of-type{
+                        display: none;
+                    }
+                }
             }
         }
     }
