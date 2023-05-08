@@ -32,7 +32,7 @@
         color: var(--silverBox-confirm-color);
 
         &:hover {
-            background-color: var(--silverBox-confirm-hover-color) !important;
+            background-color: var(--silverBox-confirm-hover-color);
         }
     }
 
@@ -42,7 +42,7 @@
         color: var(--silverBox-cancel-color);
 
         &:hover {
-            background-color: var(--silverBox-cancel-hover-color) !important;
+            background-color: var(--silverBox-cancel-hover-color);
         }
     }
 
@@ -52,7 +52,7 @@
         color: var(--silverBox-deny-color);
 
         &:hover {
-            background-color: var(--silverBox-deny-hover-color) !important;
+            background-color: var(--silverBox-deny-hover-color);
         }
     }
 
