@@ -35,13 +35,14 @@ html {
     --primary-color: #3286cf;
     --box-color: #282c34;
 
+
     // body
     --body-bg-color: #0f192d;
     --second-body-bgColor: #151f33;
-    --third-body-bgColor:#0F1726;
+    --third-body-bgColor: #0F1726;
 
     // button
-    --button-bg-color: var(--button-bg-color);
+    --button-bg-color: #2F3237;
 
     // header
     --header-bg-color: #0f192d;
@@ -215,14 +216,16 @@ body {
     }
 
     #silverBox-heroSection {
-        scroll-margin-top:70px;
+        scroll-margin-top: 70px;
         background-color: var(--box-color);
         color: var(--banner-color);
         padding: 40px 0;
         letter-spacing: 0.08em;
         margin-top: 135px;
-        .silverBox-container{
-            padding: 0;
+
+        .silverBox-container {
+            padding: 10px 0;
+            gap: 35px 0;
         }
     }
 
@@ -259,7 +262,8 @@ body {
 }
 
 code {
-    border-radius: 4px;
+    box-shadow: 1px 4px 5px #07070740;
+    border-radius: 10px;
     text-align: left;
     font-weight: 700;
     letter-spacing: 0.03em;
@@ -274,11 +278,8 @@ main {
         margin-bottom: 20px;
         font-weight: 900;
         font-size: 32px;
-        // credits section
-        &:last-of-type{
-            font-size: 22px;
-            font-weight: 700;
-        }
+
+
     }
 
     #silverBox-exampleSection {
@@ -335,6 +336,7 @@ main {
                 position: relative;
 
                 pre code.hljs {
+
                     &::-webkit-scrollbar {
                         height: 7px;
                     }
@@ -393,6 +395,7 @@ main {
                 font-size: 18px;
                 margin: 10px 0;
                 color: var(--primary-color);
+                font-weight: 700;
 
                 &.step1 {
                     margin-top: 0;
@@ -585,13 +588,15 @@ main {
                         font-weight: 600;
                         font-style: italic;
                         color: var(--document-argument);
-                        font-size: 18px;
+                        font-size: 16px;
                     }
                 }
 
                 .tableHeaderColumn {
                     color: var(--white-in-white) !important;
                     min-width: max-content;
+                    font-weight: 600;
+                    font-size: 18px;
                 }
             }
 
@@ -612,6 +617,13 @@ main {
 
     #silverBox-CreditsSection {
         background-color: var(--third-body-bgColor);
+
+
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
         .silverBox-teamMembers {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -627,7 +639,7 @@ main {
                 background-color: var(--box-color);
                 color: var(--white-in-white);
                 font-weight: 600;
-                font-size:16px;
+                font-size: 16px;
                 box-shadow: 1px 4px 5px rgba(7, 7, 7, 0.25);
 
                 .silverBox-memberImage {
