@@ -33,10 +33,15 @@ html {
     --white-in-white: #cacaca;
     --black-in-white: #000;
 
+    // font sizes
+    --silverBox-font-size-one: 20px;
+    --silverBox-header-font-size: 32px;
+    --silverBox-header-second-font-size: 20px;
+    --silverBox-usage-section-font-size: 18px;
     // general
     --primary-color: #3286cf;
     --box-color: #282c34;
-    --silverBox-scroll-margin-top:70px;
+    --silverBox-scroll-margin-top: 70px;
 
     // body
     --body-bg-color: #0f192d;
@@ -97,7 +102,7 @@ body {
 
         h2.silverBox-tagline {
             text-align: center;
-            font-size: 20px;
+            font-size: var(--silverBox-font-size-one);
             color: var(--primary-color);
             font-weight: 900;
             letter-spacing: 0.035em;
@@ -111,7 +116,7 @@ body {
 
             div.silverBox-introduction {
                 text-align: justify;
-                font-size: 20px;
+                font-size: var(--silverBox-font-size-one);
                 font-weight: 700;
 
                 #silverBox-name-tag {
@@ -187,7 +192,7 @@ body {
                     li {
                         a {
                             color: var(--header-color);
-                            font-size: 20px;
+                            font-size: var(--silverBox-font-size-one);
                             font-weight: 600;
                         }
                     }
@@ -241,7 +246,7 @@ body {
         box-shadow: var(--silverBox-button-box-shadow);
         border-radius: 10px;
         font-weight: 800;
-        font-size: 20px;
+        font-size: var(--silverBox-font-size-one);
         letter-spacing: 0.035em;
         transition: 0.3s ease-in-out;
 
@@ -278,9 +283,8 @@ main {
         color: var(--white-in-white);
         margin-bottom: 20px;
         font-weight: 900;
-        font-size: 32px;
+        font-size: var(--silverBox-header-font-size);
     }
-
     #silverBox-exampleSection {
         row-gap: 20px;
         display: grid;
@@ -297,7 +301,7 @@ main {
             .silverBox-exampleColumn {
                 &:first-of-type {
                     color: var(--primary-color);
-                    font-size: 20px;
+                    font-size: var(--silverBox-font-size-one);
                     font-weight: 700;
                     letter-spacing: 0.035em;
                     display: flex;
@@ -316,7 +320,7 @@ main {
                             border-radius: 10px;
                             color: var(--white-in-white);
                             width: fit-content;
-                            font-size: 19px;
+                            font-size: var(--silverBox-font-size-one);
                             transition: 0.3s ease-in-out;
                             // show example
                             &.silverBox-showExample {
@@ -406,13 +410,16 @@ main {
 
         #silverBox-usageInstructions {
             p {
-                font-size: 18px;
+                font-size: var(--silverBox-usage-section-font-size);
                 margin: 10px 0;
                 color: var(--primary-color);
                 font-weight: 700;
 
                 &.step1 {
                     margin-top: 0;
+                }
+                &:first-of-type {
+                    margin-bottom: 50px;
                 }
             }
 
@@ -631,7 +638,7 @@ main {
         background-color: var(--third-body-bgColor);
 
         h2 {
-            font-size: 22px;
+            font-size: var(--silverBox-header-second-font-size);
             font-weight: 700;
         }
 
@@ -759,6 +766,36 @@ footer {
     }
 }
 @media only screen and (max-width: 360px) {
+    :root {
+        --silverBox-font-size-one: 14px;
+        --silverBox-header-font-size: 24px;
+        --silverBox-header-second-font-size: 20px;
+        --silverBox-usage-section-font-size: 12px;
+    }
+    .silverBox-introduction {
+        text-align: center !important;
+        letter-spacing: 0.05rem;
+    }
+    .silverBox-example {
+        text-align: justify;
+        .silverBox-exampleButtons {
+            padding: 10px 25px !important;
+        }
+    }
+    #silverBox-exampleSection ,
+    #silverBox-heroSection,
+    #silverBox-usageSection{
+        scroll-margin-top: 70px ;
+    }
+    section{
+        .silverBox-container{
+            padding: 25px 10px 25px 10px !important;
+        }
+    }
+
+    code {
+        font-size: 12px;
+    }
     #silverBox-header {
         nav {
             ul {
@@ -766,11 +803,14 @@ footer {
                     a {
                         font-size: 12px !important;
                     }
-                    &:last-of-type{
+                    &:last-of-type {
                         display: none;
                     }
                 }
             }
         }
+    }
+    footer{
+        font-size: 12px;
     }
 }
