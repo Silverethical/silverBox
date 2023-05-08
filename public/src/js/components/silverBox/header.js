@@ -18,8 +18,10 @@ function silverBoxHeaderComponent({
     htmlText,
     simpleText,
     imageSource,
-    closeButton
+    closeButton,
+    centerContent
 }) {
+
     // header wrapper
     let headerWrapper = document.createElement("div")
     headerWrapper.classList.add('silverBox-header-wrapper')
@@ -45,6 +47,11 @@ function silverBoxHeaderComponent({
     }
     // checks if parentELement has a icon, if true the has-icon class will be given 
     if (title.childElementCount >= 1) title.classList.add('silverBox-title-has-icon')
+
+    // if centerContent is true the title children will be centred
+    if (centerContent) title.classList.add('silverBox-title-centred')
+
+
 
     // appending text to the wrapper
     title.append(titleSpan)

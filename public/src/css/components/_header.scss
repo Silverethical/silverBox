@@ -26,9 +26,13 @@
 		gap: var(--silverBox-title-gap);
 
 		&.silverBox-title-has-icon {
-		    display: flex;
-			justify-content: var(--silverBox-title-justifyContent);
+			display: flex;
 			align-items: center;
+
+
+			&.silverBox-title-centred {
+				justify-content: var(--silverBox-title-justifyContent);
+			}
 		}
 
 	}

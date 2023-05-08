@@ -56,6 +56,7 @@ export default function silverBox(config) {
 				titleCustomIcon: config.titleCustomIcon,
 				imageSource: silverBoxIconsComponent(iconsConfig()),
 				closeButton: config.showCloseButton,
+				centerContent: config.centerContent
 			})
 		);
 		/** inputs */
