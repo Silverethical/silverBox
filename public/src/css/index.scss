@@ -771,12 +771,16 @@ footer {
     :root {
         --silverBox-font-size-one: 14px;
         --silverBox-header-font-size: 24px;
-        --silverBox-header-second-font-size: 20px;
+        --silverBox-header-second-font-size: 14px;
         --silverBox-usage-section-font-size: 12px;
+        --silverBox-intro-tagline-font-size: 15px;
     }
     .silverBox-introduction {
         text-align: center !important;
         letter-spacing: 0.05rem;
+    }
+    .silverBox-tagline {
+        font-weight: 700 !important;
     }
     .silverBox-example {
         text-align: justify;
