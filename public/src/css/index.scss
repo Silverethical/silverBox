@@ -38,6 +38,7 @@ html {
     --silverBox-header-font-size: 32px;
     --silverBox-header-second-font-size: 20px;
     --silverBox-usage-section-font-size: 18px;
+    --silverBox-intro-tagline-font-size: 24px;
     // general
     --primary-color: #3286cf;
     --box-color: #282c34;
@@ -102,7 +103,7 @@ body {
 
         h2.silverBox-tagline {
             text-align: center;
-            font-size: var(--silverBox-font-size-one);
+            font-size: var(--silverBox-intro-tagline-font-size);
             color: var(--primary-color);
             font-weight: 900;
             letter-spacing: 0.035em;
@@ -115,9 +116,10 @@ body {
             gap: 20px 40px;
 
             div.silverBox-introduction {
-                text-align: justify;
-                font-size: var(--silverBox-font-size-one);
+                text-align: left;
                 font-weight: 700;
+                line-height: 30px;
+                font-size: var(--silverBox-header-second-font-size);
 
                 #silverBox-name-tag {
                     color: var(--primary-color);
@@ -232,7 +234,7 @@ body {
 
         .silverBox-container {
             padding: 10px 0;
-            gap: 35px 0;
+            // gap: 35px 0;
         }
     }
 
@@ -782,13 +784,13 @@ footer {
             padding: 10px 25px !important;
         }
     }
-    #silverBox-exampleSection ,
+    #silverBox-exampleSection,
     #silverBox-heroSection,
-    #silverBox-usageSection{
-        scroll-margin-top: 70px ;
+    #silverBox-usageSection {
+        scroll-margin-top: 70px;
     }
-    section{
-        .silverBox-container{
+    section {
+        .silverBox-container {
             padding: 25px 10px 25px 10px !important;
         }
     }
@@ -803,14 +805,11 @@ footer {
                     a {
                         font-size: 12px !important;
                     }
-                    &:last-of-type {
-                        display: none;
-                    }
                 }
             }
         }
     }
-    footer{
+    footer {
         font-size: 12px;
     }
 }
