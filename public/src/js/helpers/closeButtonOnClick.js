@@ -1,11 +1,9 @@
 // import
-import silverBoxDisableScroll from '../../helpers/silverBox/disableScroll';
+import silverBoxDisableScroll from './silverBox/disableScroll';
 /** selects the silverBox wrapper and closes the element*/
 function silverBoxCloseButtonOnClick({ uniqueID, timer }) {
 	// if the modal doesn't have a timer, the modal will be closed on click
 	if (!timer) {
-
-
 		// selects the all silverBox-wrapper classes in the page
 		const silverBox = document.querySelectorAll(".silverBox-wrapper");
 
@@ -21,7 +19,6 @@ function silverBoxCloseButtonOnClick({ uniqueID, timer }) {
 }
 // this function will remove a specific element with the unique ID and after a specific timeout
 function silverBoxCloseAfterTimeout(elementID, timeOut) {
-
 	// selects the element by the unique ID
 	const uniqueTimeOutElement = document.querySelector(`[uniqueID="${elementID}"]`)
 

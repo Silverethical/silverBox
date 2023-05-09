@@ -1,4 +1,4 @@
-import silverBoxCloseButtonOnClick from "./closeButtonOnClick";
+import silverBoxCloseButtonOnClick from "../../helpers/closeButtonOnClick";
 import silverBoxLoadingAnimation from "./loadingAnimation";
 
 /**

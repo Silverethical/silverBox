@@ -1,5 +1,5 @@
 /** imports */
-import silverBoxCloseButtonOnClick from "./closeButtonOnClick"
+import silverBoxCloseButtonOnClick from "../../helpers/closeButtonOnClick"
 import silverBoxIconsComponent from "./icons";
 
 /**

@@ -4,7 +4,7 @@ import silverBoxInputComponent from "./components/silverBox/input";
 import silverBoxModalSample from "./components/silverBox/modalSample";
 import silverBoxHeaderComponent from "./components/silverBox/header";
 import silverBoxIconsComponent from "./components/silverBox/icons";
-import silverBoxCloseButtonOnClick from "./components/silverBox/closeButtonOnClick";
+import silverBoxCloseButtonOnClick from "./helpers/closeButtonOnClick";
 import silverBoxFooterComponent from "./components/silverBox/footer";
 import silverBoxUniqueNumberMaker from "./helpers/silverBox/uniqueNumber";
 import silverBoxDisableScroll from "./helpers/silverBox/disableScroll";
