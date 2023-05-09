@@ -17,7 +17,6 @@ import silverBoxRemoveLoadings from "./helpers/silverBox/removeLoadings";
 	* puts the config keys as component arguments and creates a component based on given keys from object
 	*/
 export default function silverBox(config) {
-
 	// if there is removeBoxes in config
 	if ("removeBox" in config) {
 		removeAllSilverBoxes(config.removeBox)
@@ -56,7 +55,9 @@ export default function silverBox(config) {
 				titleCustomIcon: config.titleCustomIcon,
 				imageSource: silverBoxIconsComponent(iconsConfig()),
 				closeButton: config.showCloseButton,
-				centerContent: config.centerContent
+				centerContent: config.centerContent,
+				titleCustomIconId: config.titleCustomIconId,
+				titleCustomIconClassName: config.titleCustomIconClassName,
 			})
 		);
 		/** inputs */

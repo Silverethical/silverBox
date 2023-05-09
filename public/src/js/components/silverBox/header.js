@@ -19,9 +19,10 @@ function silverBoxHeaderComponent({
     simpleText,
     imageSource,
     closeButton,
-    centerContent
+    centerContent,
+    titleCustomIconId,
+    titleCustomIconClassName
 }) {
-
     // header wrapper
     let headerWrapper = document.createElement("div")
     headerWrapper.classList.add('silverBox-header-wrapper')
@@ -40,10 +41,32 @@ function silverBoxHeaderComponent({
 
     // title Icons conditions   
     if ((titleCustomIcon && titleAlertIcon) || titleCustomIcon) {
-        title.append(silverBoxIconsComponent({ customIcon: titleCustomIcon }))
+        // stores returned customIcon element into a variable
+        let customIcon = silverBoxIconsComponent({ customIcon: titleCustomIcon })
+
+        // if titleCustomIcon id exists, the img element of the customIcon Wrapper will receive given Id
+        if (titleCustomIconId) customIcon.children[0].id = titleCustomIconId
+
+        // if titleCustomIcon class exists, the img element of the customIcon Wrapper will receive given class
+        if (titleCustomIconClassName) titleCustomIconClassName.split(" ").forEach(className => { customIcon.children[0].classList.add(className) })
+
+
+
+        // if customIcon exists due to iconComponent conditions, it will be added to the titleWrapper
+        if (customIcon) {
+            title.append(customIcon)
+
+        }
     }
     else {
-        title.append(silverBoxIconsComponent({ alertIcon: titleAlertIcon }) ? silverBoxIconsComponent({ alertIcon: titleAlertIcon }) : '')
+        // stores returned alertIcon element into a variable
+        let alertIcon = silverBoxIconsComponent({ alertIcon: titleAlertIcon })
+
+        // if alertIcon exists due to iconComponent conditions, it will be added to the titleWrapper
+        if (alertIcon) {
+            title.append(alertIcon)
+        }
+
     }
     // checks if parentELement has a icon, if true the has-icon class will be given 
     if (title.childElementCount >= 1) title.classList.add('silverBox-title-has-icon')
