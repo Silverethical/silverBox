@@ -122,6 +122,18 @@ const documentation = [
         explanation: 'SilverBox customIcon Class.'
     },
     {
+        configName: "titleCustomIconId",
+        defaultValue: "",
+        type: "string",
+        explanation: 'SilverBox title customIcon id.'
+    },
+    {
+        configName: "titleCustomIconClassName",
+        defaultValue: "",
+        type: "string",
+        explanation: 'SilverBox title customIcon Class.'
+    },
+    {
         configName: "confirmButton",
         defaultValue: "emptyDefaultValue",
         type: "object",
@@ -189,8 +201,8 @@ const documentation = [
             },
             {
                 configName: "disabled",
-                defaultValue: "",
-                type: "string",
+                defaultValue: false,
+                type: "boolean",
                 explanation: `SilverBox button disabled attribute. 'true' or 'false'.`
             },
             {
@@ -275,8 +287,8 @@ const documentation = [
             },
             {
                 configName: "disabled",
-                defaultValue: "",
-                type: "string",
+                defaultValue: false,
+                type: "boolean",
                 explanation: `SilverBox button disabled attribute. 'true' or 'false'.`
             },
             {
@@ -361,8 +373,8 @@ const documentation = [
             },
             {
                 configName: "disabled",
-                defaultValue: "",
-                type: "string",
+                defaultValue: false,
+                type: "boolean",
                 explanation: `SilverBox button disabled attribute. 'true' or 'false'.`
             },
             {
