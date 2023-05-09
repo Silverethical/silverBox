@@ -4,26 +4,14 @@
 
 // default font size for desktop
 :root {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 // default font size for mobile
 @media only screen and (max-width: 900px) {
     :root {
-        font-size: 14px;
+        font-size: 16px;
     }
-}
-
-:root {
-    --hamburger-bar-width: 20px;
-    --hamburger-bar-height: 3px;
-    --hamburger-gap: 3px;
-    --hamburger-height: calc(
-        (var(--hamburger-bar-height) * 3) + (var(--hamburger-gap) * 2)
-    );
-    --rotate-start-end-amount: 134deg;
-    --rotate-middle-one-amount: 50deg;
-    --rotate-middle-two-amount: 220deg;
 }
 
 html {
@@ -637,8 +625,9 @@ main {
     }
 
     #silverBox-CreditsSection {
-        background-color: var(--third-body-bgColor);
-
+        background-image: url("/src/images/desktopWave.png");
+        background-repeat: no-repeat;
+        background-size: cover;
         h2 {
             font-size: var(--silverBox-header-second-font-size);
             font-weight: 700;
@@ -733,6 +722,7 @@ footer {
         }
 
         #silverBox-CreditsSection {
+            margin-top: -20px;
             .silverBox-teamMembers {
                 grid-template-columns: unset !important;
             }
@@ -801,6 +791,9 @@ footer {
 
     code {
         font-size: 12px;
+    }
+    #silverBox-CreditsSection {
+        background-image: url("/src/images/mobileWave.png") !important;
     }
     #silverBox-header {
         nav {
