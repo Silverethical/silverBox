@@ -20,7 +20,7 @@ const documentation = [
         explanation: `Predefined title icons including: "success", "error", "warning", "info", "question".`,
     },
     {
-        configName: "titleCustomIcon ",
+        configName: "titleCustomIcon",
         defaultValue: "",
         type: "string",
         explanation: `Path to a customIcon. For example customIcon: "path/to/icon"; .`,
@@ -104,7 +104,7 @@ const documentation = [
         explanation: 'SilverBox custom ID.'
     },
     {
-        configName: "silverBoxClass",
+        configName: "silverBoxClassName",
         defaultValue: "",
         type: "string",
         explanation: 'SilverBox custom Class.'

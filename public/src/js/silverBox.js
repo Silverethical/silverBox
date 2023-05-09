@@ -43,7 +43,7 @@ export default function silverBox(config) {
 				alertIcon: config.alertIcon,
 				customIcon: config.customIcon,
 				isCentred: config.centerContent,
-				customIconClass: config.customIconClass,
+				customIconClassName: config.customIconClassName,
 				customIconId: config.customIconId
 			}
 		}
@@ -276,6 +276,6 @@ export default function silverBox(config) {
 		// if silverBoxId is in config
 		if ("silverBoxId" in config) silverBoxWrapper.id = config.silverBoxId
 		// if silverBoxClass is in config
-		if ("silverBoxClass" in config) silverBoxWrapper.classList.add(config.silverBoxClass)
+		if ("silverBoxClassName" in config) silverBoxWrapper.classList.add(config.silverBoxClassName)
 	}
 }
