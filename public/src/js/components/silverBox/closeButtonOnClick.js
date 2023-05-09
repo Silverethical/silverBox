@@ -5,14 +5,13 @@ function silverBoxCloseButtonOnClick({ uniqueID, timer }) {
 	// if the modal doesn't have a timer, the modal will be closed on click
 	if (!timer) {
 
-		setTimeout(() => {
-			// selects the all silverBox-wrapper classes in the page
-			const silverBox = document.querySelectorAll(".silverBox-wrapper");
 
-			if (silverBox[silverBox.length - 1]) silverBox[silverBox.length - 1].remove();
-			// checks for silverBoxAfter removing the wrapper
-			silverBoxDisableScroll(".silverBox-overlay")
-		}, 10)
+		// selects the all silverBox-wrapper classes in the page
+		const silverBox = document.querySelectorAll(".silverBox-wrapper");
+
+		if (silverBox[silverBox.length - 1]) silverBox[silverBox.length - 1].remove();
+		// checks for silverBoxAfter removing the wrapper
+		silverBoxDisableScroll(".silverBox-overlay")
 
 	}
 	// else, THE specific modal will be removed from page
