@@ -33,7 +33,7 @@ function renderExample(explanation, config) {
     // create copy config button
     const copyButton = document.createElement('button')
     copyButton.classList.add('silverBox-copyConfig', 'silverBox-exampleButtons')
-    copyButton.textContent = 'Copy Config'
+    copyButton.textContent = 'Copy Code'
 
     // create second exampleColumn
     const exampleColumn2 = document.createElement('div')
@@ -66,11 +66,11 @@ function renderExample(explanation, config) {
     copyButton.addEventListener("click", () => {
         copyConfig({ copy: config })
         silverBox({
-            timer:1500,
-            title:"Copied!",
-            theme:"dark",
-            position:"top-right",
-            centerContent:true
+            timer: 1500,
+            title: "Copied!",
+            theme: "dark",
+            position: "top-right",
+            centerContent: true
         })
     })
 
