@@ -80,6 +80,7 @@ export default function silverBox(config) {
 					name: selector.name,
 					className: selector.className,
 					id: selector.id,
+					value: selector.value
 				};
 			};
 			// checks if inputs have the multiPlyBy config or not 

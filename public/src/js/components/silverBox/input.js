@@ -13,7 +13,7 @@
  * @param {string} placeHolderFontSize - placeHolder fontSize of input
  * @returns {Element} - inputWrapper element
  */
-function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOnly, label, hint, width, height, maxLength, textAlign, fontSize, placeHolderFontSize, name, className, id }) {
+function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOnly, label, hint, width, height, maxLength, textAlign, fontSize, placeHolderFontSize, name, className, id, value }) {
 	// changing the type case to lowerCase to avoid case conflict problem
 	type = type.toLowerCase()
 
@@ -59,7 +59,6 @@ function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOn
 	// input or textArea selection conditions
 	let inputEl
 
-
 	if (type !== "textarea") {
 		inputEl = document.createElement('input')
 		if (type) inputEl.setAttribute('type', type)
@@ -67,6 +66,8 @@ function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOn
 	else {
 		inputEl = document.createElement('textArea')
 	}
+	// sets the value for the input
+	if (value) inputEl.value = value
 
 	// hint
 	let hintEl = document.createElement('span')
