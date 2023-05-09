@@ -262,7 +262,7 @@ const documentation = [
                 explanation: "Show/Hide cancel button"
             },
             {
-                configName: "class",
+                configName: "className",
                 defaultValue: "",
                 type: "string",
                 explanation: 'SilverBox button Class.'
@@ -348,7 +348,7 @@ const documentation = [
                 explanation: "Show/Hide deny button."
             },
             {
-                configName: "class",
+                configName: "className",
                 defaultValue: "",
                 type: "string",
                 explanation: 'SilverBox button Class.'
