@@ -116,7 +116,7 @@ const documentation = [
         explanation: 'SilverBox customIcon ID.'
     },
     {
-        configName: "customIconClass",
+        configName: "customIconClassName",
         defaultValue: "",
         type: "string",
         explanation: 'SilverBox customIcon Class.'
@@ -468,19 +468,25 @@ const documentation = [
                 configName: "name",
                 defaultValue: "",
                 type: "string",
-                explanation: "Input name attribute"
+                explanation: "Input name attribute."
             },
             {
                 configName: "class",
                 defaultValue: "",
                 type: "string",
-                explanation: "Input class"
+                explanation: "Input class."
             },
             {
                 configName: "id",
                 defaultValue: "",
                 type: "string",
-                explanation: "Input Id"
+                explanation: "Input Id."
+            },
+            {
+                configName: "value",
+                defaultValue: "",
+                type: "string",
+                explanation: "Input value."
             },
 
             // {

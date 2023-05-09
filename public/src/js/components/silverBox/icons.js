@@ -9,11 +9,11 @@
  *
  * @returns {Element|null} - The requested icon element or null if no matching icon was found.
  */
-const silverBoxIconsComponent = ({ alertIcon, customIcon, isCentred = false, customIconClass, customIconId }) => {
+const silverBoxIconsComponent = ({ alertIcon, customIcon, isCentred = false, customIconClassName, customIconId }) => {
 	// Check if a custom icon URL was provided.
 	if (customIcon) {
 		// Create a new user icon element using the provided URL and clone it to avoid modifying the original icon.
-		const clonedIcon = silverBoxCreateCustomIcon(customIcon, isCentred, customIconClass, customIconId).cloneNode(
+		const clonedIcon = silverBoxCreateCustomIcon(customIcon, isCentred, customIconClassName, customIconId).cloneNode(
 			true
 		);
 
@@ -80,13 +80,13 @@ function createIcon(className, text, childClass) {
 *
 * @param {string} customIcon - The URL for the user icon.
 * @param {boolean} isCentred - Whether to center the icon or not.
-* @param {string} customIconClass - A custom class to add to the icon element.
+* @param {string} customIconClassName - A custom class to add to the icon element.
 * @param {string} customIconId - A custom ID to add to the icon element.
 *
 * @returns {HTMLElement} The user icon element created.
 */
-function silverBoxCreateCustomIcon(customIcon, isCentred, customIconClass, customIconId) {
-	// create customIconWrapper
+function silverBoxCreateCustomIcon(customIcon, isCentred, customIconClassName, customIconId) {
+	// create 
 	const customIconWrapper = document.createElement("div")
 	customIconWrapper.classList.add("silverBox-userIcon-wrapper")
 	// Create a new img element with the specified class and ID, and set its src attribute to the provided URL.
@@ -96,7 +96,7 @@ function silverBoxCreateCustomIcon(customIcon, isCentred, customIconClass, custo
 	// Adds customIcon Id
 	if (customIconId) img.id = customIconId;
 	// Adds customIcon class
-	if (customIconClass) img.classList.add(customIconClass)
+	if (customIconClassName) img.classList.add(customIconClassName)
 	if (isCentred) customIconWrapper.classList.add("silverBox-centered-icon");
 	// append icon to customIconWrapper
 	customIconWrapper.append(img)
