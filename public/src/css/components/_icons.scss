@@ -6,6 +6,9 @@
         grid-column-start: var(--silverBox-centered-icon-grid-column-start);
     }
 }
+.silverBox-userIcon-wrapper {
+    display: flex;
+}
 
 .silverBox-custom-icon {
     width: var(--silverBox-custom-icon-width);
@@ -48,7 +51,7 @@
     align-items: center;
     justify-content: center;
     font-size: var(--silverBox-info-icon-inside-size);
-    font-weight:var(--silverBox-info-icon-width);
+    font-weight: var(--silverBox-info-icon-width);
     color: var(--silverBox-info-color);
     animation: rotate 0.25s;
 }
@@ -57,7 +60,7 @@
 .silverBox-question {
     border: var(--silverBox-question-circle-border);
     width: var(--silverBox-question-size);
-    height:var(--silverBox-question-size);
+    height: var(--silverBox-question-size);
     border-radius: 50%;
     display: flex;
     align-items: center;
