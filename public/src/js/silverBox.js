@@ -276,6 +276,6 @@ export default function silverBox(config) {
 		// if silverBoxId is in config
 		if ("silverBoxId" in config) silverBoxWrapper.id = config.silverBoxId
 		// if silverBoxClass is in config
-		if ("silverBoxClassName" in config) silverBoxWrapper.classList.add(config.silverBoxClassName)
+		if ("silverBoxClassName" in config) config.silverBoxClassName.split(" ").forEach(className => silverBoxWrapper.classList.add(className))
 	}
 }
