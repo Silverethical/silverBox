@@ -104,7 +104,7 @@ function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOn
 	// giving inputs id/class and name attribute
 	// name
 	if (name) inputEl.setAttribute("name", name)
-	if (className) inputEl.classList.add(className)
+	if (className) className.split(" ").forEach(className => inputEl.classList.add(className))
 	if (id) inputEl.id = id
 	// restart the inputs/textArea parent's width if the width exist
 	if (width) inputWrapper.style.width = 'fit-content'
