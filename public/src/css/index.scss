@@ -58,10 +58,8 @@ html {
     --document-special-values-bgColor: #282c34;
     --document-argument: #4374a4;
     --document-type: #10b27d;
-    // --document-boolean: #7149c6;
     --document-default: #bd855b;
     --document-description: #767d8a;
-    // --document-undefined: #aa9027;
 
     //
     --document-error-bgColor: #331925;
@@ -222,7 +220,6 @@ body {
 
         .silverBox-container {
             padding: 10px 0;
-            // gap: 35px 0;
         }
     }
 
@@ -278,6 +275,7 @@ main {
     #silverBox-exampleSection {
         row-gap: 20px;
         display: grid;
+        font-size: var(--silverBox-intro-tagline-font-size);
 
         .silverBox-example {
             display: flex;
@@ -539,9 +537,6 @@ main {
                     color: var(--document-default);
                 }
 
-                // .silverBox-document-boolean {
-                //     color: var(--document-boolean);
-                // }
                 .silverBox-explanation-special-values {
                     background-color: var(--document-special-values-bgColor);
                     color: var(--white-in-white);
@@ -558,10 +553,6 @@ main {
                         padding-right: 10px;
                     }
                 }
-
-                // .document-undefined {
-                //     color: var(--document-undefined);
-                // }
 
                 // silverBox-document status
                 .silverBox-document-description-error,
@@ -629,7 +620,7 @@ main {
         background-repeat: no-repeat;
         background-size: cover;
         h2 {
-            font-size: var(--silverBox-header-second-font-size);
+            font-size: var(--silverBox-header-font-size);
             font-weight: 700;
         }
 
@@ -760,35 +751,50 @@ footer {
 @media only screen and (max-width: 360px) {
     :root {
         --silverBox-font-size-one: 14px;
-        --silverBox-header-font-size: 24px;
-        --silverBox-header-second-font-size: 14px;
+        --silverBox-header-font-size: 22px;
         --silverBox-usage-section-font-size: 12px;
-        --silverBox-intro-tagline-font-size: 15px;
+        --silverBox-intro-tagline-font-size: 14px;
+        --silverBox-header-second-font-size: 12px;
     }
     .silverBox-introduction {
         text-align: center !important;
-        letter-spacing: 0.05rem;
+        font-weight: 600 !important;
+        line-height: 20px !important;
     }
     .silverBox-tagline {
         font-weight: 700 !important;
     }
+    .silverBox-sectionHeader {
+        font-weight: 600 !important;
+    }
     .silverBox-example {
         text-align: justify;
         .silverBox-exampleButtons {
-            padding: 10px 25px !important;
+            padding: 5px 22px !important;
+        }
+        .silverBox-exampleColumn{
+            &:first-of-type{
+                margin-right: 0 !important;
+            }
         }
     }
-    #silverBox-exampleSection,
+    #silverBox-heroSection {
+        padding: 17px 10px !important;
+    }
+    .get-silverBox {
+        display: none !important;
+    }
     #silverBox-heroSection,
+    #silverBox-exampleSection,
     #silverBox-usageSection {
         scroll-margin-top: 70px;
     }
-    section {
+    #silverBox-exampleSection,
+    #silverBox-usageSection{
         .silverBox-container {
-            padding: 25px 10px 25px 10px !important;
+            padding: 30px 10px 10px 10px !important;
         }
     }
-
     code {
         font-size: 12px;
     }
@@ -800,7 +806,10 @@ footer {
             ul {
                 li {
                     a {
-                        font-size: 12px !important;
+                        font-size: 16px !important;
+                        &[href="#silverBox-documentationSection"] {
+                            display: none;
+                        }
                     }
                 }
             }
