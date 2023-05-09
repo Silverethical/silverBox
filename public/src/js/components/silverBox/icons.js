@@ -57,7 +57,7 @@ function createIcon(className, text, childClass) {
 	// Create a new div element with the specified class name and class.
 	const icon = document.createElement("div");
 	icon.classList = className;
-	icon.classList.add("silverBox-icon");
+	icon.classList.add("silverBox-icon","silverBox-default-icon");
 
 	// If childClass is defined, create a child div element with the specified class name and append it to the icon element.
 	if (childClass) {
