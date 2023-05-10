@@ -52,7 +52,7 @@ function renderExample(explanation, config) {
     // create copy example button
     const copyExampleWrapper = document.createElement("button")
     const copyExampleIcon = document.createElement('img')
-    copyExampleIcon.setAttribute('src', "/src/images/copyIcon.png")
+    copyExampleIcon.setAttribute('src', "/public/src/images/copyIcon.png")
     copyExampleWrapper.classList.add("silverBox-exampleCopyButton")
 
     // appending the children   
