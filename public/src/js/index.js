@@ -7,12 +7,10 @@ import renderExample from "./components/renderExample";
 import silverBoxDocumentationTableComponent from "./components/documentationTableComponent";
 
 
-
 document.addEventListener("DOMContentLoaded", () => {
 	renderTeamMembers(teamMembers);
 	// documentation section
-	const tableWrapper = document.querySelector(".silverBox-tableWrapper");
-	silverBoxDocumentationTableComponent(tableWrapper)
+	silverBoxDocumentationTableComponent(".silverBox-tableWrapper")
 });
 
 // navigation section
