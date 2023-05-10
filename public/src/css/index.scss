@@ -46,10 +46,6 @@ html {
     --silverBox-hero-section-button-font-size: 20px;
     --silverBox-hero-section-button-font-weight: 600;
 
-    // code
-    --silverBox-code-font-size: 16px;
-    --silverBox-code-font-weight: 600;
-
     // hero section END ----------
 
     // example section START ----------
@@ -92,9 +88,16 @@ html {
 
     // credit section END ----------
 
-    --silverBox-header-section-font-size: 32px;
-    --silverBox-header-section-font-weight: 600;
+    // code
+    --silverBox-code-font-size: 16px;
+    --silverBox-code-font-weight: 600;
 
+    // section header
+    --silverBox-section-header-font-size: 32px;
+    --silverBox-section-header-font-weight: 600;
+
+    // footer
+    --silverBox-footer-font-size:14px;
     // general
     --primary-color: #3286cf;
     --box-color: #282c34;
@@ -341,8 +344,8 @@ main {
         text-align: center;
         color: var(--white-in-white);
         margin-bottom: 20px;
-        font-weight: var(--silverBox-header-section-font-weight);
-        font-size: var(--silverBox-header-section-font-size);
+        font-weight: var(--silverBox-section-header-font-weight);
+        font-size: var(--silverBox-section-header-font-size);
     }
     #silverBox-exampleSection {
         row-gap: 20px;
@@ -769,6 +772,7 @@ footer {
     padding-block: 12px;
     text-align: center;
     background-color: var(--third-body-bgColor);
+    font-size: var(--silverBox-footer-font-size);
 
     #sweetAlert {
         color: #7066e0;
@@ -840,11 +844,56 @@ footer {
 }
 @media only screen and (max-width: 360px) {
     :root {
-        --silverBox-font-size-one: 14px;
-        --silverBox-header-font-size: 22px;
-        --silverBox-usage-section-font-size: 12px;
-        --silverBox-hero-section-tagline-font-size: 14px;
-        --silverBox-header-second-font-size: 12px;
+        // navbar START ----------
+
+        --silverBox-navbar-a-font-size: 16px;
+
+        // navbar END ----------
+
+        // hero section START ----------
+
+        // tagline
+        --silverBox-hero-section-tagline-font-size: 16px;
+        --silverBox-hero-section-tagline-font-weight: 600;
+
+        // intro
+        --silverBox-hero-section-introduction-font-size: 13px;
+        --silverBox-hero-section-introduction-font-weight: 500;
+
+        // hero section END ----------
+
+        // example section START ----------
+
+        // explanation
+
+        --silverBox-example-explanation-font-size: 14px;
+
+        // button
+        --silverBox-example-button-font-size: 14px;
+
+        // example section END ----------
+
+        // usage section START ----------
+
+        --silverBox-usage-section-font-size: 14px;
+
+        // usage section END ----------
+
+        // credit section START ----------
+        --silverBox-credit-section-team-member-font-size: 13px;
+        ---silverBox-credit-section-team-member-position-font-size: 12px;
+
+        // credit section END ----------
+
+        // section headers
+        --silverBox-section-header-font-size: 22px;
+        --silverBox-section-header-font-weight: 500;
+
+        // code
+        --silverBox-code-font-size: 12px;
+
+        // footer 
+        --silverBox-footer-font-size:12px
     }
     .silverBox-introduction {
         text-align: center !important;
@@ -885,9 +934,6 @@ footer {
             padding: 30px 10px 10px 10px !important;
         }
     }
-    code {
-        font-size: 12px;
-    }
     #silverBox-CreditsSection {
         background-image: url("/src/images/mobileWave.png") !important;
     }
@@ -896,7 +942,6 @@ footer {
             ul {
                 li {
                     a {
-                        font-size: 16px !important;
                         &[href="#silverBox-documentationSection"] {
                             display: none;
                         }
@@ -906,6 +951,6 @@ footer {
         }
     }
     footer {
-        font-size: 12px;
+        font-size: var(--silverBox-footer-font-size);
     }
 }
