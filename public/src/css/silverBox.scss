@@ -1,44 +1,63 @@
 @import "./components/cssConfig";
+@import "./modules/silverBoxReset";
 @import "./components/input";
 @import "./components/buttons";
 @import "./components/header";
 @import "./components/icons";
 @import "./components/loadingAnimation";
+@import "./components/footer";
 
 body {
-    background-color: white;
-    color: var(--success-700);
+    &.stop-scrolling {
+        height: 100%;
+        overflow: hidden;
+    }
 }
 
 .silverBox-wrapper {
+    z-index: var(--silverBox-z-index);
     // silver box modal
     &.silverBox-overlay {
-        width: 100vw;
-        height: 100vh;
-        position: absolute;
+        width: var(--silverBox-overlay-width);
+        height: var(--silverBox-overlay-height);
+        position: fixed;
         top: 0;
         left: 0;
-        right: 0;
         display: flex;
         align-items: center;
         justify-content: center;
-        backdrop-filter: blur(2px);
-        -webkit-backdrop-filter: blur(2px);
-        background-color: #d0d5ddac;
+        backdrop-filter: var(--silverBox-overlay-backdrop-filter);
+        -webkit-backdrop-filter: var(--silverBox-overlay-backdrop-filter);
+        background-color: var(--silverBox-overlay-background);
     }
+
     .silverBox {
         box-sizing: border-box;
-        width: 90vw;
-        min-width: 400px;
-        max-width: min-content;
+        width: var(--silverBox-width);
+        min-width: var(--silverBox-min-width);
+        max-width: var(--silverBox-max-width);
+        max-height: var(--silverBox-max-height);
+        overflow-y: auto;
         display: flex;
         flex-direction: column;
-        gap: 10px 0;
         border: var(--silverBox-border);
         border-radius: var(--silverBox-border-radius);
         padding: var(--silverBox-padding);
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        background-color: white;
+        box-shadow: var(--silverBox-box-shadow);
+        background-color: var(--silverBox-background-color);
+        // modal Animation
+        animation: popUp 0.3s linear;
+
+        *:first-child {
+            margin-top: 0;
+        }
+    }
+
+    // popUp animation
+    @keyframes popUp {
+        50% {
+            transform: scale(1.05);
+        }
     }
 
     @media only screen and (max-width: 800px) {
@@ -54,14 +73,20 @@ body {
     &.silverBox-bottom-right,
     &.silverBox-bottom-center,
     &.silverBox-bottom-left {
-        position: absolute;
+        position: fixed;
         width: -moz-fit-content;
         width: fit-content;
         height: fit-content;
     }
 
+    &.silverBox-top-right,
+    &.silverBox-top-center,
+    &.silverBox-top-left {
+        top: var(--silverBox-top-distance);
+    }
+
     &.silverBox-top-right {
-        right: 10px;
+        right: var(--silverBox-top-right-distance);
     }
 
     &.silverBox-top-center {
@@ -70,18 +95,18 @@ body {
     }
 
     &.silverBox-top-left {
-        left: 10px;
+        left: var(--silverBox-top-left-distance);
     }
 
     // bottom
     &.silverBox-bottom-right,
     &.silverBox-bottom-left,
     &.silverBox-bottom-center {
-        bottom: 10px;
+        bottom: var(--silverBox-bottom-distance);
     }
 
     &.silverBox-bottom-right {
-        right: 10px;
+        right: var(--silverBox-bottom-right-distance);
     }
 
     &.silverBox-bottom-center {
@@ -90,6 +115,6 @@ body {
     }
 
     &.silverBox-bottom-left {
-        left: 10px;
+        left: var(--silverBox-bottom-left-distance);
     }
 }

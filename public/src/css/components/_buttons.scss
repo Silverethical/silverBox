@@ -1,24 +1,26 @@
 .silverBox-button-wrapper {
     display: flex;
     justify-content: space-around;
-    gap: 10px 10px;
+    gap: var(--silverBox-button-wrapper-gap);
+    margin-top: var(--silverBox-items-top-margin);
 }
 
 .silverBox-button {
     display: flex;
-    column-gap: 10px;
+    column-gap: var(--silverBox-button-column-gap);
     justify-content: center;
     align-items: center;
     outline: none;
-    border-width: 1px;
+    border-width: var(--silverBox-button-border-width);
     border-style: solid;
     border-radius: var(--silverBox-button-border-radius);
     font-size: var(--silverBox-button-font-size);
     font-weight: var(--silverBox-button-font-weight);
     padding: var(--silverBox-button-padding);
     cursor: pointer;
-    transition: 0.2s ease;
-    min-width: 200px;
+    transition: var(--silverBox-button-transition);
+
+    min-width: var(--silverBox-button-min-width);
 
     .silverBox-button-icon {
         border-radius: var(--silverBox-button-icon-border-radius);
@@ -28,39 +30,38 @@
         border-color: var(--silverBox-confirm-border-color);
         background-color: var(--silverBox-confirm-bg-color);
         color: var(--silverBox-confirm-color);
+
+        &:hover {
+            background-color: var(--silverBox-confirm-hover-color);
+        }
     }
 
     &.silverBox-cancel-button {
         border-color: var(--silverBox-cancel-border-color);
         background-color: var(--silverBox-cancel-bg-color);
         color: var(--silverBox-cancel-color);
+
+        &:hover {
+            background-color: var(--silverBox-cancel-hover-color);
+        }
     }
 
     &.silverBox-deny-button {
         border-color: var(--silverBox-deny-border-color);
         background-color: var(--silverBox-deny-bg-color);
         color: var(--silverBox-deny-color);
-    }
 
-    &:active {
-        transform: scale(0.95);
-    }
-
-    &:active:disabled {
-        transform: scale(1);
-    }
-
-    &:disabled {
-        opacity: 0.7;
-        cursor: not-allowed;
+        &:hover {
+            background-color: var(--silverBox-deny-hover-color);
+        }
     }
 
     img {
-        max-width: 40px;
+        max-width: var(--silverBox-button-image-max-width);
     }
 
     .silverBox-button-text {
-        min-height: 30px;
+        min-height: var(--silverBox-button-text-min-height);
         display: flex;
         align-items: center;
     }
@@ -70,6 +71,8 @@
     }
 
     &.silverBox-loading-button {
+        pointer-events: none;
+
         .silverBox-button-loading-animation {
             display: inline;
         }

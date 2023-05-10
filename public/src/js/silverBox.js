@@ -1,22 +1,32 @@
 // import components
-import buttonComponent from "./components/button";
-import inputComponent from "./components/input";
-import modalSample from "./components/modalSample";
-import headerComponent from "./components/header";
-import iconsComponent from "./components/icons";
-import closeButtonOnClick from "./components/closeButtonOnClick";
-import footerComponent from "./components/footer";
-
-const log = console.log;
+import silverBoxButtonComponent from "./components/silverBox/button";
+import silverBoxInputComponent from "./components/silverBox/input";
+import silverBoxModalSample from "./components/silverBox/modalSample";
+import silverBoxHeaderComponent from "./components/silverBox/header";
+import silverBoxIconsComponent from "./components/silverBox/icons";
+import silverBoxCloseButtonOnClick from "./helpers/closeButtonOnClick";
+import silverBoxFooterComponent from "./components/silverBox/footer";
+import silverBoxUniqueNumberMaker from "./helpers/silverBox/uniqueNumber";
+import silverBoxDisableScroll from "./helpers/silverBox/disableScroll";
+import removeAllSilverBoxes from "./helpers/silverBox/removeAllSilverBoxes";
+import silverBoxRemoveLoadings from "./helpers/silverBox/removeLoadings";
 
 /**
- * SilverBox modal
- * @param {object} config - object of related keys to silverBox settings
- * puts the config keys as component arguments and creates a component based on given keys from object
- */
+	* SilverBox modal
+	* @param {object} config - object of related keys to silverBox settings
+	* puts the config keys as component arguments and creates a component based on given keys from object
+	*/
 export default function silverBox(config) {
-	if (Object.keys(config).length !== 0) {
+	// if there is removeSilverBox in config
+	if ("removeSilverBox" in config) {
+		removeAllSilverBoxes(config.removeSilverBox)
+	}
 
+	// remove loading animation due to given config settings
+	if ("removeLoading" in config) {
+		silverBoxRemoveLoadings(config.removeLoading)
+	}
+	if (Object.keys(config).length !== 0) {
 		/** selectors(before creating elements)*/
 		/** array of all the elements in the modal (inputs/texts/icons/buttons) */
 		let elementsArray = [],
@@ -27,180 +37,170 @@ export default function silverBox(config) {
 		inputWrapper.classList.add("silverBox-input-wrapper");
 
 		/** pushes header into the modal */
-
+		const iconsConfig = () => {
+			return {
+				alertIcon: config.alertIcon,
+				customIcon: config.customIcon,
+				isCentred: config.centerContent,
+				customIconClassName: config.customIconClassName,
+				customIconId: config.customIconId
+			}
+		}
 		elementsArray.push(
-			headerComponent({
-				titleText: config.title,
+			silverBoxHeaderComponent({
+				titleConfig: config.title,
 				htmlText: config.html,
 				simpleText: config.text,
-				imageSource: iconsComponent(config.alertIcon, config.userIcon),
+				titleAlertIcon: config.titleAlertIcon,
+				titleCustomIcon: config.titleCustomIcon,
+				imageSource: silverBoxIconsComponent(iconsConfig()),
 				closeButton: config.showCloseButton,
+				centerContent: config.centerContent,
+				titleCustomIconId: config.titleCustomIconId,
+				titleCustomIconClassName: config.titleCustomIconClassName,
 			})
 		);
 		/** inputs */
-
 		/** if inputs exist */
-		if ("inputs" in config) {
+		if ("input" in config) {
 			const inputConfig = (selector) => {
 				return {
-					inputType: selector.type,
+					type: "type" in selector ? selector.type : '',
+					select: selector.select,
+					numberOnly: selector.numberOnly,
 					hint: selector.hint,
 					label: selector.label,
 					placeHolder: selector.placeHolder,
 					readOnly: selector.readOnly,
-					width: selector.inputWidth,
-					height: selector.inputHeight,
-					inputMaxLength: selector.inputMaxLength,
+					width: selector.width,
+					height: selector.height,
+					maxLength: selector.maxLength,
 					textAlign: selector.textAlign,
 					fontSize: selector.fontSize,
+					placeHolderFontSize: selector.placeHolderFontSize,
+					name: selector.name,
+					className: selector.className,
+					id: selector.id,
+					value: selector.value
 				};
 			};
-			// checks if inputs have the multiPlyBy confing or not 
+			// checks if inputs have the multiPlyBy config or not 
 			const multiplyByCheck = (selector) => {
 				if ("multiplyBy" in selector) {
+					if (selector.multiplyBy <= 1) selector.multiplyBy = 1
 					// loops to creates the given number of inputs
 					for (let i = 1; i <= selector.multiplyBy; i++) {
-						inputWrapper.append(inputComponent(inputConfig(selector)));
+						inputWrapper.append(silverBoxInputComponent(inputConfig(selector)));
 					}
-
-				}
-				else {
-					inputWrapper.append(inputComponent(inputConfig(selector)));
+				} else {
+					inputWrapper.append(silverBoxInputComponent(inputConfig(selector)));
 
 				}
 			}
 
 			// checks if the input key is array
 			// if true this code will be deployed
-			if (Array.isArray(config.inputs)) {
-				config.inputs.forEach((input) => {
+			if (Array.isArray(config.input)) {
+				config.input.forEach((input) => {
 					multiplyByCheck(input)
 				});
 			}
 			// if false, this code will be deployed
 			else {
-				multiplyByCheck(config.inputs)
+				multiplyByCheck(config.input)
 			}
 			// adding inputWrapper to elementsArray
-			elementsArray.push(inputWrapper);
-		} else {
-			// if there is no showCancelButton in config this code will be executed
+			inputWrapper.childElementCount !== 0 ? elementsArray.push(inputWrapper) : ''
+
+			// if cancel button config does not exist
 			if (
-				!("showCancelButton" in config) ||
-				config.showCancelButton.valueOf() === true
+				!("cancelButton" in config)
 			) {
-				// if the key of "icon" in config is either question or warning
-				// (and also no showCancelButton in config)the code will be executed
+
+				buttonWrapper.append(
+					silverBoxButtonComponent({
+						text: "Cancel",
+						closeOnClick: true,
+					}, "silverBox-cancel-button")
+				);
+			}
+			// if cancel button config exists and show button is false
+			else {
+				if (config.cancelButton.showButton !== false) {
+					buttonWrapper.append(
+						silverBoxButtonComponent(config.cancelButton, "silverBox-cancel-button", "Cancel")
+					);
+				}
+			}
+
+		} else {
+			// if there is no cancelButton in config:
+			if (
+				!("cancelButton" in config)
+			) {
+				// if the key of "alertIcon" in config is question or warning
+				// the code will be executed
 				if (
 					"alertIcon" in config &&
 					(config.alertIcon.valueOf() === "question" ||
 						config.alertIcon.valueOf() === "warning")
 				) {
+					// default cancel button
 					buttonWrapper.append(
-						buttonComponent({
-							text: config.cancelButtonText
-								? config.cancelButtonText
-								: "Cancel",
-							elementUniqueClassList: `silverBox-cancel-button`,
-							buttonBgColor: config.cancelButtonColor,
-							leftIcon: config.cancelButtonIconLeft,
-							rightIcon: config.cancelButtonIconRight,
-							borderColor:
-								"cancelButtonBorderColor" in config
-									? config.cancelButtonBorderColor
-									: config.cancelButtonColor,
-							textColor: config.cancelButtonTextColor,
-							closeOnClick:
-								config.cancelButtonCloseOnClick === false
-									? false
-									: true,
-						})
+						silverBoxButtonComponent({
+							text: "Cancel",
+							closeOnClick: true,
+						}, "silverBox-cancel-button")
+					)
+				}
+
+			} else {
+				// if the cancelButton config exists and showButton is not false
+				if (config.cancelButton.showButton !== false) {
+					buttonWrapper.append(
+						silverBoxButtonComponent(config.cancelButton, "silverBox-cancel-button", "Cancel")
 					);
 				}
 			}
 		}
 
+
 		// buttons
-		// cancel button
-		if (
-			!("showCancelButton" in config) ||
-			config.showCancelButton.valueOf() === true
-		) {
-			if ("inputs" in config) {
+		// cancel button is created in top
+		// deny button
+
+		// if there is deny button in config this code will be executed
+		if ("denyButton" in config && config.denyButton.showButton !== false) {
+			buttonWrapper.append(
+				silverBoxButtonComponent(config.denyButton, 'silverBox-deny-button', "Deny"))
+		}
+
+		// confirm button
+
+		// if there is no confirm button in config this code will be executed
+		if (!("confirmButton" in config)) {
+			config.confirmButton = {
+				text: "Confirm",
+				closeOnClick: true,
+			}
+		} else {
+			if (config.confirmButton.showButton !== false) {
+				// if there is confirm button in config and if the showButton is not false this code will be executed
 				buttonWrapper.append(
-					buttonComponent({
-						text: config.cancelButtonText
-							? config.cancelButtonText
-							: "Cancel",
-						elementUniqueClassList: `silverBox-cancel-button`,
-						buttonBgColor: config.cancelButtonColor,
-						leftIcon: config.cancelButtonIconLeft,
-						rightIcon: config.cancelButtonIconRight,
-						borderColor:
-							"cancelButtonBorderColor" in config
-								? config.cancelButtonBorderColor
-								: config.cancelButtonColor,
-						textColor: config.cancelButtonTextColor,
-						closeOnClick:
-							config.cancelButtonCloseOnClick === false
-								? false
-								: true,
-					})
+					silverBoxButtonComponent(config.confirmButton, 'silverBox-confirm-button', 'Confirm')
 				);
 			}
 		}
-		// deny button
-		if (
-			"showDenyButton" in config &&
-			config.showDenyButton.valueOf() === true
-		) {
-			buttonWrapper.append(
-				buttonComponent({
-					text: config.denyButtonText ? config.denyButtonText : "Deny",
-					elementUniqueClassList: `silverBox-deny-button`,
-					buttonBgColor: config.denyButtonColor,
-					leftIcon: config.denyButtonIconLeft,
-					rightIcon: config.denyButtonIconRight,
-					borderColor:
-						"denyButtonBorderColor" in config
-							? config.denyButtonBorderColor
-							: config.denyButtonColor,
-					textColor: config.denyButtonTextColor,
-					closeOnClick:
-						config.denyButtonCloseOnClick === false ? false : true,
-				})
-			);
-		}
-		// confirm button
-		if (
-			!("showConfirmButton" in config) ||
-			config.showConfirmButton.valueOf() === true
-		) {
-			buttonWrapper.append(
-				buttonComponent({
-					text: config.confirmButtonText
-						? config.confirmButtonText
-						: "Confirm",
-					elementUniqueClassList: `silverBox-confirm-button`,
-					buttonBgColor: config.confirmButtonColor,
-					leftIcon: config.confirmButtonIconLeft,
-					rightIcon: config.confirmButtonIconRight,
-					borderColor:
-						"confirmButtonBorderColor" in config
-							? config.confirmButtonBorderColor
-							: config.confirmButtonColor,
-					textColor: config.confirmButtonTextColor,
-					closeOnClick:
-						config.confirmButtonCloseOnClick === false ? false : true,
-				})
-			);
-		}
+
+		// sets buttonWrapper direction
+		if ("buttonsDirection" in config) buttonWrapper.style.direction = config.buttonsDirection
 		// pushes the buttonWrapper inside the elements Array
-		elementsArray.push(buttonWrapper);
+
+		if (buttonWrapper.innerHTML != '') elementsArray.push(buttonWrapper);
 
 		// adds footer if it is inside the config and it exists
 		if (config.footer) {
-			elementsArray.push(footerComponent({
+			elementsArray.push(silverBoxFooterComponent({
 				footerInside: config.footer
 			}))
 		}
@@ -210,57 +210,73 @@ export default function silverBox(config) {
 		// also checks for positions , if we have a position, the overlay class will be changed related to the position config
 
 		// modalSampleConfig
-		const modalSampleConfig = (className) => {
+		const modalSampleConfig = (className, isInputValue) => {
 			return (
 				bodyEl.append(
-					modalSample({
+					silverBoxModalSample({
 						elementsArray: elementsArray,
 						overlayClass: className,
-						isInput: true,
+						isInput: isInputValue,
 						theme: config.theme,
+						direction: config.direction,
+						centerContent: config.centerContent
 					})
 				)
 			)
 		}
-		// if there is input in config this code will be executed
 
-		// if there is input and position in config this code will be executed
-		if ("position" in config) {
-			modalSampleConfig(`silverBox-${config.position}`)
-		}
-		// if there is input and no position in config this code will be executed
-		else {
-			modalSampleConfig("silverBox-overlay")
-		}
 
+		// if there is position in config position will be set as the given config, otherwise it will be the main overlay
+		let position = "position" in config ? `silverBox-${config.position}` : "silverBox-overlay"
+
+		// checks if the input config exists in out given Config, due to it's output, the second argument will be set for our function
+		modalSampleConfig(position, "input" in config)
+
+		// Timer modal
+
+		// silverBox wrapper select, to give it a timer 
+		let silverBoxWrapper = document.querySelectorAll(".silverBox-wrapper")
+		silverBoxWrapper = silverBoxWrapper[silverBoxWrapper.length - 1]
 
 		// checks if we have time config, true => the modal will be removed after the given time
 		if ("timer" in config) {
-			setTimeout(() => {
-				closeButtonOnClick();
-			}, config.timer);
+			// uniqueID
+			let uniqueID = silverBoxUniqueNumberMaker(1_000_000)
+
+			// sets the unique ID as an attr to the modal
+			silverBoxWrapper.setAttribute('uniqueID', uniqueID)
+
+			// removes the specific element after the given timeout
+			silverBoxCloseButtonOnClick({
+				uniqueID,
+				timer: config.timer
+			})
+
 		}
 
-		// selecting overLay
-		const silverBoxOverlay = document.querySelector(".silverBox-overlay");
-		const silverBoxOver = document.querySelector(".silverBox");
-
-		// if centerContent key is true in config this code will be executed
-		if ("centerContent" in config && config.centerContent.valueOf() === true) {
-			const silverBoxIcon = document.querySelector(".silverBox-icon");
-			if (silverBoxOver) silverBoxOver.style.textAlign = "center";
-			if (silverBoxIcon) {
-				silverBoxIcon.style.justifySelf = "center"
-				silverBoxIcon.style.gridColumnStart = 2;
-			}
-		}
 		// adding event listener for overlay
 		// if the clicked element has classList of silverBox-overlay this code will be executed
-		silverBoxOverlay.addEventListener("click", (e) => {
-			silverBoxOverlay.remove();
-		});
-		silverBoxOver.addEventListener("click", (e) => {
-			e.stopPropagation();
-		});
+		let silverBoxOverlay = document.querySelectorAll(".silverBox-overlay");
+
+		if (silverBoxOverlay) {
+			for (const overlay of silverBoxOverlay) {
+				overlay.addEventListener("click", (e) => {
+					// closes the modal if the user clicks on the overlay (outside of the modal)
+					if (e.target === overlay) {
+						overlay.remove();
+					}
+					// checks for silverBox after removing wrapper
+					silverBoxDisableScroll(".silverBox-overlay");
+				});
+			}
+		}
+
+		// checks for silverBox after creating the box
+		silverBoxDisableScroll(".silverBox-overlay")
+
+		// if silverBoxId is in config
+		if ("silverBoxId" in config) silverBoxWrapper.id = config.silverBoxId
+		// if silverBoxClass is in config
+		if ("silverBoxClassName" in config) config.silverBoxClassName.split(" ").forEach(className => silverBoxWrapper.classList.add(className))
 	}
 }

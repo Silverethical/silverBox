@@ -1,0 +1,509 @@
+[
+    {
+        "configName": "alertIcon",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "Predefined icons including: \"success\", \"error\", \"warning\", \"info\", \"question\"."
+    },
+    {
+        "configName": "buttonsDirection",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "Button wrapper direction."
+    },
+    {
+        "configName": "cancelButton",
+        "defaultValue": "emptyDefaultValue",
+        "type": "object",
+        "explanation": "Cancel button configuration",
+        "config": [
+            {
+                "configName": "bgColor",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button background color."
+            },
+            {
+                "configName": "borderColor",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button border color."
+            },
+            {
+                "configName": "className",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button ClassName."
+            },
+            {
+                "configName": "closeOnClick",
+                "defaultValue": false,
+                "type": "boolean",
+                "explanation": "Whether SilverBox closes on click or not."
+            },
+            {
+                "configName": "dataAttribute",
+                "defaultValue": "",
+                "type": "object",
+                "explanation": "Specify desired html attribute by passing an object with key-value pairs. For example: \"{ hashId:'10012', lastStatus:'failed' }\" will generate \"data-hashId='10012'\" and \"data-lastStatus='failed'\" for the appropriate button. "
+            },
+            {
+                "configName": "disabled",
+                "defaultValue": false,
+                "type": "boolean",
+                "explanation": "Button disabled attribute."
+            },
+            {
+                "configName": "iconEnd",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button icon at the end."
+            },
+            {
+                "configName": "iconStart",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button icon at the start."
+            },
+            {
+                "configName": "id",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button ID."
+            },
+            {
+                "configName": "loadingAnimation",
+                "defaultValue": true,
+                "type": "boolean",
+                "explanation": "Button loading animation on click."
+            },
+            {
+                "configName": "showButton",
+                "defaultValue": true,
+                "type": "boolean",
+                "explanation": "Show/Hide button."
+            },
+            {
+                "configName": "text",
+                "defaultValue": "\"Cancel\"",
+                "type": "string",
+                "explanation": "Button text."
+            },
+            {
+                "configName": "textColor",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button text color."
+            }
+        ]
+    },
+    {
+        "configName": "centerContent",
+        "defaultValue": false,
+        "type": "boolean",
+        "explanation": "Aligns the content center. \"true\" or \"false\"."
+    },
+    {
+        "configName": "confirmButton",
+        "defaultValue": "emptyDefaultValue",
+        "type": "object",
+        "explanation": "Confirm button configuration",
+        "config": [
+            {
+                "configName": "bgColor",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button background color."
+            },
+            {
+                "configName": "borderColor",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button border color."
+            },
+            {
+                "configName": "className",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button ClassName."
+            },
+            {
+                "configName": "closeOnClick",
+                "defaultValue": false,
+                "type": "boolean",
+                "explanation": "Whether SilverBox closes on click or not."
+            },
+            {
+                "configName": "dataAttribute",
+                "defaultValue": "",
+                "type": "object",
+                "explanation": "Specify desired html attribute by passing an object with key-value pairs. For example: \"{ hashId:'10012', lastStatus:'failed' }\" will generate \"data-hashId='10012'\" and \"data-lastStatus='failed'\" for the appropriate button. "
+            },
+            {
+                "configName": "disabled",
+                "defaultValue": false,
+                "type": "boolean",
+                "explanation": "Button disabled attribute."
+            },
+            {
+                "configName": "iconEnd",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button icon at the end."
+            },
+            {
+                "configName": "iconStart",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button icon at the start."
+            },
+            {
+                "configName": "id",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button ID."
+            },
+            {
+                "configName": "loadingAnimation",
+                "defaultValue": true,
+                "type": "boolean",
+                "explanation": "Button loading animation on click."
+            },
+            {
+                "configName": "showButton",
+                "defaultValue": true,
+                "type": "boolean",
+                "explanation": "Show/Hide button."
+            },
+            {
+                "configName": "text",
+                "defaultValue": "\"Confirm\"",
+                "type": "string",
+                "explanation": "Button text."
+            },
+            {
+                "configName": "textColor",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button text color."
+            }
+        ]
+    },
+    {
+        "configName": "customIcon",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "Path to a customIcon. For example customIcon: \"path/to/icon\"; ."
+    },
+    {
+        "configName": "customIconClassName",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "SilverBox custom icon class name."
+    },
+    {
+        "configName": "customIconId",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "SilverBox custom icon id."
+    },
+    {
+        "configName": "denyButton",
+        "defaultValue": "emptyDefaultValue",
+        "type": "object",
+        "explanation": "Deny button configuration",
+        "config": [
+            {
+                "configName": "bgColor",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button background color."
+            },
+            {
+                "configName": "borderColor",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button border color."
+            },
+            {
+                "configName": "className",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button ClassName."
+            },
+            {
+                "configName": "closeOnClick",
+                "defaultValue": false,
+                "type": "boolean",
+                "explanation": "Whether SilverBox closes on click or not."
+            },
+            {
+                "configName": "dataAttribute",
+                "defaultValue": "",
+                "type": "object",
+                "explanation": "Specify desired html attribute by passing an object with key-value pairs. For example: \"{ hashId:'10012', lastStatus:'failed' }\" will generate \"data-hashId='10012'\" and \"data-lastStatus='failed'\" for the appropriate button. "
+            },
+            {
+                "configName": "disabled",
+                "defaultValue": false,
+                "type": "boolean",
+                "explanation": "Button disabled attribute."
+            },
+            {
+                "configName": "iconEnd",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button icon at the end."
+            },
+            {
+                "configName": "iconStart",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button icon at the start."
+            },
+            {
+                "configName": "id",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button ID."
+            },
+            {
+                "configName": "loadingAnimation",
+                "defaultValue": true,
+                "type": "boolean",
+                "explanation": "Button loading animation on click."
+            },
+            {
+                "configName": "showButton",
+                "defaultValue": true,
+                "type": "boolean",
+                "explanation": "Show/Hide button."
+            },
+            {
+                "configName": "text",
+                "defaultValue": "\"Deny\"",
+                "type": "string",
+                "explanation": "Button text."
+            },
+            {
+                "configName": "textColor",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Button text color."
+            }
+        ]
+    },
+    {
+        "configName": "footer",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "HTML as SilverBox footer."
+    },
+    {
+        "configName": "html",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "HTML as SilverBox body. If \"text\" parameter is given at the same time as \"html\" parameter, \"text\" will be ignored. example: <br>\"&lt;a href='/recovery'&gt;recover password&lt;/a&gt;\"."
+    },
+    {
+        "configName": "input",
+        "defaultValue": "emptyDefaultValue",
+        "type": "object | array",
+        "explanation": "Input configuration. Can be an \"object\" or an \"array\" of \"objects\".",
+        "config": [
+            {
+                "configName": "className",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Input class."
+            },
+            {
+                "configName": "fontSize",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Input font size."
+            },
+            {
+                "configName": "height",
+                "defaultValue": "\"100%\"",
+                "type": "string",
+                "explanation": "Input height."
+            },
+            {
+                "configName": "hint",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Input hint at the bottom."
+            },
+            {
+                "configName": "id",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Input id."
+            },
+            {
+                "configName": "label",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Input label."
+            },
+            {
+                "configName": "maxLength",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Input maxlength attribute."
+            },
+            {
+                "configName": "multiplyBy",
+                "defaultValue": "",
+                "type": "number",
+                "explanation": "Multiplies the input."
+            },
+            {
+                "configName": "name",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Input name attribute."
+            },
+            {
+                "configName": "numberOnly",
+                "defaultValue": false,
+                "type": "boolean",
+                "explanation": "Accept only numbers from user."
+            },
+            {
+                "configName": "placeHolder",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Input place holder."
+            },
+            {
+                "configName": "placeHolderFontSize",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Input placeHolder font size."
+            },
+            {
+                "configName": "readOnly",
+                "defaultValue": false,
+                "type": "boolean",
+                "explanation": "Input readonly attribute."
+            },
+            {
+                "configName": "textAlign",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Input text align."
+            },
+            {
+                "configName": "type",
+                "defaultValue": "\"text\"",
+                "type": "string",
+                "explanation": "Input type. It can be \"text\", \"number\", \"textarea\", ..."
+            },
+            {
+                "configName": "value",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Input value."
+            },
+            {
+                "configName": "width",
+                "defaultValue": "\"100%\"",
+                "type": "string",
+                "explanation": "Input width."
+            }
+        ]
+    },
+    {
+        "configName": "position",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "Position SilverBox in: \"top-right\", \"top-center\", \"top-left\", \"bottom-right\", \"bottom-center\", \"bottom-left\"."
+    },
+    {
+        "configName": "removeLoading",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "Remove button loading animations. It can take \"first\", \"last\", \"all\", \"number of the SilverBox\" (like \"'1'\")."
+    },
+    {
+        "configName": "removeSilverBox",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "Remove previous silverBoxes. It can take \"first\", \"last\", \"all\", \"number of the SilverBox\" (like \"'1'\")."
+    },
+    {
+        "configName": "showCloseButton",
+        "defaultValue": false,
+        "type": "boolean",
+        "explanation": "Shows a small 'x' on the top of SilverBox."
+    },
+    {
+        "configName": "silverBoxClassName",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "SilverBox custom class name."
+    },
+    {
+        "configName": "silverBoxId",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "SilverBox custom ID."
+    },
+    {
+        "configName": "text",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "Text as SilverBox body. If \"text\" parameter is given at the same time as \"html\" parameter, \"text\" will be ignored."
+    },
+    {
+        "configName": "theme",
+        "defaultValue": "\"light\"",
+        "type": "string",
+        "explanation": "Changes SilverBox theme. Predefined themes: \"light\", \"dark\"."
+    },
+    {
+        "configName": "timer",
+        "type": "string",
+        "explanation": "SilverBox closes after given time in milliseconds."
+    },
+    {
+        "configName": "title",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "SilverBox title.",
+        "config": [
+            {
+                "configName": "alertIcon ",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Predefined title icons including: \"success\", \"error\", \"warning\", \"info\", \"question\"."
+            },
+            {
+                "configName": "customIcon",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Path to a title custom icon. For example customIcon: \"path/to/icon\"; ."
+            },
+            {
+                "configName": "customIconClassName",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "SilverBox title custom icon class."
+            },
+            {
+                "configName": "customIconId",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "SilverBox title custom icon id."
+            },
+            {
+                "configName": "text",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "Title text"
+            }
+        ]
+    }
+]
