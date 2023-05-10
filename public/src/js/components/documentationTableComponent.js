@@ -5,9 +5,11 @@ import copyArgument from "../helpers/copyArgument";
 
 // selector: element that table is appended to 
 function silverBoxDocumentationTableComponent(selector) {
+    // select element
+    const selectorEl = document.querySelector(selector)
     // tableWrapper selector
     // adds tableHeader to tableWrapper
-    selector.append(silverBoxTableHeader())
+    selectorEl.append(silverBoxTableHeader())
 
     // document argument
     let silverBoxTableRowConfig = (selector, idValue, configValue) => silverBoxTableRow({
@@ -22,7 +24,7 @@ function silverBoxDocumentationTableComponent(selector) {
     documentation.forEach(documentItem => {
 
         // tableRowFunctionConfig
-        selector.append(silverBoxTableRowConfig(documentItem, "noConfig", documentItem))
+        selectorEl.append(silverBoxTableRowConfig(documentItem, "noConfig", documentItem))
 
         // if there is no config in object item this code will be executed
         if (("config" in documentItem)) {
@@ -37,7 +39,7 @@ function silverBoxDocumentationTableComponent(selector) {
                 documentConfigWrapper.append(configTableRow)
             });
             // appending the whole parent div after the related config explanation
-            selector.append(documentConfigWrapper)
+            selectorEl.append(documentConfigWrapper)
 
         }
     })
