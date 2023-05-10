@@ -67,7 +67,9 @@ function renderExample(explanation, config) {
         copyConfig({ copy: config })
         silverBox({
             timer: 1500,
-            title: "Copied!",
+            title:{
+                text: "Copied!",
+            },
             theme: "dark",
             position: "top-right",
             centerContent: true
