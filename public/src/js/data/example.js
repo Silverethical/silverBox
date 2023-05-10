@@ -1,8 +1,11 @@
 const examples = [{
     explanation: "A modal with a success icon and message which you can use to inform a user about their operation being successful. ",
     config: {
-        titleAlertIcon: 'success',
-        title: "Your task has been completed.",
+
+        title: {
+            text: "Your task has been completed.",
+            titleAlertIcon: 'success'
+        },
         centerContent: true,
 
         confirmButton: {
@@ -53,7 +56,9 @@ const examples = [{
         timer: 1500,
         customIcon: '/src/images/lightTimeout.png',
         theme: "light",
-        title: "You are so cute",
+        title: {
+            text: "You are so cute"
+        },
         centerContent: true,
 
         confirmButton: {
@@ -68,7 +73,9 @@ const examples = [{
         timer: 1500,
         customIcon: '/src/images/darkTimeout.png',
         theme: "dark",
-        title: "You are not cute at all.",
+        title: {
+            text: "You are not cute at all."
+        },
         centerContent: true,
 
         confirmButton: {
@@ -82,7 +89,9 @@ const examples = [{
     config: {
         theme: "light",
         customIcon: "/src/images/loginExample.png",
-        title: "Login Page",
+        title: {
+            text: "Login Page"
+        },
         centerContent: true,
         text: "enter your account information",
         footer: "<a>forgot your password?</a>",

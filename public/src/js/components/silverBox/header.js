@@ -20,7 +20,6 @@ function silverBoxHeaderComponent({
     centerContent,
 
 }) {
-    console.log(titleConfig);
     // header wrapper
     let headerWrapper = document.createElement("div")
     headerWrapper.classList.add('silverBox-header-wrapper')
@@ -35,18 +34,18 @@ function silverBoxHeaderComponent({
 
     // titleText
     let titleSpan = document.createElement('span')
-    titleSpan.textContent = titleConfig.text
+    if (titleConfig?.text) titleSpan.textContent = titleConfig.text
 
     // title Icons conditions   
-    if ((titleConfig.titleCustomIcon && titleConfig.titleAlertIcon) || titleConfig.titleCustomIcon) {
+    if ((titleConfig?.customIcon && titleConfig?.alertIcon) || titleConfig?.customIcon) {
         // stores returned customIcon element into a variable
-        let customIcon = silverBoxIconsComponent({ customIcon: titleConfig.titleCustomIcon })
+        let customIcon = silverBoxIconsComponent({ customIcon: titleConfig?.customIcon })
 
         // if titleCustomIcon id exists, the img element of the customIcon Wrapper will receive given Id
-        if (titleConfig.titleCustomIconId) customIcon.children[0].id = titleConfig.titleCustomIconId
+        if (titleConfig?.customIconId) customIcon.children[0].id = titleConfig?.customIconId
 
         // if titleCustomIcon class exists, the img element of the customIcon Wrapper will receive given class
-        if (titleConfig.titleCustomIconClassName) titleConfig.titleCustomIconClassName.split(" ").forEach(className => { customIcon.children[0].classList.add(className) })
+        if (titleConfig?.customIconClassName) titleConfig?.customIconClassName.split(" ").forEach(className => { customIcon.children[0].classList.add(className) })
 
 
 
@@ -58,7 +57,7 @@ function silverBoxHeaderComponent({
     }
     else {
         // stores returned alertIcon element into a variable
-        let alertIcon = silverBoxIconsComponent({ alertIcon: titleConfig.titleAlertIcon })
+        let alertIcon = silverBoxIconsComponent({ alertIcon: titleConfig?.alertIcon })
 
         // if alertIcon exists due to iconComponent conditions, it will be added to the titleWrapper
         if (alertIcon) {
@@ -78,7 +77,7 @@ function silverBoxHeaderComponent({
     title.append(titleSpan)
 
 
-    // htmlStructure
+    // htmlStructure    
     let htmlStructure = document.createElement("div")
     htmlStructure.classList.add("silverBox-header-description")
     htmlStructure.innerHTML = htmlText
