@@ -21,15 +21,84 @@ html {
     --white-in-white: #cacaca;
     --black-in-white: #000;
 
-    // font sizes
-    --silverBox-font-size-one: 20px;
-    --silverBox-header-font-size: 32px;
-    --silverBox-header-second-font-size: 20px;
+    // fonts
+
+    // navbar START ----------
+
+    --silverBox-navbar-a-font-size: 20px;
+    --silverBox-navbar-a-font-weight: 600;
+    --silverBox-navbar-logo-span-font-size: 32px;
+    --silverBox-navbar-logo-span-font-weight: 700;
+
+    // navbar END ----------
+
+    // hero section START ----------
+
+    // tagline
+    --silverBox-hero-section-tagline-font-size: 24px;
+    --silverBox-hero-section-tagline-font-weight: 600;
+
+    // intro
+    --silverBox-hero-section-introduction-font-size: 18px;
+    --silverBox-hero-section-introduction-font-weight: 500;
+
+    // button
+    --silverBox-hero-section-button-font-size: 20px;
+    --silverBox-hero-section-button-font-weight: 600;
+
+    // code
+    --silverBox-code-font-size: 16px;
+    --silverBox-code-font-weight: 600;
+
+    // hero section END ----------
+
+    // example section START ----------
+
+    // explanation
+    --silverBox-example-explanation-font-size: 20px;
+    --silverBox-example-explanation-font-weight: 500;
+
+    // button
+    --silverBox-example-button-font-size: 20px;
+    --silverBox-example-button-font-weight: 600;
+
+    // example section END ----------
+
+    // usage section START ----------
+
     --silverBox-usage-section-font-size: 18px;
-    --silverBox-intro-tagline-font-size: 24px;
+    --silverBox-usage-section-font-weight: 600;
+
+    // usage section END ----------
+
+    // documentation section START ----------
+
+    --silverBox-table-header-font-weight: 600;
+    --silverBox-table-header-font-size: 20px;
+
+    --silverBox-document-argument-font-weight: 700;
+    --silverBox-document-font-size: 15px;
+    --silverBox-document-font-weight: 500;
+
+    // documentation section END ----------
+
+    // credit section START ----------
+
+    --silverBox-credit-section-team-member-font-size: 16px;
+    --silverBox-credit-section-team-member-font-weight: 700;
+
+    ---silverBox-credit-section-team-member-position-font-weight: 600;
+    ---silverBox-credit-section-team-member-position-font-size: 14px;
+
+    // credit section END ----------
+
+    --silverBox-header-section-font-size: 32px;
+    --silverBox-header-section-font-weight: 600;
+
     // general
     --primary-color: #3286cf;
     --box-color: #282c34;
+    --get-silverBox-color: #2f3237;
     --silverBox-scroll-margin-top: 70px;
 
     // body
@@ -39,6 +108,7 @@ html {
 
     // button
     --button-bg-color: #2f3237;
+    --silverBox-button-hover-bgColor: #383c3f;
 
     // header
     --header-bg-color: #0f192d;
@@ -50,8 +120,6 @@ html {
 
     // shadow
     --silverBox-button-box-shadow: 1px 3px 5px #07070740;
-    // hover
-    --silverBox-button-hover-bgColor: #383c3f;
     // documentation
     --document-border-color: #767d8a99;
     --document-indicator-color: #9f9f9f;
@@ -89,9 +157,9 @@ body {
 
         h2.silverBox-tagline {
             text-align: center;
-            font-size: var(--silverBox-intro-tagline-font-size);
+            font-size: var(--silverBox-hero-section-tagline-font-size);
             color: var(--primary-color);
-            font-weight: 900;
+            font-weight: var(--silverBox-hero-section-tagline-font-weight);
             letter-spacing: 0.035em;
         }
 
@@ -103,9 +171,11 @@ body {
 
             div.silverBox-introduction {
                 text-align: left;
-                font-weight: 700;
+                font-weight: var(
+                    --silverBox-hero-section-introduction-font-weight
+                );
                 line-height: 30px;
-                font-size: var(--silverBox-header-second-font-size);
+                font-size: var(--silverBox-hero-section-introduction-font-size);
 
                 #silverBox-name-tag {
                     color: var(--primary-color);
@@ -158,9 +228,11 @@ body {
                     }
 
                     span {
-                        font-size: 32px;
+                        font-size: var(--silverBox-navbar-logo-span-font-size);
                         color: var(--primary-color);
-                        font-weight: 700;
+                        font-weight: var(
+                            --silverBox-navbar-logo-span-font-weight
+                        );
                         margin-right: 30px;
                     }
                 }
@@ -180,8 +252,8 @@ body {
                     li {
                         a {
                             color: var(--header-color);
-                            font-size: var(--silverBox-font-size-one);
-                            font-weight: 600;
+                            font-size: var(--silverBox-navbar-a-font-size);
+                            font-weight: var(--silverBox-navbar-a-font-weight);
                         }
                     }
                 }
@@ -228,12 +300,12 @@ body {
         justify-content: center;
         align-items: center;
         padding: 5px 22px;
-        background: var(--box-color);
+        background: var(--get-silverBox-color);
         color: var(--primary-color);
         box-shadow: var(--silverBox-button-box-shadow);
         border-radius: 10px;
-        font-weight: 800;
-        font-size: var(--silverBox-font-size-one);
+        font-weight: var(--silverBox-hero-section-button-font-weight);
+        font-size: var(--silverBox-hero-section-button-font-size);
         letter-spacing: 0.035em;
         transition: 0.3s ease-in-out;
 
@@ -258,24 +330,24 @@ code {
     box-shadow: 1px 4px 5px #07070740;
     border-radius: 10px;
     text-align: left;
-    font-weight: 700;
+    font-weight: var(--silverBox-code-font-weight);
     letter-spacing: 0.03em;
     line-height: 30px;
     padding: 20px !important;
+    font-size: var(--silverBox-code-font-size);
 }
-
 main {
     .silverBox-sectionHeader {
         text-align: center;
         color: var(--white-in-white);
         margin-bottom: 20px;
-        font-weight: 900;
-        font-size: var(--silverBox-header-font-size);
+        font-weight: var(--silverBox-header-section-font-weight);
+        font-size: var(--silverBox-header-section-font-size);
     }
     #silverBox-exampleSection {
         row-gap: 20px;
         display: grid;
-        font-size: var(--silverBox-intro-tagline-font-size);
+        font-size: var(--silverBox-hero-section-tagline-font-size);
 
         .silverBox-example {
             display: flex;
@@ -283,49 +355,53 @@ main {
             width: 95%;
             margin-bottom: 20px;
 
-            .silverBox-exampleExplanation {
-                color: var(--primary-color);
-            }
             .silverBox-exampleColumn {
-                &:first-of-type {
-                    color: var(--primary-color);
-                    font-size: var(--silverBox-font-size-one);
-                    font-weight: 700;
-                    letter-spacing: 0.035em;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 20px 0;
-                    margin-right: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px 0;
+                margin-right: 20px;
 
-                    .silverBox-example-button-wrapper {
+                // example explanation
+                .silverBox-exampleExplanation {
+                    color: var(--primary-color);
+                    font-size: var(--silverBox-example-explanation-font-size);
+                    font-weight: var(
+                        --silverBox-example-explanation-font-weight
+                    );
+                    letter-spacing: 0.035em;
+                }
+                // example buttons
+                .silverBox-example-button-wrapper {
+                    display: flex;
+                    .silverBox-exampleButtons {
                         display: flex;
-                        .silverBox-exampleButtons {
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            padding: 5px 45px;
-                            box-shadow: var(--silverBox-button-box-shadow);
-                            border-radius: 10px;
-                            color: var(--white-in-white);
-                            width: fit-content;
-                            font-size: var(--silverBox-font-size-one);
-                            transition: 0.3s ease-in-out;
-                            // show example
-                            &.silverBox-showExample {
-                                background: var(--box-color);
-                                &:hover {
-                                    background-color: var(
-                                        --silverBox-button-hover-bgColor
-                                    );
-                                }
+                        justify-content: center;
+                        align-items: center;
+                        padding: 5px 45px;
+                        box-shadow: var(--silverBox-button-box-shadow);
+                        border-radius: 10px;
+                        color: var(--white-in-white);
+                        width: fit-content;
+                        font-size: var(--silverBox-example-button-font-size);
+                        font-weight: var(
+                            --silverBox-example-button-font-weight
+                        );
+                        transition: 0.3s ease-in-out;
+                        // show example
+                        &.silverBox-showExample {
+                            background: var(--box-color);
+                            &:hover {
+                                background-color: var(
+                                    --silverBox-button-hover-bgColor
+                                );
                             }
-                            // copy example code
-                            &.silverBox-copyConfig {
-                                display: none;
-                                background: var(--header-scrolled-bg-color);
-                                &:hover {
-                                    background-color: #232c3d;
-                                }
+                        }
+                        // copy example code
+                        &.silverBox-copyConfig {
+                            display: none;
+                            background: var(--header-scrolled-bg-color);
+                            &:hover {
+                                background-color: #232c3d;
                             }
                         }
                     }
@@ -401,13 +477,16 @@ main {
                 font-size: var(--silverBox-usage-section-font-size);
                 margin: 10px 0;
                 color: var(--primary-color);
-                font-weight: 700;
+                font-weight: var(--silverBox-usage-section-font-weight);
 
                 &.step1 {
                     margin-top: 0;
                 }
                 &:first-of-type {
                     margin-bottom: 50px;
+                    span {
+                        text-decoration: underline;
+                    }
                 }
             }
 
@@ -451,8 +530,8 @@ main {
 
                 &.silverBox-hide {
                     transform: rotate(-45deg);
-                    height: 20px;
-                    width: 20px;
+                    height: 15px;
+                    width: 15px;
                 }
             }
 
@@ -542,6 +621,7 @@ main {
                     color: var(--white-in-white);
                     border-radius: 8px;
                     padding: 2px 6px;
+                    font-weight: 600;
                 }
 
                 .silverBox-document-description {
@@ -580,23 +660,29 @@ main {
                 }
 
                 .silverBox-tableColumn {
-                    margin: 10px 0 20px;
-                    padding: 5px 0;
+                    // margin: 10px 0 20px;
+                    margin-bottom: 20px;
+                    padding: 10px 0;
                     overflow-x: hidden;
+                    font-size: var(--silverBox-document-font-size);
+                    font-weight: var(--silverBox-document-font-weight);
 
                     &.document-argument {
-                        font-weight: 600;
-                        font-style: italic;
-                        color: var(--document-argument);
-                        font-size: 16px;
+                        a {
+                            font-weight: var(
+                                --silverBox-document-argument-font-weight
+                            );
+                            font-style: italic;
+                            color: var(--document-argument);
+                        }
                     }
                 }
 
                 .tableHeaderColumn {
                     color: var(--white-in-white) !important;
                     min-width: max-content;
-                    font-weight: 600;
-                    font-size: 18px;
+                    font-weight: var(--silverBox-table-header-font-weight);
+                    font-size: var(--silverBox-table-header-font-size);
                 }
             }
 
@@ -605,7 +691,7 @@ main {
             }
 
             .silverBox-tableRow {
-                border-top: 1px solid var(--document-border-color);
+                border-top: 2px solid var(--document-border-color);
                 font-weight: 500;
             }
 
@@ -619,10 +705,6 @@ main {
         background-image: url("/src/images/desktopWave.png");
         background-repeat: no-repeat;
         background-size: cover;
-        h2 {
-            font-size: var(--silverBox-header-font-size);
-            font-weight: 700;
-        }
 
         .silverBox-teamMembers {
             display: grid;
@@ -638,8 +720,12 @@ main {
                 transition: all 500ms ease-in-out;
                 background-color: var(--box-color);
                 color: var(--white-in-white);
-                font-weight: 600;
-                font-size: 16px;
+                font-weight: var(
+                    --silverBox-credit-section-team-member-font-weight
+                );
+                font-size: var(
+                    --silverBox-credit-section-team-member-font-size
+                );
                 box-shadow: 1px 4px 5px rgba(7, 7, 7, 0.25);
 
                 .silverBox-memberImage {
@@ -654,9 +740,13 @@ main {
                     }
 
                     .silverBox-memberPosition {
-                        font-size: 14px;
+                        font-size: var(
+                            ---silverBox-credit-section-team-member-position-font-size
+                        );
                         color: var(--document-border-color);
-                        font-weight: 600;
+                        font-weight: var(
+                            ---silverBox-credit-section-team-member-position-font-weight
+                        );
                     }
                 }
 
@@ -753,7 +843,7 @@ footer {
         --silverBox-font-size-one: 14px;
         --silverBox-header-font-size: 22px;
         --silverBox-usage-section-font-size: 12px;
-        --silverBox-intro-tagline-font-size: 14px;
+        --silverBox-hero-section-tagline-font-size: 14px;
         --silverBox-header-second-font-size: 12px;
     }
     .silverBox-introduction {
@@ -772,8 +862,8 @@ footer {
         .silverBox-exampleButtons {
             padding: 5px 22px !important;
         }
-        .silverBox-exampleColumn{
-            &:first-of-type{
+        .silverBox-exampleColumn {
+            &:first-of-type {
                 margin-right: 0 !important;
             }
         }
@@ -790,7 +880,7 @@ footer {
         scroll-margin-top: 70px;
     }
     #silverBox-exampleSection,
-    #silverBox-usageSection{
+    #silverBox-usageSection {
         .silverBox-container {
             padding: 30px 10px 10px 10px !important;
         }
