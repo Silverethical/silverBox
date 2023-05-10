@@ -17,9 +17,9 @@ import silverBoxRemoveLoadings from "./helpers/silverBox/removeLoadings";
 	* puts the config keys as component arguments and creates a component based on given keys from object
 	*/
 export default function silverBox(config) {
-	// if there is removeBoxes in config
-	if ("removeBox" in config) {
-		removeAllSilverBoxes(config.removeBox)
+	// if there is removeSilverBox in config
+	if ("removeSilverBox" in config) {
+		removeAllSilverBoxes(config.removeSilverBox)
 	}
 
 	// remove loading animation due to given config settings

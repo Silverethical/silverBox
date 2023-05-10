@@ -3,7 +3,7 @@
  * @param {Array} buttonTypeArr - array of button names
  * @param {Array} configName - config name
  */
-function addButtonConfig(buttonTypeArr,configName) {
+function addButtonConfig(buttonTypeArr, configName) {
     for (const buttonType of buttonTypeArr) {
         configName.push({
             configName: `${buttonType.toLowerCase()}Button`,
@@ -63,31 +63,31 @@ function addButtonConfig(buttonTypeArr,configName) {
                     configName: "className",
                     defaultValue: "",
                     type: "string",
-                    explanation: "SilverBox button Class.",
+                    explanation: "Button ClassName.",
                 },
                 {
                     configName: "id",
                     defaultValue: "",
                     type: "string",
-                    explanation: "SilverBox button ID.",
+                    explanation: "Button ID.",
                 },
                 {
                     configName: "disabled",
                     defaultValue: false,
                     type: "boolean",
-                    explanation: `SilverBox button disabled attribute. 'true' or 'false'.`,
+                    explanation: `Button disabled attribute.`,
                 },
                 {
                     configName: "loadingAnimation",
-                    defaultValue: "",
-                    type: "string",
-                    explanation: `SilverBox button loading animation. 'true' or 'false'.`,
+                    defaultValue: true,
+                    type: "boolean",
+                    explanation: 'Button loading animation on click.',
                 },
                 {
                     configName: "dataAttribute",
                     defaultValue: "",
-                    type: "string",
-                    explanation: "SilverBox button data attributes.",
+                    type: "object",
+                    explanation: `Specify desired html attribute by passing an object with key-value pairs. For example: "{ hashId:'10012', lastStatus:'failed' }" will generate "data-hashId='10012'" and "data-lastStatus='failed'" for the appropriate button. `,
                 },
             ],
         });
