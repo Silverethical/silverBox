@@ -24,7 +24,7 @@ const documentation = [
         configName: "titleCustomIcon",
         defaultValue: "",
         type: "string",
-        explanation: `Path to a customIcon. For example customIcon: "path/to/icon"; .`,
+        explanation: `Path to a title custom icon. For example customIcon: "path/to/icon"; .`,
     },
     {
         configName: "timer",
@@ -81,22 +81,22 @@ const documentation = [
         explanation: "Shows a small 'x' on the top of SilverBox."
     },
     {
-        configName: "removeBox",
+        configName: "removeSilverBox",
         defaultValue: "",
         type: "string",
-        explanation: `Predefined values to remove previous silverBoxes: "first", "last", "all", "number of box" (a number instead of "'number of box'". example: "'1'") .`
+        explanation: `Remove previous silverBoxes. It can take "first", "last", "all", "number of the SilverBox" (like "'1'").`
     },
     {
         configName: "removeLoading",
         defaultValue: "",
         type: "string",
-        explanation: `Predefined values to remove buttons loading animation in silverBoxes: "first", "last", "all", "number of box" (a number instead of "'number of box'". example: "'1'") .`
+        explanation: `Remove button loading animations. It can take "first", "last", "all", "number of the SilverBox" (like "'1'").`
     },
     {
         configName: "buttonsDirection",
         defaultValue: "",
         type: "string",
-        explanation: 'Predefined values to change direction of buttonWrapper: "rtl", "ltr".'
+        explanation: 'Button wrapper direction.'
     },
     {
         configName: "silverBoxId",
@@ -108,31 +108,31 @@ const documentation = [
         configName: "silverBoxClassName",
         defaultValue: "",
         type: "string",
-        explanation: 'SilverBox custom Class.'
+        explanation: 'SilverBox custom class name.'
     },
     {
         configName: "customIconId",
         defaultValue: "",
         type: "string",
-        explanation: 'SilverBox customIcon ID.'
+        explanation: 'SilverBox custom icon id.'
     },
     {
         configName: "customIconClassName",
         defaultValue: "",
         type: "string",
-        explanation: 'SilverBox customIcon Class.'
+        explanation: 'SilverBox custom icon class name.'
     },
     {
         configName: "titleCustomIconId",
         defaultValue: "",
         type: "string",
-        explanation: 'SilverBox title customIcon id.'
+        explanation: 'SilverBox title custom icon id.'
     },
     {
         configName: "titleCustomIconClassName",
         defaultValue: "",
         type: "string",
-        explanation: 'SilverBox title customIcon Class.'
+        explanation: 'SilverBox title custom icon class.'
     },
     {
         configName: "input",
@@ -235,7 +235,7 @@ const documentation = [
                 configName: "id",
                 defaultValue: "",
                 type: "string",
-                explanation: "Input Id."
+                explanation: "Input id."
             },
             {
                 configName: "value",
@@ -256,5 +256,5 @@ const documentation = [
 
 // add confirm/deny/cancel button to documentation
 
-addButtonConfig(["Confirm", "Deny", "Cancel"],documentation);
+addButtonConfig(["Confirm", "Deny", "Cancel"], documentation);
 export default sortDocumentation(documentation)
