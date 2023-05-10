@@ -4,7 +4,7 @@ const examples = [{
 
         title: {
             text: "Your task has been completed.",
-            titleAlertIcon: 'success'
+            alertIcon: 'success'
         },
         centerContent: true,
 
@@ -54,7 +54,7 @@ const examples = [{
     explanation: "An auto close modal with a custom time to notify user with a custom message in a period of time.",
     config: {
         timer: 1500,
-        customIcon: '/src/images/lightTimeout.png',
+        customIcon: 'public/src/images/lightTimeout.png',
         theme: "light",
         title: {
             text: "You are so cute"
@@ -71,7 +71,7 @@ const examples = [{
     explanation: "A dark theme pop-up message. (dark theme example) ",
     config: {
         timer: 1500,
-        customIcon: '/src/images/darkTimeout.png',
+        customIcon: 'public/src/images/darkTimeout.png',
         theme: "dark",
         title: {
             text: "You are not cute at all."
@@ -88,7 +88,7 @@ const examples = [{
     explanation: "A simple login modal which you can use to make a login form for your users with custom input types and etc.",
     config: {
         theme: "light",
-        customIcon: "/src/images/loginExample.png",
+        customIcon: "public/src/images/loginExample.png",
         title: {
             text: "Login Page"
         },
