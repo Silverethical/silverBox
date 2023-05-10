@@ -48,7 +48,7 @@ export default function silverBox(config) {
 		}
 		elementsArray.push(
 			silverBoxHeaderComponent({
-				titleText: config.title,
+				titleConfig: config.title,
 				htmlText: config.html,
 				simpleText: config.text,
 				titleAlertIcon: config.titleAlertIcon,
