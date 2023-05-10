@@ -12,6 +12,10 @@ const silverBoxTeamMembers = [
 		position: "Developer",
 		showName: true,
 	},
+	{
+		githubUsername: "mohammadrz1",
+		position: "Website Designer",
+	},
 ];
 
 export default silverBoxTeamMembers;
