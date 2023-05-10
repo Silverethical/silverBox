@@ -943,15 +943,7 @@ footer {
 
 	#silverBox-header {
 		nav {
-			ul {
-				li {
-					a {
-						&[href="#silverBox-documentationSection"] {
-							display: none;
-						}
-					}
-				}
-			}
+			
 		}
 	}
 
@@ -965,14 +957,13 @@ footer {
 				transform: translateY(-220%);
 				position: absolute;
 				justify-content: space-around !important;
-			}
 
-			a {
-				&[href="#silverBox-documentationSection"] {
-					display: none;
+				li {
+					&.silverBox-documentation-header{
+						display: none;
+					}
 				}
 			}
-
 			#hamburger-menu {
 				display: flex !important;
 			}
