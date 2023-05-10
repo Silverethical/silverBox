@@ -46,9 +46,9 @@ module.exports = [
 		context: "window",
 	},
 	{
-		input: "./public/src/js/documentation.js",
+		input: "./public/src/js/documentationPage.js",
 		output: {
-			file: "./public/dist/js/documentation.js",
+			file: "./public/dist/js/documentationPage.js",
 			format: "cjs", // CommonJS output
 			sourceMap: "inline",
 			plugins: [
