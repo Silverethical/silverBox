@@ -801,8 +801,12 @@ footer {
 			display: none;
 		}
 
+		section#silverBox-usageSection {
+			padding-bottom: 120px !important;
+		}
+
 		#silverBox-CreditsSection {
-			margin-top: -20px;
+			margin-top: -70px;
 
 			.silverBox-teamMembers {
 				grid-template-columns: unset !important;
@@ -826,133 +830,135 @@ footer {
 			}
 		}
 	}
-    	:root {
-    	    // navbar START ----------
-    
-    	    --silverBox-navbar-a-font-size: 16px;
-    
-    	    // navbar END ----------
-    
-    	    // hero section START ----------
-    
-    	    // tagline
-    	    --silverBox-hero-section-tagline-font-size: 16px;
-    	    --silverBox-hero-section-tagline-font-weight: 600;
-    
-    	    // intro
-    	    --silverBox-hero-section-introduction-font-size: 13px;
-    	    --silverBox-hero-section-introduction-font-weight: 600;
-    
-    	    // hero section END ----------
-    
-    	    // example section START ----------
-    
-    	    // explanation
-    
-    	    --silverBox-example-explanation-font-size: 14px;
-    	    --silverBox-example-explanation-font-weight: 400;
-    
-    	    // button
-    	    --silverBox-example-button-font-size: 14px;
-    
-    	    // example section END ----------
-    
-    	    // usage section START ----------
-    
-    	    --silverBox-usage-section-font-size: 14px;
-    
-    	    // usage section END ----------
-    
-    	    // credit section START ----------
-    	    --silverBox-credit-section-team-member-font-size: 13px;
-    	    ---silverBox-credit-section-team-member-position-font-size: 12px;
-    
-    	    // credit section END ----------
-    
-    	    // section headers
-    	    --silverBox-section-header-font-size: 22px;
-    	    --silverBox-section-header-font-weight: 500;
-    
-    	    // code
-    	    --silverBox-code-font-size: 12px;
-    
-    	    // footer 
-    	    --silverBox-footer-font-size: 12px
-    	}
-    
-    	.silverBox-introduction {
-    	    text-align: center !important;
-    	    line-height: 20px !important;
-    	}
-    
-    	.silverBox-tagline {
-    	    font-weight: var(--silverBox-hero-section-tagline-font-weight) !important;
-    	}
-    
-    	.silverBox-sectionHeader {
-    	    font-weight: var(--silverBox-hero-section-introduction-font-weight) !important;
-    	}
-    
-    	.silverBox-example {
-    	    text-align: justify;
-    
-    	    .silverBox-exampleButtons {
-    	        padding: 5px 22px !important;
-    	    }
-    
-    	    .silverBox-exampleColumn {
-    	        &:first-of-type {
-    	            margin-right: 0 !important;
-    	        }
-    	    }
-    	}
-    
-    	#silverBox-heroSection {
-    	    padding: 17px 10px !important;
-    	}
-    
-    	.get-silverBox {
-    	    display: none !important;
-    	}
-    
-    	#silverBox-heroSection,
-    	#silverBox-exampleSection,
-    	#silverBox-usageSection {
-    	    scroll-margin-top: 70px;
-    	}
-    
-    	#silverBox-exampleSection,
-    	#silverBox-usageSection {
-    	    .silverBox-container {
-    	        padding: 30px 10px 10px 10px !important;
-    	    }
-    	}
-    
-    	#silverBox-usageInstructions {
-    	    gap: 0 !important;
-    	}
-    
-    	#silverBox-CreditsSection {
-    	    background-image: url("/src/images/mobileWave.png") !important;
-    	}
-    
-    	#silverBox-header {
-    	    nav {
-    	        ul {
-    	            li {
-    	                a {
-    	                    &[href="#silverBox-documentationSection"] {
-    	                        display: none;
-    	                    }
-    	                }
-    	            }
-    	        }
-    	    }
-    	}
-    
-    	footer {
-    	    font-size: var(--silverBox-footer-font-size);
-    	}
+
+	:root {
+		// navbar START ----------
+
+		--silverBox-navbar-a-font-size: 16px;
+
+		// navbar END ----------
+
+		// hero section START ----------
+
+		// tagline
+		--silverBox-hero-section-tagline-font-size: 16px;
+		--silverBox-hero-section-tagline-font-weight: 600;
+
+		// intro
+		--silverBox-hero-section-introduction-font-size: 13px;
+		--silverBox-hero-section-introduction-font-weight: 600;
+
+		// hero section END ----------
+
+		// example section START ----------
+
+		// explanation
+
+		--silverBox-example-explanation-font-size: 14px;
+		--silverBox-example-explanation-font-weight: 400;
+
+		// button
+		--silverBox-example-button-font-size: 14px;
+
+		// example section END ----------
+
+		// usage section START ----------
+
+		--silverBox-usage-section-font-size: 14px;
+
+		// usage section END ----------
+
+		// credit section START ----------
+		--silverBox-credit-section-team-member-font-size: 13px;
+		---silverBox-credit-section-team-member-position-font-size: 12px;
+
+		// credit section END ----------
+
+		// section headers
+		--silverBox-section-header-font-size: 22px;
+		--silverBox-section-header-font-weight: 500;
+
+		// code
+		--silverBox-code-font-size: 12px;
+
+		// footer 
+		--silverBox-footer-font-size: 12px
+	}
+
+	.silverBox-introduction {
+		text-align: center !important;
+		line-height: 20px !important;
+	}
+
+	.silverBox-tagline {
+		font-weight: var(--silverBox-hero-section-tagline-font-weight) !important;
+	}
+
+	.silverBox-sectionHeader {
+		font-weight: var(--silverBox-hero-section-introduction-font-weight) !important;
+	}
+
+	.silverBox-example {
+		text-align: justify;
+
+		.silverBox-exampleButtons {
+			padding: 5px 22px !important;
+		}
+
+		.silverBox-exampleColumn {
+			&:first-of-type {
+				margin-right: 0 !important;
+			}
+		}
+	}
+
+	#silverBox-heroSection {
+		padding: 17px 10px !important;
+	}
+
+	.get-silverBox {
+		display: none !important;
+	}
+
+	#silverBox-heroSection,
+	#silverBox-exampleSection,
+	#silverBox-usageSection {
+		scroll-margin-top: 70px;
+	}
+
+	#silverBox-exampleSection,
+	#silverBox-usageSection {
+		.silverBox-container {
+			padding: 30px 10px 10px 10px !important;
+		}
+	}
+
+	#silverBox-usageInstructions {
+		gap: 0 !important;
+	}
+
+	#silverBox-CreditsSection {
+		background-image: url("/src/images/mobileWave.png") !important;
+	}
+
+	#silverBox-header {
+		nav {
+			ul {
+				li {
+					a {
+						&[href="#silverBox-documentationSection"] {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	footer {
+		font-size: var(--silverBox-footer-font-size);
+	}
+
 	#silverBox-header {
 		nav {
 			ul {
@@ -960,15 +966,16 @@ footer {
 				position: absolute;
 				justify-content: space-around !important;
 			}
-				a {
-					&[href="#silverBox-documentationSection"] {
-						display: none;
-					}
+
+			a {
+				&[href="#silverBox-documentationSection"] {
+					display: none;
 				}
+			}
+
 			#hamburger-menu {
 				display: flex !important;
 			}
 		}
 	}
 }
-
