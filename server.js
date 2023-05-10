@@ -16,6 +16,14 @@ app.get("/", (req, res) => {
 	res.sendFile(filePath);
 });
 
+// Define a route for the documentation URL
+app.get("/documentation", (req, res) => {
+	// Construct the file path for the documentation html file
+	const filePath = path.join(__dirname, "./documentation/index.html");
+	// Send the documentation html file to the client
+	res.sendFile(filePath);
+});
+
 // Define the port number for the server to listen on
 const port = process.env.PORT || 3000; // Use the port specified in the environment variable or 3000 by default
 

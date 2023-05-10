@@ -45,4 +45,18 @@ module.exports = [
 		},
 		context: "window",
 	},
+	{
+		input: "./public/src/js/documentation.js",
+		output: {
+			file: "./public/dist/js/documentation.js",
+			format: "cjs", // CommonJS output
+			sourceMap: "inline",
+			plugins: [
+				babel({
+					exclude: "node_modules/**",
+				}),
+			],
+		},
+		context: "window",
+	},
 ];
