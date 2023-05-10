@@ -4,14 +4,10 @@ import teamMembers from "./data/teamMembers";
 import renderTeamMembers from "./helpers/renderTeamMembers";
 import customStringify from "./helpers/customStringify";
 import renderExample from "./components/renderExample";
-import silverBoxDocumentationTableComponent from "./components/documentationTableComponent";
-import documentation from "./data/documentation";
 
 
 document.addEventListener("DOMContentLoaded", () => {
 	renderTeamMembers(teamMembers);
-	// documentation section
-	silverBoxDocumentationTableComponent(".silverBox-tableWrapper",documentation)
 });
 
 // navigation section
