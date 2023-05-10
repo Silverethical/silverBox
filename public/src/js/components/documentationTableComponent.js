@@ -1,10 +1,9 @@
 // import
 import replaceQuotedTextWithSpan from "../helpers/replaceQuotedTextWithSpan";
-import documentation from "../data/documentation";
 import copyArgument from "../helpers/copyArgument";
 
 // selector: element that table is appended to 
-function silverBoxDocumentationTableComponent(selector) {
+function silverBoxDocumentationTableComponent(selector,documentation) {
     // select element
     const selectorEl = document.querySelector(selector)
     // tableWrapper selector
