@@ -13,7 +13,7 @@ function addButtonConfig(buttonTypeArr, configName) {
             config: [
                 {
                     configName: "text",
-                    defaultValue: "Confirm",
+                    defaultValue: `"${buttonType}"`,
                     type: "string",
                     explanation: "Button text.",
                 },

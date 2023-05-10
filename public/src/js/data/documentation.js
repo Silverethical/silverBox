@@ -28,7 +28,7 @@ const documentation = [
     },
     {
         configName: "theme",
-        defaultValue: "light",
+        defaultValue: '"light"',
         type: "string",
         explanation: `Changes SilverBox theme. Predefined themes: "light", "dark".`
     },
@@ -156,7 +156,7 @@ const documentation = [
             },
             {
                 configName: "type",
-                defaultValue: "text",
+                defaultValue: '"text"',
                 type: "string",
                 explanation: `Input type. It can be "text", "number", "textarea", ...`,
             },
@@ -187,13 +187,13 @@ const documentation = [
             },
             {
                 configName: "width",
-                defaultValue: "100%",
+                defaultValue: '"100%"',
                 type: "string",
                 explanation: "Input width.",
             },
             {
                 configName: "height",
-                defaultValue: "100%",
+                defaultValue: '"100%"',
                 type: "string",
                 explanation: "Input height.",
             },
@@ -234,7 +234,7 @@ const documentation = [
                 explanation: "Input name attribute."
             },
             {
-                configName: "class",
+                configName: "className",
                 defaultValue: "",
                 type: "string",
                 explanation: "Input class."
