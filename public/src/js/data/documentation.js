@@ -15,18 +15,6 @@ const documentation = [
         explanation: `Path to a customIcon. For example customIcon: "path/to/icon"; .`,
     },
     {
-        configName: "titleAlertIcon ",
-        defaultValue: "",
-        type: "string",
-        explanation: `Predefined title icons including: "success", "error", "warning", "info", "question".`,
-    },
-    {
-        configName: "titleCustomIcon",
-        defaultValue: "",
-        type: "string",
-        explanation: `Path to a title custom icon. For example customIcon: "path/to/icon"; .`,
-    },
-    {
         configName: "timer",
         defaultValue: undefined,
         type: "string",
@@ -48,7 +36,39 @@ const documentation = [
         configName: "title",
         defaultValue: "",
         type: "string",
-        explanation: "SilverBox title."
+        explanation: "SilverBox title.",
+        config: [
+            {
+                configName: "text",
+                defaultValue: "",
+                type: "string",
+                explanation: 'Title text',
+            },
+            {
+                configName: "alertIcon ",
+                defaultValue: "",
+                type: "string",
+                explanation: `Predefined title icons including: "success", "error", "warning", "info", "question".`,
+            },
+            {
+                configName: "customIcon",
+                defaultValue: "",
+                type: "string",
+                explanation: `Path to a title custom icon. For example customIcon: "path/to/icon"; .`,
+            },
+            {
+                configName: "customIconId",
+                defaultValue: "",
+                type: "string",
+                explanation: 'SilverBox title custom icon id.'
+            },
+            {
+                configName: "customIconClassName",
+                defaultValue: "",
+                type: "string",
+                explanation: 'SilverBox title custom icon class.'
+            },
+        ]
     },
     {
         configName: "centerContent",
@@ -121,18 +141,6 @@ const documentation = [
         defaultValue: "",
         type: "string",
         explanation: 'SilverBox custom icon class name.'
-    },
-    {
-        configName: "titleCustomIconId",
-        defaultValue: "",
-        type: "string",
-        explanation: 'SilverBox title custom icon id.'
-    },
-    {
-        configName: "titleCustomIconClassName",
-        defaultValue: "",
-        type: "string",
-        explanation: 'SilverBox title custom icon class.'
     },
     {
         configName: "input",
