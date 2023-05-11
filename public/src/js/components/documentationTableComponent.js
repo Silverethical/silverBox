@@ -4,7 +4,7 @@ import copyArgument from "../helpers/copyArgument";
 import silverBox from "../silverBox"
 
 // selector: element that table is appended to 
-function silverBoxDocumentationTableComponent(selector,documentation) {
+function silverBoxDocumentationTableComponent(selector, documentation) {
     // select element
     const selectorEl = document.querySelector(selector)
     // tableWrapper selector
@@ -101,36 +101,40 @@ function silverBoxTableRow({ name, type, description, defaultValue, id, config }
     // name column ----
 
     const docNameColumn = document.createElement("a")
-    docNameColumn.classList.add("silverBox-tableColumn", "document-argument")
-    const docNameSpan = document.createElement('a')
+    docNameColumn.classList.add("silverBox-tableColumn")
+    const docNameSpan = document.createElement('span')
+    docNameSpan.classList.add("silverBox-document-argument")
     docNameSpan.textContent = name
     docNameColumn.append(docNameSpan)
 
     // type column
     const docTypeColumn = document.createElement("div")
-    docTypeColumn.classList.add("silverBox-tableColumn", "silverBox-document-type")
-    docTypeColumn.textContent = type
+    docTypeColumn.classList.add("silverBox-tableColumn")
+    const docTypeSpan = document.createElement('span')
+    docTypeSpan.classList.add("silverBox-document-type")
+    docTypeSpan.textContent = type
+    docTypeColumn.append(docTypeSpan)
 
     // copies the name textContent after being Clicked
-    docNameColumn.onclick = () => { 
+    docNameColumn.onclick = () => {
         copyArgument(docNameColumn)
         silverBox({
-            timer:1500,
-            theme:"dark",
-            position:"top-right",
-            title:{
-                text:"Copied"
+            timer: 1500,
+            theme: "dark",
+            position: "top-right",
+            title: {
+                text: "Copied"
             },
-            centerContent:true
+            centerContent: true
         })
-     }
+    }
 
     // description column ----
 
     const docDescriptionColumn = document.createElement("div")
     docDescriptionColumn.classList.add("silverBox-tableColumn", "silverBox-document-description")
     const descriptionSpan = document.createElement("span")
-    docDescriptionColumn.classList.add("silverBox-explanation-span")
+    descriptionSpan.classList.add("silverBox-explanation-span")
     descriptionSpan.innerHTML = replaceQuotedTextWithSpan(description)
     docDescriptionColumn.append(descriptionSpan)
 
@@ -138,39 +142,22 @@ function silverBoxTableRow({ name, type, description, defaultValue, id, config }
 
     const docDefaultValueColumn = document.createElement("div")
     docDefaultValueColumn.classList.add("silverBox-tableColumn", "silverBox-document-default")
+    const defaultValueSpan = document.createElement('span')
 
     if (defaultValue != "emptyDefaultValue") {
-        docDefaultValueColumn.classList.add("silverBox-document-string")
-        docDefaultValueColumn.textContent = defaultValue
+        defaultValueSpan.classList.add("silverBox-document-string")
+        defaultValueSpan.textContent = defaultValue
 
         if (defaultValue === "") {
-            docDefaultValueColumn.classList.add("silverBox-document-string")
-            docDefaultValueColumn.textContent = '" "'
+            defaultValueSpan.classList.add("silverBox-document-string")
+            defaultValueSpan.textContent = '" "'
         }
-        // if type of the default value is string this code will be executed
-        // if (typeof defaultValue === "string") {
-        // if the string is empty this code will be executed
-
-        // else {
-        //     docDefaultValueColumn.textContent = `"${defaultValue}"`
-        //     docDefaultValueColumn.classList.add("silverBox-document-string")
-        // }
-        // }
-        // if type of the default value is boolean this code will be executed
-        // else if (typeof defaultValue === "boolean") {
-        //     docDefaultValueColumn.classList.add("silverBox-document-boolean")
-        //     docDefaultValueColumn.textContent = `${defaultValue}`
-        // }
-        // if type of the default value is object this code will be executed
-        // else if (typeof defaultValue === "undefined") {
-        //     docDefaultValueColumn.classList.add("silverBox-document-undefined")
-        //     docDefaultValueColumn.textContent = `${defaultValue}`
-        // }
     }
+    docDefaultValueColumn.append(defaultValueSpan)
 
     // if id == "noConfig" this code will be executed
     if (id == "noConfig") {
-        docNameSpan.setAttribute("href", "#" + name)
+        docNameColumn.setAttribute("href", "#" + name)
         tableRowEl.id = `${name}`
 
         // if there is config keyword in the value of config which is documentation in our case
@@ -186,7 +173,7 @@ function silverBoxTableRow({ name, type, description, defaultValue, id, config }
     // if id == "hasConfig" this code will be executed
     else if (id == "hasConfig") {
         // gets the id of the configName that contains the config
-        docNameSpan.setAttribute("href", `#${config.configName}${name}`)
+        docNameColumn.setAttribute("href", `#${config.configName}${name}`)
         tableRowEl.id = `${config.configName}${name}`
 
     }
