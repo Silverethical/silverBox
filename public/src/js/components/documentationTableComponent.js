@@ -120,7 +120,8 @@ function silverBoxTableRow({ name, type, description, defaultValue, id, config }
             position:"top-right",
             title:{
                 text:"Copied"
-            }
+            },
+            centerContent:true
         })
      }
 

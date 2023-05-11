@@ -9,7 +9,7 @@ const navigationList = document.querySelector('#silverBox-header nav ul')
 
 // opens/closes the navigation menu on hamburger menu click
 hamburgerMenuIcon.addEventListener('click', () => {
-
+	
 	if (!navigationList.classList.contains('show')) {
 		hamburgerMenuIcon.classList.add('rotate')
 		navigationList.classList.add('show')
@@ -18,8 +18,6 @@ hamburgerMenuIcon.addEventListener('click', () => {
 		hamburgerMenuIcon.classList.remove('rotate')
 		navigationList.classList.remove('show')
 		silverBoxLogo.classList.remove('hide')
-
-
 	}
 })
 
