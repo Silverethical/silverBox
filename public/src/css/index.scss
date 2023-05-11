@@ -338,6 +338,10 @@ code {
 }
 
 main {
+	section {
+		scroll-margin-top: 70px;
+	}
+
 	.silverBox-sectionHeader {
 		text-align: center;
 		color: var(--white-in-white);
