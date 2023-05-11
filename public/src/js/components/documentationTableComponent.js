@@ -1,6 +1,7 @@
 // import
 import replaceQuotedTextWithSpan from "../helpers/replaceQuotedTextWithSpan";
 import copyArgument from "../helpers/copyArgument";
+import silverBox from "../silverBox"
 
 // selector: element that table is appended to 
 function silverBoxDocumentationTableComponent(selector,documentation) {
@@ -111,7 +112,17 @@ function silverBoxTableRow({ name, type, description, defaultValue, id, config }
     docTypeColumn.textContent = type
 
     // copies the name textContent after being Clicked
-    docNameColumn.onclick = () => { copyArgument(docNameColumn) }
+    docNameColumn.onclick = () => { 
+        copyArgument(docNameColumn)
+        silverBox({
+            timer:1500,
+            theme:"dark",
+            position:"top-right",
+            title:{
+                text:"Copied"
+            }
+        })
+     }
 
     // description column ----
 
