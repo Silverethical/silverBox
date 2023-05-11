@@ -927,7 +927,6 @@ footer {
 	#silverBox-usageSection {
 		scroll-margin-top: 70px;
 	}
-
 	#silverBox-exampleSection,
 	#silverBox-usageSection {
 		.silverBox-container {
@@ -940,13 +939,11 @@ footer {
 	}
 
 	#silverBox-CreditsSection {
-		background-image: url("/public/src/images/mobileWave.png") !important;
-	}
+		.silverBox-container{
+			padding: 65px 10px 40px 10px !important;
 
-	#silverBox-header {
-		nav {
-			
 		}
+		background-image: url("/public/src/images/mobileWave.png") !important;
 	}
 
 	footer {
