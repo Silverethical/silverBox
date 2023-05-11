@@ -727,8 +727,8 @@ main {
 				display: flex;
 				align-items: center;
 				column-gap: 10px;
-				border-radius: 10px;
-				padding: 8px 30px 8px 8px;
+				border-radius: 13px;
+				padding: 10px 30px 10px 10px;
 				transition: all 500ms ease-in-out;
 				background-color: var(--box-color);
 				color: var(--white-in-white);
@@ -738,7 +738,7 @@ main {
 
 				.silverBox-memberImage {
 					border-radius: 50%;
-					width: 40px;
+					width: 55px;
 				}
 
 				.silverBox-memberInfo {
@@ -775,13 +775,11 @@ footer {
 	background-color: var(--third-body-bgColor);
 	font-size: var(--silverBox-footer-font-size);
 
-	// #sweetAlert {
-	// 	color: #7066e0;
-	// }
+	#sweetAlert,
+	#Untitled-UI {
+		text-decoration: underline;
+	}
 
-	// #Untitled-UI {
-	// 	color: #7f56d9;
-	// }
 }
 
 @media only screen and (max-width: 900px) {
@@ -931,6 +929,7 @@ footer {
 	#silverBox-usageSection {
 		scroll-margin-top: 70px;
 	}
+
 	#silverBox-exampleSection,
 	#silverBox-usageSection {
 		.silverBox-container {
@@ -943,10 +942,11 @@ footer {
 	}
 
 	#silverBox-CreditsSection {
-		.silverBox-container{
+		.silverBox-container {
 			padding: 65px 10px 40px 10px !important;
 
 		}
+
 		background-image: url("/public/src/images/mobileWave.png") !important;
 	}
 
@@ -962,11 +962,12 @@ footer {
 				justify-content: space-around !important;
 
 				li {
-					&.silverBox-documentation-header{
+					&.silverBox-documentation-header {
 						display: none;
 					}
 				}
 			}
+
 			#hamburger-menu {
 				display: flex !important;
 			}
