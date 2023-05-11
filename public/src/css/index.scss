@@ -261,14 +261,15 @@ body {
                     }
                 }
 
-                #hamburger-menu {
-                    cursor: pointer;
-                    display: none;
-                    flex-direction: column;
-                    gap: 5px 0;
-                    width: 20px;
-                    height: 20px;
-                    transition: 0.3s linear;
+				#hamburger-menu {
+					margin-top: 6px;
+					cursor: pointer;
+					display: none;
+					flex-direction: column;
+					gap: 5px 0;
+					width: 20px;
+					height: 20px;
+					transition: 0.3s linear;
 
                     &.rotate {
                         transform: rotate(-90deg);
