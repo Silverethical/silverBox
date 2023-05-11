@@ -381,9 +381,10 @@ main {
 						align-items: center;
 						padding: 5px 45px;
 						box-shadow: var(--silverBox-button-box-shadow);
-						border-radius: 10px;
+						border-radius: 7px;
 						color: var(--white-in-white);
 						width: fit-content;
+						min-width: 130px;
 						font-size: var(--silverBox-example-button-font-size);
 						font-weight: var(--silverBox-example-button-font-weight);
 						transition: 0.3s ease-in-out;
@@ -903,7 +904,7 @@ footer {
 		text-align: justify;
 
 		.silverBox-exampleButtons {
-			padding: 5px 22px !important;
+			padding: 6px 22px !important;
 		}
 
 		.silverBox-exampleColumn {
