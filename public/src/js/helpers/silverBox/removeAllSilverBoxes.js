@@ -6,7 +6,7 @@ function removeAllSilverBoxes(index) {
     // converts the index to lowercase
     index = index.toLowerCase()
     // selector
-    const silverBoxes = document.querySelectorAll('.silverBox-wrapper')
+    const silverBoxes = document.querySelectorAll('.silverBox-container')
 
     // changes the indexes
     if (index === "first") index = 1

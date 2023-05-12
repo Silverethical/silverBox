@@ -235,7 +235,7 @@ export default function silverBox(config) {
 		// Timer modal
 
 		// silverBox wrapper select, to give it a timer 
-		let silverBoxWrapper = document.querySelectorAll(".silverBox-wrapper")
+		let silverBoxWrapper = document.querySelectorAll(".silverBox-container")
 		silverBoxWrapper = silverBoxWrapper[silverBoxWrapper.length - 1]
 
 		// checks if we have time config, true => the modal will be removed after the given time

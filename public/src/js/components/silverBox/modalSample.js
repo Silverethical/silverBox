@@ -20,7 +20,7 @@ function silverBoxModalSample({ direction, elementsArray, overlayClass, isInput,
     });
     // main overlay
     let overlay = document.createElement('div')
-    overlay.classList.add("silverBox-wrapper")
+    overlay.classList.add("silverBox-container")
     overlay.classList.add(overlayClass)
     overlay.setAttribute("data-theme", theme)
 

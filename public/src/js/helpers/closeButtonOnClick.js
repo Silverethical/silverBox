@@ -1,11 +1,11 @@
 // import
 import silverBoxDisableScroll from './silverBox/disableScroll';
-/** selects the silverBox wrapper and closes the element*/
+/** selects the silverBox container and closes the element*/
 function silverBoxCloseButtonOnClick({ uniqueID, timer }) {
 	// if the modal doesn't have a timer, the modal will be closed on click
 	if (!timer) {
-		// selects the all silverBox-wrapper classes in the page
-		const silverBox = document.querySelectorAll(".silverBox-wrapper");
+		// selects the all silverBox-container classes in the page
+		const silverBox = document.querySelectorAll(".silverBox-container");
 
 		if (silverBox[silverBox.length - 1]) silverBox[silverBox.length - 1].remove();
 		// checks for silverBoxAfter removing the wrapper

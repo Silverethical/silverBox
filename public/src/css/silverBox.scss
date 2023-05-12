@@ -14,8 +14,9 @@ body {
     }
 }
 
-.silverBox-wrapper {
+.silverBox-container {
     z-index: var(--silverBox-z-index);
+
     // silver box modal
     &.silverBox-overlay {
         width: var(--silverBox-overlay-width);
