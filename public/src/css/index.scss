@@ -147,7 +147,7 @@ body {
     font-family: Poppins;
     background: var(--body-bg-color);
 
-    .silverBox-container {
+    .container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -174,9 +174,7 @@ body {
 
             div.silverBox-introduction {
                 text-align: left;
-                font-weight: var(
-                    --silverBox-hero-section-introduction-font-weight
-                );
+                font-weight: var(--silverBox-hero-section-introduction-font-weight);
                 line-height: 30px;
                 font-size: var(--silverBox-hero-section-introduction-font-size);
 
@@ -205,7 +203,7 @@ body {
             background-color: var(--header-scrolled-bg-color);
         }
 
-        .silverBox-container {
+        .container {
             padding: 0;
             display: block;
 
@@ -233,9 +231,7 @@ body {
                     span {
                         font-size: var(--silverBox-navbar-logo-span-font-size);
                         color: var(--primary-color);
-                        font-weight: var(
-                            --silverBox-navbar-logo-span-font-weight
-                        );
+                        font-weight: var(--silverBox-navbar-logo-span-font-weight);
                         margin-right: 30px;
                     }
                 }
@@ -261,15 +257,15 @@ body {
                     }
                 }
 
-				#hamburger-menu {
-					margin-top: 6px;
-					cursor: pointer;
-					display: none;
-					flex-direction: column;
-					gap: 5px 0;
-					width: 20px;
-					height: 20px;
-					transition: 0.3s linear;
+                #hamburger-menu {
+                    margin-top: 6px;
+                    cursor: pointer;
+                    display: none;
+                    flex-direction: column;
+                    gap: 5px 0;
+                    width: 20px;
+                    height: 20px;
+                    transition: 0.3s linear;
 
                     &.rotate {
                         transform: rotate(-90deg);
@@ -294,7 +290,7 @@ body {
         letter-spacing: 0.08em;
         margin-top: 135px;
 
-        .silverBox-container {
+        .container {
             padding: 10px 0;
         }
     }
@@ -320,6 +316,7 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
+
     // hide horizontal overflow
     body {
         overflow-x: hidden;
@@ -375,9 +372,7 @@ main {
                 .silverBox-exampleExplanation {
                     color: var(--primary-color);
                     font-size: var(--silverBox-example-explanation-font-size);
-                    font-weight: var(
-                        --silverBox-example-explanation-font-weight
-                    );
+                    font-weight: var(--silverBox-example-explanation-font-weight);
                     letter-spacing: 0.035em;
                 }
 
@@ -396,9 +391,7 @@ main {
                         width: fit-content;
                         min-width: 130px;
                         font-size: var(--silverBox-example-button-font-size);
-                        font-weight: var(
-                            --silverBox-example-button-font-weight
-                        );
+                        font-weight: var(--silverBox-example-button-font-weight);
                         transition: 0.3s ease-in-out;
 
                         // show example
@@ -406,9 +399,7 @@ main {
                             background: var(--box-color);
 
                             &:hover {
-                                background-color: var(
-                                    --silverBox-button-hover-bgColor
-                                );
+                                background-color: var(--silverBox-button-hover-bgColor);
                             }
                         }
 
@@ -468,8 +459,7 @@ main {
                         transition: 0.2s;
 
                         &.silverBox-copied {
-                            filter: grayscale(100%) sepia(100%)
-                                hue-rotate(90deg);
+                            filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
                         }
                     }
 
@@ -485,7 +475,7 @@ main {
         background-color: var(--second-body-bgColor);
         color: var(--white-in-white);
 
-        .silverBox-container {
+        .container {
             align-items: unset;
         }
 
@@ -575,6 +565,7 @@ main {
                 }
 
                 &:hover {
+
                     // on button hover
                     &::after {
                         animation: confusedArrow 1.5s;
@@ -691,9 +682,7 @@ main {
                     font-weight: var(--silverBox-document-font-weight);
 
                     .silverBox-document-argument {
-                        font-weight: var(
-                            --silverBox-document-argument-font-weight
-                        );
+                        font-weight: var(--silverBox-document-argument-font-weight);
                         font-style: italic;
                         color: var(--document-argument);
                     }
@@ -742,12 +731,8 @@ main {
                 transition: all 500ms ease-in-out;
                 background-color: var(--box-color);
                 color: var(--white-in-white);
-                font-weight: var(
-                    --silverBox-credit-section-team-member-font-weight
-                );
-                font-size: var(
-                    --silverBox-credit-section-team-member-font-size
-                );
+                font-weight: var(--silverBox-credit-section-team-member-font-weight);
+                font-size: var(--silverBox-credit-section-team-member-font-size);
                 box-shadow: 1px 4px 5px rgba(7, 7, 7, 0.25);
 
                 .silverBox-memberImage {
@@ -762,13 +747,9 @@ main {
                     }
 
                     .silverBox-memberPosition {
-                        font-size: var(
-                            ---silverBox-credit-section-team-member-position-font-size
-                        );
+                        font-size: var(---silverBox-credit-section-team-member-position-font-size);
                         color: var(--document-border-color);
-                        font-weight: var(
-                            ---silverBox-credit-section-team-member-position-font-weight
-                        );
+                        font-weight: var(---silverBox-credit-section-team-member-position-font-weight);
                     }
                 }
 
@@ -912,15 +893,11 @@ footer {
     }
 
     .silverBox-tagline {
-        font-weight: var(
-            --silverBox-hero-section-tagline-font-weight
-        ) !important;
+        font-weight: var(--silverBox-hero-section-tagline-font-weight) !important;
     }
 
     .silverBox-sectionHeader {
-        font-weight: var(
-            --silverBox-hero-section-introduction-font-weight
-        ) !important;
+        font-weight: var(--silverBox-hero-section-introduction-font-weight) !important;
     }
 
     .silverBox-example {
@@ -953,7 +930,7 @@ footer {
 
     #silverBox-exampleSection,
     #silverBox-usageSection {
-        .silverBox-container {
+        .container {
             padding: 30px 10px 10px 10px !important;
         }
     }
@@ -963,7 +940,7 @@ footer {
     }
 
     #silverBox-CreditsSection {
-        .silverBox-container {
+        .container {
             padding: 65px 10px 40px 10px !important;
         }
 

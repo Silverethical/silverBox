@@ -51,7 +51,7 @@ window.addEventListener('scroll', () => {
 // example section
 
 // example's parent
-const exampleSectionContainer = document.querySelector("#silverBox-exampleSection .silverBox-container");
+const exampleSectionContainer = document.querySelector("#silverBox-exampleSection .container");
 
 // adding each new example to it's parent
 
