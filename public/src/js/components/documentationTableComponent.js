@@ -121,9 +121,9 @@ function silverBoxTableRow({ name, type, description, defaultValue, id, config }
         silverBox({
             timer: 1500,
             theme: "dark",
-            position: "top-right",
+            position: "top-left",
             title: {
-                text: "Copied"
+                text: "Argument copied."
             },
             centerContent: true
         })

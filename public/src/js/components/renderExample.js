@@ -68,10 +68,10 @@ function renderExample(explanation, config) {
         silverBox({
             timer: 1500,
             title:{
-                text: "Copied!",
+                text: "Code copied.",
             },
             theme: "dark",
-            position: "top-right",
+            position: "top-left",
             centerContent: true
         })
     })
