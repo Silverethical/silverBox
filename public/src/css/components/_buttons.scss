@@ -19,8 +19,8 @@
     padding: var(--silverBox-button-padding);
     cursor: pointer;
     transition: var(--silverBox-button-transition);
-
     min-width: var(--silverBox-button-min-width);
+    width: var(--silverBox-button-width);
 
     .silverBox-button-icon {
         border-radius: var(--silverBox-button-icon-border-radius);
