@@ -726,8 +726,8 @@ main {
                 display: flex;
                 align-items: center;
                 column-gap: 10px;
-                border-radius: 13px;
-                padding: 10px 30px 10px 10px;
+                border-radius: 15px;
+                padding: 14.5px 60px 14.5px 16px;
                 transition: all 500ms ease-in-out;
                 background-color: var(--box-color);
                 color: var(--white-in-white);
@@ -737,7 +737,7 @@ main {
 
                 .silverBox-memberImage {
                     border-radius: 50%;
-                    width: 55px;
+                    width: 62.5px;
                 }
 
                 .silverBox-memberInfo {
