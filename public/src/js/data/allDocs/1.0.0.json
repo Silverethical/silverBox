@@ -208,6 +208,24 @@
         "explanation": "SilverBox custom icon id."
     },
     {
+        "configName": "customSvgIcon",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "SilverBox custom svg icon element."
+    },
+    {
+        "configName": "customSvgIconClassName",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "SilverBox custom svg icon element class name."
+    },
+    {
+        "configName": "customSvgIconId",
+        "defaultValue": "",
+        "type": "string",
+        "explanation": "SilverBox custom svg icon element id."
+    },
+    {
         "configName": "denyButton",
         "defaultValue": "emptyDefaultValue",
         "type": "object",
@@ -497,6 +515,24 @@
                 "defaultValue": "",
                 "type": "string",
                 "explanation": "SilverBox title custom icon id."
+            },
+            {
+                "configName": "customSvgIcon",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "SilverBox custom svg icon element."
+            },
+            {
+                "configName": "customSvgIconClassName",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "SilverBox custom svg icon element class name."
+            },
+            {
+                "configName": "customSvgIconId",
+                "defaultValue": "",
+                "type": "string",
+                "explanation": "SilverBox custom svg icon element id."
             },
             {
                 "configName": "text",
