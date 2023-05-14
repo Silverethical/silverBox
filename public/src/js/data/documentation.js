@@ -68,6 +68,24 @@ const documentation = [
                 type: "string",
                 explanation: 'SilverBox title custom icon class.'
             },
+            {
+                configName: "customSvgIcon",
+                defaultValue: "",
+                type: "string",
+                explanation: 'SilverBox custom svg icon element.'
+            },
+            {
+                configName: "customSvgIconId",
+                defaultValue: "",
+                type: "string",
+                explanation: 'SilverBox custom svg icon element id.'
+            },
+            {
+                configName: "customSvgIconClassName",
+                defaultValue: "",
+                type: "string",
+                explanation: 'SilverBox custom svg icon element class name.'
+            },
         ]
     },
     {
@@ -141,6 +159,24 @@ const documentation = [
         defaultValue: "",
         type: "string",
         explanation: 'SilverBox custom icon class name.'
+    },
+    {
+        configName: "customSvgIcon",
+        defaultValue: "",
+        type: "string",
+        explanation: 'SilverBox custom svg icon element.'
+    },
+    {
+        configName: "customSvgIconId",
+        defaultValue: "",
+        type: "string",
+        explanation: 'SilverBox custom svg icon element id.'
+    },
+    {
+        configName: "customSvgIconClassName",
+        defaultValue: "",
+        type: "string",
+        explanation: 'SilverBox custom svg icon element class name.'
     },
     {
         configName: "input",

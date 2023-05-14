@@ -1,26 +1,29 @@
 /* centered icon */
 .silverBox-icon-wrapper,
-.silverBox-icon-wrapper > * {
+.silverBox-icon-wrapper>* {
     &.silverBox-centered-icon {
         justify-self: var(--silverBox-centered-icon-justify-self);
         grid-column-start: var(--silverBox-centered-icon-grid-column-start);
     }
 }
-.silverBox-userIcon-wrapper {
+
+.silverBox-image-wrapper {
     display: flex;
+
+    >* {
+        width: var(--silverBox-custom-image-width);
+        max-width: var(--silverBox-custom-image-max-width);
+        height: var(--silverBox-custom-image-height);
+        max-height: var(--silverBox-custom-image-max-height);
+        border-radius: var(--silverBox-custom-image-border-radius);
+    }
 }
 
-.silverBox-custom-icon {
-    width: var(--silverBox-custom-icon-width);
-    max-width: var(--silverBox-custom-icon-max-width);
-    height: var(--silverBox-custom-icon-height);
-    max-height: var(--silverBox-custom-icon-max-height);
-    border-radius: var(--silverBox-custom-icon-border-radius);
-}
 
-.silverBox-default-icon{
+.silverBox-default-icon {
     min-width: 50px;
 }
+
 /* tick */
 .silverBox-tick-mark {
     position: relative;
