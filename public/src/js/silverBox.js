@@ -43,7 +43,10 @@ export default function silverBox(config) {
 				customIcon: config.customIcon,
 				isCentred: config.centerContent,
 				customIconClassName: config.customIconClassName,
-				customIconId: config.customIconId
+				customIconId: config.customIconId,
+				customSvgIcon: config.customSvgIcon,
+				customSvgIconClassName: config.customSvgIconClassName,
+				customSvgIconId: config.customSvgIconId,
 			}
 		}
 		elementsArray.push(

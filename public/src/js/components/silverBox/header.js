@@ -36,8 +36,9 @@ function silverBoxHeaderComponent({
     let titleSpan = document.createElement('span')
     if (titleConfig?.text) titleSpan.textContent = titleConfig.text
 
+
     // title Icons conditions   
-    if ((titleConfig?.customIcon && titleConfig?.alertIcon) || titleConfig?.customIcon) {
+    if ((titleConfig?.customIcon && titleConfig?.alertIcon) || (titleConfig?.customIcon && titleConfig?.customSvgIcon) || titleConfig?.customIcon) {
         // stores returned customIcon element into a variable
         let customIcon = silverBoxIconsComponent({ customIcon: titleConfig?.customIcon })
 
@@ -52,10 +53,9 @@ function silverBoxHeaderComponent({
         // if customIcon exists due to iconComponent conditions, it will be added to the titleWrapper
         if (customIcon) {
             title.append(customIcon)
-
         }
     }
-    else {
+    else if (titleConfig?.alertIcon) {
         // stores returned alertIcon element into a variable
         let alertIcon = silverBoxIconsComponent({ alertIcon: titleConfig?.alertIcon })
 
@@ -64,6 +64,23 @@ function silverBoxHeaderComponent({
             title.append(alertIcon)
         }
 
+    }
+    // customSvgIcon
+
+    else if ((titleConfig?.customSvgIcon)) {
+
+        let customSvgIcon = silverBoxIconsComponent({ customSvgIcon: titleConfig?.customSvgIcon })
+
+        // if titleCustomIcon id exists, the img element of the customIcon Wrapper will receive given Id
+        if (titleConfig?.customSvgIconId) customSvgIcon.children[0].parentElement.id = titleConfig?.customSvgIconId
+
+        // if titleCustomIcon class exists, the img element of the customIcon Wrapper will receive given class
+        if (titleConfig?.customSvgIconClassName) titleConfig?.customSvgIconClassName.split(" ").forEach(className => { customSvgIcon.children[0].parentElement.classList.add(className) })
+
+        // if customSvgIcon exists due to iconComponent conditions, it will be added to the titleWrapper
+        if (customSvgIcon) {
+            title.append(customSvgIcon)
+        }
     }
     // checks if parentELement has a icon, if true the has-icon class will be given 
     if (title.childElementCount >= 1) title.classList.add('silverBox-title-has-icon')
