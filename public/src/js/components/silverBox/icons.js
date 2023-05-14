@@ -57,7 +57,7 @@ function createIcon(className, text, childClass) {
 	// Create a new div element with the specified class name and class.
 	const icon = document.createElement("div");
 	icon.classList = className;
-	icon.classList.add("silverBox-icon","silverBox-default-icon");
+	icon.classList.add("silverBox-icon", "silverBox-default-icon");
 
 	// If childClass is defined, create a child div element with the specified class name and append it to the icon element.
 	if (childClass) {
@@ -88,16 +88,16 @@ function createIcon(className, text, childClass) {
 function silverBoxCreateCustomIcon(customIcon, isCentred, customIconClassName, customIconId) {
 	// create 
 	const customIconWrapper = document.createElement("div")
-	customIconWrapper.classList.add("silverBox-userIcon-wrapper")
+	customIconWrapper.classList.add("silverBox-customIcon-wrapper")
 	// Create a new img element with the specified class and ID, and set its src attribute to the provided URL.
 	const img = document.createElement("img");
 	img.setAttribute("src", customIcon);
 	img.classList.add("silverBox-icon", "silverBox-custom-icon");
-	// Adds customIcon Id
-	if (customIconId) img.id = customIconId;
-	// Adds customIcon class
-	if (customIconClassName) img.classList.add(customIconClassName)
 	if (isCentred) customIconWrapper.classList.add("silverBox-centered-icon");
+	// Adds customIcon Id
+	if (customIconId) customIconWrapper.id = customIconId;
+	// Adds customIcon class
+	if (customIconClassName) customIconClassName.split(' ').forEach(className => { customIconWrapper.classList.add(className) })
 	// append icon to customIconWrapper
 	customIconWrapper.append(img)
 	return customIconWrapper;

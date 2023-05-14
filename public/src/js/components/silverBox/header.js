@@ -42,10 +42,10 @@ function silverBoxHeaderComponent({
         let customIcon = silverBoxIconsComponent({ customIcon: titleConfig?.customIcon })
 
         // if titleCustomIcon id exists, the img element of the customIcon Wrapper will receive given Id
-        if (titleConfig?.customIconId) customIcon.children[0].id = titleConfig?.customIconId
+        if (titleConfig?.customIconId) customIcon.children[0].parentElement.id = titleConfig?.customIconId
 
         // if titleCustomIcon class exists, the img element of the customIcon Wrapper will receive given class
-        if (titleConfig?.customIconClassName) titleConfig?.customIconClassName.split(" ").forEach(className => { customIcon.children[0].classList.add(className) })
+        if (titleConfig?.customIconClassName) titleConfig?.customIconClassName.split(" ").forEach(className => { customIcon.children[0].parentElement.classList.add(className) })
 
 
 

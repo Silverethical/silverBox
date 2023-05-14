@@ -1,12 +1,13 @@
 /* centered icon */
 .silverBox-icon-wrapper,
-.silverBox-icon-wrapper > * {
+.silverBox-icon-wrapper>* {
     &.silverBox-centered-icon {
         justify-self: var(--silverBox-centered-icon-justify-self);
         grid-column-start: var(--silverBox-centered-icon-grid-column-start);
     }
 }
-.silverBox-userIcon-wrapper {
+
+.silverBox-customIcon-wrapper {
     display: flex;
 }
 
@@ -18,9 +19,10 @@
     border-radius: var(--silverBox-custom-icon-border-radius);
 }
 
-.silverBox-default-icon{
+.silverBox-default-icon {
     min-width: 50px;
 }
+
 /* tick */
 .silverBox-tick-mark {
     position: relative;
