@@ -619,7 +619,7 @@ main {
             .silverBox-tableRow {
                 scroll-margin-top: var(--silverBox-scroll-margin-top);
                 display: grid;
-                grid-template-columns: 3fr 2fr 2fr 6fr;
+                grid-template-columns: 3.5fr 2fr 2fr 6fr;
                 column-gap: 10px;
 
                 .silverBox-document-type {
