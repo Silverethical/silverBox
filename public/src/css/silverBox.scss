@@ -16,6 +16,9 @@ body {
 
 .silverBox-container {
     z-index: var(--silverBox-z-index);
+    display: grid;
+    overflow-y: auto;
+    padding: 20px 10px;
 
     // silver box modal
     &.silverBox-overlay {
@@ -24,8 +27,6 @@ body {
         position: fixed;
         top: 0;
         left: 0;
-        display: flex;
-        align-items: center;
         justify-content: center;
         backdrop-filter: var(--silverBox-overlay-backdrop-filter);
         -webkit-backdrop-filter: var(--silverBox-overlay-backdrop-filter);
@@ -38,9 +39,10 @@ body {
         min-width: var(--silverBox-min-width);
         max-width: var(--silverBox-max-width);
         max-height: var(--silverBox-max-height);
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-column: 2;
+        align-self: center;
+        justify-self: center;
         border: var(--silverBox-border);
         border-radius: var(--silverBox-border-radius);
         padding: var(--silverBox-padding);
@@ -62,6 +64,9 @@ body {
     }
 
     @media only screen and (max-width: 800px) {
+        .silverBox-container{
+            padding: 6px;
+        }
         .silverBox {
             max-width: 90vw;
             min-width: unset;
