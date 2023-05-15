@@ -35,7 +35,7 @@ const documentation = [
     {
         configName: "title",
         defaultValue: "",
-        type: "string",
+        type: "object",
         explanation: "SilverBox title.",
         config: [
             {
