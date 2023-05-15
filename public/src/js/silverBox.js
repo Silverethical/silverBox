@@ -230,7 +230,7 @@ export default function silverBox(config) {
 		let position = "position" in config ? `silverBox-${config.position}` : "silverBox-overlay"
 
 		// checks if the input config exists in out given Config, due to it's output, the second argument will be set for our function
-		modalSampleConfig(position, "input" in config)
+		if (elementsArray.length !== 1) modalSampleConfig(position, "input" in config)
 
 		// Timer modal
 
@@ -244,7 +244,7 @@ export default function silverBox(config) {
 			let uniqueID = silverBoxUniqueNumberMaker(1_000_000)
 
 			// sets the unique ID as an attr to the modal
-			silverBoxWrapper.setAttribute('uniqueID', uniqueID)
+			if (silverBoxWrapper) silverBoxWrapper.setAttribute('uniqueID', uniqueID)
 
 			// removes the specific element after the given timeout
 			silverBoxCloseButtonOnClick({
