@@ -49,20 +49,23 @@ export default function silverBox(config) {
 				customSvgIconId: config.customSvgIconId,
 			}
 		}
-		elementsArray.push(
-			silverBoxHeaderComponent({
-				titleConfig: config.title,
-				htmlText: config.html,
-				simpleText: config.text,
-				titleAlertIcon: config.titleAlertIcon,
-				titleCustomIcon: config.titleCustomIcon,
-				imageSource: silverBoxIconsComponent(iconsConfig()),
-				closeButton: config.showCloseButton,
-				centerContent: config.centerContent,
-				titleCustomIconId: config.titleCustomIconId,
-				titleCustomIconClassName: config.titleCustomIconClassName,
-			})
-		);
+		// header componentConfig
+		const headerComponentConfig = silverBoxHeaderComponent({
+			titleConfig: config.title,
+			htmlText: config.html,
+			simpleText: config.text,
+			titleAlertIcon: config.titleAlertIcon,
+			titleCustomIcon: config.titleCustomIcon,
+			imageSource: silverBoxIconsComponent(iconsConfig()),
+			closeButton: config.showCloseButton,
+			centerContent: config.centerContent,
+			titleCustomIconId: config.titleCustomIconId,
+			titleCustomIconClassName: config.titleCustomIconClassName,
+		})
+
+		// if headerComponent is not empty this code will be executed
+		if (headerComponentConfig.length !== 0) elementsArray.push(headerComponentConfig);
+		
 		/** inputs */
 		/** if inputs exist */
 		if ("input" in config) {
@@ -87,6 +90,7 @@ export default function silverBox(config) {
 					value: selector.value
 				};
 			};
+
 			// checks if inputs have the multiPlyBy config or not 
 			const multiplyByCheck = (selector) => {
 				if ("multiplyBy" in selector) {
@@ -230,7 +234,7 @@ export default function silverBox(config) {
 		let position = "position" in config ? `silverBox-${config.position}` : "silverBox-overlay"
 
 		// checks if the input config exists in out given Config, due to it's output, the second argument will be set for our function
-		if (elementsArray.length !== 1) modalSampleConfig(position, "input" in config)
+		if (elementsArray.length !== 0) modalSampleConfig(position, "input" in config)
 
 		// Timer modal
 
