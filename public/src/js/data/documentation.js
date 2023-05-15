@@ -9,6 +9,12 @@ const documentation = [
         explanation: `Predefined icons including: "success", "error", "warning", "info", "question".`,
     },
     {
+        configName: "direction",
+        defaultValue: "",
+        type: "string",
+        explanation: 'SilverBox HTML direction.',
+    },
+    {
         configName: "customIcon",
         defaultValue: "",
         type: "string",
@@ -72,7 +78,7 @@ const documentation = [
                 configName: "customSvgIcon",
                 defaultValue: "",
                 type: "string",
-                explanation: 'SilverBox custom svg icon element.'
+                explanation: 'SilverBox custom svg icon element. For example: "<svg> (your svg config here) </svg>".'
             },
             {
                 configName: "customSvgIconId",
@@ -98,13 +104,13 @@ const documentation = [
         configName: "html",
         defaultValue: "",
         type: "string",
-        explanation: `HTML as SilverBox body. If "text" parameter is given at the same time as "html" parameter, "text" will be ignored. example: <br>"&lt;a href='/recovery'&gt;recover password&lt;/a&gt;".`
+        explanation: `HTML as SilverBox body. If "text" parameter is given at the same time as "HTML" parameter, "text" will be ignored. example: <br>"&lt;a href='/recovery'&gt;recover password&lt;/a&gt;".`
     },
     {
         configName: "text",
         defaultValue: "",
         type: "string",
-        explanation: `Text as SilverBox body. If "text" parameter is given at the same time as "html" parameter, "text" will be ignored.`
+        explanation: `Text as SilverBox body. If "text" parameter is given at the same time as "HTML" parameter, "text" will be ignored.`
     },
     {
         configName: "footer",
@@ -134,7 +140,7 @@ const documentation = [
         configName: "buttonsDirection",
         defaultValue: "",
         type: "string",
-        explanation: 'Button wrapper direction.'
+        explanation: 'Button wrapper HTML direction.'
     },
     {
         configName: "silverBoxId",
@@ -164,7 +170,7 @@ const documentation = [
         configName: "customSvgIcon",
         defaultValue: "",
         type: "string",
-        explanation: 'SilverBox custom svg icon element.'
+        explanation: 'SilverBox custom svg icon element. For example: "<svg> (your svg config here) </svg>".'
     },
     {
         configName: "customSvgIconId",
@@ -299,6 +305,5 @@ const documentation = [
 ];
 
 // add confirm/deny/cancel button to documentation
-
 addButtonConfig(["Confirm", "Deny", "Cancel"], documentation);
 export default sortDocumentation(documentation)
