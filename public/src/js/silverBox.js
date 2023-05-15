@@ -49,20 +49,23 @@ export default function silverBox(config) {
 				customSvgIconId: config.customSvgIconId,
 			}
 		}
-		elementsArray.push(
-			silverBoxHeaderComponent({
-				titleConfig: config.title,
-				htmlText: config.html,
-				simpleText: config.text,
-				titleAlertIcon: config.titleAlertIcon,
-				titleCustomIcon: config.titleCustomIcon,
-				imageSource: silverBoxIconsComponent(iconsConfig()),
-				closeButton: config.showCloseButton,
-				centerContent: config.centerContent,
-				titleCustomIconId: config.titleCustomIconId,
-				titleCustomIconClassName: config.titleCustomIconClassName,
-			})
-		);
+		// header componentConfig
+		const headerComponentConfig = silverBoxHeaderComponent({
+			titleConfig: config.title,
+			htmlText: config.html,
+			simpleText: config.text,
+			titleAlertIcon: config.titleAlertIcon,
+			titleCustomIcon: config.titleCustomIcon,
+			imageSource: silverBoxIconsComponent(iconsConfig()),
+			closeButton: config.showCloseButton,
+			centerContent: config.centerContent,
+			titleCustomIconId: config.titleCustomIconId,
+			titleCustomIconClassName: config.titleCustomIconClassName,
+		})
+
+		// if headerComponent is not empty this code will be executed
+		if (headerComponentConfig.length !== 0) elementsArray.push(headerComponentConfig);
+
 		/** inputs */
 		/** if inputs exist */
 		if ("input" in config) {
@@ -87,6 +90,7 @@ export default function silverBox(config) {
 					value: selector.value
 				};
 			};
+
 			// checks if inputs have the multiPlyBy config or not 
 			const multiplyByCheck = (selector) => {
 				if ("multiplyBy" in selector) {
@@ -114,84 +118,29 @@ export default function silverBox(config) {
 			}
 			// adding inputWrapper to elementsArray
 			inputWrapper.childElementCount !== 0 ? elementsArray.push(inputWrapper) : ''
-
-			// if cancel button config does not exist
-			if (
-				!("cancelButton" in config)
-			) {
-
-				buttonWrapper.append(
-					silverBoxButtonComponent({
-						text: "Cancel",
-						closeOnClick: true,
-					}, "silverBox-cancel-button")
-				);
-			}
-			// if cancel button config exists and show button is false
-			else {
-				if (config.cancelButton.showButton !== false) {
-					buttonWrapper.append(
-						silverBoxButtonComponent(config.cancelButton, "silverBox-cancel-button", "Cancel")
-					);
-				}
-			}
-
-		} else {
-			// if there is no cancelButton in config:
-			if (
-				!("cancelButton" in config)
-			) {
-				// if the key of "alertIcon" in config is question or warning
-				// the code will be executed
-				if (
-					"alertIcon" in config &&
-					(config.alertIcon.valueOf() === "question" ||
-						config.alertIcon.valueOf() === "warning")
-				) {
-					// default cancel button
-					buttonWrapper.append(
-						silverBoxButtonComponent({
-							text: "Cancel",
-							closeOnClick: true,
-						}, "silverBox-cancel-button")
-					)
-				}
-
-			} else {
-				// if the cancelButton config exists and showButton is not false
-				if (config.cancelButton.showButton !== false) {
-					buttonWrapper.append(
-						silverBoxButtonComponent(config.cancelButton, "silverBox-cancel-button", "Cancel")
-					);
-				}
-			}
 		}
 
-
-		// buttons
-		// cancel button is created in top
-		// deny button
-
-		// if there is deny button in config this code will be executed
-		if ("denyButton" in config && config.denyButton.showButton !== false) {
-			buttonWrapper.append(
-				silverBoxButtonComponent(config.denyButton, 'silverBox-deny-button', "Deny"))
-		}
-
-		// confirm button
-
-		// if there is no confirm button in config this code will be executed
-		if (!("confirmButton" in config)) {
-			config.confirmButton = {
-				text: "Confirm",
-				closeOnClick: true,
+		// buttons config
+		const buttonsConfig = [
+			{
+				type: "cancelButton",
+				text: "Cancel"
+			},
+			{
+				type: "denyButton",
+				text: "Deny"
+			},
+			{
+				type: "confirmButton",
+				text: "Confirm"
 			}
-		} else {
-			if (config.confirmButton.showButton !== false) {
-				// if there is confirm button in config and if the showButton is not false this code will be executed
+		]
+
+		// loop over buttons config in order to create them.
+		for (const button of buttonsConfig) {
+			if (button.type in config && config[button.type].showButton !== false) {
 				buttonWrapper.append(
-					silverBoxButtonComponent(config.confirmButton, 'silverBox-confirm-button', 'Confirm')
-				);
+					silverBoxButtonComponent(config[button.type], `silverBox-${button.text.toLowerCase()}-button`, button.text))
 			}
 		}
 
@@ -233,7 +182,7 @@ export default function silverBox(config) {
 		let position = "position" in config ? `silverBox-${config.position}` : "silverBox-overlay"
 
 		// checks if the input config exists in out given Config, due to it's output, the second argument will be set for our function
-		modalSampleConfig(position, "input" in config)
+		if (elementsArray.length !== 0) modalSampleConfig(position, "input" in config)
 
 		// Timer modal
 
@@ -247,14 +196,13 @@ export default function silverBox(config) {
 			let uniqueID = silverBoxUniqueNumberMaker(1_000_000)
 
 			// sets the unique ID as an attr to the modal
-			silverBoxWrapper.setAttribute('uniqueID', uniqueID)
+			if (silverBoxWrapper) silverBoxWrapper.setAttribute('uniqueID', uniqueID)
 
 			// removes the specific element after the given timeout
 			silverBoxCloseButtonOnClick({
 				uniqueID,
 				timer: config.timer
 			})
-
 		}
 
 		// adding event listener for overlay
