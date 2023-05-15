@@ -181,19 +181,16 @@ export default function silverBox(config) {
 		// confirm button
 
 		// if there is no confirm button in config this code will be executed
-		if (!("confirmButton" in config)) {
-			config.confirmButton = {
-				text: "Confirm",
-				closeOnClick: true,
-			}
-		} else {
-			if (config.confirmButton.showButton !== false) {
-				// if there is confirm button in config and if the showButton is not false this code will be executed
-				buttonWrapper.append(
-					silverBoxButtonComponent(config.confirmButton, 'silverBox-confirm-button', 'Confirm')
-				);
-			}
+
+		if (config.confirmButton?.showButton !== false && "confirmButton" in config) {
+			// if closeOnClick is not false and not in config, this code is executed
+			if (!config.confirmButton?.closeOnClick && config.confirmButton.closeOnClick !== false) config.confirmButton.closeOnClick = true
+			// if there is confirm button in config and if the showButton is not false this code will be executed
+			buttonWrapper.append(
+				silverBoxButtonComponent(config.confirmButton, 'silverBox-confirm-button', 'Confirm')
+			);
 		}
+
 
 		// sets buttonWrapper direction
 		if ("buttonsDirection" in config) buttonWrapper.style.direction = config.buttonsDirection
@@ -254,7 +251,6 @@ export default function silverBox(config) {
 				uniqueID,
 				timer: config.timer
 			})
-
 		}
 
 		// adding event listener for overlay
