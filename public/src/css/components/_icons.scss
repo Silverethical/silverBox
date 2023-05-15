@@ -30,6 +30,7 @@
     width: var(--silverBox-tick-mark-size);
     height: var(--silverBox-tick-mark-size);
     border: var(--silverBox-tick-circle-border);
+    border-color: var(--silverBox-tick-circle-border-color);
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
@@ -40,8 +41,9 @@
         position: absolute;
         width: var(--silverBox-tick-right-size);
         height: var(--silverBox-tick-left-size);
-        border-left: var(--silverBox-tick-inside-borders);
-        border-bottom: var(--silverBox-tick-inside-borders);
+        border-left: var(--silverBox-tick-inside-border);
+        border-bottom: var(--silverBox-tick-inside-border);
+        border-color: var(--silverBox-tick-inside-border-color);
         transform: rotate(-45deg);
         margin-bottom: 15%;
     }
@@ -50,6 +52,7 @@
 /* info */
 .silverBox-info {
     border: var(--silverBox-info-circle-border);
+    border-color: var(--silverBox-info-circle-border-color);
     width: var(--silverBox-info-size);
     height: var(--silverBox-info-size);
     border-radius: 50%;
@@ -65,6 +68,7 @@
 /* question */
 .silverBox-question {
     border: var(--silverBox-question-circle-border);
+    border-color:var(--silverBox-question-circle-border-color);
     width: var(--silverBox-question-size);
     height: var(--silverBox-question-size);
     border-radius: 50%;
@@ -80,6 +84,7 @@
 /* warning */
 .silverBox-warning {
     border: var(--silverBox-warning-circle-border);
+    border-color:var(--silverBox-warning-circle-border-color);
     width: var(--silverBox-warning-size);
     height: var(--silverBox-warning-size);
     border-radius: 50%;
@@ -98,7 +103,7 @@
     height: var(--silverBox-error-size);
     border-radius: 50%;
     border: var(--silverBox-error-circle-border);
-    border-color: #e62e05;
+    border-color: var(--silverBox-error-circle-border-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,7 +122,7 @@
             right: 0;
             width: var(--silverBox-error-icon-inside-size);
             height: var(--silverBox-error-icon-width);
-            background-color: #e62e05;
+            background-color: var(--silverBox-error-color);
             border-radius: 10px;
         }
 
