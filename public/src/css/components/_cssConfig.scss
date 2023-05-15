@@ -1,5 +1,4 @@
 .silverBox-container {
-
     // light theme
     &[data-theme="light"] {
         // silverBox overlay
@@ -36,6 +35,18 @@
         // footer
         --silverBox-hr-line-color: #bbbbbb;
         --silverBox-footer-color: #474747;
+
+        // icons
+        --silverBox-tick-inside-border-color: #15b79e;
+        --silverBox-tick-circle-border-color: #15b79e;
+        --silverBox-info-circle-border-color: #2e90fa;
+        --silverBox-info-color: #2e90fa;
+        --silverBox-question-circle-border-color: #a4bcfd;
+        --silverBox-question-color: #a4bcfd;
+        --silverBox-warning-circle-border-color: #eaaa08;
+        --silverBox-warning-color: #eaaa08;
+        --silverBox-error-circle-border-color: #e62e05;
+        --silverBox-error-color: #e62e05;
     }
 
     // dark theme
@@ -74,6 +85,18 @@
         // footer
         --silverBox-hr-line-color: #bbbbbb;
         --silverBox-footer-color: #a1a4a9;
+
+        // icons
+        --silverBox-tick-inside-border-color: #15b79e;
+        --silverBox-tick-circle-border-color: #15b79e;
+        --silverBox-info-circle-border-color: #2e90fa;
+        --silverBox-info-color: #2e90fa;
+        --silverBox-question-circle-border-color: #a4bcfd;
+        --silverBox-question-color: #a4bcfd;
+        --silverBox-warning-circle-border-color: #eaaa08;
+        --silverBox-warning-color: #eaaa08;
+        --silverBox-error-circle-border-color: #e62e05;
+        --silverBox-error-color: #e62e05;
     }
 
     // silver box start -------------------
@@ -142,39 +165,35 @@
     // alertIcons
 
     // tick mark
-    --silverBox-tick-mark-size:50px;
-    --silverBox-tick-right-size:50%;
-    --silverBox-tick-left-size:10px;
-    --silverBox-tick-circle-border:3px solid #15b79e;
-    --silverBox-tick-inside-borders:3px solid #15b79e;
+    --silverBox-tick-mark-size: 50px;
+    --silverBox-tick-right-size: 50%;
+    --silverBox-tick-left-size: 10px;
+    --silverBox-tick-circle-border: 3px solid;
+    --silverBox-tick-inside-border: 3px solid;
 
     // info
-    --silverBox-info-circle-border:3px solid #2e90fa;
-    --silverBox-info-size:50px;
-    --silverBox-info-icon-inside-size:30px;
-    --silverBox-info-icon-width:500;
-    --silverBox-info-color:#2e90fa;
+    --silverBox-info-circle-border: 3px solid;
+    --silverBox-info-size: 50px;
+    --silverBox-info-icon-inside-size: 30px;
+    --silverBox-info-icon-width: 500;
 
     // question
-    --silverBox-question-circle-border:3px solid #a4bcfd;
-    --silverBox-question-size:50px;
-    --silverBox-question-icon-inside-size:30px;
-    --silverBox-question-icon-width:500;
-    --silverBox-question-color:#a4bcfd;
+    --silverBox-question-circle-border: 3px solid;
+    --silverBox-question-size: 50px;
+    --silverBox-question-icon-inside-size: 30px;
+    --silverBox-question-icon-width: 500;
 
     // warning
-    --silverBox-warning-circle-border:3px solid #eaaa08;
-    --silverBox-warning-size:50px;
-    --silverBox-warning-icon-inside-size:30px;
-    --silverBox-warning-icon-width:500;
-    --silverBox-warning-color:#eaaa08;
+    --silverBox-warning-circle-border: 3px solid;
+    --silverBox-warning-size: 50px;
+    --silverBox-warning-icon-inside-size: 30px;
+    --silverBox-warning-icon-width: 500;
 
     // error
-    --silverBox-error-circle-border:3px solid #e62e05;
-    --silverBox-error-size:50px;
-    --silverBox-error-icon-inside-size:30px;
-    --silverBox-error-icon-width:3px;
-    --silverBox-error-color:#e62e05;
+    --silverBox-error-circle-border: 3px solid;
+    --silverBox-error-size: 50px;
+    --silverBox-error-icon-inside-size: 30px;
+    --silverBox-error-icon-width: 3px;
 
     // header end -------------------
 
@@ -188,7 +207,7 @@
     --silverBox-button-font-weight: 600;
     --silverBox-button-padding: 7px 20px;
     --silverBox-button-min-width: 200px;
-    --silverBox-button-width:100%;
+    --silverBox-button-width: 100%;
     --silverBox-button-image-max-width: 40px;
     --silverBox-button-text-min-height: 30px;
 
