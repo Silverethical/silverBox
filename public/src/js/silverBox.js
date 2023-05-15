@@ -65,7 +65,7 @@ export default function silverBox(config) {
 
 		// if headerComponent is not empty this code will be executed
 		if (headerComponentConfig.length !== 0) elementsArray.push(headerComponentConfig);
-		
+
 		/** inputs */
 		/** if inputs exist */
 		if ("input" in config) {
@@ -118,83 +118,31 @@ export default function silverBox(config) {
 			}
 			// adding inputWrapper to elementsArray
 			inputWrapper.childElementCount !== 0 ? elementsArray.push(inputWrapper) : ''
+		}
 
-			// if cancel button config does not exist
-			if (
-				!("cancelButton" in config)
-			) {
+		// buttons config
+		const buttonsConfig = [
+			{
+				type: "cancelButton",
+				text: "Cancel"
+			},
+			{
+				type: "denyButton",
+				text: "Deny"
+			},
+			{
+				type: "confirmButton",
+				text: "Confirm"
+			}
+		]
 
+		// loop over buttons config in order to create them.
+		for (const button of buttonsConfig) {
+			if (button.type in config && config[button.type].showButton !== false) {
 				buttonWrapper.append(
-					silverBoxButtonComponent({
-						text: "Cancel",
-						closeOnClick: true,
-					}, "silverBox-cancel-button")
-				);
-			}
-			// if cancel button config exists and show button is false
-			else {
-				if (config.cancelButton.showButton !== false) {
-					buttonWrapper.append(
-						silverBoxButtonComponent(config.cancelButton, "silverBox-cancel-button", "Cancel")
-					);
-				}
-			}
-
-		} else {
-			// if there is no cancelButton in config:
-			if (
-				!("cancelButton" in config)
-			) {
-				// if the key of "alertIcon" in config is question or warning
-				// the code will be executed
-				if (
-					"alertIcon" in config &&
-					(config.alertIcon.valueOf() === "question" ||
-						config.alertIcon.valueOf() === "warning")
-				) {
-					// default cancel button
-					buttonWrapper.append(
-						silverBoxButtonComponent({
-							text: "Cancel",
-							closeOnClick: true,
-						}, "silverBox-cancel-button")
-					)
-				}
-
-			} else {
-				// if the cancelButton config exists and showButton is not false
-				if (config.cancelButton.showButton !== false) {
-					buttonWrapper.append(
-						silverBoxButtonComponent(config.cancelButton, "silverBox-cancel-button", "Cancel")
-					);
-				}
+					silverBoxButtonComponent(config[button.type], `silverBox-${button.text.toLowerCase()}-button`, button.text))
 			}
 		}
-
-
-		// buttons
-		// cancel button is created in top
-		// deny button
-
-		// if there is deny button in config this code will be executed
-		if ("denyButton" in config && config.denyButton.showButton !== false) {
-			buttonWrapper.append(
-				silverBoxButtonComponent(config.denyButton, 'silverBox-deny-button', "Deny"))
-		}
-
-		// confirm button
-
-		// if there is no confirm button in config this code will be executed
-
-		if (config.confirmButton?.showButton !== false && "confirmButton" in config) {
-			// if closeOnClick is not false and not in config, this code is executed
-			if (!config.confirmButton?.closeOnClick && config.confirmButton.closeOnClick !== false) config.confirmButton.closeOnClick = true
-			// if there is confirm button in config and if the showButton is not false this code will be executed
-			buttonWrapper.append(
-				silverBoxButtonComponent(config.confirmButton, 'silverBox-confirm-button', 'Confirm')
-			);
-		}
-
 
 		// sets buttonWrapper direction
 		if ("buttonsDirection" in config) buttonWrapper.style.direction = config.buttonsDirection
