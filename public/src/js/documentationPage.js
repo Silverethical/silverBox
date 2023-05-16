@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 // get documentation data
 async function getDocData() {
 	try {
-		return await fetch(`/public/src/js/data/allDocs/${versionNumber}.json`)
+		return await fetch(`/public/src/js/data/documentations/${versionNumber}/docs.json`)
 			.then((data) => {
 				return data.json();
 			})
