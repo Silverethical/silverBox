@@ -1,4 +1,5 @@
 .silverBox-container {
+
     // light theme
     &[data-theme="light"] {
         // silverBox overlay
@@ -224,7 +225,7 @@
     --silverBox-input-wrapper-flex-wrap: wrap;
 
     // input
-    --silverBox-input-fontSize: 14px;
+    --silverBox-input-font-size: 16px;
     --silverBox-input-padding: 10px;
     --silverBox-input-border-radius: 8px;
     --silverBox-inside-input-gap: 7px;
@@ -247,7 +248,7 @@
     --silverBox-input-label-font-weight: 500;
 
     // place holder
-    --silverBox-placeHolder-fontSize: 12px;
+    --silverBox-placeHolder-fontSize: 16px;
     --silverBox-input-placeHolder-font-weight: 500;
 
     // select

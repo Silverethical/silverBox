@@ -111,13 +111,11 @@ const examples = [{
             label: "Username",
             type: "text",
             placeHolder: "Enter your user name",
-            fontSize: '16px',
         },
         {
             label: "Email",
             type: "email",
             placeHolder: "Enter your email",
-            fontSize: '16px',
         },
         {
             label: "Password",
@@ -125,7 +123,6 @@ const examples = [{
             placeHolder: "Enter your password",
             hint: 'must contain 8 characters',
             maxLength: 8,
-            fontSize: '16px',
         },
 
         ]

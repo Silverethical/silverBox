@@ -30,11 +30,11 @@
              padding: var(--silverBox-input-padding);
              border-radius: var(--silverBox-input-border-radius);
              resize: none;
-             font-size: var(--silverBox-input-fontSize);
+             font-size: var(--silverBox-input-font-size);
              box-shadow: var(--silverBox-box-shadow);
              font-weight: var(--silverBox-input-font-weight);
-             
-             
+
+
              &::placeholder {
                  color: var(--silverBox-input-placeHolder-color);
                  font-size: var(--silverBox-placeHolder-fontSize);
@@ -46,7 +46,7 @@
          label {
              color: var(--silverBox-label-color);
              font-size: var(--silverBox-input-label-font-size);
-             font-weight:var(--silverBox-input-label-font-weight);
+             font-weight: var(--silverBox-input-label-font-weight);
          }
 
          .silverBox-input-hint {
