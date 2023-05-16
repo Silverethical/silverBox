@@ -2,13 +2,12 @@
 	"name": "silverbox",
 	"version": "1.0.0",
 	"description": "SilverBox is a lightweight and versatile JavaScript library that enables you to effortlessly create customizable modals and alerts for your web applications. Built with pure JavaScript and zero dependencies, SilverBox empowers developers to easily integrate stylish and interactive pop-up components without adding unnecessary bloat. Harness the power of CSS variables to customize the visual styles, seamlessly adapting to your application's design system. Experience the simplicity and flexibility of SilverBox for beautiful modals and alerts.",
-	"type": "module",
 	"scripts": {
-		"dev:front": "concurrently --kill-others \"npm run scss\" \"npm run rollup\" \"node ./server.cjs\"",
+		"dev:front": "concurrently --kill-others \"npm run scss\" \"npm run rollup\" \"node ./server.js\"",
 		"scss": "sass --watch public/src/css/:public/dist/css",
-		"rollup": "rollup --watch --config rollup.config.js",
-		"minify:js": "uglifyjs public/dist/js/silverBox.js -o public/dist/js/silverBox.min.js",
-		"minify:css": "npx postcss public/dist/css/silverBox.css > public/dist/css/silverBox.min.css",
+		"rollup": "rollup --watch --config rollup.config.mjs",
+		"minify:js": "gulp minify:js",
+		"minify:css": "gulp minify:css",
 		"minify": "npm run minify:js && npm run minify:css"
 	},
 	"repository": {
@@ -29,6 +28,10 @@
 		"concurrently": "^8.0.1",
 		"cssnano": "^6.0.1",
 		"express": "^4.18.2",
+		"gulp": "^4.0.2",
+		"gulp-postcss": "^9.0.1",
+		"gulp-rename": "^2.0.0",
+		"gulp-uglify": "^3.0.2",
 		"postcss": "^8.4.23",
 		"postcss-cli": "^10.1.0",
 		"rollup": "^3.21.7",
