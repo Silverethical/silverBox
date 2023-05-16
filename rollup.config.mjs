@@ -6,21 +6,23 @@ const config = [
 		input: "./public/src/js/silverBox.js",
 		output: {
 			file: "./public/dist/js/silverBox.js",
-			format: "cjs",
+			format: "es",
 		},
 	},
 	{
 		input: "./public/src/js/silverBox.js",
 		output: {
 			file: "./public/dist/js/silverBox.min.js",
-			format: "cjs",
+			format: "es",
 		},
 		plugins: [
 			babel({
 				babelHelpers: "bundled",
 				presets: ["@babel/preset-env"],
 			}),
-			terser(),
+			terser({
+				keep_fnames: true,
+			}),
 		],
 	},
 	{
