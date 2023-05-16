@@ -101,7 +101,7 @@ html {
     --silverBox-footer-font-size: 14px;
     // general
     --primary-color: #3286cf;
-    --box-color: #282c34;
+    --box-color: #151F33;
     --get-silverBox-color: #2f3237;
     --silverBox-scroll-margin-top: 70px;
 
@@ -362,7 +362,7 @@ main {
 
         .silverBox-example {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             width: 95%;
             margin-bottom: 20px;
 
@@ -795,7 +795,7 @@ footer {
 
         section#silverBox-exampleSection {
             .silverBox-example {
-                grid-template-columns: unset !important;
+                justify-content: center;
 
                 .silverBox-exampleColumn-code {
                     display: none;
@@ -905,7 +905,7 @@ footer {
     }
 
     .silverBox-example {
-        text-align: justify;
+        text-align: center;
 
         .silverBox-exampleButtons {
             padding: 6px 22px !important;
@@ -920,10 +920,6 @@ footer {
 
     #silverBox-heroSection {
         padding: 17px 10px !important;
-    }
-
-    .get-silverBox {
-        display: none !important;
     }
 
     #silverBox-heroSection,
