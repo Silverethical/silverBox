@@ -33,7 +33,7 @@ const config = [
 		input: "./public/src/js/silverBox.js",
 		output: {
 			file: "./public/dist/js/silverBox.js",
-			format: "es",
+			format: "cjs",
 			sourcemap: "inline",
 		},
 		plugins: [
