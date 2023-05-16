@@ -36,12 +36,12 @@ html {
     // hero section START ----------
 
     // tagline
-    --silverBox-hero-section-tagline-font-size: 24px;
+    --silverBox-hero-section-tagline-font-size: 30px;
     --silverBox-hero-section-tagline-font-weight: 700;
 
     // intro
     --silverBox-hero-section-introduction-font-size: 18px;
-    --silverBox-hero-section-introduction-font-weight: 600;
+    --silverBox-hero-section-introduction-font-weight: 500;
 
     // button
     --silverBox-hero-section-button-font-size: 20px;
@@ -121,6 +121,8 @@ html {
 
     // banner
     --banner-color: #d9884c;
+    --hero-section-color:#6A7A88;
+    --get-silverBox-button-bg-color:#1B2A52;
 
     // shadow
     --silverBox-button-box-shadow: 1px 3px 5px #07070740;
@@ -181,6 +183,7 @@ body {
 
                 .silverBox-name-tag {
                     color: var(--primary-color);
+                    
                 }
             }
         }
@@ -286,7 +289,7 @@ body {
     #silverBox-heroSection {
         scroll-margin-top: var(--silverBox-scroll-margin-top);
         background-color: var(--box-color);
-        color: var(--banner-color);
+        color: var(--hero-section-color);
         padding: 40px 0;
         letter-spacing: 0.08em;
         margin-top: 135px;
@@ -301,8 +304,8 @@ body {
         justify-content: center;
         align-items: center;
         padding: 5px 22px;
-        background: var(--get-silverBox-color);
-        color: var(--primary-color);
+        background: var(--get-silverBox-button-bg-color);
+        color: var(--banner-color);
         box-shadow: var(--silverBox-button-box-shadow);
         border-radius: 10px;
         font-weight: var(--silverBox-hero-section-button-font-weight);
