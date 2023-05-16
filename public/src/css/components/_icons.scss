@@ -1,92 +1,117 @@
-/* tick */
-#silverBox-tick-mark {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    border: 3px solid #15b79e;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    animation: 1s appear;
+/* centered icon */
+.silverBox-icon-wrapper,
+.silverBox-icon-wrapper>* {
+    &.silverBox-centered-icon {
+        justify-self: var(--silverBox-centered-icon-justify-self);
+        grid-column-start: var(--silverBox-centered-icon-grid-column-start);
+    }
+}
 
-    #inside {
-        position: absolute;
-        width: 50%;
-        height: 10px;
-        border-left: 3px solid #15b79e;
-        border-bottom: 3px solid #15b79e;
-        transform: rotate(-45deg);
-        margin-bottom: 6px;
+.silverBox-image-wrapper {
+    display: flex;
+
+    >* {
+        width: var(--silverBox-custom-image-width);
+        max-width: var(--silverBox-custom-image-max-width);
+        height: var(--silverBox-custom-image-height);
+        max-height: var(--silverBox-custom-image-max-height);
+        border-radius: var(--silverBox-custom-image-border-radius);
     }
 }
 
 
+.silverBox-default-icon {
+    min-width: 50px;
+}
+
+/* tick */
+.silverBox-tick-mark {
+    position: relative;
+    width: var(--silverBox-tick-mark-size);
+    height: var(--silverBox-tick-mark-size);
+    border: var(--silverBox-tick-circle-border);
+    border-color: var(--silverBox-tick-circle-border-color);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    animation: 1s appear;
+
+    .inside {
+        position: absolute;
+        width: var(--silverBox-tick-right-size);
+        height: var(--silverBox-tick-left-size);
+        border-left: var(--silverBox-tick-inside-border);
+        border-bottom: var(--silverBox-tick-inside-border);
+        border-color: var(--silverBox-tick-inside-border-color);
+        transform: rotate(-45deg);
+        margin-bottom: 15%;
+    }
+}
+
 /* info */
-#silverBox-info {
-    border: 3px solid;
-    width: 30px;
-    height: 30px;
-    padding: 10px;
+.silverBox-info {
+    border: var(--silverBox-info-circle-border);
+    border-color: var(--silverBox-info-circle-border-color);
+    width: var(--silverBox-info-size);
+    height: var(--silverBox-info-size);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
-    border-color: #2e90fa;
-    color: #2e90fa;
-    animation: rotate .25s;
-
+    font-size: var(--silverBox-info-icon-inside-size);
+    font-weight: var(--silverBox-info-icon-width);
+    color: var(--silverBox-info-color);
+    animation: rotate 0.25s;
 }
 
 /* question */
-#silverBox-question {
-    border: 3px solid;
-    width: 30px;
-    height: 30px;
-    padding: 10px;
+.silverBox-question {
+    border: var(--silverBox-question-circle-border);
+    border-color:var(--silverBox-question-circle-border-color);
+    width: var(--silverBox-question-size);
+    height: var(--silverBox-question-size);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
-    color: #A4BCFd;
-    border-color: #A4BCFd;
-    animation: rotate .25s;
+    font-size: var(--silverBox-question-icon-inside-size);
+    font-weight: var(--silverBox-question-icon-width);
+    color: var(--silverBox-question-color);
+    animation: rotate 0.25s;
 }
 
-
 /* warning */
-#silverBox-warning {
-    border: 3px solid;
-    width: 30px;
-    height: 30px;
-    padding: 10px;
+.silverBox-warning {
+    border: var(--silverBox-warning-circle-border);
+    border-color:var(--silverBox-warning-circle-border-color);
+    width: var(--silverBox-warning-size);
+    height: var(--silverBox-warning-size);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
-    color: #eaaa08;
-    border-color: #eaaa08;
-    animation: warning .5s;
+    font-size: var(--silverBox-warning-icon-inside-size);
+    font-weight: var(--silverBox-warning-icon-width);
+    color: var(--silverBox-warning-color);
+    animation: warning 0.5s;
 }
 
 /* x mark */
-#silverBox-error {
-    width: 50px;
-    height: 50px;
+.silverBox-error {
+    width: var(--silverBox-error-size);
+    height: var(--silverBox-error-size);
     border-radius: 50%;
-    border: 3px solid #E62E05;
+    border: var(--silverBox-error-circle-border);
+    border-color: var(--silverBox-error-circle-border-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: error .25s;
+    animation: error 0.25s;
 
     .x {
-        width: 30px;
-        height: 4px;
+        width: var(--silverBox-error-icon-inside-size);
+        height: var(--silverBox-error-icon-width);
         position: relative;
 
         &::before,
@@ -94,10 +119,10 @@
             content: "";
             position: absolute;
             top: 0;
-            right: -1px;
-            width: 30px;
-            height: 3px;
-            background-color: #E62E05;
+            right: 0;
+            width: var(--silverBox-error-icon-inside-size);
+            height: var(--silverBox-error-icon-width);
+            background-color: var(--silverBox-error-color);
             border-radius: 10px;
         }
 
@@ -111,11 +136,6 @@
     }
 }
 
-#silverBox-custom-icon {
-    max-width: var(--silverBox-custom-icon-width);
-    border-radius: var(--silverBox-custom-icon-border-radius);
-}
-
 // animations
 @keyframes rotate {
     0% {
@@ -123,7 +143,7 @@
     }
 
     25% {
-        transform: rotate(25deg)
+        transform: rotate(25deg);
     }
 
     50% {
@@ -131,7 +151,7 @@
     }
 
     75% {
-        transform: rotate(25deg)
+        transform: rotate(25deg);
     }
 
     100% {
@@ -142,15 +162,15 @@
 // error
 @keyframes error {
     0% {
-        transform: translateX(0)
+        transform: translateX(0);
     }
 
     25% {
-        transform: translateX(5px) scale(1.05)
+        transform: translateX(5px) scale(1.05);
     }
 
     50% {
-        transform: translateX(-5px)scale(1.1)
+        transform: translateX(-5px) scale(1.1);
     }
 
     75% {
@@ -158,7 +178,7 @@
     }
 
     100% {
-        transform: translateX(0)
+        transform: translateX(0);
     }
 }
 
@@ -169,7 +189,7 @@
     }
 
     50% {
-        transform: scale(1.1)
+        transform: scale(1.1);
     }
 
     100% {
@@ -186,7 +206,7 @@
 
     25% {
         opacity: 0;
-        transform: scale(.6);
+        transform: scale(0.6);
     }
 
     50% {
@@ -196,7 +216,7 @@
 
     75% {
         opacity: 0;
-        transform: scale(.6);
+        transform: scale(0.6);
     }
 
     100% {

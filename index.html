@@ -1,18 +1,125 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/dist/css/index.css" />
-		<title>silverBox</title>
-	</head>
-	<body>
-		<div class="container">
-			<aside>aside</aside>
 
-			<main>main</main>
-		</div>
-		<script src="/dist/js/index.js"></script>
-	</body>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#1c2638" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/public/src/images/silverBox-TransParent.png" />
+    <link rel="stylesheet" href="/public/dist/css/index.css" />
+    <title>SilverBox</title>
+</head>
+
+<body>
+    <header id="silverBox-header">
+        <div class="container">
+            <nav>
+                <a href="/" id="logo">
+                    <img src="/public/src/images/silverBox-TransParent.svg" />
+                    <span>SilverBox</span>
+                </a>
+                <ul>
+                    <li><a href="#silverBox-heroSection">Intro</a></li>
+                    <li><a href="#silverBox-exampleSection">Example</a></li>
+                    <li><a href="#silverBox-usageSection">Usage</a></li>
+                    <li class="silverBox-documentation-header">
+                        <a href="/documentation?v=latest">Documentation</a>
+                    </li>
+                </ul>
+                <div id="hamburger-menu">
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- hero section -->
+    <section id="silverBox-heroSection">
+        <!-- container -->
+        <div class="container">
+            <h2 class="silverBox-tagline">
+                Simplifying Complexity, Empowering Creativity
+            </h2>
+
+            <div class="whySilverBox">
+                <div class="silverBox-introduction">
+                    Welcome to <span class="silverBox-name-tag">SilverBox</span>, the JavaScript library that simplifies
+                    modals and alerts while offering unmatched customization.
+                    What sets SilverBox apart is
+                    its use of CSS variables, allowing developers to customize the visual appearance seamlessly. No more
+                    complex CSS files -
+                    simply modify the variables for a personalized look. Key features include streamlined modal
+                    creation, interactive
+                    alerts, unlimited customization options, lightweight performance, and cross-browser compatibility.
+                    Revolutionize your
+                    modals and alerts with SilverBox and simplify your development process. Experience the power of
+                    effortless customization
+                    and take your web applications to the next level.
+                </div>
+            </div>
+            <button class="get-silverBox">
+                <a href="#silverBox-usageSection">Get SilverBox</a>
+            </button>
+        </div>
+    </section>
+
+    <!-- main -->
+    <main>
+        <!-- example -->
+        <section id="silverBox-exampleSection">
+            <div class="container">
+                <h2 class="silverBox-sectionHeader">Example</h2>
+            </div>
+        </section>
+        <!-- usage -->
+
+        <section id="silverBox-usageSection">
+            <div class="container">
+                <h2 class="silverBox-sectionHeader">Usage</h2>
+
+                <div id="silverBox-usageInstructions">
+                    <p>
+                        <a href="https://github.com/silverethical/silverbox/releases" target="_blank">1. Get
+                            <span>SilverBox.</span>
+                        </a>
+                    </p>
+                    <p class="step1">
+                        2. Initialize the plugin by referencing the
+                        necessary files:
+                    </p>
+                    <pre><code class="language-html step1"></code></pre>
+                    <p class="step2">
+                        3. Call the silverBox function after the page has
+                        loaded:
+                    </p>
+                    <pre><code class="language-javascript step2"></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- credits -->
+        <section id="silverBox-CreditsSection" class="hidden">
+            <div class="container">
+                <h2 class="silverBox-sectionHeader">Credits</h2>
+
+                <!-- team members -->
+                <div class="silverBox-teamMembers"></div>
+            </div>
+        </section>
+    </main>
+    <!-- footer -->
+    <footer>
+        <br />
+        Special thanks to
+        <a href="https://sweetalert2.github.io/" target="_blank" id="sweetAlert">SweetAlert2</a>
+        and
+        <a href="https://www.untitledui.com/" target="_blank" id="Untitled-UI">Untitled UI</a>
+    </footer>
+
+    <script src="/public/dist/js/libraries/highlightJS/highlight.min.js"></script>
+    <script src="/public/dist/js/index.js"></script>
+</body>
+
 </html>

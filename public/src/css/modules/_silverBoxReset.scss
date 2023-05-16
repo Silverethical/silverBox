@@ -1,0 +1,11 @@
+// css reset
+.silverBox-container,
+.silverBox-container * {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	color: inherit;
+	font: inherit;
+	border: none;
+	text-decoration: none;
+}

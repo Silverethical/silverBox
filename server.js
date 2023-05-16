@@ -6,13 +6,21 @@ const path = require("path");
 const app = express();
 
 // Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "/")));
 
 // Define a route for the root URL
 app.get("/", (req, res) => {
 	// Construct the file path for the index.html file
 	const filePath = path.join(__dirname, "./index.html");
 	// Send the index.html file to the client
+	res.sendFile(filePath);
+});
+
+// Define a route for the documentation URL
+app.get("/documentation", (req, res) => {
+	// Construct the file path for the documentation html file
+	const filePath = path.join(__dirname, "./documentation/index.html");
+	// Send the documentation html file to the client
 	res.sendFile(filePath);
 });
 
