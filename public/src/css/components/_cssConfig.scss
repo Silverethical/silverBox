@@ -222,7 +222,7 @@
     // inputs start -------------------
 
     // wrapper
-    --silverBox-input-wrapper-flex-wrap: wrap;
+    --silverBox-input-container-flex-wrap: wrap;
 
     // input
     --silverBox-input-font-size: 16px;
@@ -232,6 +232,7 @@
     --silverBox-input-parent-gap: 10px 0;
     --silverBox-input-font-weight: 500;
     --silverBox-input-width: 100%;
+    --silverBox-input-wrapper-width:100%;
     --silverBox-input-border: 1px solid var(--silverBox-input-border-color);
 
     --silverBox-input-text-align: start;
