@@ -34,7 +34,7 @@ export default function silverBox(config) {
 			inputWrapper = document.createElement("div"),
 			buttonWrapper = document.createElement("div");
 		buttonWrapper.classList.add("silverBox-button-wrapper");
-		inputWrapper.classList.add("silverBox-input-wrapper");
+		inputWrapper.classList.add("silverBox-input-container");
 
 		/** pushes header into the modal */
 		const iconsConfig = () => {
