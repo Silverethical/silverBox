@@ -3,10 +3,10 @@ const examples = [
 		explanation: "Simple success alert.",
 		config: {
 			title: {
-				text: "success",
+				text: "Success",
 				alertIcon: "success",
 			},
-			text: "Your task has been completed",
+			text: "Your task has been completed.",
 		},
 	},
 	{
