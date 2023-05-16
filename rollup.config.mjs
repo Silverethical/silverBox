@@ -27,7 +27,7 @@ const config = [
 		input: "./public/src/js/libraries/highlightJS/highlight.min.js",
 		output: {
 			file: "./public/dist/js/libraries/highlightJS/highlight.min.js",
-			format: "es",
+			format: "cjs",
 		},
 		plugins: [
 			babel({
@@ -40,7 +40,7 @@ const config = [
 		input: "./public/src/js/index.js",
 		output: {
 			file: "./public/dist/js/index.js",
-			format: "es",
+			format: "cjs",
 		},
 		plugins: [
 			babel({
@@ -54,7 +54,7 @@ const config = [
 		input: "./public/src/js/documentationPage.js",
 		output: {
 			file: "./public/dist/js/documentationPage.js",
-			format: "es",
+			format: "cjs",
 		},
 		plugins: [
 			babel({
