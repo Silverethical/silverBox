@@ -1,18 +1,18 @@
- .silverBox-input-wrapper {
+ .silverBox-input-container {
      margin-top: var(--silverBox-items-top-margin);
      display: flex;
-     flex-wrap: var(--silverBox-input-wrapper-flex-wrap);
+     flex-wrap: var(--silverBox-input-container-flex-wrap);
      gap: var(--silverBox-input-parent-gap);
      justify-content: var(--silverBox-input-parent-justify-content);
      align-items: var(--silverBox-input-parent-align-items);
 
 
-     .silverBox-input {
+     .silverBox-input-wrapper {
+        width: var(--silverBox-input-wrapper-width);
          display: inline-flex;
          flex-direction: var(--silverBox-input-flex-direction);
          gap: var(--silverBox-inside-input-gap);
          text-align: var(--silverBox-input-text-align);
-         width: var(--silverBox-input-width);
 
          .silverBox-select {
              width: var(--silverBox-select-input-width);
@@ -33,6 +33,7 @@
              font-size: var(--silverBox-input-font-size);
              box-shadow: var(--silverBox-box-shadow);
              font-weight: var(--silverBox-input-font-weight);
+             width: var(--silverBox-input-width);
 
 
              &::placeholder {

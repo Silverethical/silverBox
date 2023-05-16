@@ -19,7 +19,7 @@ function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOn
 
 	// parent and children element creation
 	let inputWrapper = document.createElement('div')
-	inputWrapper.classList.add('silverBox-input')
+	inputWrapper.classList.add('silverBox-input-wrapper')
 
 	// label
 	let labelEl = document.createElement("label")
