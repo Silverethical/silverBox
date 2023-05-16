@@ -1,5 +1,6 @@
 .silverBox-button-wrapper {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-around;
     gap: var(--silverBox-button-wrapper-gap);
     margin-top: var(--silverBox-items-top-margin);

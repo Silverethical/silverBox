@@ -123,16 +123,16 @@ export default function silverBox(config) {
 		// buttons config
 		const buttonsConfig = [
 			{
-				type: "cancelButton",
-				text: "Cancel"
+				type: "confirmButton",
+				text: "Confirm"
 			},
 			{
 				type: "denyButton",
 				text: "Deny"
 			},
 			{
-				type: "confirmButton",
-				text: "Confirm"
+				type: "cancelButton",
+				text: "Cancel"
 			}
 		]
 
