@@ -1,6 +1,30 @@
 import { babel } from "@rollup/plugin-babel";
+import terser from "@rollup/plugin-terser";
 
 const config = [
+	{
+		input: "./public/src/js/silverBox.js",
+		output: {
+			file: "./public/dist/js/silverBox.js",
+			format: "cjs",
+			sourcemap: "inline",
+		},
+	},
+	{
+		input: "./public/src/js/silverBox.js",
+		output: {
+			file: "./public/dist/js/silverBox.min.js",
+			format: "cjs",
+			sourcemap: "inline",
+		},
+		plugins: [
+			babel({
+				babelHelpers: "bundled",
+				presets: ["@babel/preset-env"],
+			}),
+			terser(),
+		],
+	},
 	{
 		input: "./public/src/js/libraries/highlightJS/highlight.min.js",
 		output: {
@@ -27,20 +51,7 @@ const config = [
 				babelHelpers: "bundled",
 				presets: ["@babel/preset-env"],
 			}),
-		],
-	},
-	{
-		input: "./public/src/js/silverBox.js",
-		output: {
-			file: "./public/dist/js/silverBox.js",
-			format: "cjs",
-			sourcemap: "inline",
-		},
-		plugins: [
-			babel({
-				babelHelpers: "bundled",
-				presets: ["@babel/preset-env"],
-			}),
+			terser(),
 		],
 	},
 	{
@@ -55,6 +66,7 @@ const config = [
 				babelHelpers: "bundled",
 				presets: ["@babel/preset-env"],
 			}),
+			terser(),
 		],
 	},
 ];
