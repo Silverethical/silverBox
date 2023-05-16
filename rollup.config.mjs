@@ -7,7 +7,6 @@ const config = [
 		output: {
 			file: "./public/dist/js/silverBox.js",
 			format: "cjs",
-			sourcemap: "inline",
 		},
 	},
 	{
@@ -15,7 +14,6 @@ const config = [
 		output: {
 			file: "./public/dist/js/silverBox.min.js",
 			format: "cjs",
-			sourcemap: "inline",
 		},
 		plugins: [
 			babel({
@@ -30,7 +28,6 @@ const config = [
 		output: {
 			file: "./public/dist/js/libraries/highlightJS/highlight.min.js",
 			format: "es",
-			sourcemap: "inline",
 		},
 		plugins: [
 			babel({
@@ -44,7 +41,6 @@ const config = [
 		output: {
 			file: "./public/dist/js/index.js",
 			format: "es",
-			sourcemap: "inline",
 		},
 		plugins: [
 			babel({
@@ -59,7 +55,6 @@ const config = [
 		output: {
 			file: "./public/dist/js/documentationPage.js",
 			format: "es",
-			sourcemap: "inline",
 		},
 		plugins: [
 			babel({
