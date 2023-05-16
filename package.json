@@ -2,13 +2,13 @@
 	"name": "silverbox",
 	"version": "1.0.0",
 	"description": "SilverBox is a lightweight and versatile JavaScript library that enables you to effortlessly create customizable modals and alerts for your web applications. Built with pure JavaScript and zero dependencies, SilverBox empowers developers to easily integrate stylish and interactive pop-up components without adding unnecessary bloat. Harness the power of CSS variables to customize the visual styles, seamlessly adapting to your application's design system. Experience the simplicity and flexibility of SilverBox for beautiful modals and alerts.",
+	"type": "module",
 	"scripts": {
-		"start": "echo 'Not configured yet'",
-		"dev:front": "concurrently --kill-others \"npm run scss\" \"npm run rollup\" \"node ./server.js\"",
+		"dev:front": "concurrently --kill-others \"npm run scss\" \"npm run rollup\" \"node ./server.cjs\"",
 		"scss": "sass --watch public/src/css/:public/dist/css",
-		"rollup": "rollup --watch --config rollup.config.cjs",
+		"rollup": "rollup --watch --config rollup.config.js",
 		"minify:js": "uglifyjs public/dist/js/silverBox.js -o public/dist/js/silverBox.min.js",
-		"minify:css": "echo 'Not configured yet'",
+		"minify:css": "npx postcss public/dist/css/silverBox.css > public/dist/css/silverBox.min.css",
 		"minify": "npm run minify:js && npm run minify:css"
 	},
 	"repository": {
@@ -22,15 +22,17 @@
 	},
 	"homepage": "https://github.com/Silverethical/silverBox",
 	"dependencies": {
+		"@babel/cli": "^7.21.5",
+		"@babel/core": "^7.21.8",
+		"@babel/preset-env": "^7.21.5",
+		"@rollup/plugin-babel": "^6.0.3",
+		"concurrently": "^8.0.1",
+		"cssnano": "^6.0.1",
 		"express": "^4.18.2",
-		"sass": "^1.59.3"
-	},
-	"devDependencies": {
-		"babel-plugin-external-helpers": "^6.22.0",
-		"babel-preset-es2015": "^6.24.1",
-		"concurrently": "^7.6.0",
-		"rollup": "^3.3.0",
-		"rollup-plugin-babel": "^3.0.7",
+		"postcss": "^8.4.23",
+		"postcss-cli": "^10.1.0",
+		"rollup": "^3.21.7",
+		"sass": "^1.62.1",
 		"uglify-js": "^3.17.4"
 	}
 }
