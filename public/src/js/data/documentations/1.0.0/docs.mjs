@@ -1,3 +1,9 @@
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+import fs from "fs";
+import addButtonConfig from "../../../helpers/addButtonConfig.mjs";
+import sortDocumentation from "../../../helpers/sortDocumentation.mjs";
+
 const documentation = [
 	{
 		configName: "alertIcon",
@@ -306,17 +312,19 @@ const documentation = [
 // add confirm/deny/cancel button to documentation
 addButtonConfig(["Confirm", "Deny", "Cancel"], documentation);
 
+// sort documentation alphabetically
 const sortedDocs = sortDocumentation(documentation);
-
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-import fs from "fs";
 
 const currentFileUrl = import.meta.url;
 const currentFilePath = fileURLToPath(currentFileUrl);
 const currentDirPath = dirname(currentFilePath);
+
+// Convert documentation to json
 const jsonContent = JSON.stringify(sortedDocs);
+
 const filePath = `${currentDirPath}/docs.json`;
+
+// save documentation as json file
 fs.writeFile(filePath, jsonContent, (err) => {
 	if (err) {
 		console.error("Error writing JSON file:", err);
@@ -324,133 +332,3 @@ fs.writeFile(filePath, jsonContent, (err) => {
 		console.log("JSON file created successfully.");
 	}
 });
-
-/**
- * creates an object of button's configs explanation and pushes it into documentation
- * @param {Array} buttonTypeArr - array of button names
- * @param {Array} configName - config name
- */
-function addButtonConfig(buttonTypeArr, configName) {
-	for (const buttonType of buttonTypeArr) {
-		configName.push({
-			configName: `${buttonType.toLowerCase()}Button`,
-			defaultValue: "emptyDefaultValue",
-			type: "object",
-			explanation: `${buttonType} button configuration`,
-			config: [
-				{
-					configName: "text",
-					defaultValue: `"${buttonType}"`,
-					type: "string",
-					explanation: "Button text.",
-				},
-				{
-					configName: "bgColor",
-					defaultValue: "",
-					type: "string",
-					explanation: "Button background color.",
-				},
-				{
-					configName: "borderColor",
-					defaultValue: "",
-					type: "string",
-					explanation: "Button border color.",
-				},
-				{
-					configName: "textColor",
-					defaultValue: "",
-					type: "string",
-					explanation: "Button text color.",
-				},
-				{
-					configName: "iconEnd",
-					defaultValue: "",
-					type: "string",
-					explanation: "Button icon at the end.",
-				},
-				{
-					configName: "iconStart",
-					defaultValue: "",
-					type: "string",
-					explanation: "Button icon at the start.",
-				},
-				{
-					configName: "closeOnClick",
-					defaultValue: false,
-					type: "boolean",
-					explanation: "Whether SilverBox closes on click or not.",
-				},
-				{
-					configName: "showButton",
-					defaultValue: true,
-					type: "boolean",
-					explanation: "Show/Hide button.",
-				},
-				{
-					configName: "className",
-					defaultValue: "",
-					type: "string",
-					explanation: "Button ClassName.",
-				},
-				{
-					configName: "id",
-					defaultValue: "",
-					type: "string",
-					explanation: "Button ID.",
-				},
-				{
-					configName: "disabled",
-					defaultValue: false,
-					type: "boolean",
-					explanation: `Button disabled attribute.`,
-				},
-				{
-					configName: "loadingAnimation",
-					defaultValue: true,
-					type: "boolean",
-					explanation: "Button loading animation on click.",
-				},
-				{
-					configName: "dataAttribute",
-					defaultValue: "",
-					type: "object",
-					explanation: `Specify desired html attribute by passing an object with key-value pairs. For example: "{ hashId:'10012', lastStatus:'failed' }" will generate "data-hashId='10012'" and "data-lastStatus='failed'" for the appropriate button. `,
-				},
-			],
-		});
-	}
-}
-
-/**
- * Sorts an array of documentation objects by configName, and sorts the config array within each object by configName.
- * @param {Array} documentation - An array of documentation objects.
- * @returns {Array} - The sorted array of documentation objects.
- */
-
-function sortDocumentation(documentation) {
-	// Sort the main documentation array by configName
-	documentation.sort((a, b) => {
-		// Convert names to uppercase to ignore casing
-		const nameA = a.configName.toUpperCase();
-		const nameB = b.configName.toUpperCase();
-		if (nameA < nameB) return -1;
-		if (nameA > nameB) return 1;
-		return 0;
-	});
-
-	// Loop through the sorted array and sort the config array within each object
-	documentation.forEach((obj) => {
-		if (obj.config) {
-			obj.config.sort((c, d) => {
-				// Convert names to uppercase to ignore casing
-				const nameC = c.configName.toUpperCase();
-				const nameD = d.configName.toUpperCase();
-				if (nameC < nameD) return -1;
-				if (nameC > nameD) return 1;
-				return 0;
-			});
-		}
-	});
-
-	return documentation;
-}
