@@ -1,6 +1,6 @@
 # SilverBox
 
-SilverBox is a lightweight and versatile JavaScript library for creating customizable modals and alerts in web applications. It allows you to effortlessly integrate stylish and interactive pop-up components with ease.
+SilverBox is a lightweight and versatile JavaScript library for creating customizable modals and alerts in web applications. It allows you to have your own style alongside the ease of use of using a library.
 
 ## Table of Contents
 
@@ -38,7 +38,7 @@ silverBox({
 
 ## Contributing
 
-Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to submit bug reports, feature requests, or pull requests. To contribute to this project.
+Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to submit bug reports, feature requests, or pull requests.
 
 ## License
 
