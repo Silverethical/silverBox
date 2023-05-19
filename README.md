@@ -13,14 +13,16 @@ SilverBox is a lightweight and versatile JavaScript library for creating customi
 
 To create a modal or alert using SilverBox, follow these steps:
 
-1. Include SilverBox CSS and JS files in your HTML:
+1. [Download SilverBox files.](https://github.com/silverethical/silverbox/releases/latest)
+
+2. Include SilverBox CSS and JS files in your HTML:
 
 ```html
 <link rel="stylesheet" href="path/to/silverBox.min.css" />
 <script src="path/to/silverBox.min.js"></script>
 ```
 
-2. Call SilverBox and create a modal or alert:
+3. Call SilverBox and create a modal or alert:
 
 ```js
 silverBox({
@@ -34,7 +36,7 @@ silverBox({
 
 ## Documentation
 
-[Please refer to the website for full documentation list.](https://silverboxjs.ir/documentation/?v=latest).
+[Please refer to the website for full documentation list.](https://silverboxjs.ir/documentation/?v=latest)
 
 ## Contributing
 
