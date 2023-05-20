@@ -25,8 +25,8 @@ const documentation = [
 	},
 	{
 		configName: "timer",
-		defaultValue: undefined,
-		type: "string",
+		defaultValue: 0,
+		type: "number",
 		explanation: "SilverBox closes after given time in milliseconds.",
 	},
 	{
@@ -43,7 +43,7 @@ const documentation = [
 	},
 	{
 		configName: "title",
-		defaultValue: "",
+		defaultValue: "emptyDefaultValue",
 		type: "object",
 		explanation: "SilverBox title.",
 		config: [
@@ -264,7 +264,7 @@ const documentation = [
 			},
 			{
 				configName: "multiplyBy",
-				defaultValue: "",
+				defaultValue: 1,
 				type: "number",
 				explanation: "Multiplies the input.",
 			},
