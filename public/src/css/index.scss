@@ -260,6 +260,24 @@ body {
 							color: var(--header-color);
 							font-size: var(--silverBox-navbar-a-font-size);
 							font-weight: var(--silverBox-navbar-a-font-weight);
+							position: relative;
+							transition: .4s ease-in-out;
+							&::after{
+								content: '';
+								background-color: #7e7e7e;
+								width: 0;
+								height: 2px;
+								position: absolute;
+								bottom: -5px;
+								left: 0;
+								transition: .4s ease-in-out;
+							}
+							&:hover::after{
+								width: 100%;
+							}
+							&:hover{
+								color: #7e7e7e;
+							}
 						}
 					}
 				}
