@@ -4,6 +4,7 @@ import teamMembers from "./data/teamMembers";
 import renderTeamMembers from "./helpers/renderTeamMembers";
 import customStringify from "./helpers/customStringify";
 import renderExample from "./components/renderExample";
+import copyConfig from "./helpers/copyConfig";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -73,6 +74,9 @@ for (let i = 0; i < examples.length; i++) {
 }
 
 // usage section
+
+
+
 const usageCode1 = document.querySelector("#silverBox-usageInstructions code.step1");
 usageCode1.textContent += `<link rel="stylesheet" href="silverBox.min.css">`;
 usageCode1.textContent += `\n<script src="silverBox.min.js"></script>`;
@@ -83,14 +87,22 @@ usageCode2.textContent = `silverBox({
 	text: "Your task has been completed.",
 	centerContent: true,
 	confirmButton: {
-		   showButton: true,
-		   bgColor: "#3085d6",
-		   borderColor: "#3085d6",
-		   textColor: "#fff",	
-		   text: "Confirm",
-		   closeOnClick: true
+		bgColor: "#3085d6",
+		borderColor: "#3085d6",
+		textColor: "#fff", 
+		text: "Confirm",
+		closeOnClick: true
 	}
 })`
+
+// usage example copyButton 
+let usageExampleCopyButton = document.querySelector('#usage-example .silverBox-exampleCopyButton')
+
+usageExampleCopyButton.addEventListener('click',()=>{
+	
+	// calls the copyConfig
+	copyConfig({ copy: usageCode2.textContent, iconElement: usageExampleCopyButton.children[0], timeOut: 1500 })
+})
 
 // highlight codes (highlightJS library)
 hljs.highlightAll();
