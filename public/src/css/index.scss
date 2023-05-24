@@ -177,9 +177,7 @@ body {
 
 			div.silverBox-introduction {
 				text-align: left;
-				font-weight: var(
-					--silverBox-hero-section-introduction-font-weight
-				);
+				font-weight: var(--silverBox-hero-section-introduction-font-weight);
 				line-height: 30px;
 				font-size: var(--silverBox-hero-section-introduction-font-size);
 
@@ -236,9 +234,7 @@ body {
 					span {
 						font-size: var(--silverBox-navbar-logo-span-font-size);
 						color: var(--primary-color);
-						font-weight: var(
-							--silverBox-navbar-logo-span-font-weight
-						);
+						font-weight: var(--silverBox-navbar-logo-span-font-weight);
 						margin-right: 30px;
 					}
 				}
@@ -260,6 +256,27 @@ body {
 							color: var(--header-color);
 							font-size: var(--silverBox-navbar-a-font-size);
 							font-weight: var(--silverBox-navbar-a-font-weight);
+							position: relative;
+							transition: .4s ease-in-out;
+
+							&::after {
+								content: '';
+								background-color: #7e7e7e;
+								width: 0;
+								height: 2px;
+								position: absolute;
+								bottom: -5px;
+								left: 0;
+								transition: .4s ease-in-out;
+							}
+
+							&:hover::after {
+								width: 100%;
+							}
+
+							&:hover {
+								color: #7e7e7e;
+							}
 						}
 					}
 				}
@@ -320,9 +337,38 @@ body {
 			background-color: var(--silverBox-button-hover-bgColor);
 		}
 	}
+
+	.silverBox-exampleCopyButton {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		font-weight: 300;
+		top: 20px;
+		right: 20px;
+		border: none;
+		background: none;
+		color: #fff;
+
+		img {
+			max-width: 30px;
+			transition: 0.2s;
+
+			&.silverBox-copied {
+				filter: grayscale(100%) sepia(100%) hue-rotate(90deg) !important;
+			}
+		}
+
+		img:hover {
+			transform: scale(0.8);
+		}
+	}
+
 }
 
 @media only screen and (max-width: 900px) {
+
 	// hide horizontal overflow
 	body {
 		overflow-x: hidden;
@@ -378,9 +424,7 @@ main {
 				.silverBox-exampleExplanation {
 					color: var(--primary-color);
 					font-size: var(--silverBox-example-explanation-font-size);
-					font-weight: var(
-						--silverBox-example-explanation-font-weight
-					);
+					font-weight: var(--silverBox-example-explanation-font-weight);
 					letter-spacing: 0.035em;
 				}
 
@@ -399,9 +443,7 @@ main {
 						width: fit-content;
 						min-width: 130px;
 						font-size: var(--silverBox-example-button-font-size);
-						font-weight: var(
-							--silverBox-example-button-font-weight
-						);
+						font-weight: var(--silverBox-example-button-font-weight);
 						transition: 0.3s ease-in-out;
 
 						// show example
@@ -409,9 +451,7 @@ main {
 							background: var(--box-color);
 
 							&:hover {
-								background-color: var(
-									--silverBox-button-hover-bgColor
-								);
+								background-color: var(--silverBox-button-hover-bgColor);
 							}
 						}
 
@@ -453,34 +493,9 @@ main {
 					}
 				}
 
-				.silverBox-exampleCopyButton {
-					position: absolute;
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					justify-content: center;
-					font-weight: 300;
-					top: 20px;
-					right: 20px;
-					border: none;
-					background: none;
-					color: #fff;
 
-					img {
-						max-width: 30px;
-						transition: 0.2s;
-
-						&.silverBox-copied {
-							filter: grayscale(100%) sepia(100%)
-								hue-rotate(90deg);
-						}
-					}
-
-					img:hover {
-						transform: scale(0.8);
-					}
-				}
 			}
+
 		}
 	}
 
@@ -518,6 +533,14 @@ main {
 
 			pre {
 				margin-bottom: 30px;
+			}
+		}
+
+		#usage-example {
+			position: relative;
+
+			button {
+				top: 7%;
 			}
 		}
 	}
@@ -578,6 +601,7 @@ main {
 				}
 
 				&:hover {
+
 					// on button hover
 					&::after {
 						animation: confusedArrow 1.5s;
@@ -694,9 +718,7 @@ main {
 					font-weight: var(--silverBox-document-font-weight);
 
 					.silverBox-document-argument {
-						font-weight: var(
-							--silverBox-document-argument-font-weight
-						);
+						font-weight: var(--silverBox-document-argument-font-weight);
 						font-style: italic;
 						color: var(--document-argument);
 					}
@@ -745,12 +767,8 @@ main {
 				transition: all 500ms ease-in-out;
 				background-color: var(--box-color);
 				color: var(--white-in-white);
-				font-weight: var(
-					--silverBox-credit-section-team-member-font-weight
-				);
-				font-size: var(
-					--silverBox-credit-section-team-member-font-size
-				);
+				font-weight: var(--silverBox-credit-section-team-member-font-weight);
+				font-size: var(--silverBox-credit-section-team-member-font-size);
 				box-shadow: 1px 4px 5px rgba(7, 7, 7, 0.25);
 
 				.silverBox-memberImage {
@@ -765,13 +783,9 @@ main {
 					}
 
 					.silverBox-memberPosition {
-						font-size: var(
-							---silverBox-credit-section-team-member-position-font-size
-						);
+						font-size: var(---silverBox-credit-section-team-member-position-font-size);
 						color: var(--document-border-color);
-						font-weight: var(
-							---silverBox-credit-section-team-member-position-font-weight
-						);
+						font-weight: var(---silverBox-credit-section-team-member-position-font-weight);
 					}
 				}
 
@@ -788,6 +802,7 @@ main {
 		}
 	}
 }
+
 
 footer {
 	color: var(--document-border-color);
@@ -917,15 +932,11 @@ footer {
 	}
 
 	.silverBox-tagline {
-		font-weight: var(
-			--silverBox-hero-section-tagline-font-weight
-		) !important;
+		font-weight: var(--silverBox-hero-section-tagline-font-weight) !important;
 	}
 
 	.silverBox-sectionHeader {
-		font-weight: var(
-			--silverBox-hero-section-introduction-font-weight
-		) !important;
+		font-weight: var(--silverBox-hero-section-introduction-font-weight) !important;
 	}
 
 	.silverBox-example {
