@@ -1,7 +1,7 @@
 // import components
 import silverBoxButtonComponent from "./components/silverBox/button";
 import silverBoxInputComponent from "./components/silverBox/input";
-import silverBoxModalSample from "./components/silverBox/modalSample";
+import createSilverBox from "./components/silverBox/createSilverBox";
 import silverBoxHeaderComponent from "./components/silverBox/header";
 import silverBoxIconsComponent from "./components/silverBox/icons";
 import silverBoxCloseButtonOnClick from "./helpers/closeButtonOnClick";
@@ -29,7 +29,7 @@ export default function silverBox(config) {
 	if (Object.keys(config).length !== 0) {
 		/** selectors(before creating elements)*/
 		/** array of all the elements in the modal (inputs/texts/icons/buttons) */
-		let elementsArray = [],
+		const components = {},
 			bodyEl = document.body,
 			inputWrapper = document.createElement("div"),
 			buttonWrapper = document.createElement("div");
@@ -64,7 +64,7 @@ export default function silverBox(config) {
 		});
 
 		// if headerComponent is not empty this code will be executed
-		if (headerComponentConfig.length !== 0) elementsArray.push(headerComponentConfig);
+		if (headerComponentConfig.length !== 0) components.header = headerComponentConfig;
 
 		/** inputs */
 		/** if inputs exist */
@@ -115,8 +115,8 @@ export default function silverBox(config) {
 			else {
 				multiplyByCheck(config.input);
 			}
-			// adding inputWrapper to elementsArray
-			inputWrapper.childElementCount !== 0 ? elementsArray.push(inputWrapper) : "";
+			// adding inputWrapper to components
+			inputWrapper.childElementCount !== 0 ? (components.input = inputWrapper) : "";
 		}
 
 		// buttons config
@@ -152,15 +152,13 @@ export default function silverBox(config) {
 		if ("buttonsDirection" in config) buttonWrapper.style.direction = config.buttonsDirection;
 		// pushes the buttonWrapper inside the elements Array
 
-		if (buttonWrapper.innerHTML != "") elementsArray.push(buttonWrapper);
+		if (buttonWrapper.innerHTML != "") components.button = buttonWrapper;
 
 		// adds footer if it is inside the config and it exists
 		if (config.footer) {
-			elementsArray.push(
-				silverBoxFooterComponent({
-					footerContent: config.footer,
-				})
-			);
+			components.footer = silverBoxFooterComponent({
+				footerContent: config.footer,
+			});
 		}
 
 		// checks if we have inputs in config, the whole thing will be added into a form
@@ -170,9 +168,9 @@ export default function silverBox(config) {
 		// modalSampleConfig
 		const modalSampleConfig = (className, isInputValue) => {
 			return bodyEl.append(
-				silverBoxModalSample({
-					elementsArray: elementsArray,
-					overlayClass: className,
+				createSilverBox({
+					components: components,
+					positionClassName: className,
 					isInput: isInputValue,
 					theme: config.theme,
 					direction: config.direction,
@@ -185,7 +183,7 @@ export default function silverBox(config) {
 		let position = "position" in config ? `silverBox-${config.position}` : "silverBox-overlay";
 
 		// checks if the input config exists in out given Config, due to it's output, the second argument will be set for our function
-		if (elementsArray.length !== 0) modalSampleConfig(position, "input" in config);
+		if (Object.keys(components).length !== 0) modalSampleConfig(position, "input" in config);
 
 		// Timer modal
 
