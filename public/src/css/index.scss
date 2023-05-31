@@ -103,7 +103,7 @@ html {
 	--primary-color: #3286cf;
 	--box-color: #151f33;
 	--get-silverBox-color: #2f3237;
-	--silverBox-scroll-margin-top: 70px;
+	--silverBox-scroll-margin-top: 15vh;
 
 	// body
 	--body-bg-color: #0f192d;
@@ -257,17 +257,17 @@ body {
 							font-size: var(--silverBox-navbar-a-font-size);
 							font-weight: var(--silverBox-navbar-a-font-weight);
 							position: relative;
-							transition: .4s ease-in-out;
+							transition: 0.4s ease-in-out;
 
 							&::after {
-								content: '';
+								content: "";
 								background-color: #7e7e7e;
 								width: 0;
 								height: 2px;
 								position: absolute;
 								bottom: -5px;
 								left: 0;
-								transition: .4s ease-in-out;
+								transition: 0.4s ease-in-out;
 							}
 
 							&:hover::after {
@@ -364,11 +364,9 @@ body {
 			transform: scale(0.8);
 		}
 	}
-
 }
 
 @media only screen and (max-width: 900px) {
-
 	// hide horizontal overflow
 	body {
 		overflow-x: hidden;
@@ -492,10 +490,7 @@ main {
 						transform: rotate(-90deg);
 					}
 				}
-
-
 			}
-
 		}
 	}
 
@@ -601,7 +596,6 @@ main {
 				}
 
 				&:hover {
-
 					// on button hover
 					&::after {
 						animation: confusedArrow 1.5s;
@@ -802,7 +796,6 @@ main {
 		}
 	}
 }
-
 
 footer {
 	color: var(--document-border-color);
