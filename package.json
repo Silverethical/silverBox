@@ -6,7 +6,6 @@
 		"dev:front": "npm run create-docs-json && concurrently --kill-others \"npm run scss\" \"npm run rollup\" \"node ./server.js\"",
 		"scss": "sass --style compressed --watch public/src/css/:public/dist/css",
 		"rollup": "rollup --watch --config rollup.config.mjs",
-		"create-docs-json": "node ./public/src/js/data/documentations/1.0.0/docs.mjs",
 		"prepare": "husky install"
 	},
 	"repository": {
