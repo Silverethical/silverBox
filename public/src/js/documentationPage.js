@@ -61,3 +61,9 @@ function getParameterByName(name, url = window.location.href) {
 	if (!results[2]) return "";
 	return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
+// add versionNumber to documentation
+const documentationVersionSpan = document.querySelector("#silverBox-documentation-version");
+
+// add documentation version to documentation Span
+documentationVersionSpan.innerText = "v" + versionNumber;
