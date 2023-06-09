@@ -812,55 +812,9 @@ footer {
 	}
 }
 
+// responsive
 @media only screen and (max-width: 900px) {
-	main {
-		section#silverBox-heroSection {
-			div.whySilverBox {
-				align-items: center !important;
-				flex-direction: column-reverse;
-			}
-		}
-
-		section#silverBox-exampleSection {
-			.silverBox-example {
-				justify-content: center;
-
-				.silverBox-exampleColumn-code {
-					display: none;
-				}
-			}
-		}
-
-		section#silverBox-usageSection {
-			padding-bottom: 120px !important;
-		}
-
-		#silverBox-CreditsSection {
-			margin-top: -70px;
-
-			.silverBox-teamMembers {
-				grid-template-columns: unset !important;
-			}
-		}
-
-		.silverBox-example {
-			margin-bottom: 50px !important;
-
-			.silverBox-example-button-wrapper {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				gap: 10px;
-
-				// copy example code
-				.silverBox-copyConfig {
-					display: inline-block !important;
-					background: var(--header-scrolled-bg-color);
-				}
-			}
-		}
-	}
-
+	// root variables
 	:root {
 		// navbar START ----------
 
@@ -920,77 +874,95 @@ footer {
 		// footer
 		--silverBox-footer-font-size: 12px;
 	}
-
-	.silverBox-introduction {
-		text-align: center !important;
-		line-height: 20px !important;
-	}
-
-	.silverBox-tagline {
-		font-weight: var(--silverBox-hero-section-tagline-font-weight) !important;
-	}
-
-	.silverBox-sectionHeader {
-		font-weight: var(--silverBox-hero-section-introduction-font-weight) !important;
-	}
-
-	.silverBox-example {
-		text-align: center;
-
-		.silverBox-exampleButtons {
-			padding: 6px 22px !important;
+	body {
+		// general
+		#silverBox-heroSection,
+		#silverBox-exampleSection,
+		#silverBox-usageSection {
+			scroll-margin-top: 70px;
 		}
 
-		.silverBox-exampleColumn {
-			&:first-of-type {
-				margin-right: 0 !important;
+		#silverBox-exampleSection,
+		#silverBox-usageSection {
+			.container {
+				padding: 30px 10px 10px 10px;
 			}
 		}
-	}
 
-	#silverBox-heroSection {
-		padding: 17px 10px !important;
-	}
+		// header section
+		#silverBox-header {
+			.container {
+				nav {
+					ul {
+						transform: translateY(-220%);
+						position: absolute;
+						justify-content: space-around;
+					}
 
-	#silverBox-heroSection,
-	#silverBox-exampleSection,
-	#silverBox-usageSection {
-		scroll-margin-top: 70px;
-	}
-
-	#silverBox-exampleSection,
-	#silverBox-usageSection {
-		.container {
-			padding: 30px 10px 10px 10px !important;
+					#hamburger-menu {
+						display: flex;
+					}
+				}
+			}
 		}
-	}
-
-	#silverBox-usageInstructions {
-		gap: 0 !important;
-	}
-
-	#silverBox-CreditsSection {
-		.container {
-			padding: 65px 10px 40px 10px !important;
+		// header section
+		#silverBox-heroSection {
+			padding: 17px 10px;
+			.silverBox-introduction {
+				text-align: center;
+				line-height: 20px;
+			}
 		}
 
-		background-image: url("/public/src/images/mobileWave.png") !important;
-	}
+		// example section
+		#silverBox-exampleSection {
+			.silverBox-example {
+				justify-content: center;
+				text-align: center;
+				margin-bottom: 50px;
+				.silverBox-exampleColumn-code {
+					display: none;
+				}
+				.silverBox-exampleColumn {
+					&:first-of-type {
+						margin-right: 0;
+					}
+					.silverBox-example-button-wrapper {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						gap: 10px;
+						.silverBox-exampleButtons {
+							padding: 6px 22px;
+							// copy example code
+							&.silverBox-copyConfig {
+								display: inline-block;
+							}
+						}
+					}
+				}
+			}
+		}
 
-	footer {
-		font-size: var(--silverBox-footer-font-size);
-	}
+		// usage section
+		#silverBox-usageSection {
+			padding-bottom: 120px;
+			#silverBox-usageInstructions {
+				gap: 0;
+			}
+		}
 
-	#silverBox-header {
-		nav {
-			ul {
-				transform: translateY(-220%);
-				position: absolute;
-				justify-content: space-around !important;
+		// credits section
+		#silverBox-CreditsSection {
+			background-image: url("/public/src/images/mobileWave.png");
+			margin-top: -70px;
+
+			.container {
+				padding: 65px 10px 40px 10px;
 			}
 
-			#hamburger-menu {
-				display: flex !important;
+			.silverBox-teamMembers {
+				grid-template-columns: unset;
 			}
 		}
 	}
