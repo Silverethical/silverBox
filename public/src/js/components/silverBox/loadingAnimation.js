@@ -1,6 +1,6 @@
 /**
  * Creates loading animation element
- * @returns {Element} - loading animation element
+ * @returns {HTMLElement} - loading animation element
  */
 function silverBoxLoadingAnimation() {
 	// create loading element

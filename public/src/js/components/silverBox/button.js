@@ -2,78 +2,84 @@ import silverBoxCloseButtonOnClick from "../../helpers/closeButtonOnClick";
 import silverBoxLoadingAnimation from "./loadingAnimation";
 
 /**
- *
- * @param {object} buttonName - button config
- * @param {string} uniqClass - button classList
- * @returns
+ * Creates predefined buttons
+ * @param {Object} buttonName - Button config
+ * @param {String} uniqClass - Button classList
+ * @returns {HTMLElement} - Button
  */
 function silverBoxButtonComponent(buttonName, uniqClass, defaultText) {
+	// create button element
+	const buttonEl = document.createElement("button");
 
-	// button
-	let button = document.createElement("button");
-	button.style.background = buttonName.bgColor;
-
-	// button data attributes
-	if (buttonName.dataAttribute) {
-		for (const [key, value] of Object.entries(buttonName.dataAttribute)) {
-			// sets the data attr
-			button.setAttribute(`data-${key}`, value)
-		}
-	}
+	// loop over dataAttribute object entries
+	Object.entries(buttonName.dataAttribute || {}).map(([key, value]) => {
+		buttonEl.setAttribute(`data-${key}`, value);
+	});
 
 	// inline styles
-	if (buttonName.bgColor) button.style.backgroundColor = buttonName.bgColor
-	if (buttonName.borderColor) button.style.borderColor = buttonName.borderColor
-	if (buttonName.textColor) button.style.color = buttonName.textColor
-	if (buttonName.disabled) button.disabled = buttonName.disabled
+	if (buttonName.bgColor) buttonEl.style.backgroundColor = buttonName.bgColor;
+	if (buttonName.borderColor) buttonEl.style.borderColor = buttonName.borderColor;
+	if (buttonName.textColor) buttonEl.style.color = buttonName.textColor;
+	if (buttonName.disabled) buttonEl.disabled = buttonName.disabled;
 
+	// add default className to button element
+	buttonEl.classList.add("silverBox-button", uniqClass);
 
-	button.classList.add("silverBox-button", uniqClass);
+	// add given id to button element if it exits
+	if (buttonName.id) buttonEl.id = buttonName.id;
 
-	// adds an ID that user wants
-	if (buttonName.id) button.id = buttonName.id
-	// adds a Class that user wants	
-	if (buttonName.className) buttonName.className.split(' ').forEach(className => button.classList.add(className))
+	// add given className to button element if it exits
+	if (buttonName.className) buttonEl.classList += ` ${buttonName.className}`;
 
 	// if closeOnClick in config is true the code will be executed
-	if (buttonName.closeOnClick === true || !("closeOnClick" in buttonName)) {
-		button.onclick = silverBoxCloseButtonOnClick;
-	}
+	if (buttonName.closeOnClick !== false) buttonEl.onclick = silverBoxCloseButtonOnClick;
+
 	// if closeOnClick in config is false the code will be executed
-	else {
+	if (buttonName.loadingAnimation !== false) {
 		// loading animation
-		if (buttonName.loadingAnimation !== false && !buttonName.loadingAnimation) {
-			buttonName.loadingAnimation = true
-		}
-		if (buttonName.loadingAnimation === true) {
-			button.addEventListener("click", () => {
-				button.classList.add('silverBox-loading-button')
-			})
-		}
+		buttonEl.addEventListener("click", () => {
+			buttonEl.classList.add("silverBox-loading-button");
+		});
 	}
 
+	// create button text element
+	const buttonTextSpan = document.createElement("span");
 
-	// button left icon
-	if (buttonName.iconStart) {
-		let buttonLeftIcon = document.createElement("img");
-		buttonLeftIcon.setAttribute("src", buttonName.iconStart);
-		buttonLeftIcon.classList.add('silverBox-button-icon')
-		button.appendChild(buttonLeftIcon);
-	}
-	// button text
-	let buttonTextSpan = document.createElement("span");
-	buttonTextSpan.classList.add("silverBox-button-text");
+	// add "silverBox-button-text" className to buttonText span
+	buttonTextSpan.classList = "silverBox-button-text";
+
+	// add given/default text for buttonTextSpan element
 	buttonTextSpan.textContent = buttonName.text ? buttonName.text : defaultText;
-	button.appendChild(buttonTextSpan);
-	button.append(silverBoxLoadingAnimation())
-	// button right icon
-	if (buttonName.iconEnd) {
-		let buttonRightIcon = document.createElement("img");
-		buttonRightIcon.setAttribute("src", buttonName.iconEnd);
-		buttonRightIcon.classList.add('silverBox-button-icon')
-		button.appendChild(buttonRightIcon);
-	}
-	// appends everything into button
-	return button;
+
+	// append iconStart / buttonTextSpan / silver box loadingAnimation / iconEnd
+	buttonEl.append(
+		createSilverBoxButtonIcon(buttonName.iconStart || ""),
+		buttonTextSpan,
+		silverBoxLoadingAnimation(),
+		createSilverBoxButtonIcon(buttonName.iconEnd || "")
+	);
+
+	return buttonEl;
+}
+
+/**
+ * create button Icon element
+ * @param {String} iconSrc - Given image src
+ * @returns {HTMLElement}
+ */
+function createSilverBoxButtonIcon(iconSrc) {
+	// return an empty string if there is no iconSrc
+	if (!iconSrc) return "";
+
+	// create button Icon
+	const buttonIcon = document.createElement("img");
+
+	// add image to button Icon
+	buttonIcon.src = iconSrc;
+
+	// add default className to button Icon
+	buttonIcon.classList = "silverBox-button-icon";
+
+	return buttonIcon;
 }
 export default silverBoxButtonComponent;
