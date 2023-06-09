@@ -10,13 +10,26 @@
  *
  * @returns {Element|null} - The requested icon element or null if no matching icon was found.
  */
-const silverBoxIconsComponent = ({ alertIcon, customIcon, customSvgIcon, isCentred = false, customIconClassName, customIconId, customSvgIconClassName, customSvgIconId }) => {
+const silverBoxIconsComponent = ({
+	alertIcon,
+	customIcon,
+	customSvgIcon,
+	isCentred = false,
+	customIconClassName,
+	customIconId,
+	customSvgIconClassName,
+	customSvgIconId,
+}) => {
 	// Check if a custom icon URL was provided.
 	if (customIcon) {
 		// Create a new custom icon element using the provided URL and clone it to avoid modifying the original icon.
-		const clonedIcon = silverBoxCreateCustomIcon(customIcon, isCentred, customIconClassName, customIconId, false).cloneNode(
-			true
-		);
+		const clonedIcon = silverBoxCreateCustomIcon(
+			customIcon,
+			isCentred,
+			customIconClassName,
+			customIconId,
+			false
+		).cloneNode(true);
 
 		return clonedIcon;
 	}
@@ -24,15 +37,22 @@ const silverBoxIconsComponent = ({ alertIcon, customIcon, customSvgIcon, isCentr
 	// Check if a custom svg icon URL was provided.
 	if (customSvgIcon) {
 		// Create a new svg icon element using the provided URL and clone it to avoid modifying the original icon.
-		const clonedIcon = silverBoxCreateCustomIcon(customSvgIcon, isCentred, customSvgIconClassName, customSvgIconId, true).cloneNode(
+		const clonedIcon = silverBoxCreateCustomIcon(
+			customSvgIcon,
+			isCentred,
+			customSvgIconClassName,
+			customSvgIconId,
 			true
-		);
+		).cloneNode(true);
 
 		return clonedIcon;
 	}
 
 	// Check if isCentred is true and if the requested icon exists in the icons object.
 	if (icons[alertIcon]) {
+		// closeButton is not a node, so return it as is.
+		if (alertIcon === "closeButton") return icons[alertIcon];
+
 		// Retrieve the requested icon from the icons object and clone it to avoid modifying the original icon.
 		const clonedIcon = icons[alertIcon].cloneNode(true);
 
@@ -54,6 +74,9 @@ const icons = {
 	info: createIcon("silverBox-info", "i"),
 	error: createIcon("silverBox-error", "", "x"),
 	question: createIcon("silverBox-question", "?"),
+	// X button
+	closeButton:
+		'<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512"><line x1="368" y1="368" x2="144" y2="144" style="fill:none;stroke:#667085;stroke-linecap:round;stroke-linejoin:round;stroke-width:33px"/><line x1="368" y1="144" x2="144" y2="368" style="fill:none;stroke:#667085;stroke-linecap:round;stroke-linejoin:round;stroke-width:33px"/></svg>',
 };
 
 /**
@@ -64,7 +87,6 @@ const icons = {
  * @returns {Element} - The icon element.
  */
 function createIcon(className, text, childClass) {
-
 	// Create a new div element with the specified class name and class.
 	const icon = document.createElement("div");
 	icon.classList = className;
@@ -87,26 +109,29 @@ function createIcon(className, text, childClass) {
 }
 
 /**
-* A function that creates a user icon element with the specified url.
-*
-* @param {string} customIcon - The URL for the user icon.
-* @param {boolean} isCentred - Whether to center the icon or not.
-* @param {string} customIconClassName - A custom class to add to the icon element.
-* @param {string} customIconId - A custom ID to add to the icon element.
-*
-* @returns {HTMLElement} The user icon element created.
-*/
+ * A function that creates a user icon element with the specified url.
+ *
+ * @param {string} customIcon - The URL for the user icon.
+ * @param {boolean} isCentred - Whether to center the icon or not.
+ * @param {string} customIconClassName - A custom class to add to the icon element.
+ * @param {string} customIconId - A custom ID to add to the icon element.
+ *
+ * @returns {HTMLElement} The user icon element created.
+ */
 function silverBoxCreateCustomIcon(customIcon, isCentred, className, id, isSvg) {
-	// create 
-	const customIconWrapper = document.createElement("div")
-	customIconWrapper.classList.add(`silverBox-image-wrapper`)
+	// create
+	const customIconWrapper = document.createElement("div");
+	customIconWrapper.classList.add(`silverBox-image-wrapper`);
 
 	// give wrapper a centred class if it's given
 	if (isCentred) customIconWrapper.classList.add("silverBox-centered-icon");
 	// Adds customIcon Id
 	if (id) customIconWrapper.id = id;
 	// Adds customIcon class
-	if (className) className.split(' ').forEach(className => { customIconWrapper.classList.add(className) })
+	if (className)
+		className.split(" ").forEach((className) => {
+			customIconWrapper.classList.add(className);
+		});
 
 	// element creation
 
@@ -115,14 +140,12 @@ function silverBoxCreateCustomIcon(customIcon, isCentred, className, id, isSvg) 
 		const img = document.createElement("img");
 		img.setAttribute("src", customIcon);
 		img.classList.add("silverBox-icon", "silverBox-custom-icon");
-		customIconWrapper.append(img)
-
+		customIconWrapper.append(img);
 	}
 	// if there is a svg config the svg code will be added to the wrapper
 	if (isSvg) {
-		customIconWrapper.innerHTML += customIcon
+		customIconWrapper.innerHTML += customIcon;
 	}
-
 
 	return customIconWrapper;
 }

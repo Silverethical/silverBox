@@ -1,137 +1,148 @@
 /** imports */
-import silverBoxCloseButtonOnClick from "../../helpers/closeButtonOnClick"
+import silverBoxCloseButtonOnClick from "../../helpers/closeButtonOnClick";
 import silverBoxIconsComponent from "./icons";
 
 /**
  * Returns headerWrapper based on given arguments from config
- * @param {string} title - silverBox title text
- * @param {string} htmlText - silverBox html element under title
- * @param {string} simpleText - silverBox paragraph under title
- * @param {string} imageSource - silverBox icon
- * @param {string} closeButton - silverBox closeButton
- * @returns {Element} - headerWrapper element
+ * @param {Object} titleConfig - silverBox title Config
+ * @param {String} htmlText - silverBox html element under title
+ * @param {String} bodyText - silverBox paragraph under title
+ * @param {String} icon - silverBox icon
+ * @param {Boolean} showCloseButton - silverBox closeButton
+ * @param {Boolean} centerContent - center silverBox header content
+ * @returns {Object} - headerWrapper element
  */
-function silverBoxHeaderComponent({
-    titleConfig,
-    htmlText,
-    simpleText,
-    imageSource,
-    closeButton,
-    centerContent,
+function silverBoxHeaderComponent({ titleConfig, htmlText, bodyText, icon, showCloseButton, centerContent }) {
+	// header wrapper
+	const headerWrapper = document.createElement("div");
 
-}) {
-    // header wrapper
-    let headerWrapper = document.createElement("div")
-    headerWrapper.classList.add('silverBox-header-wrapper')
-    // icon and closeButton wrapper
-    let iconWrapper = document.createElement('div')
-    iconWrapper.classList.add('silverBox-icon-wrapper')
+	// add default className to headerWrapper
+	headerWrapper.classList.add("silverBox-header-wrapper");
 
-    // title 
-    //title wrapper
-    let title = document.createElement("h2")
-    title.classList.add("silverBox-header-title")
+	// icon and closeButton wrapper
+	const iconWrapper = document.createElement("div");
 
-    // titleText
-    let titleSpan = document.createElement('span')
-    if (titleConfig?.text) titleSpan.textContent = titleConfig.text
+	// add default className to iconWrapper
+	iconWrapper.classList.add("silverBox-icon-wrapper");
 
+	// title wrapper
+	const title = document.createElement("h2");
 
-    // title Icons conditions   
-    if ((titleConfig?.customIcon && titleConfig?.alertIcon) || (titleConfig?.customIcon && titleConfig?.customSvgIcon) || titleConfig?.customIcon) {
-        // stores returned customIcon element into a variable
-        let customIcon = silverBoxIconsComponent({ customIcon: titleConfig?.customIcon })
+	// add default className to title
+	title.classList.add("silverBox-header-title");
 
-        // if titleCustomIcon id exists, the img element of the customIcon Wrapper will receive given Id
-        if (titleConfig?.customIconId) customIcon.children[0].parentElement.id = titleConfig?.customIconId
+	// check if customIcon is needed
+	if (titleConfig?.customIcon) {
+		// stores returned customIcon element into a variable
+		const customIcon = silverBoxIconsComponent({ customIcon: titleConfig.customIcon });
 
-        // if titleCustomIcon class exists, the img element of the customIcon Wrapper will receive given class
-        if (titleConfig?.customIconClassName) titleConfig?.customIconClassName.split(" ").forEach(className => { customIcon.children[0].parentElement.classList.add(className) })
+		// if titleCustomIcon id exists, the img element of the customIcon will receive given Id
+		if (titleConfig?.customIconId) customIcon.children[0].id = titleConfig.customIconId;
 
+		// if titleCustomIcon className exists, the img element of the customIcon will receive given class
+		if (titleConfig?.customIconClassName) {
+			customIcon.children[0].classList += ` ${titleConfig.customIconClassName}`;
+		}
 
+		// append the customIcon into the title
+		title.append(customIcon);
+	}
+	// check if customSvgIcon is needed
+	else if (titleConfig?.customSvgIcon) {
+		// stores returned customSvgIcon element into a variable
+		const customSvgIcon = silverBoxIconsComponent({ customSvgIcon: titleConfig.customSvgIcon });
 
-        // if customIcon exists due to iconComponent conditions, it will be added to the titleWrapper
-        if (customIcon) {
-            title.append(customIcon)
-        }
-    }
-    else if (titleConfig?.alertIcon) {
-        // stores returned alertIcon element into a variable
-        let alertIcon = silverBoxIconsComponent({ alertIcon: titleConfig?.alertIcon })
+		// if titleSvgCustomIcon id exists, the img element of the customIcon Wrapper will receive given Id
+		if (titleConfig?.customSvgIconId) customSvgIcon.children[0].id = titleConfig.customSvgIconId;
 
-        // if alertIcon exists due to iconComponent conditions, it will be added to the titleWrapper
-        if (alertIcon) {
-            title.append(alertIcon)
-        }
+		// if titleSvgCustomIcon class exists, the img element of the customIcon Wrapper will receive given class
+		if (titleConfig?.customSvgIconClassName) {
+			customSvgIcon.children[0].classList += ` ${titleConfig.customSvgIconClassName}`;
+		}
+		// append the customSvgIcon into the title
+		title.append(customSvgIcon);
+	}
+	// check if alertIcon is needed
+	else if (titleConfig?.alertIcon) {
+		// stores returned alertIcon element into a variable
+		const alertIcon = silverBoxIconsComponent({ alertIcon: titleConfig.alertIcon });
 
-    }
-    // customSvgIcon
+		// append the alertIcon into the title
+		title.append(alertIcon);
+	}
+	// checks if parentELement has a icon, if true the has-icon class will be given
+	if (title.childElementCount >= 1) title.classList.add("silverBox-title-has-icon");
 
-    else if ((titleConfig?.customSvgIcon)) {
+	// if centerContent is true the title children will be centred
+	if (centerContent) title.classList.add("silverBox-title-centred");
 
-        let customSvgIcon = silverBoxIconsComponent({ customSvgIcon: titleConfig?.customSvgIcon })
+	// check if textConfig exists
+	if (titleConfig?.text) {
+		// create titleSpan element
+		const titleSpan = document.createElement("span");
 
-        // if titleCustomIcon id exists, the img element of the customIcon Wrapper will receive given Id
-        if (titleConfig?.customSvgIconId) customSvgIcon.children[0].parentElement.id = titleConfig?.customSvgIconId
+		// add a default className to the title element with some related styles
+		title.classList.add("silverBox-title-text");
 
-        // if titleCustomIcon class exists, the img element of the customIcon Wrapper will receive given class
-        if (titleConfig?.customSvgIconClassName) titleConfig?.customSvgIconClassName.split(" ").forEach(className => { customSvgIcon.children[0].parentElement.classList.add(className) })
+		// add the given text to titleSpan element
+		titleSpan.textContent = titleConfig.text;
 
-        // if customSvgIcon exists due to iconComponent conditions, it will be added to the titleWrapper
-        if (customSvgIcon) {
-            title.append(customSvgIcon)
-        }
-    }
-    // checks if parentELement has a icon, if true the has-icon class will be given 
-    if (title.childElementCount >= 1) title.classList.add('silverBox-title-has-icon')
+		// append the titleSpan to the title element
+		title.append(titleSpan);
+	}
 
-    // if centerContent is true the title children will be centred
-    if (centerContent) title.classList.add('silverBox-title-centred')
+	// create a span element for x button
+	const closeButtonEl = document.createElement("span");
 
+	// add "x" icon as a SVG to the closeButtonEl
+	closeButtonEl.innerHTML = silverBoxIconsComponent({ alertIcon: "closeButton" });
 
+	// add a onclick event for the closeButtonEl to close the Modal
+	closeButtonEl.onclick = silverBoxCloseButtonOnClick;
 
-    // appending text to the wrapper
-    title.append(titleSpan)
+	// add a default className to "x" button
+	closeButtonEl.classList.add("silverBox-close-button");
 
+	// add icon to iconWrapper
+	if (icon) iconWrapper.appendChild(icon);
 
-    // htmlStructure    
-    let htmlStructure = document.createElement("div")
-    htmlStructure.classList.add("silverBox-header-description")
-    htmlStructure.innerHTML = htmlText
+	// add closeButton to iconWrapper
+	if (showCloseButton) iconWrapper.appendChild(closeButtonEl);
 
-    // textStructure
-    let textStructure = document.createElement("p")
-    textStructure.textContent = simpleText
-    textStructure.classList.add("silverBox-header-description")
+	// appends the icon Wrapper to headerWrapper
+	if (iconWrapper.childElementCount >= 1) headerWrapper.append(iconWrapper);
 
-    // svg of closeButton button
-    let closeButtonEl = document.createElement("span")
-    closeButtonEl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512"><line x1="368" y1="368" x2="144" y2="144" style="fill:none;stroke:#667085;stroke-linecap:round;stroke-linejoin:round;stroke-width:33px"/><line x1="368" y1="144" x2="144" y2="368" style="fill:none;stroke:#667085;stroke-linecap:round;stroke-linejoin:round;stroke-width:33px"/></svg>'
-    closeButtonEl.onclick = silverBoxCloseButtonOnClick
-    closeButtonEl.classList.add("silverBox-close-button")
+	// add title to headerWrapper
+	if (titleConfig) headerWrapper.appendChild(title);
 
-    // add icon to iconWrapper
-    if (imageSource) iconWrapper.appendChild(imageSource)
-    // add closeButton to iconWrapper
-    if (closeButton) iconWrapper.appendChild(closeButtonEl)
+	if (htmlText) {
+		// create htmlStructure element
+		const htmlStructure = document.createElement("div");
 
-    // appends the icon Wrapper to headerWrapper
-    if (iconWrapper.childElementCount !== 0) headerWrapper.append(iconWrapper)
-    // add title to headerWrapper
-    if (titleConfig) headerWrapper.appendChild(title)
+		// add a default className for the htmlStructure element
+		htmlStructure.classList.add("silverBox-header-description");
 
+		// add the given html structure to the htmlStructure element
+		htmlStructure.innerHTML = htmlText;
 
-    // add htmlStructure/text to headerWrapper
-    if (htmlText && simpleText) {
-        headerWrapper.appendChild(htmlStructure)
-    } else if (htmlText) {
-        headerWrapper.appendChild(htmlStructure)
-    } else if (simpleText) {
-        headerWrapper.appendChild(textStructure)
-    }
-    // checks if header Element is empty or not
-    return headerWrapper.childElementCount !== 0 ? headerWrapper : ''
+		// add the htmlStructure to it's wrapper
+		headerWrapper.appendChild(htmlStructure);
+	} else if (bodyText) {
+		// create textStructure element
+		const textStructure = document.createElement("p");
 
+		// add the given textConfig to the textStructure element
+		textStructure.textContent = bodyText;
 
+		// add a default className to the textStructure element
+		textStructure.classList.add("silverBox-header-description");
+
+		// append the textStructure to it's wrapper
+		headerWrapper.appendChild(textStructure);
+	}
+
+	// checks if header Element is empty or not
+	return headerWrapper.childElementCount >= 1 ? headerWrapper : "";
 }
+
 export default silverBoxHeaderComponent;
