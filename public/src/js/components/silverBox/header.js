@@ -1,5 +1,4 @@
 /** imports */
-import silverBoxCloseButtonOnClick from "../../helpers/closeButtonOnClick";
 import silverBoxIconsComponent from "./icons";
 
 /**
@@ -98,7 +97,7 @@ function silverBoxHeaderComponent({ titleConfig, htmlText, bodyText, icon, showC
 	closeButtonEl.innerHTML = silverBoxIconsComponent({ alertIcon: "closeButton" });
 
 	// add a onclick event for the closeButtonEl to close the Modal
-	closeButtonEl.onclick = silverBoxCloseButtonOnClick;
+	closeButtonEl.onclick = () => this.closest(".silverBox-container").remove();
 
 	// add a default className to "x" button
 	closeButtonEl.classList.add("silverBox-close-button");
