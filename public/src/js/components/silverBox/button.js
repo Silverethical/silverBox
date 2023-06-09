@@ -11,6 +11,15 @@ function silverBoxButtonComponent(buttonName, uniqClass, defaultText) {
 	// create button element
 	const buttonEl = document.createElement("button");
 
+	// Check if the onClick property of buttonName exists
+	if (!!buttonName.onClick) {
+		// Add "click" event listener to buttonEl
+		buttonEl.addEventListener("click", async () => {
+			// Wait for the onClick function of buttonName to complete
+			await buttonName.onClick();
+		});
+	}
+
 	// loop over dataAttribute object entries
 	Object.entries(buttonName.dataAttribute || {}).map(([key, value]) => {
 		buttonEl.setAttribute(`data-${key}`, value);
