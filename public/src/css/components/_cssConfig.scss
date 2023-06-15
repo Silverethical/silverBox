@@ -2,7 +2,7 @@
 	// light theme
 	&[data-theme="light"] {
 		// silverBox overlay
-		--silverBox-overlay-background: #d0d5ddac;
+		--silverBox-overlay-background: #d0d5dde2;
 		// silverBox
 		--silverBox-background-color: white;
 		--silverBox-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
@@ -52,7 +52,7 @@
 	// dark theme
 	&[data-theme="dark"] {
 		// silverBox overlay
-		--silverBox-overlay-background: #191919c7;
+		--silverBox-overlay-background: #191919ea;
 		// silverBox
 		--silverBox-background-color: #1f2637;
 		--silverBox-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
@@ -118,7 +118,6 @@
 	// silverBox overlay
 	--silverBox-overlay-width: 100vw;
 	--silverBox-overlay-height: 100vh;
-	--silverBox-overlay-backdrop-filter: blur(2px);
 
 	// positioned silverBox
 
