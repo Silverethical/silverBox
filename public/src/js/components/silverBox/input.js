@@ -96,14 +96,15 @@ function silverBoxInputComponent({
 		if (numberOnly) {
 			inputEl.addEventListener("input", () => {
 				inputEl.value = inputEl.value
-					.replace(/[۰-۹]/g, (digit) => "۰۱۲۳۴۵۶۷۸۹".indexOf(digit))
-					.replace(/[^0-9]/g, "");
+					.replace(/[۰-۹]/g, (digit) => "۰۱۲۳۴۵۶۷۸۹.".indexOf(digit))
+					.replace(/[^0-9.]/g, "");
 			});
 		}
 
 		// Set the placeholder font size style if provided or fallback to fontSize
 		const givenPHFS = placeHolderFontSize ?? fontSize ?? false;
-		if (givenPHFS !== false) inputEl.style.setProperty("--silverBox-placeHolder-fontSize", givenPHFS);
+		if (givenPHFS !== false)
+			inputEl.style.setProperty("--silverBox-placeHolder-fontSize", givenPHFS);
 
 		// Set the name attribute if a name value is provided
 		if (name) inputEl.name = name;
