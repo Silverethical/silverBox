@@ -4,8 +4,6 @@ import silverBoxIconsComponent from "./icons";
 /**
  * Returns headerWrapper based on given arguments from config
  * @param {Object} titleConfig - silverBox title Config
- * @param {String} htmlText - silverBox html element under title
- * @param {String} bodyText - silverBox paragraph under title
  * @param {String} icon - silverBox icon
  * @param {Boolean} showCloseButton - silverBox closeButton
  * @param {Boolean} centerContent - center silverBox header content
@@ -13,8 +11,6 @@ import silverBoxIconsComponent from "./icons";
  */
 function silverBoxHeaderComponent({
 	titleConfig,
-	htmlText,
-	bodyText,
 	icon,
 	showCloseButton,
 	centerContent,
@@ -129,32 +125,6 @@ function silverBoxHeaderComponent({
 
 	// add title to headerWrapper
 	if (titleConfig) headerWrapper.appendChild(title);
-
-	if (htmlText) {
-		// create htmlStructure element
-		const htmlStructure = document.createElement("div");
-
-		// add a default className for the htmlStructure element
-		htmlStructure.classList.add("silverBox-header-description");
-
-		// add the given html structure to the htmlStructure element
-		htmlStructure.innerHTML = htmlText;
-
-		// add the htmlStructure to it's wrapper
-		headerWrapper.appendChild(htmlStructure);
-	} else if (bodyText) {
-		// create textStructure element
-		const textStructure = document.createElement("p");
-
-		// add the given textConfig to the textStructure element
-		textStructure.textContent = bodyText;
-
-		// add a default className to the textStructure element
-		textStructure.classList.add("silverBox-header-description");
-
-		// append the textStructure to it's wrapper
-		headerWrapper.appendChild(textStructure);
-	}
 
 	// checks if header Element is empty or not
 	return headerWrapper.childElementCount >= 1 ? headerWrapper : "";

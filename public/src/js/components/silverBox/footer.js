@@ -8,7 +8,7 @@ function silverBoxFooterComponent({ footerContent }) {
 	const footerEl = document.createElement("div");
 
 	// add className to footer element
-	footerEl.classList.add("silverBox-footer");
+	footerEl.classList.add("silverBox-footer-wrapper");
 
 	// creates hr line
 	const line = document.createElement("hr");

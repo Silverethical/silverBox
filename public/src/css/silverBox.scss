@@ -55,6 +55,17 @@ body {
 		}
 	}
 
+	.silverBox-body-wrapper {
+		margin-top: var(--silverBox-items-top-margin);
+		*:first-child {
+			margin-top: 0;
+		}
+		.silverBox-body-description {
+			color: var(--silverBox-text-color);
+			font-size: var(--silverBox-text-font-size);
+			font-weight: var(--silverBox-text-font-weight);
+		}
+	}
 	// popUp animation
 	@keyframes popUp {
 		50% {

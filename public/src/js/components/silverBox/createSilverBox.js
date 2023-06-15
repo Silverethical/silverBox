@@ -1,3 +1,4 @@
+import appendingToModal from "../../helpers/silverBox/appendToModal";
 /**
  * Returns silverBox based on given argument from config
  * @param {string} direction - html direction value
@@ -8,7 +9,14 @@
  * @param {boolean} centerContent - specifies wether the content is centered or not
  * @returns {HTMLObjectElement} - silverBox overlay
  */
-function createSilverBox({ direction, components, positionClassName, isInput, theme = "light", centerContent }) {
+function createSilverBox({
+	direction,
+	components,
+	positionClassName,
+	isInput,
+	theme = "light",
+	centerContent,
+}) {
 	// main overlay
 	const overlay = document.createElement("div");
 
@@ -51,7 +59,7 @@ function createSilverBox({ direction, components, positionClassName, isInput, th
 		silverBoxModal.append(form);
 	}
 
-	// append the components items (input,header and etc.) to the silverBox/form
+	// append the components items (header,body,footer) to the silverBox/form
 	appendingToModal(isInput ? form : silverBoxModal, components);
 
 	// if silverBox is not empty, it will be added to it's overlay
@@ -59,19 +67,6 @@ function createSilverBox({ direction, components, positionClassName, isInput, th
 
 	// returns the silverBox overlay if it's not empty
 	if (overlay.childElementCount !== 0) return overlay;
-}
-
-/**
- * append the component element to a parent element
- * @param {HTMLObjectElement} element - parent HTML element
- * @param {object} components - component items including (header,input and etc)
- */
-function appendingToModal(element, components) {
-	// loops through the component key
-	Object.keys(components).map((item) => {
-		// appends the components if they exist
-		if (components[item]) element.append(components[item]);
-	});
 }
 
 export default createSilverBox;

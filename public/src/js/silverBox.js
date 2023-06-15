@@ -5,6 +5,7 @@ import createSilverBox from "./components/silverBox/createSilverBox";
 import silverBoxHeaderComponent from "./components/silverBox/header";
 import silverBoxIconsComponent from "./components/silverBox/icons";
 import silverBoxCloseButtonOnClick from "./helpers/closeButtonOnClick";
+import silverBoxBodyComponent from "./components/silverBox/silverBoxBody";
 import silverBoxFooterComponent from "./components/silverBox/footer";
 import silverBoxUniqueNumberMaker from "./helpers/silverBox/uniqueNumber";
 import silverBoxDisableScroll from "./helpers/silverBox/disableScroll";
@@ -30,6 +31,7 @@ export default function silverBox(config) {
 		/** selectors(before creating elements)*/
 		/** array of all the elements in the modal (inputs/texts/icons/buttons) */
 		const components = {},
+			bodyComponents = {},
 			bodyEl = document.body,
 			inputWrapper = document.createElement("div"),
 			buttonWrapper = document.createElement("div");
@@ -52,8 +54,6 @@ export default function silverBox(config) {
 		// header componentConfig
 		const headerComponentConfig = silverBoxHeaderComponent({
 			titleConfig: config.title,
-			htmlText: config.html,
-			bodyText: config.text,
 			titleAlertIcon: config.titleAlertIcon,
 			titleCustomIcon: config.titleCustomIcon,
 			icon: silverBoxIconsComponent(iconsConfig()),
@@ -64,7 +64,8 @@ export default function silverBox(config) {
 		});
 
 		// if headerComponent is not empty this code will be executed
-		if (headerComponentConfig.length !== 0) components.header = headerComponentConfig;
+		if (headerComponentConfig.length !== 0)
+			components.header = headerComponentConfig;
 
 		/** inputs */
 		/** if inputs exist */
@@ -97,10 +98,14 @@ export default function silverBox(config) {
 					if (selector.multiplyBy <= 1) selector.multiplyBy = 1;
 					// loops to creates the given number of inputs
 					for (let i = 1; i <= selector.multiplyBy; i++) {
-						inputWrapper.append(silverBoxInputComponent(inputConfig(selector)));
+						inputWrapper.append(
+							silverBoxInputComponent(inputConfig(selector))
+						);
 					}
 				} else {
-					inputWrapper.append(silverBoxInputComponent(inputConfig(selector)));
+					inputWrapper.append(
+						silverBoxInputComponent(inputConfig(selector))
+					);
 				}
 			};
 
@@ -116,7 +121,9 @@ export default function silverBox(config) {
 				multiplyByCheck(config.input);
 			}
 			// adding inputWrapper to components
-			inputWrapper.childElementCount !== 0 ? (components.input = inputWrapper) : "";
+			inputWrapper.childElementCount !== 0
+				? (bodyComponents.input = inputWrapper)
+				: "";
 		}
 
 		// buttons config
@@ -149,10 +156,22 @@ export default function silverBox(config) {
 		}
 
 		// sets buttonWrapper direction
-		if ("buttonsDirection" in config) buttonWrapper.style.direction = config.buttonsDirection;
+		if ("buttonsDirection" in config)
+			buttonWrapper.style.direction = config.buttonsDirection;
 		// pushes the buttonWrapper inside the elements Array
 
-		if (buttonWrapper.innerHTML != "") components.button = buttonWrapper;
+		if (buttonWrapper.innerHTML != "") bodyComponents.button = buttonWrapper;
+
+		// create "bodyComponent" variable config for "silverBoxBodyComponent"
+		const bodyComponentConfig = silverBoxBodyComponent({
+			htmlText: config.html,
+			bodyText: config.text,
+			components: bodyComponents,
+		});
+
+		// if "silverBoxBodyComponent" length is more than 0, bodyComponentConfig is added to
+		// "components" object
+		if (bodyComponentConfig.length !== 0) components.body = bodyComponentConfig;
 
 		// adds footer if it is inside the config and it exists
 		if (config.footer) {
@@ -180,10 +199,14 @@ export default function silverBox(config) {
 		};
 
 		// if there is position in config position will be set as the given config, otherwise it will be the main overlay
-		let position = "position" in config ? `silverBox-${config.position}` : "silverBox-overlay";
+		let position =
+			"position" in config
+				? `silverBox-${config.position}`
+				: "silverBox-overlay";
 
 		// checks if the input config exists in out given Config, due to it's output, the second argument will be set for our function
-		if (Object.keys(components).length !== 0) modalSampleConfig(position, "input" in config);
+		if (Object.keys(components).length !== 0)
+			modalSampleConfig(position, "input" in config);
 
 		// Timer modal
 
@@ -197,7 +220,8 @@ export default function silverBox(config) {
 			let uniqueID = silverBoxUniqueNumberMaker(1_000_000);
 
 			// sets the unique ID as an attr to the modal
-			if (silverBoxWrapper) silverBoxWrapper.setAttribute("uniqueID", uniqueID);
+			if (silverBoxWrapper)
+				silverBoxWrapper.setAttribute("uniqueID", uniqueID);
 
 			// removes the specific element after the given timeout
 			silverBoxCloseButtonOnClick({
@@ -230,6 +254,8 @@ export default function silverBox(config) {
 		if ("silverBoxId" in config) silverBoxWrapper.id = config.silverBoxId;
 		// if silverBoxClass is in config
 		if ("silverBoxClassName" in config)
-			config.silverBoxClassName.split(" ").forEach((className) => silverBoxWrapper.classList.add(className));
+			config.silverBoxClassName
+				.split(" ")
+				.forEach((className) => silverBoxWrapper.classList.add(className));
 	}
 }
