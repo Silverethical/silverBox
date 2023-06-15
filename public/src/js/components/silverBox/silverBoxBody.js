@@ -1,10 +1,10 @@
 import appendingToModal from "../../helpers/silverBox/appendToModal";
 /**
  * Creates bodyWrapper and appends html config, text config, button component, input component to it.
- * @param {String} htmlText - Html config
- * @param {String} bodyText - Text config
- * @param {String} components - Body related components (input,button)
- * @returns
+ * @param {String} htmlText - The HTML structure to be displayed.
+ * @param {String} bodyText - The text content to be displayed.
+ * @param {String} components - The array of components to be appended.
+ * @returns {HTMLElement} - The created body wrapper element.
  */
 function silverBoxBodyComponent({ htmlText, bodyText, components }) {
 	// create bodyWrapper for html,text,inputComponent,buttonComponent
