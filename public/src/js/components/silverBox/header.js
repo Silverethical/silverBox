@@ -11,7 +11,14 @@ import silverBoxIconsComponent from "./icons";
  * @param {Boolean} centerContent - center silverBox header content
  * @returns {Object} - headerWrapper element
  */
-function silverBoxHeaderComponent({ titleConfig, htmlText, bodyText, icon, showCloseButton, centerContent }) {
+function silverBoxHeaderComponent({
+	titleConfig,
+	htmlText,
+	bodyText,
+	icon,
+	showCloseButton,
+	centerContent,
+}) {
 	// header wrapper
 	const headerWrapper = document.createElement("div");
 
@@ -33,10 +40,13 @@ function silverBoxHeaderComponent({ titleConfig, htmlText, bodyText, icon, showC
 	// check if customIcon is needed
 	if (titleConfig?.customIcon) {
 		// stores returned customIcon element into a variable
-		const customIcon = silverBoxIconsComponent({ customIcon: titleConfig.customIcon });
+		const customIcon = silverBoxIconsComponent({
+			customIcon: titleConfig.customIcon,
+		});
 
 		// if titleCustomIcon id exists, the img element of the customIcon will receive given Id
-		if (titleConfig?.customIconId) customIcon.children[0].id = titleConfig.customIconId;
+		if (titleConfig?.customIconId)
+			customIcon.children[0].id = titleConfig.customIconId;
 
 		// if titleCustomIcon className exists, the img element of the customIcon will receive given class
 		if (titleConfig?.customIconClassName) {
@@ -49,10 +59,13 @@ function silverBoxHeaderComponent({ titleConfig, htmlText, bodyText, icon, showC
 	// check if customSvgIcon is needed
 	else if (titleConfig?.customSvgIcon) {
 		// stores returned customSvgIcon element into a variable
-		const customSvgIcon = silverBoxIconsComponent({ customSvgIcon: titleConfig.customSvgIcon });
+		const customSvgIcon = silverBoxIconsComponent({
+			customSvgIcon: titleConfig.customSvgIcon,
+		});
 
 		// if titleSvgCustomIcon id exists, the img element of the customIcon Wrapper will receive given Id
-		if (titleConfig?.customSvgIconId) customSvgIcon.children[0].id = titleConfig.customSvgIconId;
+		if (titleConfig?.customSvgIconId)
+			customSvgIcon.children[0].id = titleConfig.customSvgIconId;
 
 		// if titleSvgCustomIcon class exists, the img element of the customIcon Wrapper will receive given class
 		if (titleConfig?.customSvgIconClassName) {
@@ -64,13 +77,16 @@ function silverBoxHeaderComponent({ titleConfig, htmlText, bodyText, icon, showC
 	// check if alertIcon is needed
 	else if (titleConfig?.alertIcon) {
 		// stores returned alertIcon element into a variable
-		const alertIcon = silverBoxIconsComponent({ alertIcon: titleConfig.alertIcon });
+		const alertIcon = silverBoxIconsComponent({
+			alertIcon: titleConfig.alertIcon,
+		});
 
 		// append the alertIcon into the title
 		title.append(alertIcon);
 	}
 	// checks if parentELement has a icon, if true the has-icon class will be given
-	if (title.childElementCount >= 1) title.classList.add("silverBox-title-has-icon");
+	if (title.childElementCount >= 1)
+		title.classList.add("silverBox-title-has-icon");
 
 	// if centerContent is true the title children will be centred
 	if (centerContent) title.classList.add("silverBox-title-centred");
@@ -96,11 +112,11 @@ function silverBoxHeaderComponent({ titleConfig, htmlText, bodyText, icon, showC
 	// add "x" icon as a SVG to the closeButtonEl
 	closeButtonEl.innerHTML = silverBoxIconsComponent({ alertIcon: "closeButton" });
 
-	// add a onclick event for the closeButtonEl to close the Modal
-	closeButtonEl.onclick = () => this.closest(".silverBox-container").remove();
-
 	// add a default className to "x" button
 	closeButtonEl.classList.add("silverBox-close-button");
+
+	// add a onclick event for the closeButtonEl to close the Modal
+	closeButtonEl.onclick = (e) => e.target.closest(".silverBox-container").remove();
 
 	// add icon to iconWrapper
 	if (icon) iconWrapper.appendChild(icon);
