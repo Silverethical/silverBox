@@ -11,7 +11,7 @@ import silverBoxUniqueNumberMaker from "./helpers/silverBox/uniqueNumber";
 import silverBoxDisableScroll from "./helpers/silverBox/disableScroll";
 import removeAllSilverBoxes from "./helpers/silverBox/removeAllSilverBoxes";
 import silverBoxRemoveLoadings from "./helpers/silverBox/removeLoadings";
-
+import silverBoxTimerBar from "./helpers/silverBox/timerBar";
 /**
  * SilverBox modal
  * @param {object} config - object of related keys to silverBox settings
@@ -223,11 +223,8 @@ export default function silverBox(config) {
 			if (silverBoxWrapper)
 				silverBoxWrapper.setAttribute("uniqueID", uniqueID);
 
-			// removes the specific element after the given timeout
-			silverBoxCloseButtonOnClick({
-				uniqueID,
-				timer: config.timer,
-			});
+			// handles the timerBar functionalities
+			silverBoxTimerBar({ uniqueID, timer: config.timer });
 		}
 
 		// adding event listener for overlay

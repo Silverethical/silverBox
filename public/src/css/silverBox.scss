@@ -33,6 +33,7 @@ body {
 	}
 
 	.silverBox {
+		position: relative;
 		box-sizing: border-box;
 		width: var(--silverBox-width);
 		min-width: var(--silverBox-min-width);
@@ -48,9 +49,18 @@ body {
 		padding: var(--silverBox-padding);
 		box-shadow: var(--silverBox-box-shadow);
 		background-color: var(--silverBox-background-color);
+		overflow: hidden;
 		// modal Animation
 		animation: popUp 0.3s linear;
 
+		// timerBar for timeout modals
+		.timer-bar {
+			position: absolute;
+			bottom: 0;
+			height: 5px;
+			width: 100%;
+			background-color: var(--silverBox-timer-bar);
+		}
 		*:first-child {
 			margin-top: 0;
 		}
@@ -71,6 +81,16 @@ body {
 	@keyframes popUp {
 		50% {
 			transform: scale(1.05);
+		}
+	}
+
+	// timerBar animation
+	@keyframes timer {
+		from {
+			width: 100%;
+		}
+		to {
+			width: 0%;
 		}
 	}
 
