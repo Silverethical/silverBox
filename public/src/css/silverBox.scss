@@ -6,6 +6,7 @@
 @import "./components/icons";
 @import "./components/loadingAnimation";
 @import "./components/footer";
+@import "./modules/animations";
 
 body {
 	&.stop-scrolling {
@@ -103,15 +104,18 @@ body {
 	}
 
 	&.silverBox-top-right {
+		@include rightToLeft;
 		right: var(--silverBox-top-right-distance);
 	}
 
 	&.silverBox-top-center {
+		@include topToBottom;
 		transform: translateX(50%);
 		right: 50%;
 	}
 
 	&.silverBox-top-left {
+		@include leftToRight;
 		left: var(--silverBox-top-left-distance);
 	}
 
@@ -123,15 +127,18 @@ body {
 	}
 
 	&.silverBox-bottom-right {
+		@include rightToLeft;
 		right: var(--silverBox-bottom-right-distance);
 	}
 
 	&.silverBox-bottom-center {
+		@include bottomToTop;
 		transform: translateX(50%);
 		right: 50%;
 	}
 
 	&.silverBox-bottom-left {
+		@include leftToRight;
 		left: var(--silverBox-bottom-left-distance);
 	}
 }
