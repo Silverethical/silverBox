@@ -106,33 +106,3 @@ usageExampleCopyButton.addEventListener("click", () => {
 
 // highlight codes (highlightJS library)
 hljs.highlightAll();
-silverBox({
-	theme: "dark",
-	timer: 2000,
-	title: {
-		text: "Success1",
-		alertIcon: "success",
-	},
-	text: "Your task has been completed.",
-});
-silverBox({
-	theme: "dark",
-	timer: 2000,
-	position: "top-right",
-	title: {
-		text: "Success2",
-		alertIcon: "success",
-	},
-	text: "Your task has been completed.",
-});
-
-silverBox({
-	theme: "dark",
-	timer: 2000,
-	position: "top-left",
-	title: {
-		text: "Success3",
-		alertIcon: "success",
-	},
-	text: "Your task has been completed.",
-});
