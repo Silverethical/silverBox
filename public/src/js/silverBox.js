@@ -4,7 +4,6 @@ import silverBoxInputComponent from "./components/silverBox/input";
 import createSilverBox from "./components/silverBox/createSilverBox";
 import silverBoxHeaderComponent from "./components/silverBox/header";
 import silverBoxIconsComponent from "./components/silverBox/icons";
-import silverBoxCloseButtonOnClick from "./helpers/closeButtonOnClick";
 import silverBoxBodyComponent from "./components/silverBox/silverBoxBody";
 import silverBoxFooterComponent from "./components/silverBox/footer";
 import silverBoxUniqueNumberMaker from "./helpers/silverBox/uniqueNumber";
@@ -12,31 +11,39 @@ import silverBoxDisableScroll from "./helpers/silverBox/disableScroll";
 import removeAllSilverBoxes from "./helpers/silverBox/removeAllSilverBoxes";
 import silverBoxRemoveLoadings from "./helpers/silverBox/removeLoadings";
 import silverBoxTimerBar from "./helpers/silverBox/timerBar";
+
 /**
  * SilverBox modal
  * @param {object} config - object of related keys to silverBox settings
  * puts the config keys as component arguments and creates a component based on given keys from object
  */
-export default function silverBox(config) {
-	// if there is removeSilverBox in config
-	if ("removeSilverBox" in config) {
-		removeAllSilverBoxes(config.removeSilverBox);
-	}
 
-	// remove loading animation due to given config settings
-	if ("removeLoading" in config) {
-		silverBoxRemoveLoadings(config.removeLoading);
-	}
-	if (Object.keys(config).length !== 0) {
+function silverBox(config = {}) {
+	try {
+		if (Object.keys(config).length === 0) {
+			throw new Error("You can't create silverBox with an empty config.");
+		}
+
+		// if there is removeSilverBox in config
+		if ("removeSilverBox" in config) {
+			removeAllSilverBoxes(config.removeSilverBox);
+		}
+
+		// remove loading animation due to given config settings
+		if ("removeLoading" in config) {
+			silverBoxRemoveLoadings(config.removeLoading);
+		}
+
 		/** selectors(before creating elements)*/
 		/** array of all the elements in the modal (inputs/texts/icons/buttons) */
-		const components = {},
-			bodyComponents = {},
-			bodyEl = document.body,
-			inputWrapper = document.createElement("div"),
-			buttonWrapper = document.createElement("div");
-		buttonWrapper.classList.add("silverBox-button-wrapper");
-		inputWrapper.classList.add("silverBox-input-container");
+		const components = {};
+		const bodyComponents = {};
+
+		const inputWrapper = document.createElement("div");
+		inputWrapper.classList = "silverBox-input-container";
+
+		const buttonWrapper = document.createElement("div");
+		buttonWrapper.classList = "silverBox-button-wrapper";
 
 		/** pushes header into the modal */
 		const iconsConfig = () => {
@@ -51,8 +58,9 @@ export default function silverBox(config) {
 				customSvgIconId: config.customSvgIconId,
 			};
 		};
+
 		// header componentConfig
-		const headerComponentConfig = silverBoxHeaderComponent({
+		const headerLayout = silverBoxHeaderComponent({
 			titleConfig: config.title,
 			titleAlertIcon: config.titleAlertIcon,
 			titleCustomIcon: config.titleCustomIcon,
@@ -64,8 +72,7 @@ export default function silverBox(config) {
 		});
 
 		// if headerComponent is not empty this code will be executed
-		if (headerComponentConfig.length !== 0)
-			components.header = headerComponentConfig;
+		if (headerLayout.length !== 0) components.header = headerLayout;
 
 		/** inputs */
 		/** if inputs exist */
@@ -92,17 +99,11 @@ export default function silverBox(config) {
 				};
 			};
 
-			// checks if inputs have the multiPlyBy config or not
 			const multiplyByCheck = (selector) => {
-				if ("multiplyBy" in selector) {
-					if (selector.multiplyBy <= 1) selector.multiplyBy = 1;
-					// loops to creates the given number of inputs
-					for (let i = 1; i <= selector.multiplyBy; i++) {
-						inputWrapper.append(
-							silverBoxInputComponent(inputConfig(selector))
-						);
-					}
-				} else {
+				if (!("multiplyBy" in selector)) selector.multiplyBy = 1;
+
+				// loops to creates the given number of inputs
+				for (let i = 1; i <= selector.multiplyBy; i++) {
 					inputWrapper.append(
 						silverBoxInputComponent(inputConfig(selector))
 					);
@@ -116,6 +117,7 @@ export default function silverBox(config) {
 					multiplyByCheck(input);
 				});
 			}
+
 			// if false, this code will be deployed
 			else {
 				multiplyByCheck(config.input);
@@ -186,7 +188,7 @@ export default function silverBox(config) {
 
 		// modalSampleConfig
 		const modalSampleConfig = (className, isInputValue) => {
-			return bodyEl.append(
+			return document.body.append(
 				createSilverBox({
 					components: components,
 					positionClassName: className,
@@ -288,6 +290,7 @@ export default function silverBox(config) {
 
 			return `${name} ${duration} ${timingFunction} ${delay} ${iterationCount} ${direction} ${fillMode}`;
 		};
+
 		// Add animation to silverBox
 		if ("animation" in config) {
 			// animation properties provided by user from config
@@ -302,5 +305,10 @@ export default function silverBox(config) {
 					.join(", ");
 			}
 		}
+	} catch (error) {
+		console.error(error);
+		return false;
 	}
 }
+
+export default silverBox;
