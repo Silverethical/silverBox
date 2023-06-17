@@ -254,5 +254,53 @@ export default function silverBox(config) {
 			config.silverBoxClassName
 				.split(" ")
 				.forEach((className) => silverBoxWrapper.classList.add(className));
+
+		// select "silverBox" class name
+		const silverBox = document.querySelector(".silverBox");
+
+		/**
+		 * Applies animation using the provided configuration.
+		 * @param {Object} config - The animation configuration.
+		 * @returns {String} - The final animation configuration.
+		 */
+		const applyAnimation = (config) => {
+			// default values for animation properties
+			const defaultValues = {
+				name: "popUp",
+				duration: ".3s",
+				timingFunction: "linear",
+				delay: "0s",
+				iterationCount: "1",
+				direction: "normal",
+				fillMode: "none",
+			};
+
+			// destructuring animation config key
+			const {
+				name,
+				duration,
+				timingFunction,
+				delay,
+				iterationCount,
+				direction,
+				fillMode,
+			} = { ...defaultValues, ...config };
+
+			return `${name} ${duration} ${timingFunction} ${delay} ${iterationCount} ${direction} ${fillMode}`;
+		};
+		// Add animation to silverBox
+		if ("animation" in config) {
+			// animation properties provided by user from config
+			// if there property is not provided, some default values are applied
+			silverBox.style.animation += `${applyAnimation(config.animation)}`;
+			// if the "animation" key in config is an array this code will be executed
+			if (Array.isArray(config.animation)) {
+				// sets the "silverBox" variable animation by iterating over "animation" array items
+				// joined by a "," to add multiple animations
+				silverBox.style.animation = config.animation
+					.map((animation) => applyAnimation(animation))
+					.join(", ");
+			}
+		}
 	}
 }
