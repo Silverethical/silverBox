@@ -307,7 +307,7 @@ const documentation = [
 ];
 
 // add confirm/deny/cancel button to documentation
-addButtonConfig(["Confirm", "Deny", "Cancel"], documentation);
+addButtonConfig(["Confirm", "Deny", "Cancel", "Custom"], documentation);
 
 // sort documentation alphabetically
 const sortedDocs = sortDocumentation(documentation);

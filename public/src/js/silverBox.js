@@ -145,6 +145,10 @@ function silverBox(config = {}) {
 				type: "cancelButton",
 				text: "Cancel",
 			},
+			{
+				type: "customButton",
+				text: "Custom",
+			},
 		];
 
 		// Loop over buttons config in order to create them.

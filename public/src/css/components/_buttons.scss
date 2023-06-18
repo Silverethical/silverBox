@@ -1,95 +1,104 @@
 .silverBox-button-wrapper {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-around;
-    gap: var(--silverBox-button-wrapper-gap);
-    margin-top: var(--silverBox-items-top-margin);
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-around;
+	gap: var(--silverBox-button-wrapper-gap);
+	margin-top: var(--silverBox-items-top-margin);
 }
 
 .silverBox-button {
-    display: flex;
-    column-gap: var(--silverBox-button-column-gap);
-    justify-content: center;
-    align-items: center;
-    outline: none;
-    border-width: var(--silverBox-button-border-width);
-    border-style: solid;
-    border-radius: var(--silverBox-button-border-radius);
-    font-size: var(--silverBox-button-font-size);
-    font-weight: var(--silverBox-button-font-weight);
-    padding: var(--silverBox-button-padding);
-    cursor: pointer;
-    transition: var(--silverBox-button-transition);
-    min-width: var(--silverBox-button-min-width);
-    width: var(--silverBox-button-width);
+	display: flex;
+	column-gap: var(--silverBox-button-column-gap);
+	justify-content: center;
+	align-items: center;
+	outline: none;
+	border-width: var(--silverBox-button-border-width);
+	border-style: solid;
+	border-radius: var(--silverBox-button-border-radius);
+	font-size: var(--silverBox-button-font-size);
+	font-weight: var(--silverBox-button-font-weight);
+	padding: var(--silverBox-button-padding);
+	cursor: pointer;
+	transition: var(--silverBox-button-transition);
+	min-width: var(--silverBox-button-min-width);
+	width: var(--silverBox-button-width);
 
-    .silverBox-button-icon {
-        border-radius: var(--silverBox-button-icon-border-radius);
-    }
+	.silverBox-button-icon {
+		border-radius: var(--silverBox-button-icon-border-radius);
+	}
 
-    &.silverBox-confirm-button {
-        border-color: var(--silverBox-confirm-border-color);
-        background-color: var(--silverBox-confirm-bg-color);
-        color: var(--silverBox-confirm-color);
+	&.silverBox-confirm-button {
+		border-color: var(--silverBox-confirm-border-color);
+		background-color: var(--silverBox-confirm-bg-color);
+		color: var(--silverBox-confirm-color);
 
-        &:hover {
-            background-color: var(--silverBox-confirm-hover-color);
-        }
-    }
+		&:hover {
+			background-color: var(--silverBox-confirm-hover-color);
+		}
+	}
 
-    &.silverBox-cancel-button {
-        border-color: var(--silverBox-cancel-border-color);
-        background-color: var(--silverBox-cancel-bg-color);
-        color: var(--silverBox-cancel-color);
+	&.silverBox-custom-button {
+		border-color: var(--silverBox-custom-border-color);
+		background-color: var(--silverBox-custom-bg-color);
+		color: var(--silverBox-custom-color);
 
-        &:hover {
-            background-color: var(--silverBox-cancel-hover-color);
-        }
-    }
+		&:hover {
+			background-color: var(--silverBox-custom-hover-color);
+		}
+	}
+	&.silverBox-cancel-button {
+		border-color: var(--silverBox-cancel-border-color);
+		background-color: var(--silverBox-cancel-bg-color);
+		color: var(--silverBox-cancel-color);
 
-    &.silverBox-deny-button {
-        border-color: var(--silverBox-deny-border-color);
-        background-color: var(--silverBox-deny-bg-color);
-        color: var(--silverBox-deny-color);
+		&:hover {
+			background-color: var(--silverBox-cancel-hover-color);
+		}
+	}
 
-        &:hover {
-            background-color: var(--silverBox-deny-hover-color);
-        }
-    }
+	&.silverBox-deny-button {
+		border-color: var(--silverBox-deny-border-color);
+		background-color: var(--silverBox-deny-bg-color);
+		color: var(--silverBox-deny-color);
 
-    img {
-        max-width: var(--silverBox-button-image-max-width);
-    }
+		&:hover {
+			background-color: var(--silverBox-deny-hover-color);
+		}
+	}
 
-    .silverBox-button-text {
-        min-height: var(--silverBox-button-text-min-height);
-        display: flex;
-        align-items: center;
-    }
+	img {
+		max-width: var(--silverBox-button-image-max-width);
+	}
 
-    .silverBox-button-loading-animation {
-        display: none;
-    }
+	.silverBox-button-text {
+		min-height: var(--silverBox-button-text-min-height);
+		display: flex;
+		align-items: center;
+	}
 
-    &.silverBox-loading-button {
-        pointer-events: none;
+	.silverBox-button-loading-animation {
+		display: none;
+	}
 
-        .silverBox-button-loading-animation {
-            display: inline;
-        }
+	&.silverBox-loading-button {
+		pointer-events: none;
 
-        .silverBox-button-text {
-            display: none;
-        }
+		.silverBox-button-loading-animation {
+			display: inline;
+		}
 
-        img {
-            display: none;
-        }
-    }
+		.silverBox-button-text {
+			display: none;
+		}
+
+		img {
+			display: none;
+		}
+	}
 }
 
 @media only screen and (max-width: 800px) {
-    .silverBox-button-wrapper {
-        flex-direction: column;
-    }
+	.silverBox-button-wrapper {
+		flex-direction: column;
+	}
 }
