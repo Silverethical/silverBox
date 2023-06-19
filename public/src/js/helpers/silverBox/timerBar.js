@@ -1,7 +1,7 @@
 // imports
 import silverBoxCloseButtonOnClick from "../closeButtonOnClick";
 
-const silverBoxTimerBar = ({ uniqueID, timer }) => {
+const silverBoxTimerBar = ({ uniqueID, timer, pauseTimerOnHover = true }) => {
 	// select silverBox to append the timerBar element
 	let silverBox = document.querySelectorAll(".silverBox");
 	silverBox = silverBox[silverBox.length - 1];
@@ -10,13 +10,15 @@ const silverBoxTimerBar = ({ uniqueID, timer }) => {
 	const timerBar = document.createElement("div");
 	timerBar.classList = "timer-bar";
 
-	// events to pause/unpause the animation
-	silverBox.addEventListener("mouseover", () => {
-		timerBar.style.animationPlayState = "paused";
-	});
-	silverBox.addEventListener("mouseout", () => {
-		timerBar.style.animationPlayState = "running";
-	});
+	// checks if the pauseTimerOnHover config is not false (it could either be )
+	if (pauseTimerOnHover !== false) {
+		silverBox.addEventListener("mouseover", () => {
+			timerBar.style.animationPlayState = "paused";
+		});
+		silverBox.addEventListener("mouseout", () => {
+			timerBar.style.animationPlayState = "running";
+		});
+	}
 
 	// defining the animation duration based on the given timer
 	timerBar.style.animation = `timer ${timer / 1000}s linear`;

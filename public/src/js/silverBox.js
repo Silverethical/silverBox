@@ -236,7 +236,11 @@ function silverBox(config = {}) {
 			}
 
 			// Handle the timerBar functionalities
-			silverBoxTimerBar({ uniqueID, timer: config.timer });
+			silverBoxTimerBar({
+				uniqueID,
+				timer: config.timer,
+				pauseTimerOnHover: config.pauseTimerOnHover,
+			});
 		}
 
 		// Select silverBox overlay to give it an eventListener.
