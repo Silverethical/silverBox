@@ -110,7 +110,7 @@ function silverBoxInputComponent({
 		if (name) inputEl.name = name;
 
 		// Add the provided className to the input element's class list
-		inputEl.classList += ` ${className}`;
+		if (className) inputEl.classList += ` ${className}`;
 
 		// Set the id attribute if an id value is provided
 		if (id) inputEl.id = id;
