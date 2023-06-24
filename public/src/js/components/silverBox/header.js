@@ -126,8 +126,8 @@ function silverBoxHeaderComponent({
 	// add title to headerWrapper
 	if (titleConfig) headerWrapper.appendChild(title);
 
-	// checks if header Element is empty or not
-	return headerWrapper.childElementCount >= 1 ? headerWrapper : "";
+	// return headerWrapper
+	return headerWrapper;
 }
 
 export default silverBoxHeaderComponent;
