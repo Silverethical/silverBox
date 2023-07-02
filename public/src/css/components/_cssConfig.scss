@@ -7,7 +7,7 @@
 		--silverBox-background-color: white;
 		--silverBox-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 		--silverBox-border-color: #fff;
-		--silverBox-timer-bar: #808080;
+		--silverBox-timer-bar: #bbb;
 		// header
 		--silverBox-title-color: #000;
 		--silverBox-text-color: #475467;
@@ -64,7 +64,7 @@
 		--silverBox-background-color: #1f2637;
 		--silverBox-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 		--silverBox-border-color: #171e2e;
-		--silverBox-timer-bar: grey;
+		--silverBox-timer-bar: #555;
 		// header
 		--silverBox-title-color: #fff;
 		--silverBox-text-color: #9fa3ad;
@@ -118,7 +118,9 @@
 	// silverBox
 	--silverBox-items-top-margin: 15px;
 	--silverBox-padding: 20px;
-	--silverBox-border: 1px solid;
+	--silverBox-border: 0px solid;
+	--silverBox-timer-bar-height: 3px;
+	--silverBox-timer-bar-border-radius: 10px;
 
 	--silverBox-border-radius: 20px;
 

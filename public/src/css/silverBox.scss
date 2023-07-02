@@ -57,8 +57,9 @@ body {
 		.timer-bar {
 			position: absolute;
 			bottom: 0;
-			height: 5px;
 			width: 100%;
+			height: var(--silverBox-timer-bar-height);
+			border-radius: var(--silverBox-timer-bar-border-radius);
 			background-color: var(--silverBox-timer-bar);
 		}
 		*:first-child {
