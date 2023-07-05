@@ -15,8 +15,11 @@ const silverBoxTimerBar = ({
 	const timerBar = document.createElement("div");
 	timerBar.classList = "timer-bar";
 
+	// defining the animation duration based on the given timer
+	timerBar.style.animation = `timer ${timer / 1000}s linear`;
+
 	// checks if the pauseTimerOnHover config is not false (it could either be )
-	if (pauseTimerOnHover !== false) {
+	if (pauseTimerOnHover !== false && silverBox) {
 		silverBox.addEventListener("mouseover", () => {
 			timerBar.style.animationPlayState = "paused";
 		});
@@ -25,12 +28,10 @@ const silverBoxTimerBar = ({
 		});
 	}
 
-	// defining the animation duration based on the given timer
-	timerBar.style.animation = `timer ${timer / 1000}s linear`;
-
 	// appending the timerBar to silverBox, if users wants it
-	if (showTimerBar) {
+	if (silverBox && showTimerBar) {
 		silverBox.append(timerBar);
+
 		// removes the specific element after the given timeout
 		timerBar.addEventListener("animationend", () => {
 			silverBoxCloseButtonOnClick({
