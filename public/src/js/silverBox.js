@@ -240,6 +240,7 @@ function silverBox(config = {}) {
 				uniqueID,
 				timer: config.timer,
 				pauseTimerOnHover: config.pauseTimerOnHover,
+				showTimerBar: config.showTimerBar,
 			});
 		}
 
