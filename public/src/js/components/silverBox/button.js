@@ -1,4 +1,4 @@
-import silverBoxCloseButtonOnClick from "../../helpers/closeButtonOnClick";
+import silverBoxClose from "../../helpers/silverBoxClose";
 import silverBoxLoadingAnimation from "./loadingAnimation";
 
 /**
@@ -43,7 +43,7 @@ function silverBoxButtonComponent(
 	if (buttonName.closeOnClick !== false) {
 		// Closes silverBox on click an run onClose function if it exits
 		buttonEl.addEventListener("click", () => {
-			silverBoxCloseButtonOnClick({ onClose: onCloseConfig });
+			silverBoxClose({ onClose: onCloseConfig });
 		});
 	}
 

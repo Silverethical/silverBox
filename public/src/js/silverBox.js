@@ -12,7 +12,7 @@ import removeAllSilverBoxes from "./helpers/silverBox/removeAllSilverBoxes";
 import silverBoxRemoveLoadings from "./helpers/silverBox/removeLoadings";
 import silverBoxTimerBar from "./helpers/silverBox/timerBar";
 import applyAnimation from "./helpers/silverBox/applyAnimation";
-import silverBoxCloseButtonOnClick from "./helpers/closeButtonOnClick";
+import silverBoxClose from "./helpers/silverBoxClose";
 
 /**
  * SilverBox function that creates silverBox by provided config.
@@ -257,8 +257,10 @@ function silverBox(config = {}) {
 				overlay.addEventListener("click", (e) => {
 					// closes the modal if the user clicks on the overlay (outside of the modal).
 					if (e.target === overlay) {
-						overlay.remove();
-						silverBoxCloseButtonOnClick({ onClose: config.onClose });
+						silverBoxClose({
+							onClose: config.onClose,
+							element: overlay,
+						});
 					}
 					// checks for silverBox after removing wrapper.
 					silverBoxDisableScroll(".silverBox-overlay");

@@ -1,7 +1,7 @@
 // import
 import silverBoxDisableScroll from "./silverBox/disableScroll";
 /** selects the silverBox container and closes the element*/
-function silverBoxCloseButtonOnClick({ uniqueID, timer, onClose }) {
+function silverBoxClose({ uniqueID, timer, onClose, element }) {
 	// if the modal doesn't have a timer, the modal will be closed on click
 	if (!timer) {
 		// selects the all silverBox-container classes in the page
@@ -13,8 +13,11 @@ function silverBoxCloseButtonOnClick({ uniqueID, timer, onClose }) {
 		silverBoxDisableScroll(".silverBox-overlay");
 	}
 	// If timer exits specific modal will be removed from page
-	else {
-		silverBoxCloseAfterTimeout(uniqueID);
+	else if (timer) {
+		silverBox;
+		CloseAfterTimeout(uniqueID);
+	} else if (element) {
+		element.closest(".silverBox").remove();
 	}
 
 	// Runs onClose function if it exits
@@ -30,4 +33,4 @@ function silverBoxCloseAfterTimeout(elementID) {
 	silverBoxDisableScroll(".silverBox-overlay");
 }
 
-export default silverBoxCloseButtonOnClick;
+export default silverBoxClose;

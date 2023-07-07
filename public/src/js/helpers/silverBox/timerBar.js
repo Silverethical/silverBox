@@ -1,5 +1,5 @@
 // imports
-import silverBoxCloseButtonOnClick from "../closeButtonOnClick";
+import silverBoxClose from "../silverBoxClose";
 
 const silverBoxTimerBar = ({
 	uniqueID,
@@ -35,7 +35,7 @@ const silverBoxTimerBar = ({
 
 		// removes the specific element after the given timeout
 		timerBar.addEventListener("animationend", () => {
-			silverBoxCloseButtonOnClick({
+			silverBoxClose({
 				uniqueID,
 				timer,
 				onClose,
@@ -43,7 +43,7 @@ const silverBoxTimerBar = ({
 		});
 	} else {
 		setTimeout(() => {
-			silverBoxCloseButtonOnClick({
+			silverBoxClose({
 				uniqueID,
 				timer,
 				onClose,
