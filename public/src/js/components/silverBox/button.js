@@ -7,7 +7,12 @@ import silverBoxLoadingAnimation from "./loadingAnimation";
  * @param {String} uniqClass - Button classList
  * @returns {HTMLElement} - Button
  */
-function silverBoxButtonComponent(buttonName, uniqClass, defaultText) {
+function silverBoxButtonComponent(
+	buttonName,
+	uniqClass,
+	defaultText,
+	onCloseConfig
+) {
 	// create button element
 	const buttonEl = document.createElement("button");
 
@@ -35,7 +40,12 @@ function silverBoxButtonComponent(buttonName, uniqClass, defaultText) {
 	if (buttonName.className) buttonEl.classList += ` ${buttonName.className}`;
 
 	// if closeOnClick in config is true the code will be executed
-	if (buttonName.closeOnClick !== false) buttonEl.onclick = silverBoxCloseButtonOnClick;
+	if (buttonName.closeOnClick !== false) {
+		// Closes silverBox on click an run onClose function if it exits
+		buttonEl.addEventListener("click", () => {
+			silverBoxCloseButtonOnClick({ onClose: onCloseConfig });
+		});
+	}
 
 	// if closeOnClick in config is false the code will be executed
 	if (buttonName.loadingAnimation !== false) {

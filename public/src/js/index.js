@@ -84,7 +84,7 @@ usageCode2.textContent = `silverBox({
 	confirmButton: {
 		bgColor: "#3085d6",
 		borderColor: "#3085d6",
-		textColor: "#fff", 
+		textColor: "#fff",
 		text: "Confirm",
 		closeOnClick: true
 	}

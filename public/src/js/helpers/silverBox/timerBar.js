@@ -6,6 +6,7 @@ const silverBoxTimerBar = ({
 	timer,
 	pauseTimerOnHover = true,
 	showTimerBar = true,
+	onClose,
 }) => {
 	// select silverBox to append the timerBar element
 	let silverBox = document.querySelectorAll(".silverBox");
@@ -37,6 +38,7 @@ const silverBoxTimerBar = ({
 			silverBoxCloseButtonOnClick({
 				uniqueID,
 				timer,
+				onClose,
 			});
 		});
 	} else {
@@ -44,6 +46,7 @@ const silverBoxTimerBar = ({
 			silverBoxCloseButtonOnClick({
 				uniqueID,
 				timer,
+				onClose,
 			});
 		}, timer);
 	}

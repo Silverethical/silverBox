@@ -12,6 +12,7 @@ import removeAllSilverBoxes from "./helpers/silverBox/removeAllSilverBoxes";
 import silverBoxRemoveLoadings from "./helpers/silverBox/removeLoadings";
 import silverBoxTimerBar from "./helpers/silverBox/timerBar";
 import applyAnimation from "./helpers/silverBox/applyAnimation";
+import silverBoxCloseButtonOnClick from "./helpers/closeButtonOnClick";
 
 /**
  * SilverBox function that creates silverBox by provided config.
@@ -76,6 +77,7 @@ function silverBox(config = {}) {
 			centerContent: config.centerContent,
 			titleCustomIconId: config.titleCustomIconId,
 			titleCustomIconClassName: config.titleCustomIconClassName,
+			onCloseConfig: config.onClose,
 		});
 
 		// Assign "headerLayout" constant as header key in "components" object.
@@ -158,7 +160,8 @@ function silverBox(config = {}) {
 					silverBoxButtonComponent(
 						config[button.type],
 						`silverBox-${button.text.toLowerCase()}-button`,
-						button.text
+						button.text,
+						config.onClose
 					)
 				);
 			}
@@ -241,6 +244,7 @@ function silverBox(config = {}) {
 				timer: config.timer,
 				pauseTimerOnHover: config.pauseTimerOnHover,
 				showTimerBar: config.showTimerBar,
+				onClose: config.onClose,
 			});
 		}
 
@@ -254,6 +258,7 @@ function silverBox(config = {}) {
 					// closes the modal if the user clicks on the overlay (outside of the modal).
 					if (e.target === overlay) {
 						overlay.remove();
+						silverBoxCloseButtonOnClick({ onClose: config.onClose });
 					}
 					// checks for silverBox after removing wrapper.
 					silverBoxDisableScroll(".silverBox-overlay");

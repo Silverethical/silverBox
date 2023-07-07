@@ -1,5 +1,6 @@
 /** imports */
 import silverBoxIconsComponent from "./icons";
+import silverBoxCloseButtonOnClick from "../../helpers/closeButtonOnClick";
 
 /**
  * Returns headerWrapper based on given arguments from config
@@ -14,6 +15,7 @@ function silverBoxHeaderComponent({
 	icon,
 	showCloseButton,
 	centerContent,
+	onCloseConfig,
 }) {
 	// header wrapper
 	const headerWrapper = document.createElement("div");
@@ -112,7 +114,11 @@ function silverBoxHeaderComponent({
 	closeButtonEl.classList.add("silverBox-close-button");
 
 	// add a onclick event for the closeButtonEl to close the Modal
-	closeButtonEl.onclick = (e) => e.target.closest(".silverBox-container").remove();
+	// closeButtonEl.onclick = silverBoxCloseButtonOnClick({ hasOverlay: true });
+	closeButtonEl.addEventListener("click", (e) => {
+		e.target.closest(".silverBox").remove();
+		silverBoxCloseButtonOnClick({ onClose: onCloseConfig });
+	});
 
 	// add icon to iconWrapper
 	if (icon) iconWrapper.appendChild(icon);
