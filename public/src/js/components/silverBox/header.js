@@ -1,6 +1,6 @@
 /** imports */
 import silverBoxIconsComponent from "./icons";
-import silverBoxClose from "../../helpers/silverBoxClose";
+import silverBoxClose from "../../helpers/closeButtonOnClick";
 
 /**
  * Returns headerWrapper based on given arguments from config

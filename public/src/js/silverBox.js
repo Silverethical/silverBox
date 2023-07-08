@@ -12,7 +12,7 @@ import removeAllSilverBoxes from "./helpers/silverBox/removeAllSilverBoxes";
 import silverBoxRemoveLoadings from "./helpers/silverBox/removeLoadings";
 import silverBoxTimerBar from "./helpers/silverBox/timerBar";
 import applyAnimation from "./helpers/silverBox/applyAnimation";
-import silverBoxClose from "./helpers/silverBoxClose";
+import silverBoxClose from "./helpers/closeButtonOnClick";
 
 /**
  * SilverBox function that creates silverBox by provided config.

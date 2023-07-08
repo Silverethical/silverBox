@@ -14,8 +14,7 @@ function silverBoxClose({ uniqueID, timer, onClose, element }) {
 	}
 	// If timer exits specific modal will be removed from page
 	else if (timer) {
-		silverBox;
-		CloseAfterTimeout(uniqueID);
+		silverBoxCloseAfterTimeout(uniqueID);
 	} else if (element) {
 		element.closest(".silverBox").remove();
 	}

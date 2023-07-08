@@ -1,5 +1,5 @@
 // imports
-import silverBoxClose from "../silverBoxClose";
+import silverBoxClose from "../closeButtonOnClick";
 
 const silverBoxTimerBar = ({
 	uniqueID,
