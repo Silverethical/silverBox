@@ -35,6 +35,12 @@ function silverBoxHeaderComponent({
 	// add default className to title
 	title.classList.add("silverBox-header-title");
 
+	/**
+	 * titleConfig should be an object. So if only the 'text' has been provided,
+	 * it needs to be converted to an object with a 'text' property.
+	 */
+	if (typeof titleConfig === "string") titleConfig = { text: titleConfig };
+
 	// check if customIcon is needed
 	if (titleConfig?.customIcon) {
 		// stores returned customIcon element into a variable
