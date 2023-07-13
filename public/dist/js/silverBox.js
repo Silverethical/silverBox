@@ -14,302 +14,370 @@ function silverBoxDisableScroll(select) {
 
 // import
 /** selects the silverBox container and closes the element*/
-function silverBoxCloseButtonOnClick({ uniqueID, timer }) {
+function silverBoxClose({ uniqueID, timer, onClose, element }) {
 	// if the modal doesn't have a timer, the modal will be closed on click
 	if (!timer) {
 		// selects the all silverBox-container classes in the page
 		const silverBox = document.querySelectorAll(".silverBox-container");
 
-		if (silverBox[silverBox.length - 1]) silverBox[silverBox.length - 1].remove();
+		if (silverBox[silverBox.length - 1])
+			silverBox[silverBox.length - 1].remove();
 		// checks for silverBoxAfter removing the wrapper
 		silverBoxDisableScroll(".silverBox-overlay");
+	}
+	// If timer exits specific modal will be removed from page
+	else if (timer) {
+		silverBoxCloseAfterTimeout(uniqueID);
+	} else if (element) {
+		element.closest(".silverBox").remove();
+	}
 
-	}
-	// else, THE specific modal will be removed from page
-	else {
-		silverBoxCloseAfterTimeout(uniqueID, timer);
-	}
+	// Runs onClose function if it exits
+	if (onClose) onClose();
 }
 // this function will remove a specific element with the unique ID and after a specific timeout
-function silverBoxCloseAfterTimeout(elementID, timeOut) {
+function silverBoxCloseAfterTimeout(elementID) {
 	// selects the element by the unique ID
 	const uniqueTimeOutElement = document.querySelector(`[uniqueID="${elementID}"]`);
 
-	setTimeout(() => {
-		if (uniqueTimeOutElement) uniqueTimeOutElement.remove();
-		silverBoxDisableScroll(".silverBox-overlay");
-	}, timeOut);
+	uniqueTimeOutElement.remove();
+
+	silverBoxDisableScroll(".silverBox-overlay");
 }
 
 /**
  * Creates loading animation element
- * @returns {Element} - loading animation element
+ * @returns {HTMLElement} - loading animation element
  */
 function silverBoxLoadingAnimation() {
-    let loadingEl = document.createElement("span");
-    loadingEl.classList.add("silverBox-button-loading-animation");
-    return loadingEl
+	// create loading element
+	const loadingEl = document.createElement("span");
+
+	// add className to loading element
+	loadingEl.classList.add("silverBox-button-loading-animation");
+
+	// return loading element
+	return loadingEl;
 }
 
 /**
- *
- * @param {object} buttonName - button config
- * @param {string} uniqClass - button classList
- * @returns
+ * Creates predefined buttons
+ * @param {Object} buttonName - Button config
+ * @param {String} uniqClass - Button classList
+ * @returns {HTMLElement} - Button
  */
-function silverBoxButtonComponent(buttonName, uniqClass, defaultText) {
+function silverBoxButtonComponent(
+	buttonName,
+	uniqClass,
+	defaultText,
+	onCloseConfig
+) {
+	// create button element
+	const buttonEl = document.createElement("button");
 
-	// button
-	let button = document.createElement("button");
-	button.style.background = buttonName.bgColor;
+	// Check if the onClick property of buttonName exists and Add "click" event listener to buttonEl
+	if (!!buttonName.onClick) buttonEl.addEventListener("click", buttonName.onClick);
 
-	// button data attributes
-	if (buttonName.dataAttribute) {
-		for (const [key, value] of Object.entries(buttonName.dataAttribute)) {
-			// sets the data attr
-			button.setAttribute(`data-${key}`, value);
-		}
-	}
+	// loop over dataAttribute object entries
+	Object.entries(buttonName.dataAttribute || {}).map(([key, value]) => {
+		buttonEl.setAttribute(`data-${key}`, value);
+	});
 
 	// inline styles
-	if (buttonName.bgColor) button.style.backgroundColor = buttonName.bgColor;
-	if (buttonName.borderColor) button.style.borderColor = buttonName.borderColor;
-	if (buttonName.textColor) button.style.color = buttonName.textColor;
-	if (buttonName.disabled) button.disabled = buttonName.disabled;
+	if (buttonName.bgColor) buttonEl.style.backgroundColor = buttonName.bgColor;
+	if (buttonName.borderColor) buttonEl.style.borderColor = buttonName.borderColor;
+	if (buttonName.textColor) buttonEl.style.color = buttonName.textColor;
+	if (buttonName.disabled) buttonEl.disabled = buttonName.disabled;
 
+	// add default className to button element
+	buttonEl.classList.add("silverBox-button", uniqClass);
 
-	button.classList.add("silverBox-button", uniqClass);
+	// add given id to button element if it exits
+	if (buttonName.id) buttonEl.id = buttonName.id;
 
-	// adds an ID that user wants
-	if (buttonName.id) button.id = buttonName.id;
-	// adds a Class that user wants	
-	if (buttonName.className) buttonName.className.split(' ').forEach(className => button.classList.add(className));
+	// add given className to button element if it exits
+	if (buttonName.className) buttonEl.classList += ` ${buttonName.className}`;
 
 	// if closeOnClick in config is true the code will be executed
-	if (buttonName.closeOnClick === true || !("closeOnClick" in buttonName)) {
-		button.onclick = silverBoxCloseButtonOnClick;
+	if (buttonName.closeOnClick !== false) {
+		// Closes silverBox on click an run onClose function if it exits
+		buttonEl.addEventListener("click", () => {
+			silverBoxClose({ onClose: onCloseConfig });
+		});
 	}
+
 	// if closeOnClick in config is false the code will be executed
-	else {
+	if (buttonName.loadingAnimation !== false) {
 		// loading animation
-		if (buttonName.loadingAnimation !== false && !buttonName.loadingAnimation) {
-			buttonName.loadingAnimation = true;
-		}
-		if (buttonName.loadingAnimation === true) {
-			button.addEventListener("click", () => {
-				button.classList.add('silverBox-loading-button');
-			});
-		}
+		buttonEl.addEventListener("click", () => {
+			buttonEl.classList.add("silverBox-loading-button");
+		});
 	}
 
+	// create button text element
+	const buttonTextSpan = document.createElement("span");
 
-	// button left icon
-	if (buttonName.iconStart) {
-		let buttonLeftIcon = document.createElement("img");
-		buttonLeftIcon.setAttribute("src", buttonName.iconStart);
-		buttonLeftIcon.classList.add('silverBox-button-icon');
-		button.appendChild(buttonLeftIcon);
-	}
-	// button text
-	let buttonTextSpan = document.createElement("span");
-	buttonTextSpan.classList.add("silverBox-button-text");
+	// add "silverBox-button-text" className to buttonText span
+	buttonTextSpan.classList = "silverBox-button-text";
+
+	// add given/default text for buttonTextSpan element
 	buttonTextSpan.textContent = buttonName.text ? buttonName.text : defaultText;
-	button.appendChild(buttonTextSpan);
-	button.append(silverBoxLoadingAnimation());
-	// button right icon
-	if (buttonName.iconEnd) {
-		let buttonRightIcon = document.createElement("img");
-		buttonRightIcon.setAttribute("src", buttonName.iconEnd);
-		buttonRightIcon.classList.add('silverBox-button-icon');
-		button.appendChild(buttonRightIcon);
-	}
-	// appends everything into button
-	return button;
+
+	// append iconStart / buttonTextSpan / silver box loadingAnimation / iconEnd
+	buttonEl.append(
+		createSilverBoxButtonIcon(buttonName.iconStart || ""),
+		buttonTextSpan,
+		silverBoxLoadingAnimation(),
+		createSilverBoxButtonIcon(buttonName.iconEnd || "")
+	);
+
+	return buttonEl;
+}
+
+/**
+ * create button Icon element
+ * @param {String} iconSrc - Given image src
+ * @returns {HTMLElement}
+ */
+function createSilverBoxButtonIcon(iconSrc) {
+	// return an empty string if there is no iconSrc
+	if (!iconSrc) return "";
+
+	// create button Icon
+	const buttonIcon = document.createElement("img");
+
+	// add image to button Icon
+	buttonIcon.src = iconSrc;
+
+	// add default className to button Icon
+	buttonIcon.classList = "silverBox-button-icon";
+
+	return buttonIcon;
 }
 
 /**
  * Returns inputWrapper element based on given arguments from config
- * @param {string} type - type of input
- * @param {string} placeHolder - placeHolder of input
- * @param {boolean} readOnly - value of input readonly attribute which is either true or false
- * @param {string} label - label name of input
- * @param {string} hint - hint of input
- * @param {string} width - width of input
- * @param {string} height - height of input
- * @param {string} maxLength - maxLength attribute of input
- * @param {string} textAlign - specifies the position of texts in input
- * @param {string} fontSize - text fontSize of input
- * @param {string} placeHolderFontSize - placeHolder fontSize of input
- * @returns {Element} - inputWrapper element
+ * @param {String} type - type of input
+ * @param {String} placeHolder - placeHolder of input
+ * @param {Boolean} readOnly - value of input readonly attribute which is either true or false
+ * @param {String} label - label name of input
+ * @param {String} hint - hint of input
+ * @param {String} width - width of input
+ * @param {String} height - height of input
+ * @param {Number} maxLength - maxLength attribute of input
+ * @param {String} textAlign - specifies the position of texts in input
+ * @param {String} fontSize - text fontSize of input
+ * @param {String} placeHolderFontSize - placeHolder fontSize of input
+ * @returns {HTMLElement} - inputWrapper element
  */
-function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOnly, label, hint, width, height, maxLength, textAlign, fontSize, placeHolderFontSize, name, className, id, value }) {
-	// changing the type case to lowerCase to avoid case conflict problem
-	type = type.toLowerCase();
+function silverBoxInputComponent({
+	type,
+	select,
+	numberOnly,
+	placeHolder,
+	readOnly,
+	label,
+	hint,
+	width,
+	height,
+	maxLength,
+	textAlign,
+	fontSize,
+	placeHolderFontSize,
+	name,
+	className,
+	id,
+	value,
+}) {
+	// Create a wrapper div element for the input
+	const inputWrapper = document.createElement("div");
+	inputWrapper.classList = "silverBox-input-wrapper";
 
-	// parent and children element creation
-	let inputWrapper = document.createElement('div');
-	inputWrapper.classList.add('silverBox-input-wrapper');
-
-	// label
-	let labelEl = document.createElement("label");
+	// Create a label element and set its text content to the provided label
+	const labelEl = document.createElement("label");
 	labelEl.textContent = label;
 
-	// select
-	let selectEl = document.createElement('select');
-	selectEl.classList.add('silverBox-select');
-
-	// checks if the select config exists
 	if (select) {
-		let optionsArray = [];
-		// creates option elements based on the given configs
-		select.forEach(option => {
-			// each option element creation
-			let optionEl = document.createElement('option');
-			// sets the option value
-			optionEl.setAttribute('value', option.value ? option.value : '');
-			// sets the option text (if text doesn't exist, the text value will be the option value )
-			optionEl.textContent = option.text ? option.text : option.value;
-			// gives the option element a disabled attr if the config exists
-			if (option.disabled) optionEl.setAttribute('disabled', '');
-			// gives the option element a selected attr if the config exists
-			if (option.selected) optionEl.setAttribute('selected', '');
+		// Create a select element if the 'select' flag is true
+		const selectEl = document.createElement("select");
+		selectEl.classList = "silverBox-select";
 
-			// pushes each new config to the array
-			optionsArray.push(optionEl);
+		// Iterate over the 'select' options array
+		select.map((option) => {
+			const optionEl = document.createElement("option");
+			optionEl.value = option.value ?? "";
+			optionEl.textContent = option.text ?? option.value ?? "";
 
+			// Set the 'disabled' attribute if the option is disabled
+			if (option.disabled) optionEl.setAttribute("disabled", "");
 
-		});
-		// appends the option into the selectEl
-		optionsArray.forEach(optionEl => {
+			// Set the 'selected' attribute if the option is selected
+			if (option.selected) optionEl.setAttribute("selected", "");
+
+			// Append the option element to the select element
 			selectEl.append(optionEl);
 		});
 
-	}
-	// input or textArea selection conditions
-	let inputEl;
-
-	if (type !== "textarea") {
-		inputEl = document.createElement('input');
-		if (type) inputEl.setAttribute('type', type);
-	}
-	else {
-		inputEl = document.createElement('textArea');
-	}
-	// sets the value for the input
-	if (value) inputEl.value = value;
-
-	// hint
-	let hintEl = document.createElement('span');
-	hintEl.classList.add('silverBox-input-hint');
-	hintEl.textContent = hint;
-
-	// general input/textArea configs
-	if (placeHolder) inputEl.setAttribute('placeholder', placeHolder);
-	if (maxLength) inputEl.setAttribute('maxlength', maxLength);
-	if (textAlign) inputEl.style.textAlign = textAlign;
-
-	// add input elements custom height and width and fontSize if their given
-	inputEl.style.width = width;
-	inputEl.style.height = height;
-	inputEl.style.fontSize = fontSize;
-
-	// converts text input to numberOnly input
-	if (numberOnly) {
-
-		inputEl.addEventListener('input', () => {
-			// first, replaces the persian digits to english, then only allows the numeric characters
-			inputEl.value = inputEl.value.replace(/[۰-۹]/g, digit => '۰۱۲۳۴۵۶۷۸۹'.indexOf(digit)).replace(/[^0-9]/g, '');
-		});
-
-	}
-	if (!placeHolderFontSize) {
-		if (fontSize) inputEl.style.setProperty('--silverBox-placeHolder-fontSize', fontSize);
-	}
-	else {
-		if (placeHolderFontSize) inputEl.style.setProperty('--silverBox-placeHolder-fontSize', placeHolderFontSize);
-
-	}
-
-	// giving inputs id/class and name attribute
-	// name
-	if (name) inputEl.setAttribute("name", name);
-	if (className) className.split(" ").forEach(className => inputEl.classList.add(className));
-	if (id) inputEl.id = id;
-	// restart the inputs/textArea parent's width if the width exist
-	if (width) inputWrapper.style.width = 'fit-content';
-
-	// readOnly condition for inputs
-	if (readOnly) inputEl.setAttribute('readonly', '');
-
-	// appending label,hint and input/select to the inputWrapper
-	if (label) inputWrapper.append(labelEl);
-	// checks if the select config is given, if it's true the select element will be replaced as the input
-	if (select) {
-
+		// Append the select element to the input wrapper
 		inputWrapper.append(selectEl);
+	} else {
+		// Create an input element (either input or textarea) based on the 'type'
+		const isTextArea = type.toLowerCase() === "textarea";
+		const inputEl = document.createElement(isTextArea ? "textarea" : "input");
 
+		// Set the 'type' attribute for input elements (except for textarea)
+		if (!isTextArea && type) inputEl.setAttribute("type", type);
+
+		// Set the value of the input element to the provided value (or an empty string)
+		inputEl.value = value ?? "";
+
+		// Set the placeholder attribute if a placeholder value is provided
+		if (placeHolder) inputEl.placeholder = placeHolder;
+
+		// Set the maxLength attribute if a maxLength value is provided
+		if (maxLength) inputEl.maxLength = maxLength;
+
+		// Set the text alignment style if textAlign is provided
+		if (textAlign) inputEl.style.textAlign = textAlign;
+
+		// Set the width style if width is provided
+		if (width) inputEl.style.width = width;
+
+		// Set the height style if height is provided
+		if (height) inputEl.style.height = height;
+
+		// Set the font size style if fontSize is provided
+		if (fontSize) inputEl.style.fontSize = fontSize;
+
+		// Add an event listener to handle numberOnly behavior if numberOnly flag is true
+		if (numberOnly) {
+			inputEl.addEventListener("input", () => {
+				inputEl.value = inputEl.value
+					.replace(/[۰-۹]/g, (digit) => "۰۱۲۳۴۵۶۷۸۹.".indexOf(digit))
+					.replace(/[^0-9.]/g, "");
+			});
+		}
+
+		// Set the placeholder font size style if provided or fallback to fontSize
+		const givenPHFS = placeHolderFontSize ?? fontSize ?? false;
+		if (givenPHFS !== false)
+			inputEl.style.setProperty("--silverBox-placeHolder-fontSize", givenPHFS);
+
+		// Set the name attribute if a name value is provided
+		if (name) inputEl.name = name;
+
+		// Add the provided className to the input element's class list
+		if (className) inputEl.classList += ` ${className}`;
+
+		// Set the id attribute if an id value is provided
+		if (id) inputEl.id = id;
+
+		// Set the wrapper width to 'fit-content' if width is provided
+		if (width) inputWrapper.style.width = "fit-content";
+
+		// Set the 'readonly' attribute if readOnly flag is true
+		if (readOnly) inputEl.setAttribute("readonly", "");
+
+		// Append the label element to the input wrapper
+		if (label) inputWrapper.append(labelEl);
+
+		// Append the input element to the input wrapper
+		inputWrapper.append(inputEl);
 	}
-	else {
-		inputWrapper.appendChild(inputEl);
-	}
-	if (hint) inputWrapper.appendChild(hintEl);
 
-	return inputWrapper
+	// Create a span element for the hint text and set its content to the provided hint
+	const hintEl = document.createElement("span");
+	hintEl.classList = "silverBox-input-hint";
+	hintEl.textContent = hint ?? "";
 
+	// Append the hint element to the input wrapper
+	if (hint) inputWrapper.append(hintEl);
 
+	// Return the input wrapper element
+	return inputWrapper;
 }
 
 /**
- * Returns silverBox overlay based on given argument from config
+ * append the component element to a parent element
+ * @param {HTMLObjectElement} element - parent HTML element
+ * @param {object} components - component items including (header,input and etc)
+ */
+function appendingToModal(element, components) {
+	// loops through the component key
+	Object.keys(components).map((item) => {
+		// appends the components if they exist
+		if (components[item]) element.append(components[item]);
+	});
+}
+
+/**
+ * Returns silverBox based on given argument from config
  * @param {string} direction - html direction value
- * @param {object} elementsArray - array of elements
- * @param {string} overlayClass - overlay of silverBox className
+ * @param {object} components - array of elements
+ * @param {string} positionClassName - overlay of silverBox className
  * @param {boolean} isInput - boolean value
  * @param {string} theme - html data-theme attribute value which is either light or dark
  * @param {boolean} centerContent - specifies wether the content is centered or not
- * @returns {Element} - silverBox overlay
+ * @returns {HTMLObjectElement} - silverBox overlay
  */
-function silverBoxModalSample({ direction, elementsArray, overlayClass, isInput, theme = 'light', centerContent }) {
+function createSilverBox({
+	direction,
+	components,
+	positionClassName,
+	isInput,
+	theme = "light",
+	centerContent,
+}) {
+	// main overlay
+	const overlay = document.createElement("div");
 
-    // form 
-    let form = document.createElement('form');
-    form.classList.add('silverBox-form');
+	// add classlist to silverBox overlay
+	overlay.classList.add("silverBox-container", positionClassName);
 
-    // form preventDefault
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-    });
-    // main overlay
-    let overlay = document.createElement('div');
-    overlay.classList.add("silverBox-container");
-    overlay.classList.add(overlayClass);
-    overlay.setAttribute("data-theme", theme);
+	// set a data for overlay
+	overlay.dataset.theme = theme;
 
-    // the modalBox
-    let silverBoxModal = document.createElement('div');
-    silverBoxModal.classList.add('silverBox');
-    if (direction) silverBoxModal.setAttribute('dir', direction);
-    // centers the modal contents if the config is given
-    if (centerContent) silverBoxModal.style.textAlign = "center";
+	// the modalBox
+	const silverBoxModal = document.createElement("div");
 
-    // checks if we have inputs in the given config, if true the elements will be added to a form elements, else there will be no form elements
-    if (isInput) {
+	// add classlist to silverBox
+	silverBoxModal.classList.add("silverBox");
 
-        elementsArray.forEach(element => {
-            form.append(element);
-        });
-        silverBoxModal.append(form);
+	// set a direction for the modal
+	if (direction) silverBoxModal.setAttribute("dir", direction);
 
-    }
-    else {
-        elementsArray.forEach(element => {
-            silverBoxModal.append(element);
-        });
-    }
-    if (silverBoxModal.childElementCount !== 0) overlay.append(silverBoxModal);
-    // returns the whole thing
-    if (overlay.childElementCount !== 0) return overlay
+	// centers the modal contents if the config is given
+	if (centerContent) silverBoxModal.style.textAlign = "center";
 
+	// create form variable to contain a form element if it's needed
+	let form;
+
+	// checks if we have inputs in the given config, if true the elements will be added to a form elements, else there will be no form elements
+	if (isInput) {
+		// create  form element for inputs
+		form = document.createElement("form");
+
+		// add classlist to form element
+		form.classList.add("silverBox-form");
+
+		// submit event listener for silverBox form
+		form.addEventListener("submit", (e) => {
+			// form preventDefault
+			e.preventDefault();
+		});
+
+		// appends the form into the silverBoxModal
+		silverBoxModal.append(form);
+	}
+
+	// append the components items (header,body,footer) to the silverBox/form
+	appendingToModal(isInput ? form : silverBoxModal, components);
+
+	// if silverBox is not empty, it will be added to it's overlay
+	if (silverBoxModal.childElementCount !== 0) overlay.append(silverBoxModal);
+
+	// returns the silverBox overlay if it's not empty
+	if (overlay.childElementCount !== 0) return overlay;
 }
 
 /**
@@ -317,40 +385,52 @@ function silverBoxModalSample({ direction, elementsArray, overlayClass, isInput,
  * the function will create a user icon using the provided URL. Otherwise, it retrieves the requested icon
  * from the icons object and optionally centers it if the isCentred parameter is true.
  *
- * @param {string} alertIcon - The name of the alert icon to retrieve from the icons object (e.g. "warning").
- * @param {string} customIcon - The URL of a custom icon, if one is specified.
- * @param {string} customSvgIcon - The URL of a custom svg icon, if one is specified.
- * @param {boolean} isCentred - Determines whether to center the icon or not (default is false).
+ * @param {String} alertIcon - The name of the alert icon to retrieve from the icons object (e.g. "warning").
+ * @param {String} customIcon - The URL of a custom icon, if one is specified.
+ * @param {String} customSvgIcon - The URL of a custom svg icon, if one is specified.
+ * @param {Boolean} isCentred - Determines whether to center the icon or not (default is false).
  *
- * @returns {Element|null} - The requested icon element or null if no matching icon was found.
+ * @returns {HTMLElement|null} - The requested icon element or null if no matching icon was found.
  */
-const silverBoxIconsComponent = ({ alertIcon, customIcon, customSvgIcon, isCentred = false, customIconClassName, customIconId, customSvgIconClassName, customSvgIconId }) => {
+const silverBoxIconsComponent = ({
+	alertIcon,
+	customIcon,
+	customSvgIcon,
+	isCentred = false,
+	customIconClassName,
+	customIconId,
+	customSvgIconClassName,
+	customSvgIconId,
+}) => {
 	// Check if a custom icon URL was provided.
 	if (customIcon) {
-		// Create a new custom icon element using the provided URL and clone it to avoid modifying the original icon.
-		const clonedIcon = silverBoxCreateCustomIcon(customIcon, isCentred, customIconClassName, customIconId, false).cloneNode(
+		// Return a new custom icon element using the provided URL and clone it to avoid modifying the original icon.
+		return silverBoxCreateCustomIcon(customIcon, isCentred, customIconClassName, customIconId, false).cloneNode(
 			true
 		);
-
-		return clonedIcon;
 	}
 
 	// Check if a custom svg icon URL was provided.
 	if (customSvgIcon) {
-		// Create a new svg icon element using the provided URL and clone it to avoid modifying the original icon.
-		const clonedIcon = silverBoxCreateCustomIcon(customSvgIcon, isCentred, customSvgIconClassName, customSvgIconId, true).cloneNode(
+		// Return a new svg icon element using the provided URL and clone it to avoid modifying the original icon.
+		return silverBoxCreateCustomIcon(
+			customSvgIcon,
+			isCentred,
+			customSvgIconClassName,
+			customSvgIconId,
 			true
-		);
-
-		return clonedIcon;
+		).cloneNode(true);
 	}
 
-	// Check if isCentred is true and if the requested icon exists in the icons object.
+	// Check if the requested icon exists in the icons object.
 	if (icons[alertIcon]) {
+		// closeButton is not a node, so return it as is.
+		if (alertIcon === "closeButton") return icons[alertIcon];
+
 		// Retrieve the requested icon from the icons object and clone it to avoid modifying the original icon.
 		const clonedIcon = icons[alertIcon].cloneNode(true);
 
-		// Add the "centered-icon" class to the cloned icon element.
+		// Add the "silverBox-centered-icon" class to the cloned icon element.
 		if (isCentred) clonedIcon.classList.add("silverBox-centered-icon");
 
 		// Return the cloned icon element.
@@ -368,75 +448,88 @@ const icons = {
 	info: createIcon("silverBox-info", "i"),
 	error: createIcon("silverBox-error", "", "x"),
 	question: createIcon("silverBox-question", "?"),
+	// X button
+	closeButton:
+		'<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512"><line x1="368" y1="368" x2="144" y2="144" style="fill:none;stroke:#667085;stroke-linecap:round;stroke-linejoin:round;stroke-width:33px"/><line x1="368" y1="144" x2="144" y2="368" style="fill:none;stroke:#667085;stroke-linecap:round;stroke-linejoin:round;stroke-width:33px"/></svg>',
 };
 
 /**
  * Creates an icon element with the specified class name and child element (if any).
- * @param {string} className - The class name for the icon element.
- * @param {string} text - The text to display in the icon element (if any).
- * @param {string} childClass - The class name for a child element (if any).
- * @returns {Element} - The icon element.
+ * @param {String} className - The class name for the icon element.
+ * @param {String} text - The text to display in the icon element (if any).
+ * @param {String} childClass - The class name for a child element (if any).
+ * @returns {HTMLElement} - The icon element.
  */
 function createIcon(className, text, childClass) {
-
 	// Create a new div element with the specified class name and class.
 	const icon = document.createElement("div");
+
+	// add given className to icon
 	icon.classList = className;
+
+	// add default classNames
 	icon.classList.add("silverBox-icon", "silverBox-default-icon");
 
 	// If childClass is defined, create a child div element with the specified class name and append it to the icon element.
 	if (childClass) {
+		// create child element
 		const child = document.createElement("div");
+
+		// add given child className
 		child.classList = childClass;
+
+		// appends the child element to icon
 		icon.appendChild(child);
 	}
-	// If text is defined, create a new span element with the text and append it to the icon element.
+
+	// If text is defined create a new span element with the text and append it to the icon element.
 	else if (text) {
 		const span = document.createElement("span");
 		span.textContent = text;
 		icon.appendChild(span);
 	}
+
 	// append icon into
 	return icon;
 }
 
 /**
-* A function that creates a user icon element with the specified url.
-*
-* @param {string} customIcon - The URL for the user icon.
-* @param {boolean} isCentred - Whether to center the icon or not.
-* @param {string} customIconClassName - A custom class to add to the icon element.
-* @param {string} customIconId - A custom ID to add to the icon element.
-*
-* @returns {HTMLElement} The user icon element created.
-*/
+ * A function that creates a user icon element with the specified url.
+ *
+ * @param {String} customIcon - The URL for the user icon.
+ * @param {Boolean} isCentred - Whether to center the icon or not.
+ * @param {String} customIconClassName - A custom class to add to the icon element.
+ * @param {String} customIconId - A custom ID to add to the icon element.
+ * @returns {HTMLElement} - The user icon element created.
+ */
 function silverBoxCreateCustomIcon(customIcon, isCentred, className, id, isSvg) {
-	// create 
+	// create a wrapper for customIcon
 	const customIconWrapper = document.createElement("div");
+
+	// add className to customIcon wrapper
 	customIconWrapper.classList.add(`silverBox-image-wrapper`);
 
 	// give wrapper a centred class if it's given
 	if (isCentred) customIconWrapper.classList.add("silverBox-centered-icon");
+
 	// Adds customIcon Id
 	if (id) customIconWrapper.id = id;
+
 	// Adds customIcon class
-	if (className) className.split(' ').forEach(className => { customIconWrapper.classList.add(className); });
+	if (className) customIconWrapper.classList += ` ${className}`;
 
-	// element creation
-
-	// if there is no svg config the image element will be created
-	if (isSvg === false) {
-		const img = document.createElement("img");
-		img.setAttribute("src", customIcon);
-		img.classList.add("silverBox-icon", "silverBox-custom-icon");
-		customIconWrapper.append(img);
-
-	}
 	// if there is a svg config the svg code will be added to the wrapper
-	if (isSvg) {
+	if (!!isSvg) {
 		customIconWrapper.innerHTML += customIcon;
 	}
 
+	// if there is no svg config the image element will be created
+	else {
+		const img = document.createElement("img");
+		img.src = customIcon;
+		img.classList = "silverBox-icon silverBox-custom-icon";
+		customIconWrapper.append(img);
+	}
 
 	return customIconWrapper;
 }
@@ -445,158 +538,215 @@ function silverBoxCreateCustomIcon(customIcon, isCentred, className, id, isSvg) 
 
 /**
  * Returns headerWrapper based on given arguments from config
- * @param {string} title - silverBox title text
- * @param {string} htmlText - silverBox html element under title
- * @param {string} simpleText - silverBox paragraph under title
- * @param {string} imageSource - silverBox icon
- * @param {string} closeButton - silverBox closeButton
- * @returns {Element} - headerWrapper element
+ * @param {Object} titleConfig - silverBox title Config
+ * @param {String} icon - silverBox icon
+ * @param {Boolean} showCloseButton - silverBox closeButton
+ * @param {Boolean} centerContent - center silverBox header content
+ * @returns {Object} - headerWrapper element
  */
 function silverBoxHeaderComponent({
-    titleConfig,
-    htmlText,
-    simpleText,
-    imageSource,
-    closeButton,
-    centerContent,
-
+	titleConfig,
+	icon,
+	showCloseButton,
+	centerContent,
+	onCloseConfig,
 }) {
-    // header wrapper
-    let headerWrapper = document.createElement("div");
-    headerWrapper.classList.add('silverBox-header-wrapper');
-    // icon and closeButton wrapper
-    let iconWrapper = document.createElement('div');
-    iconWrapper.classList.add('silverBox-icon-wrapper');
+	// header wrapper
+	const headerWrapper = document.createElement("div");
 
-    // title 
-    //title wrapper
-    let title = document.createElement("h2");
-    title.classList.add("silverBox-header-title");
+	// add default className to headerWrapper
+	headerWrapper.classList.add("silverBox-header-wrapper");
 
-    // titleText
-    let titleSpan = document.createElement('span');
-    if (titleConfig?.text) titleSpan.textContent = titleConfig.text;
+	// icon and closeButton wrapper
+	const iconWrapper = document.createElement("div");
 
+	// add default className to iconWrapper
+	iconWrapper.classList.add("silverBox-icon-wrapper");
 
-    // title Icons conditions   
-    if ((titleConfig?.customIcon && titleConfig?.alertIcon) || (titleConfig?.customIcon && titleConfig?.customSvgIcon) || titleConfig?.customIcon) {
-        // stores returned customIcon element into a variable
-        let customIcon = silverBoxIconsComponent({ customIcon: titleConfig?.customIcon });
+	// title wrapper
+	const title = document.createElement("h2");
 
-        // if titleCustomIcon id exists, the img element of the customIcon Wrapper will receive given Id
-        if (titleConfig?.customIconId) customIcon.children[0].parentElement.id = titleConfig?.customIconId;
+	// add default className to title
+	title.classList.add("silverBox-header-title");
 
-        // if titleCustomIcon class exists, the img element of the customIcon Wrapper will receive given class
-        if (titleConfig?.customIconClassName) titleConfig?.customIconClassName.split(" ").forEach(className => { customIcon.children[0].parentElement.classList.add(className); });
+	/**
+	 * titleConfig should be an object. So if only the 'text' has been provided,
+	 * it needs to be converted to an object with a 'text' property.
+	 */
+	if (typeof titleConfig === "string") titleConfig = { text: titleConfig };
 
+	// check if customIcon is needed
+	if (titleConfig?.customIcon) {
+		// stores returned customIcon element into a variable
+		const customIcon = silverBoxIconsComponent({
+			customIcon: titleConfig.customIcon,
+		});
 
+		// if titleCustomIcon id exists, the img element of the customIcon will receive given Id
+		if (titleConfig?.customIconId)
+			customIcon.children[0].id = titleConfig.customIconId;
 
-        // if customIcon exists due to iconComponent conditions, it will be added to the titleWrapper
-        if (customIcon) {
-            title.append(customIcon);
-        }
-    }
-    else if (titleConfig?.alertIcon) {
-        // stores returned alertIcon element into a variable
-        let alertIcon = silverBoxIconsComponent({ alertIcon: titleConfig?.alertIcon });
+		// if titleCustomIcon className exists, the img element of the customIcon will receive given class
+		if (titleConfig?.customIconClassName) {
+			customIcon.children[0].classList += ` ${titleConfig.customIconClassName}`;
+		}
 
-        // if alertIcon exists due to iconComponent conditions, it will be added to the titleWrapper
-        if (alertIcon) {
-            title.append(alertIcon);
-        }
+		// append the customIcon into the title
+		title.append(customIcon);
+	}
+	// check if customSvgIcon is needed
+	else if (titleConfig?.customSvgIcon) {
+		// stores returned customSvgIcon element into a variable
+		const customSvgIcon = silverBoxIconsComponent({
+			customSvgIcon: titleConfig.customSvgIcon,
+		});
 
-    }
-    // customSvgIcon
+		// if titleSvgCustomIcon id exists, the img element of the customIcon Wrapper will receive given Id
+		if (titleConfig?.customSvgIconId)
+			customSvgIcon.children[0].id = titleConfig.customSvgIconId;
 
-    else if ((titleConfig?.customSvgIcon)) {
+		// if titleSvgCustomIcon class exists, the img element of the customIcon Wrapper will receive given class
+		if (titleConfig?.customSvgIconClassName) {
+			customSvgIcon.children[0].classList += ` ${titleConfig.customSvgIconClassName}`;
+		}
+		// append the customSvgIcon into the title
+		title.append(customSvgIcon);
+	}
+	// check if alertIcon is needed
+	else if (titleConfig?.alertIcon) {
+		// stores returned alertIcon element into a variable
+		const alertIcon = silverBoxIconsComponent({
+			alertIcon: titleConfig.alertIcon,
+		});
 
-        let customSvgIcon = silverBoxIconsComponent({ customSvgIcon: titleConfig?.customSvgIcon });
+		// append the alertIcon into the title
+		title.append(alertIcon);
+	}
+	// checks if parentELement has a icon, if true the has-icon class will be given
+	if (title.childElementCount >= 1)
+		title.classList.add("silverBox-title-has-icon");
 
-        // if titleCustomIcon id exists, the img element of the customIcon Wrapper will receive given Id
-        if (titleConfig?.customSvgIconId) customSvgIcon.children[0].parentElement.id = titleConfig?.customSvgIconId;
+	// if centerContent is true the title children will be centred
+	if (centerContent) title.classList.add("silverBox-title-centred");
 
-        // if titleCustomIcon class exists, the img element of the customIcon Wrapper will receive given class
-        if (titleConfig?.customSvgIconClassName) titleConfig?.customSvgIconClassName.split(" ").forEach(className => { customSvgIcon.children[0].parentElement.classList.add(className); });
+	// check if textConfig exists
+	if (titleConfig?.text) {
+		// create titleSpan element
+		const titleSpan = document.createElement("span");
 
-        // if customSvgIcon exists due to iconComponent conditions, it will be added to the titleWrapper
-        if (customSvgIcon) {
-            title.append(customSvgIcon);
-        }
-    }
-    // checks if parentELement has a icon, if true the has-icon class will be given 
-    if (title.childElementCount >= 1) title.classList.add('silverBox-title-has-icon');
+		// add a default className to the title element with some related styles
+		title.classList.add("silverBox-title-text");
 
-    // if centerContent is true the title children will be centred
-    if (centerContent) title.classList.add('silverBox-title-centred');
+		// add the given text to titleSpan element
+		titleSpan.textContent = titleConfig.text;
 
+		// append the titleSpan to the title element
+		title.append(titleSpan);
+	}
 
+	// create a span element for x button
+	const closeButtonEl = document.createElement("span");
 
-    // appending text to the wrapper
-    title.append(titleSpan);
+	// add "x" icon as a SVG to the closeButtonEl
+	closeButtonEl.innerHTML = silverBoxIconsComponent({ alertIcon: "closeButton" });
 
+	// add a default className to "x" button
+	closeButtonEl.classList.add("silverBox-close-button");
 
-    // htmlStructure    
-    let htmlStructure = document.createElement("div");
-    htmlStructure.classList.add("silverBox-header-description");
-    htmlStructure.innerHTML = htmlText;
+	// add a onclick event for the closeButtonEl to close the Modal
+	// closeButtonEl.onclick = silverBoxCloseButtonOnClick({ hasOverlay: true });
+	closeButtonEl.addEventListener("click", () => {
+		silverBoxClose({
+			onClose: onCloseConfig,
+			element: closeButtonEl,
+		});
+	});
 
-    // textStructure
-    let textStructure = document.createElement("p");
-    textStructure.textContent = simpleText;
-    textStructure.classList.add("silverBox-header-description");
+	// add icon to iconWrapper
+	if (icon) iconWrapper.appendChild(icon);
 
-    // svg of closeButton button
-    let closeButtonEl = document.createElement("span");
-    closeButtonEl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512"><line x1="368" y1="368" x2="144" y2="144" style="fill:none;stroke:#667085;stroke-linecap:round;stroke-linejoin:round;stroke-width:33px"/><line x1="368" y1="144" x2="144" y2="368" style="fill:none;stroke:#667085;stroke-linecap:round;stroke-linejoin:round;stroke-width:33px"/></svg>';
-    closeButtonEl.onclick = silverBoxCloseButtonOnClick;
-    closeButtonEl.classList.add("silverBox-close-button");
+	// add closeButton to iconWrapper
+	if (showCloseButton) iconWrapper.appendChild(closeButtonEl);
 
-    // add icon to iconWrapper
-    if (imageSource) iconWrapper.appendChild(imageSource);
-    // add closeButton to iconWrapper
-    if (closeButton) iconWrapper.appendChild(closeButtonEl);
+	// appends the icon Wrapper to headerWrapper
+	if (iconWrapper.childElementCount >= 1) headerWrapper.append(iconWrapper);
 
-    // appends the icon Wrapper to headerWrapper
-    if (iconWrapper.childElementCount !== 0) headerWrapper.append(iconWrapper);
-    // add title to headerWrapper
-    if (titleConfig) headerWrapper.appendChild(title);
+	// add title to headerWrapper
+	if (titleConfig) headerWrapper.appendChild(title);
 
+	// return headerWrapper
+	return headerWrapper;
+}
 
-    // add htmlStructure/text to headerWrapper
-    if (htmlText && simpleText) {
-        headerWrapper.appendChild(htmlStructure);
-    } else if (htmlText) {
-        headerWrapper.appendChild(htmlStructure);
-    } else if (simpleText) {
-        headerWrapper.appendChild(textStructure);
-    }
-    // checks if header Element is empty or not
-    return headerWrapper.childElementCount !== 0 ? headerWrapper : ''
+/**
+ * Creates bodyWrapper and appends html config, text config, button component, input component to it.
+ * @param {String} htmlText - The HTML structure to be displayed.
+ * @param {String} bodyText - The text content to be displayed.
+ * @param {String} components - The array of components to be appended.
+ * @returns {HTMLElement} - The created body wrapper element.
+ */
+function silverBoxBodyComponent({ htmlText, bodyText, components }) {
+	// create bodyWrapper for html,text,inputComponent,buttonComponent
+	const bodyWrapper = document.createElement("div");
 
+	// add default className to silverBox-body
+	bodyWrapper.classList = "silverBox-body-wrapper";
 
+	if (htmlText) {
+		// create htmlStructure element
+		const htmlStructure = document.createElement("div");
+
+		// add a default className for the htmlStructure element
+		htmlStructure.classList.add("silverBox-body-description");
+
+		// add the given html structure to the htmlStructure element
+		htmlStructure.innerHTML = htmlText;
+
+		// add the htmlStructure to it's wrapper
+		bodyWrapper.appendChild(htmlStructure);
+	} else if (bodyText) {
+		// create textStructure element
+		const textStructure = document.createElement("p");
+
+		// add the given textConfig to the textStructure element
+		textStructure.textContent = bodyText;
+
+		// add a default className to the textStructure element
+		textStructure.classList.add("silverBox-body-description");
+
+		// append the textStructure to it's wrapper
+		bodyWrapper.appendChild(textStructure);
+	}
+
+	// append all components to modal by calling the "appendingToModal" helper function
+	appendingToModal(bodyWrapper, components);
+
+	return bodyWrapper;
 }
 
 /**
  * Returns footer element based on arguments as text
- * @param {string} footerInside - footer element textContent
- * @returns {Element} footer element
+ * @param {string} footerContent - footer HTML content
+ * @returns {Element} - footer element
  */
-function silverBoxFooterComponent({ footerInside }) {
-    // creates footer
-    let footerEl = document.createElement("div");
-    // creates footer inside div
-    let footerInsideEl = document.createElement("div");
-    footerEl.classList.add("silverBox-footer");
-    // creates hr line
-    let line = document.createElement("hr");
-    // adds given argument as HTML element to footerInsideEl
-    footerInsideEl.innerHTML = footerInside;
+function silverBoxFooterComponent({ footerContent }) {
+	// creates footer
+	const footerEl = document.createElement("div");
 
-    // appends elements to footerEl
-    footerEl.append(line);
-    footerEl.append(footerInsideEl);
-    // returns the footer
-    return footerEl
+	// add className to footer element
+	footerEl.classList.add("silverBox-footer-wrapper");
+
+	// creates hr line
+	const line = document.createElement("hr");
+
+	// appends line to footerEl
+	footerEl.append(line);
+
+	// appends footer to footerEl innerHTML
+	footerEl.innerHTML += footerContent;
+
+	// returns the footer
+	return footerEl;
 }
 
 // creates a random Number
@@ -675,34 +825,132 @@ function silverBoxRemoveLoadings(animationIndex) {
 
 }
 
+// imports
+
+const silverBoxTimerBar = ({
+	uniqueID,
+	timer,
+	pauseTimerOnHover = true,
+	showTimerBar = true,
+	onClose,
+}) => {
+	// select silverBox to append the timerBar element
+	let silverBox = document.querySelectorAll(".silverBox");
+	silverBox = silverBox[silverBox.length - 1];
+
+	// create a timerBar element to track the remaining time before closing the silverBox
+	const timerBar = document.createElement("div");
+	timerBar.classList = "timer-bar";
+
+	// defining the animation duration based on the given timer
+	timerBar.style.animation = `timer ${timer / 1000}s linear`;
+
+	// checks if the pauseTimerOnHover config is not false (it could either be )
+	if (pauseTimerOnHover !== false && silverBox) {
+		silverBox.addEventListener("mouseover", () => {
+			timerBar.style.animationPlayState = "paused";
+		});
+		silverBox.addEventListener("mouseout", () => {
+			timerBar.style.animationPlayState = "running";
+		});
+	}
+
+	// appending the timerBar to silverBox, if users wants it
+	if (silverBox && showTimerBar) {
+		silverBox.append(timerBar);
+
+		// removes the specific element after the given timeout
+		timerBar.addEventListener("animationend", () => {
+			silverBoxClose({
+				uniqueID,
+				timer,
+				onClose,
+			});
+		});
+	} else {
+		setTimeout(() => {
+			silverBoxClose({
+				uniqueID,
+				timer,
+				onClose,
+			});
+		}, timer);
+	}
+};
+
+/**
+ * Applies animation using the provided configuration.
+ * @param {Object} config - The animation configuration.
+ * @returns {String} - The final animation configuration.
+ */
+const applyAnimation = (config) => {
+	// default values for animation properties
+	const defaultValues = {
+		name: "popUp",
+		duration: ".3s",
+		timingFunction: "linear",
+		delay: "0s",
+		iterationCount: "1",
+		direction: "normal",
+		fillMode: "none",
+	};
+
+	// destructuring animation config key
+	const {
+		name,
+		duration,
+		timingFunction,
+		delay,
+		iterationCount,
+		direction,
+		fillMode,
+	} = { ...defaultValues, ...config };
+
+	return `${name} ${duration} ${timingFunction} ${delay} ${iterationCount} ${direction} ${fillMode}`;
+};
+
 // import components
 
 /**
-	* SilverBox modal
-	* @param {object} config - object of related keys to silverBox settings
-	* puts the config keys as component arguments and creates a component based on given keys from object
-	*/
-function silverBox(config) {
-	// if there is removeSilverBox in config
-	if ("removeSilverBox" in config) {
-		removeAllSilverBoxes(config.removeSilverBox);
-	}
+ * SilverBox function that creates silverBox by provided config.
+ * @param {Object} config - object of related keys to silverBox settings.
+ */
+function silverBox(config = {}) {
+	try {
+		// Logs out an error if silverBox config is empty.
+		if (Object.keys(config).length === 0) {
+			throw new Error("You can't create silverBox with an empty config.");
+		}
 
-	// remove loading animation due to given config settings
-	if ("removeLoading" in config) {
-		silverBoxRemoveLoadings(config.removeLoading);
-	}
-	if (Object.keys(config).length !== 0) {
-		/** selectors(before creating elements)*/
-		/** array of all the elements in the modal (inputs/texts/icons/buttons) */
-		let elementsArray = [],
-			bodyEl = document.body,
-			inputWrapper = document.createElement("div"),
-			buttonWrapper = document.createElement("div");
-		buttonWrapper.classList.add("silverBox-button-wrapper");
-		inputWrapper.classList.add("silverBox-input-container");
+		// Calls the "removeAllSilverBoxes" function to remove silverBox by provided config.
+		if ("removeSilverBox" in config) {
+			removeAllSilverBoxes(config.removeSilverBox);
+		}
 
-		/** pushes header into the modal */
+		// Calls the "silverBoxRemoveLoadings" function to remove silverBox button loadings by provided config.
+		if ("removeLoading" in config) {
+			silverBoxRemoveLoadings(config.removeLoading);
+		}
+
+		// Object of all silverBox components.
+		const components = {};
+
+		// Object of body wrapper related components.
+		const bodyComponents = {};
+
+		// Create input wrapper for all inputs in provided config.
+		const inputWrapper = document.createElement("div");
+
+		// Add default className for "inputWrapper".
+		inputWrapper.classList = "silverBox-input-container";
+
+		// Create button wrapper for all buttons provided in config.
+		const buttonWrapper = document.createElement("div");
+
+		// Add default className for "buttonWrapper".
+		buttonWrapper.classList = "silverBox-button-wrapper";
+
+		// Create a function that returns icon related properties provided in config.
 		const iconsConfig = () => {
 			return {
 				alertIcon: config.alertIcon,
@@ -713,31 +961,34 @@ function silverBox(config) {
 				customSvgIcon: config.customSvgIcon,
 				customSvgIconClassName: config.customSvgIconClassName,
 				customSvgIconId: config.customSvgIconId,
-			}
+			};
 		};
-		// header componentConfig
-		const headerComponentConfig = silverBoxHeaderComponent({
+
+		// Assign "silverBoxHeaderComponent" to a constant to put it inside "components" object.
+		const headerLayout = silverBoxHeaderComponent({
 			titleConfig: config.title,
-			htmlText: config.html,
-			simpleText: config.text,
 			titleAlertIcon: config.titleAlertIcon,
 			titleCustomIcon: config.titleCustomIcon,
-			imageSource: silverBoxIconsComponent(iconsConfig()),
-			closeButton: config.showCloseButton,
+			icon: silverBoxIconsComponent(iconsConfig()),
+			showCloseButton: config.showCloseButton,
 			centerContent: config.centerContent,
 			titleCustomIconId: config.titleCustomIconId,
 			titleCustomIconClassName: config.titleCustomIconClassName,
+			onCloseConfig: config.onClose,
 		});
 
-		// if headerComponent is not empty this code will be executed
-		if (headerComponentConfig.length !== 0) elementsArray.push(headerComponentConfig);
+		// Assign "headerLayout" constant as header key in "components" object.
+		if (headerLayout.childElementCount !== 0) components.header = headerLayout;
 
-		/** inputs */
-		/** if inputs exist */
 		if ("input" in config) {
+			/**
+			 * Returns an object with specified configuration properties for an input element.
+			 * @param {Object} selector - The selector object containing input configuration properties.
+			 * @returns {Object} - The input configuration object.
+			 */
 			const inputConfig = (selector) => {
 				return {
-					type: "type" in selector ? selector.type : '',
+					type: "type" in selector ? selector.type : "",
 					select: selector.select,
 					numberOnly: selector.numberOnly,
 					hint: selector.hint,
@@ -753,148 +1004,195 @@ function silverBox(config) {
 					name: selector.name,
 					className: selector.className,
 					id: selector.id,
-					value: selector.value
+					value: selector.value,
 				};
 			};
 
-			// checks if inputs have the multiPlyBy config or not 
 			const multiplyByCheck = (selector) => {
-				if ("multiplyBy" in selector) {
-					if (selector.multiplyBy <= 1) selector.multiplyBy = 1;
-					// loops to creates the given number of inputs
-					for (let i = 1; i <= selector.multiplyBy; i++) {
-						inputWrapper.append(silverBoxInputComponent(inputConfig(selector)));
-					}
-				} else {
-					inputWrapper.append(silverBoxInputComponent(inputConfig(selector)));
+				// If there is no "multiplyBy" in config, this code is executed.
+				if (!("multiplyBy" in selector)) selector.multiplyBy = 1;
 
+				// Loops throw "multiplyBy" config to creates the given number of inputs by checking "multiplyBy" property.
+				for (let i = 1; i <= selector.multiplyBy; i++) {
+					inputWrapper.append(
+						silverBoxInputComponent(inputConfig(selector))
+					);
 				}
 			};
 
-			// checks if the input key is array
-			// if true this code will be deployed
-			if (Array.isArray(config.input)) {
-				config.input.forEach((input) => {
-					multiplyByCheck(input);
-				});
-			}
-			// if false, this code will be deployed
-			else {
-				multiplyByCheck(config.input);
-			}
-			// adding inputWrapper to elementsArray
-			inputWrapper.childElementCount !== 0 ? elementsArray.push(inputWrapper) : '';
+			// Loops throw "config.input" if it's an array and adds it to the input wrapper by calling
+			// "multiplyByCheck". If there it's not an array it will be called only once.
+			Array.isArray(config.input)
+				? config.input.forEach((input) => multiplyByCheck(input))
+				: multiplyByCheck(config.input);
+
+			// Add "inputWrapper" to "component" object.
+			if (inputWrapper.childElementCount) bodyComponents.input = inputWrapper;
 		}
 
-		// buttons config
+		// Array of Buttons config.
 		const buttonsConfig = [
 			{
 				type: "confirmButton",
-				text: "Confirm"
+				text: "Confirm",
 			},
 			{
 				type: "denyButton",
-				text: "Deny"
+				text: "Deny",
 			},
 			{
 				type: "cancelButton",
-				text: "Cancel"
-			}
+				text: "Cancel",
+			},
+			{
+				type: "customButton",
+				text: "Custom",
+			},
 		];
 
-		// loop over buttons config in order to create them.
+		// Loop over buttons config in order to create them.
 		for (const button of buttonsConfig) {
 			if (button.type in config && config[button.type].showButton !== false) {
 				buttonWrapper.append(
-					silverBoxButtonComponent(config[button.type], `silverBox-${button.text.toLowerCase()}-button`, button.text));
+					silverBoxButtonComponent(
+						config[button.type],
+						`silverBox-${button.text.toLowerCase()}-button`,
+						button.text,
+						config.onClose
+					)
+				);
 			}
 		}
 
-		// sets buttonWrapper direction
-		if ("buttonsDirection" in config) buttonWrapper.style.direction = config.buttonsDirection;
-		// pushes the buttonWrapper inside the elements Array
-
-		if (buttonWrapper.innerHTML != '') elementsArray.push(buttonWrapper);
-
-		// adds footer if it is inside the config and it exists
-		if (config.footer) {
-			elementsArray.push(silverBoxFooterComponent({
-				footerInside: config.footer
-			}));
+		// Sets "buttonWrapper" direction.
+		if ("buttonsDirection" in config) {
+			buttonWrapper.style.direction = config.buttonsDirection;
 		}
 
-		// checks if we have inputs in config, the whole thing will be added into a form
-		// else, the whole thing will be added to body w/o form tag
-		// also checks for positions , if we have a position, the overlay class will be changed related to the position config
+		// Pushes the "buttonWrapper" inside the "bodyComponents" for appending it to silverBox.
+		if (buttonWrapper.childElementCount) bodyComponents.button = buttonWrapper;
 
-		// modalSampleConfig
-		const modalSampleConfig = (className, isInputValue) => {
-			return (
-				bodyEl.append(
-					silverBoxModalSample({
-						elementsArray: elementsArray,
-						overlayClass: className,
-						isInput: isInputValue,
-						theme: config.theme,
-						direction: config.direction,
-						centerContent: config.centerContent
-					})
-				)
-			)
-		};
+		// Create "bodyComponent" variable config for "silverBoxBodyComponent".
+		const bodyLayoutConfig = silverBoxBodyComponent({
+			htmlText: config.html,
+			bodyText: config.text,
+			components: bodyComponents,
+		});
 
+		// Adds "bodyComponentConfig" to "components" object to append it inside silverBox if it's not empty.
+		if (bodyLayoutConfig.childElementCount) components.body = bodyLayoutConfig;
 
-		// if there is position in config position will be set as the given config, otherwise it will be the main overlay
-		let position = "position" in config ? `silverBox-${config.position}` : "silverBox-overlay";
-
-		// checks if the input config exists in out given Config, due to it's output, the second argument will be set for our function
-		if (elementsArray.length !== 0) modalSampleConfig(position, "input" in config);
-
-		// Timer modal
-
-		// silverBox wrapper select, to give it a timer 
-		let silverBoxWrapper = document.querySelectorAll(".silverBox-container");
-		silverBoxWrapper = silverBoxWrapper[silverBoxWrapper.length - 1];
-
-		// checks if we have time config, true => the modal will be removed after the given time
-		if ("timer" in config) {
-			// uniqueID
-			let uniqueID = silverBoxUniqueNumberMaker(1_000_000);
-
-			// sets the unique ID as an attr to the modal
-			if (silverBoxWrapper) silverBoxWrapper.setAttribute('uniqueID', uniqueID);
-
-			// removes the specific element after the given timeout
-			silverBoxCloseButtonOnClick({
-				uniqueID,
-				timer: config.timer
+		// Adds "footer" config as "footer" key in "components" Object.
+		if (config.footer) {
+			components.footer = silverBoxFooterComponent({
+				footerContent: config.footer,
 			});
 		}
 
-		// adding event listener for overlay
-		// if the clicked element has classList of silverBox-overlay this code will be executed
+		/**
+		 * This function adds a sample modal configuration to the document body.
+		 * @param {String} className - The class name used for positioning the modal box.
+		 * @param {Boolean} isInputValue - Determines if the modal box contains an input field.
+		 * @returns {void}
+		 */
+		const modalSampleConfig = (className, isInputValue) =>
+			document.body.append(
+				createSilverBox({
+					components: components,
+					positionClassName: className,
+					isInput: isInputValue,
+					theme: config.theme,
+					direction: config.direction,
+					centerContent: config.centerContent,
+				})
+			);
+
+		// If "position" exists in "config",sets the "position" variable to "silverBox-${config.position}"
+		// otherwise, it sets it to the value `"silverBox-overlay"`.
+		let position =
+			"position" in config
+				? `silverBox-${config.position}`
+				: "silverBox-overlay";
+
+		// Calls "modalSampleConfig" with value provided from "position" and ""input" in config" to create silverBox.
+		if (Object.keys(components).length !== 0) {
+			modalSampleConfig(position, "input" in config);
+		}
+
+		// Select "silverBoxWrapper"
+		let silverBoxWrapper = document.querySelectorAll(".silverBox-container");
+
+		// Reassign silverBoxWrapper value with the last element in NodeList to set timer.
+		silverBoxWrapper = silverBoxWrapper[silverBoxWrapper.length - 1];
+
+		// If "timer" is provided in config, the modal will be removed after the given time.
+		if ("timer" in config) {
+			// Create silverBox uniqueID by calling "silverBoxUniqueNumberMaker" to remove silverBox.
+			let uniqueID = silverBoxUniqueNumberMaker(1_000_000);
+
+			// Set the unique ID as an attribute to the modal.
+			if (silverBoxWrapper) {
+				silverBoxWrapper.setAttribute("uniqueID", uniqueID);
+			}
+
+			// Handle the timerBar functionalities
+			silverBoxTimerBar({
+				uniqueID,
+				timer: config.timer,
+				pauseTimerOnHover: config.pauseTimerOnHover,
+				showTimerBar: config.showTimerBar,
+				onClose: config.onClose,
+			});
+		}
+
+		// Select silverBox overlay to give it an eventListener.
 		let silverBoxOverlay = document.querySelectorAll(".silverBox-overlay");
 
+		// if the clicked element has classList of silverBox-overlay this code will be executed.
 		if (silverBoxOverlay) {
 			for (const overlay of silverBoxOverlay) {
 				overlay.addEventListener("click", (e) => {
-					// closes the modal if the user clicks on the overlay (outside of the modal)
+					// closes the modal if the user clicks on the overlay (outside of the modal).
 					if (e.target === overlay) {
-						overlay.remove();
+						silverBoxClose({
+							onClose: config.onClose,
+							element: overlay,
+						});
 					}
-					// checks for silverBox after removing wrapper
+					// checks for silverBox after removing wrapper.
 					silverBoxDisableScroll(".silverBox-overlay");
 				});
 			}
 		}
 
-		// checks for silverBox after creating the box
+		// Checks for silverBox after it's created.
 		silverBoxDisableScroll(".silverBox-overlay");
 
-		// if silverBoxId is in config
+		// If silverBoxId is in config
 		if ("silverBoxId" in config) silverBoxWrapper.id = config.silverBoxId;
-		// if silverBoxClass is in config
-		if ("silverBoxClassName" in config) config.silverBoxClassName.split(" ").forEach(className => silverBoxWrapper.classList.add(className));
+
+		// Add silverBox className
+		if ("silverBoxClassName" in config) {
+			silverBoxWrapper.classList += ` ${config.silverBoxClassName}`;
+		}
+
+		// Select "silverBox" to give it animation
+		const silverBox = document.querySelector(".silverBox");
+
+		// Add animation to silverBox
+		if ("animation" in config) {
+			// Set animation for the silverBox element based on the configuration provided.
+			// If "animation" is an array, each animation value will be added to silverBox as part of the animation sequence.
+			// If "animation" is an object, it will be called once and its values will be applied as an animation to silverBox.
+			silverBox.style.animation = Array.isArray(config.animation)
+				? config.animation
+						.map((animation) => applyAnimation(animation))
+						.join(", ")
+				: applyAnimation(config.animation);
+		}
+	} catch (error) {
+		console.error(error);
+		return false;
 	}
 }
 
