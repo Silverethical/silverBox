@@ -1,42 +1,39 @@
 // import
 import silverBoxDocumentationTableComponent from "./components/documentationTableComponent";
 
-
 // navigation section
-const hamburgerMenuIcon = document.querySelector('#hamburger-menu')
-const silverBoxLogo = document.querySelector('#logo')
-const navigationList = document.querySelector('#silverBox-header nav ul')
+const hamburgerMenuIcon = document.querySelector("#hamburger-menu");
+const silverBoxLogo = document.querySelector("#logo");
+const navigationList = document.querySelector("#silverBox-header nav ul");
 
 // opens/closes the navigation menu on hamburger menu click
-hamburgerMenuIcon.addEventListener('click', () => {
-	
-	if (!navigationList.classList.contains('show')) {
-		hamburgerMenuIcon.classList.add('rotate')
-		navigationList.classList.add('show')
-		silverBoxLogo.classList.add('hide')
+hamburgerMenuIcon.addEventListener("click", () => {
+	if (!navigationList.classList.contains("show")) {
+		hamburgerMenuIcon.classList.add("rotate");
+		navigationList.classList.add("show");
+		silverBoxLogo.classList.add("hide");
 	} else {
-		hamburgerMenuIcon.classList.remove('rotate')
-		navigationList.classList.remove('show')
-		silverBoxLogo.classList.remove('hide')
+		hamburgerMenuIcon.classList.remove("rotate");
+		navigationList.classList.remove("show");
+		silverBoxLogo.classList.remove("hide");
 	}
-})
+});
 
-// silverBox header gets a background color whenever we scroll the page 
-const header = document.querySelector("#silverBox-header")
+// silverBox header gets a background color whenever we scroll the page
+const header = document.querySelector("#silverBox-header");
 
-window.addEventListener('scroll', () => {
-
-	let bodyScrollHeight = window.scrollY
+window.addEventListener("scroll", () => {
+	let bodyScrollHeight = window.scrollY;
 
 	// if the scrollHeight is more than 50, the header will get a class
 	if (bodyScrollHeight > 50) {
-		header.classList.add('scrolled')
+		header.classList.add("scrolled");
 	}
 	// else it will be removed
 	else {
-		header.classList.remove('scrolled')
+		header.classList.remove("scrolled");
 	}
-})
+});
 
 // all versions of documentation
 const allVersions = ["1.0.0"];
@@ -51,25 +48,9 @@ if (!versionNumber || !allVersions.includes(versionNumber)) {
 
 // on DOM load
 document.addEventListener("DOMContentLoaded", async () => {
-	silverBoxDocumentationTableComponent(".silverBox-tableWrapper", await getDocData())
+	const { default: docs } = await import(`/public/src/js/data/documentations/${versionNumber}.js`);
+	silverBoxDocumentationTableComponent(".silverBox-tableWrapper", docs);
 });
-
-// get documentation data
-async function getDocData() {
-	try {
-		return await fetch(`/public/src/js/data/documentations/${versionNumber}/docs.json`)
-			.then((data) => {
-				return data.json();
-			})
-			// res is the response from documentation data
-			.then((res) => {
-				return res;
-			});
-	} catch (error) {
-		console.error(error);
-		return false;
-	}
-}
 
 // get query string value from URL
 function getParameterByName(name, url = window.location.href) {
@@ -80,3 +61,9 @@ function getParameterByName(name, url = window.location.href) {
 	if (!results[2]) return "";
 	return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
+// add versionNumber to documentation
+const documentationVersionSpan = document.querySelector("#silverBox-documentation-version");
+
+// add documentation version to documentation Span
+documentationVersionSpan.innerText = "v" + versionNumber;

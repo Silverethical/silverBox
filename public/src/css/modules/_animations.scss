@@ -1,0 +1,74 @@
+// slide animations
+
+@keyframes leftToRight {
+	0% {
+		left: -100%;
+	}
+	80% {
+		left: var(--silverBox-slide-animation-left-distance);
+	}
+	95% {
+		left: 2px;
+	}
+	100% {
+		left: var(--silverBox-slide-animation-left-distance);
+	}
+}
+
+@keyframes rightToLeft {
+	0% {
+		right: -100%;
+	}
+	80% {
+		right: var(--silverBox-slide-animation-right-distance);
+	}
+	95% {
+		right: 2px;
+	}
+	100% {
+		right: var(--silverBox-slide-animation-right-distance);
+	}
+}
+
+@keyframes topToBottom {
+	0% {
+		top: -100%;
+	}
+	80% {
+		top: var(--silverBox-slide-animation-top-distance);
+	}
+	95% {
+		top: 2px;
+	}
+	100% {
+		top: var(--silverBox-slide-animation-top-distance);
+	}
+}
+
+@keyframes bottomToTop {
+	0% {
+		bottom: -100%;
+	}
+	80% {
+		bottom: var(--silverBox-slide-animation-bottom-distance);
+	}
+	95% {
+		bottom: 2px;
+	}
+	100% {
+		bottom: var(--silverBox-slide-animation-bottom-distance);
+	}
+}
+
+@mixin leftToRight {
+	animation: leftToRight 0.7s ease-out;
+}
+@mixin rightToLeft {
+	animation: rightToLeft 0.7s ease-out;
+}
+@mixin topToBottom {
+	animation: topToBottom 0.7s ease-out;
+}
+@mixin bottomToTop {
+	animation: bottomToTop 0.7s ease-out;
+}

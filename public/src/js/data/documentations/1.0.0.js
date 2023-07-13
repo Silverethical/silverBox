@@ -1,8 +1,5 @@
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-import fs from "fs";
-import addButtonConfig from "../../../helpers/addButtonConfig.mjs";
-import sortDocumentation from "../../../helpers/sortDocumentation.mjs";
+import addButtonConfig from "../../helpers/addButtonConfig.js";
+import sortDocumentation from "../../helpers/sortDocumentation.js";
 
 const documentation = [
 	{
@@ -315,20 +312,4 @@ addButtonConfig(["Confirm", "Deny", "Cancel"], documentation);
 // sort documentation alphabetically
 const sortedDocs = sortDocumentation(documentation);
 
-const currentFileUrl = import.meta.url;
-const currentFilePath = fileURLToPath(currentFileUrl);
-const currentDirPath = dirname(currentFilePath);
-
-// Convert documentation to json
-const jsonContent = JSON.stringify(sortedDocs);
-
-const filePath = `${currentDirPath}/docs.json`;
-
-// save documentation as json file
-fs.writeFile(filePath, jsonContent, (err) => {
-	if (err) {
-		console.error("Error writing JSON file:", err);
-	} else {
-		console.log("JSON file created successfully.");
-	}
-});
+export default sortedDocs;
