@@ -38,6 +38,6 @@
 		"prettier": "2.8.8"
 	},
 	"lint-staged": {
-		"*.{*}": "prettier --write"
+		"public/src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier --write"
 	}
 }
