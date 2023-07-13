@@ -3,10 +3,9 @@
 	"version": "1.0.0",
 	"description": "SilverBox is a lightweight and versatile JavaScript library that enables you to effortlessly create customizable modals and alerts for your web applications. Built with pure JavaScript and zero dependencies, SilverBox empowers developers to easily integrate stylish and interactive pop-up components without adding unnecessary bloat. Harness the power of CSS variables to customize the visual styles, seamlessly adapting to your application's design system. Experience the simplicity and flexibility of SilverBox for beautiful modals and alerts.",
 	"scripts": {
-		"dev:front": "npm run create-docs-json && concurrently --kill-others \"npm run scss\" \"npm run rollup\" \"node ./server.js\"",
-		"scss": "sass --style compressed --watch public/src/css/:public/dist/css",
+		"dev:front": "concurrently --kill-others \"npm run scss\" \"npm run rollup\" \"node ./server.js\"",
+		"scss": "sass --style compressed --no-source-map --watch public/src/css/:public/dist/css",
 		"rollup": "rollup --watch --config rollup.config.mjs",
-		"create-docs-json": "node ./public/src/js/data/documentations/1.0.0/docs.mjs",
 		"prepare": "husky install"
 	},
 	"repository": {
@@ -39,6 +38,9 @@
 		"prettier": "2.8.8"
 	},
 	"lint-staged": {
-		"*.{*}": "prettier --write"
+		"*.{js,jsx,ts,tsx,json,css,scss,md}": [
+			"prettier --write"
+		],
+		"!public/dist/**/*": "prettier --write"
 	}
 }

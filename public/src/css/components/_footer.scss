@@ -1,16 +1,12 @@
-.silverBox-footer {
-    margin-top: var(--silverBox-items-top-margin);
-    div {
-        color: var(--silverBox-footer-color);
-        font-size: var(--silverBox-footer-font-size);
-        font-weight: var(--silverBox-footer-font-weight);
-    }
-
-    hr {
-        margin: var(--silverBox-footer-hr-margin);
-        background-color: var(--silverBox-hr-line-color);
-        border: none;
-        height:var(--silverBox-footer-hr-height);
-    }
-
+.silverBox-footer-wrapper {
+	margin-top: var(--silverBox-items-top-margin);
+	color: var(--silverBox-footer-color);
+	font-size: var(--silverBox-footer-font-size);
+	font-weight: var(--silverBox-footer-font-weight);
+	hr {
+		margin: var(--silverBox-footer-hr-margin);
+		background-color: var(--silverBox-hr-line-color);
+		height: var(--silverBox-footer-hr-height);
+		border: none;
+	}
 }

@@ -1,133 +1,143 @@
 /**
  * Returns inputWrapper element based on given arguments from config
- * @param {string} type - type of input
- * @param {string} placeHolder - placeHolder of input
- * @param {boolean} readOnly - value of input readonly attribute which is either true or false
- * @param {string} label - label name of input
- * @param {string} hint - hint of input
- * @param {string} width - width of input
- * @param {string} height - height of input
- * @param {string} maxLength - maxLength attribute of input
- * @param {string} textAlign - specifies the position of texts in input
- * @param {string} fontSize - text fontSize of input
- * @param {string} placeHolderFontSize - placeHolder fontSize of input
- * @returns {Element} - inputWrapper element
+ * @param {String} type - type of input
+ * @param {String} placeHolder - placeHolder of input
+ * @param {Boolean} readOnly - value of input readonly attribute which is either true or false
+ * @param {String} label - label name of input
+ * @param {String} hint - hint of input
+ * @param {String} width - width of input
+ * @param {String} height - height of input
+ * @param {Number} maxLength - maxLength attribute of input
+ * @param {String} textAlign - specifies the position of texts in input
+ * @param {String} fontSize - text fontSize of input
+ * @param {String} placeHolderFontSize - placeHolder fontSize of input
+ * @returns {HTMLElement} - inputWrapper element
  */
-function silverBoxInputComponent({ type, select, numberOnly, placeHolder, readOnly, label, hint, width, height, maxLength, textAlign, fontSize, placeHolderFontSize, name, className, id, value }) {
-	// changing the type case to lowerCase to avoid case conflict problem
-	type = type.toLowerCase()
+function silverBoxInputComponent({
+	type,
+	select,
+	numberOnly,
+	placeHolder,
+	readOnly,
+	label,
+	hint,
+	width,
+	height,
+	maxLength,
+	textAlign,
+	fontSize,
+	placeHolderFontSize,
+	name,
+	className,
+	id,
+	value,
+}) {
+	// Create a wrapper div element for the input
+	const inputWrapper = document.createElement("div");
+	inputWrapper.classList = "silverBox-input-wrapper";
 
-	// parent and children element creation
-	let inputWrapper = document.createElement('div')
-	inputWrapper.classList.add('silverBox-input-wrapper')
+	// Create a label element and set its text content to the provided label
+	const labelEl = document.createElement("label");
+	labelEl.textContent = label;
 
-	// label
-	let labelEl = document.createElement("label")
-	labelEl.textContent = label
-
-	// select
-	let selectEl = document.createElement('select')
-	selectEl.classList.add('silverBox-select')
-
-	// checks if the select config exists
 	if (select) {
-		let optionsArray = []
-		// creates option elements based on the given configs
-		select.forEach(option => {
-			// each option element creation
-			let optionEl = document.createElement('option')
-			// sets the option value
-			optionEl.setAttribute('value', option.value ? option.value : '')
-			// sets the option text (if text doesn't exist, the text value will be the option value )
-			optionEl.textContent = option.text ? option.text : option.value
-			// gives the option element a disabled attr if the config exists
-			if (option.disabled) optionEl.setAttribute('disabled', '')
-			// gives the option element a selected attr if the config exists
-			if (option.selected) optionEl.setAttribute('selected', '')
+		// Create a select element if the 'select' flag is true
+		const selectEl = document.createElement("select");
+		selectEl.classList = "silverBox-select";
 
-			// pushes each new config to the array
-			optionsArray.push(optionEl)
+		// Iterate over the 'select' options array
+		select.map((option) => {
+			const optionEl = document.createElement("option");
+			optionEl.value = option.value ?? "";
+			optionEl.textContent = option.text ?? option.value ?? "";
 
+			// Set the 'disabled' attribute if the option is disabled
+			if (option.disabled) optionEl.setAttribute("disabled", "");
 
-		})
-		// appends the option into the selectEl
-		optionsArray.forEach(optionEl => {
-			selectEl.append(optionEl)
-		})
+			// Set the 'selected' attribute if the option is selected
+			if (option.selected) optionEl.setAttribute("selected", "");
 
+			// Append the option element to the select element
+			selectEl.append(optionEl);
+		});
+
+		// Append the select element to the input wrapper
+		inputWrapper.append(selectEl);
+	} else {
+		// Create an input element (either input or textarea) based on the 'type'
+		const isTextArea = type.toLowerCase() === "textarea";
+		const inputEl = document.createElement(isTextArea ? "textarea" : "input");
+
+		// Set the 'type' attribute for input elements (except for textarea)
+		if (!isTextArea && type) inputEl.setAttribute("type", type);
+
+		// Set the value of the input element to the provided value (or an empty string)
+		inputEl.value = value ?? "";
+
+		// Set the placeholder attribute if a placeholder value is provided
+		if (placeHolder) inputEl.placeholder = placeHolder;
+
+		// Set the maxLength attribute if a maxLength value is provided
+		if (maxLength) inputEl.maxLength = maxLength;
+
+		// Set the text alignment style if textAlign is provided
+		if (textAlign) inputEl.style.textAlign = textAlign;
+
+		// Set the width style if width is provided
+		if (width) inputEl.style.width = width;
+
+		// Set the height style if height is provided
+		if (height) inputEl.style.height = height;
+
+		// Set the font size style if fontSize is provided
+		if (fontSize) inputEl.style.fontSize = fontSize;
+
+		// Add an event listener to handle numberOnly behavior if numberOnly flag is true
+		if (numberOnly) {
+			inputEl.addEventListener("input", () => {
+				inputEl.value = inputEl.value
+					.replace(/[۰-۹]/g, (digit) => "۰۱۲۳۴۵۶۷۸۹.".indexOf(digit))
+					.replace(/[^0-9.]/g, "");
+			});
+		}
+
+		// Set the placeholder font size style if provided or fallback to fontSize
+		const givenPHFS = placeHolderFontSize ?? fontSize ?? false;
+		if (givenPHFS !== false)
+			inputEl.style.setProperty("--silverBox-placeHolder-fontSize", givenPHFS);
+
+		// Set the name attribute if a name value is provided
+		if (name) inputEl.name = name;
+
+		// Add the provided className to the input element's class list
+		if (className) inputEl.classList += ` ${className}`;
+
+		// Set the id attribute if an id value is provided
+		if (id) inputEl.id = id;
+
+		// Set the wrapper width to 'fit-content' if width is provided
+		if (width) inputWrapper.style.width = "fit-content";
+
+		// Set the 'readonly' attribute if readOnly flag is true
+		if (readOnly) inputEl.setAttribute("readonly", "");
+
+		// Append the label element to the input wrapper
+		if (label) inputWrapper.append(labelEl);
+
+		// Append the input element to the input wrapper
+		inputWrapper.append(inputEl);
 	}
-	// input or textArea selection conditions
-	let inputEl
 
-	if (type !== "textarea") {
-		inputEl = document.createElement('input')
-		if (type) inputEl.setAttribute('type', type)
-	}
-	else {
-		inputEl = document.createElement('textArea')
-	}
-	// sets the value for the input
-	if (value) inputEl.value = value
+	// Create a span element for the hint text and set its content to the provided hint
+	const hintEl = document.createElement("span");
+	hintEl.classList = "silverBox-input-hint";
+	hintEl.textContent = hint ?? "";
 
-	// hint
-	let hintEl = document.createElement('span')
-	hintEl.classList.add('silverBox-input-hint')
-	hintEl.textContent = hint
+	// Append the hint element to the input wrapper
+	if (hint) inputWrapper.append(hintEl);
 
-	// general input/textArea configs
-	if (placeHolder) inputEl.setAttribute('placeholder', placeHolder)
-	if (maxLength) inputEl.setAttribute('maxlength', maxLength)
-	if (textAlign) inputEl.style.textAlign = textAlign
-
-	// add input elements custom height and width and fontSize if their given
-	inputEl.style.width = width
-	inputEl.style.height = height
-	inputEl.style.fontSize = fontSize
-
-	// converts text input to numberOnly input
-	if (numberOnly) {
-
-		inputEl.addEventListener('input', () => {
-			// first, replaces the persian digits to english, then only allows the numeric characters
-			inputEl.value = inputEl.value.replace(/[۰-۹]/g, digit => '۰۱۲۳۴۵۶۷۸۹'.indexOf(digit)).replace(/[^0-9]/g, '')
-		})
-
-	}
-	if (!placeHolderFontSize) {
-		if (fontSize) inputEl.style.setProperty('--silverBox-placeHolder-fontSize', fontSize)
-	}
-	else {
-		if (placeHolderFontSize) inputEl.style.setProperty('--silverBox-placeHolder-fontSize', placeHolderFontSize)
-
-	}
-
-	// giving inputs id/class and name attribute
-	// name
-	if (name) inputEl.setAttribute("name", name)
-	if (className) className.split(" ").forEach(className => inputEl.classList.add(className))
-	if (id) inputEl.id = id
-	// restart the inputs/textArea parent's width if the width exist
-	if (width) inputWrapper.style.width = 'fit-content'
-
-	// readOnly condition for inputs
-	if (readOnly) inputEl.setAttribute('readonly', '')
-
-	// appending label,hint and input/select to the inputWrapper
-	if (label) inputWrapper.append(labelEl)
-	// checks if the select config is given, if it's true the select element will be replaced as the input
-	if (select) {
-
-		inputWrapper.append(selectEl)
-
-	}
-	else {
-		inputWrapper.appendChild(inputEl)
-	}
-	if (hint) inputWrapper.appendChild(hintEl)
-
-	return inputWrapper
-
-
+	// Return the input wrapper element
+	return inputWrapper;
 }
-export default silverBoxInputComponent
 
+export default silverBoxInputComponent;

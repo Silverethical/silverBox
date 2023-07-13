@@ -1,10 +1,16 @@
 /**
  * Creates loading animation element
- * @returns {Element} - loading animation element
+ * @returns {HTMLElement} - loading animation element
  */
 function silverBoxLoadingAnimation() {
-    let loadingEl = document.createElement("span")
-    loadingEl.classList.add("silverBox-button-loading-animation")
-    return loadingEl
+	// create loading element
+	const loadingEl = document.createElement("span");
+
+	// add className to loading element
+	loadingEl.classList.add("silverBox-button-loading-animation");
+
+	// return loading element
+	return loadingEl;
 }
+
 export default silverBoxLoadingAnimation;

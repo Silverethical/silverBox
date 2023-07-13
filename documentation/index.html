@@ -1,53 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="theme-color" content="#1c2638" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/public/dist/css/documentationPage.css" />
+		<link rel="icon" href="/public/src/images/silverBox-TransParent.png" />
+		<title>SilverBox | Documentation</title>
+	</head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="theme-color" content="#1c2638" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="/public/dist/css/documentationPage.css" />
-	<link rel="icon" href="/public/src/images/silverBox-TransParent.png" />
-	<title>SilverBox | Documentation</title>
-</head>
-
-<body>
-	<!-- header -->
-	<header id="silverBox-header">
-		<div class="container">
-			<nav>
-				<a href="/" id="logo">
-					<img src="/public/src/images/silverBox-TransParent.svg" />
-					<span>SilverBox</span>
-				</a>
-				<ul>
-					<li><a href="/#silverBox-heroSection">Intro</a></li>
-					<li><a href="/#silverBox-exampleSection">Example</a></li>
-					<li><a href="/#silverBox-usageSection">Usage</a></li>
-					<li>
-						<a href="#silverBox-documentationSection">Documentation</a>
-					</li>
-				</ul>
-				<div id="hamburger-menu">
-					<div class="row"></div>
-					<div class="row"></div>
-					<div class="row"></div>
-				</div>
-			</nav>
-		</div>
-	</header>
-
-	<main>
-		<!-- documentation -->
-		<section id="silverBox-documentationSection">
+	<body>
+		<!-- header -->
+		<header id="silverBox-header">
 			<div class="container">
-				<h2 class="silverBox-sectionHeader">Documentation</h2>
-
-				<div class="silverBox-tableWrapper"></div>
+				<nav>
+					<a href="/" id="logo">
+						<img src="/public/src/images/silverBox-TransParent.svg" />
+						<span>SilverBox</span>
+					</a>
+					<ul>
+						<li><a href="/#silverBox-heroSection">Intro</a></li>
+						<li><a href="/#silverBox-exampleSection">Example</a></li>
+						<li><a href="/#silverBox-usageSection">Usage</a></li>
+						<li>
+							<a href="#silverBox-documentationSection">Documentation</a>
+						</li>
+					</ul>
+					<div id="hamburger-menu">
+						<div class="row"></div>
+						<div class="row"></div>
+						<div class="row"></div>
+					</div>
+				</nav>
 			</div>
-		</section>
-	</main>
-	<script src="/public/dist/js/documentationPage.js"></script>
-</body>
+		</header>
 
+		<main>
+			<!-- documentation -->
+			<section id="silverBox-documentationSection">
+				<div class="container">
+					<!-- documentation header -->
+					<h2 class="silverBox-sectionHeader">
+						<!-- documentation title -->
+						<span>Documentation</span>
+
+						<!-- documentation version -->
+						<span id="silverBox-documentation-version"></span>
+					</h2>
+					<div class="silverBox-tableWrapper"></div>
+				</div>
+			</section>
+		</main>
+		<script src="/public/dist/js/documentationPage.js"></script>
+	</body>
 </html>

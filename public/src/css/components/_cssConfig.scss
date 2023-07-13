@@ -2,11 +2,12 @@
 	// light theme
 	&[data-theme="light"] {
 		// silverBox overlay
-		--silverBox-overlay-background: #d0d5ddac;
+		--silverBox-overlay-background: #d0d5dde2;
 		// silverBox
 		--silverBox-background-color: white;
 		--silverBox-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 		--silverBox-border-color: #fff;
+		--silverBox-timer-bar: #bbb;
 		// header
 		--silverBox-title-color: #000;
 		--silverBox-text-color: #475467;
@@ -25,6 +26,11 @@
 		--silverBox-cancel-bg-color: #fff;
 		--silverBox-cancel-border-color: #d0d5dd;
 		--silverBox-cancel-hover-color: #d2d2d2;
+		// custom button
+		--silverBox-custom-color: #475467;
+		--silverBox-custom-bg-color: #fff;
+		--silverBox-custom-border-color: #d0d5dd;
+		--silverBox-custom-hover-color: #d2d2d2;
 		// inputs
 		--silverBox-input-border-color: #d0d5dd;
 		--silverBox-input-background: #fff;
@@ -32,6 +38,7 @@
 		--silverBox-input-placeHolder-color: #475467;
 		--silverBox-label-color: #1d2939;
 		--silverBox-hint-color: #101828;
+		--silverBox-input-box-shadow: 0px 0px 4px rgba(201, 14, 14, 0.1);
 		// footer
 		--silverBox-hr-line-color: #bbbbbb;
 		--silverBox-footer-color: #474747;
@@ -52,11 +59,12 @@
 	// dark theme
 	&[data-theme="dark"] {
 		// silverBox overlay
-		--silverBox-overlay-background: #191919c7;
+		--silverBox-overlay-background: #191919ea;
 		// silverBox
 		--silverBox-background-color: #1f2637;
 		--silverBox-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 		--silverBox-border-color: #171e2e;
+		--silverBox-timer-bar: #555;
 		// header
 		--silverBox-title-color: #fff;
 		--silverBox-text-color: #9fa3ad;
@@ -75,6 +83,11 @@
 		--silverBox-cancel-bg-color: #5f5f5f;
 		--silverBox-cancel-border-color: #5f5f5f;
 		--silverBox-cancel-hover-color: #838383;
+		// custom button
+		--silverBox-custom-color: #fff;
+		--silverBox-custom-bg-color: #5f5f5f;
+		--silverBox-custom-border-color: #5f5f5f;
+		--silverBox-custom-hover-color: #838383;
 		// inputs
 		--silverBox-input-border-color: #39363f;
 		--silverBox-input-background: #515864;
@@ -82,6 +95,7 @@
 		--silverBox-input-placeHolder-color: #a1a4a9;
 		--silverBox-label-color: #fff;
 		--silverBox-hint-color: #fff;
+		--silverBox-input-box-shadow: 0px 0px 4px rgba(90, 206, 23, 0.1);
 		// footer
 		--silverBox-hr-line-color: #bbbbbb;
 		--silverBox-footer-color: #a1a4a9;
@@ -104,7 +118,9 @@
 	// silverBox
 	--silverBox-items-top-margin: 15px;
 	--silverBox-padding: 20px;
-	--silverBox-border: 1px solid;
+	--silverBox-border: 0px solid;
+	--silverBox-timer-bar-height: 3px;
+	--silverBox-timer-bar-border-radius: 10px;
 
 	--silverBox-border-radius: 20px;
 
@@ -118,7 +134,6 @@
 	// silverBox overlay
 	--silverBox-overlay-width: 100vw;
 	--silverBox-overlay-height: 100vh;
-	--silverBox-overlay-backdrop-filter: blur(2px);
 
 	// positioned silverBox
 
@@ -131,6 +146,12 @@
 	--silverBox-bottom-distance: 10px;
 	--silverBox-bottom-right-distance: 10px;
 	--silverBox-bottom-left-distance: 10px;
+
+	// slide animations
+	--silverBox-slide-animation-left-distance: 10px;
+	--silverBox-slide-animation-right-distance: 10px;
+	--silverBox-slide-animation-top-distance: 10px;
+	--silverBox-slide-animation-bottom-distance: 10px;
 
 	// silver box end -------------------
 

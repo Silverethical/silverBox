@@ -1,31 +1,35 @@
 // import
-import silverBoxDisableScroll from './silverBox/disableScroll';
+import silverBoxDisableScroll from "./silverBox/disableScroll";
 /** selects the silverBox container and closes the element*/
-function silverBoxCloseButtonOnClick({ uniqueID, timer }) {
+function silverBoxClose({ uniqueID, timer, onClose, element }) {
 	// if the modal doesn't have a timer, the modal will be closed on click
 	if (!timer) {
 		// selects the all silverBox-container classes in the page
 		const silverBox = document.querySelectorAll(".silverBox-container");
 
-		if (silverBox[silverBox.length - 1]) silverBox[silverBox.length - 1].remove();
+		if (silverBox[silverBox.length - 1])
+			silverBox[silverBox.length - 1].remove();
 		// checks for silverBoxAfter removing the wrapper
-		silverBoxDisableScroll(".silverBox-overlay")
+		silverBoxDisableScroll(".silverBox-overlay");
+	}
+	// If timer exits specific modal will be removed from page
+	else if (timer) {
+		silverBoxCloseAfterTimeout(uniqueID);
+	} else if (element) {
+		element.closest(".silverBox").remove();
+	}
 
-	}
-	// else, THE specific modal will be removed from page
-	else {
-		silverBoxCloseAfterTimeout(uniqueID, timer)
-	}
+	// Runs onClose function if it exits
+	if (onClose) onClose();
 }
 // this function will remove a specific element with the unique ID and after a specific timeout
-function silverBoxCloseAfterTimeout(elementID, timeOut) {
+function silverBoxCloseAfterTimeout(elementID) {
 	// selects the element by the unique ID
-	const uniqueTimeOutElement = document.querySelector(`[uniqueID="${elementID}"]`)
+	const uniqueTimeOutElement = document.querySelector(`[uniqueID="${elementID}"]`);
 
-	setTimeout(() => {
-		if (uniqueTimeOutElement) uniqueTimeOutElement.remove()
-		silverBoxDisableScroll(".silverBox-overlay")
-	}, timeOut)
+	uniqueTimeOutElement.remove();
+
+	silverBoxDisableScroll(".silverBox-overlay");
 }
 
-export default silverBoxCloseButtonOnClick;
+export default silverBoxClose;
