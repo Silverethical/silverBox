@@ -1,4 +1,4 @@
-import addButtonConfig from "./chunks/buttons_1.0.0.js";
+import addButtonConfig from "./chunks/buttons_1.1.0.js";
 import sortDocumentation from "../../helpers/sortDocumentation.js";
 
 const documentation = [
@@ -22,9 +22,30 @@ const documentation = [
 	},
 	{
 		configName: "timer",
-		defaultValue: 0,
-		type: "number",
-		explanation: "SilverBox closes after given time in milliseconds.",
+		defaultValue: "emptyDefaultValue",
+		type: "number | object",
+		explanation:
+			"SilverBox closes after given time in milliseconds. It can get a number representing the timer duration, or an object with other configs",
+		config: [
+			{
+				configName: "duration",
+				defaultValue: 0,
+				type: "number",
+				explanation: "Timer duration in milliseconds.",
+			},
+			{
+				configName: "pauseOnHover",
+				defaultValue: true,
+				type: "boolean",
+				explanation: "Pause timer when mouse hovers on SilverBox.",
+			},
+			{
+				configName: "showBar",
+				defaultValue: true,
+				type: "boolean",
+				explanation: "Show timer bar bellow SilverBox.",
+			},
+		],
 	},
 	{
 		configName: "position",
@@ -41,8 +62,8 @@ const documentation = [
 	{
 		configName: "title",
 		defaultValue: "emptyDefaultValue",
-		type: "object",
-		explanation: "SilverBox title.",
+		type: "string | object",
+		explanation: "SilverBox title. It can be a string or an object.",
 		config: [
 			{
 				configName: "text",
@@ -295,7 +316,6 @@ const documentation = [
 				type: "string",
 				explanation: "Input value.",
 			},
-
 			// {
 			//     configName: "select",
 			//     defaultValue: "",
@@ -304,10 +324,66 @@ const documentation = [
 			// },
 		],
 	},
+	{
+		configName: "animation",
+		defaultValue: "emptyDefaultValue",
+		type: "object | array",
+		explanation: "Custom animation. It can ba an object or an array of objects.",
+		config: [
+			{
+				configName: "name",
+				defaultValue: "popUp",
+				type: "string",
+				explanation: "Animation name.",
+			},
+			{
+				configName: "duration",
+				defaultValue: ".3s",
+				type: "string",
+				explanation: "Animation duration.",
+			},
+			{
+				configName: "timingFunction",
+				defaultValue: "1",
+				type: "string",
+				explanation: "Animation timing function.",
+			},
+			{
+				configName: "delay",
+				defaultValue: "0s",
+				type: "string",
+				explanation: "Animation delay.",
+			},
+			{
+				configName: "iterationCount",
+				defaultValue: "1",
+				type: "string",
+				explanation: "Animation iteration count.",
+			},
+			{
+				configName: "direction",
+				defaultValue: "normal",
+				type: "string",
+				explanation: "Animation direction.",
+			},
+			{
+				configName: "fillMode",
+				defaultValue: "none",
+				type: "string",
+				explanation: "Animation fill mode.",
+			},
+		],
+	},
+	{
+		configName: "onClose",
+		defaultValue: "",
+		type: "function",
+		explanation: "Function to run when silverBox closes.",
+	},
 ];
 
 // add confirm/deny/cancel button to documentation
-addButtonConfig(["Confirm", "Deny", "Cancel"], documentation);
+addButtonConfig(["Confirm", "Deny", "Cancel", "Custom"], documentation);
 
 // sort documentation alphabetically
 const sortedDocs = sortDocumentation(documentation);
