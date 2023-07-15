@@ -238,10 +238,14 @@ function silverBox(config = {}) {
 				silverBoxWrapper.setAttribute("uniqueID", uniqueID);
 			}
 
+			// changes the title config to an object if the given value is a number, so as a result we can use this config as either an object or a number.
+			if (typeof config.timer === "number")
+				config.timer = { timer: config.timer };
+
 			// Handle the timerBar functionalities
 			silverBoxTimerBar({
 				uniqueID,
-				timer: config.timer,
+				timerConfig: config.timer,
 				pauseTimerOnHover: config.pauseTimerOnHover,
 				showTimerBar: config.showTimerBar,
 				onClose: config.onClose,
