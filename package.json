@@ -4,7 +4,7 @@
 	"description": "SilverBox is a lightweight and versatile JavaScript library that enables you to effortlessly create customizable modals and alerts for your web applications. Built with pure JavaScript and zero dependencies, SilverBox empowers developers to easily integrate stylish and interactive pop-up components without adding unnecessary bloat. Harness the power of CSS variables to customize the visual styles, seamlessly adapting to your application's design system. Experience the simplicity and flexibility of SilverBox for beautiful modals and alerts.",
 	"scripts": {
 		"dev:front": "concurrently --kill-others \"npm run scss\" \"npm run rollup\" \"node ./server.js\"",
-		"scss": "sass --style compressed --no-source-map --watch public/src/css/:public/dist/css",
+		"scss": "sass --style compressed --no-source-map --watch public/src/css/:public/dist/css | postcss public/dist/css/**/*.css --config postcss.config.js --replace",
 		"rollup": "rollup --watch --config rollup.config.mjs",
 		"prepare": "husky install"
 	},
@@ -26,15 +26,14 @@
 		"@rollup/plugin-terser": "^0.4.1",
 		"concurrently": "^8.0.1",
 		"express": "^4.18.2",
-		"postcss": "^8.4.23",
-		"postcss-cli": "^10.1.0",
 		"rollup": "^3.21.7",
 		"sass": "^1.62.1",
-		"uglify-js": "^3.17.4"
-	},
-	"devDependencies": {
+		"uglify-js": "^3.17.4",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.2.2",
+		"postcss": "^8.4.26",
+		"postcss-cli": "^10.1.0",
+		"postcss-preset-env": "^9.0.0",
 		"prettier": "2.8.8"
 	},
 	"lint-staged": {
