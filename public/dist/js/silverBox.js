@@ -324,7 +324,6 @@ function createSilverBox({
 	direction,
 	components,
 	positionClassName,
-	isInput,
 	theme = "light",
 	centerContent,
 }) {
@@ -349,29 +348,8 @@ function createSilverBox({
 	// centers the modal contents if the config is given
 	if (centerContent) silverBoxModal.style.textAlign = "center";
 
-	// create form variable to contain a form element if it's needed
-	let form;
-
-	// checks if we have inputs in the given config, if true the elements will be added to a form elements, else there will be no form elements
-	if (isInput) {
-		// create  form element for inputs
-		form = document.createElement("form");
-
-		// add classlist to form element
-		form.classList.add("silverBox-form");
-
-		// submit event listener for silverBox form
-		form.addEventListener("submit", (e) => {
-			// form preventDefault
-			e.preventDefault();
-		});
-
-		// appends the form into the silverBoxModal
-		silverBoxModal.append(form);
-	}
-
-	// append the components items (header,body,footer) to the silverBox/form
-	appendingToModal(isInput ? form : silverBoxModal, components);
+	// append the components items (header,body,footer) to the silverBox
+	appendingToModal(silverBoxModal, components);
 
 	// if silverBox is not empty, it will be added to it's overlay
 	if (silverBoxModal.childElementCount !== 0) overlay.append(silverBoxModal);
@@ -685,7 +663,7 @@ function silverBoxHeaderComponent({
  * @param {String} components - The array of components to be appended.
  * @returns {HTMLElement} - The created body wrapper element.
  */
-function silverBoxBodyComponent({ htmlText, bodyText, components }) {
+function silverBoxBodyComponent({ htmlText, bodyText, components, isInput }) {
 	// create bodyWrapper for html,text,inputComponent,buttonComponent
 	const bodyWrapper = document.createElement("div");
 
@@ -718,8 +696,28 @@ function silverBoxBodyComponent({ htmlText, bodyText, components }) {
 		bodyWrapper.appendChild(textStructure);
 	}
 
+	// Create form variable to contain a form element if it's needed
+	let form;
+
+	// checks if we have inputs in the given config, if true the elements will be added to a form elements, else there will be no form elements
+	if (isInput) {
+		// create  form element for inputs
+		form = document.createElement("form");
+
+		// add classlist to form element
+		form.classList.add("silverBox-form");
+
+		// submit event listener for silverBox form
+		form.addEventListener("submit", (e) => {
+			// form preventDefault
+			e.preventDefault();
+		});
+
+		// appends the form into the bodyWrapper
+		bodyWrapper.append(form);
+	}
 	// append all components to modal by calling the "appendingToModal" helper function
-	appendingToModal(bodyWrapper, components);
+	appendingToModal(form ? form : bodyWrapper, components);
 
 	return bodyWrapper;
 }
@@ -827,26 +825,30 @@ function silverBoxRemoveLoadings(animationIndex) {
 
 // imports
 
-const silverBoxTimerBar = ({
-	uniqueID,
-	timer,
-	pauseTimerOnHover = true,
-	showTimerBar = true,
-	onClose,
-}) => {
+const silverBoxTimerBar = ({ uniqueID, timerConfig, onClose }) => {
+	// gives the pauseOnHover and showBar config in timer a default value if they're not given
+	if (!("showBar" in timerConfig)) timerConfig.showBar = true;
+	if (!("pauseOnHover" in timerConfig)) timerConfig.pauseOnHover = true;
+
 	// select silverBox to append the timerBar element
 	let silverBox = document.querySelectorAll(".silverBox");
 	silverBox = silverBox[silverBox.length - 1];
 
-	// create a timerBar element to track the remaining time before closing the silverBox
+	// create a timerBar element with it's wrapper to track the remaining time before closing the silverBox
 	const timerBar = document.createElement("div");
 	timerBar.classList = "timer-bar";
 
+	const timerBarWrapper = document.createElement("div");
+	timerBarWrapper.classList = "timer-bar-wrapper";
+
+	// appends the timerBar inside a wrapper
+	timerBarWrapper.append(timerBar);
+
 	// defining the animation duration based on the given timer
-	timerBar.style.animation = `timer ${timer / 1000}s linear`;
+	timerBar.style.animation = `timer ${timerConfig.timer / 1000}s linear`;
 
 	// checks if the pauseTimerOnHover config is not false (it could either be )
-	if (pauseTimerOnHover !== false && silverBox) {
+	if (timerConfig?.pauseOnHover !== false && silverBox) {
 		silverBox.addEventListener("mouseover", () => {
 			timerBar.style.animationPlayState = "paused";
 		});
@@ -856,14 +858,14 @@ const silverBoxTimerBar = ({
 	}
 
 	// appending the timerBar to silverBox, if users wants it
-	if (silverBox && showTimerBar) {
-		silverBox.append(timerBar);
+	if (silverBox && timerConfig?.showBar) {
+		silverBox.append(timerBarWrapper);
 
 		// removes the specific element after the given timeout
 		timerBar.addEventListener("animationend", () => {
 			silverBoxClose({
 				uniqueID,
-				timer,
+				timer: timerConfig.timer,
 				onClose,
 			});
 		});
@@ -871,10 +873,10 @@ const silverBoxTimerBar = ({
 		setTimeout(() => {
 			silverBoxClose({
 				uniqueID,
-				timer,
+				timer: timerConfig.timer,
 				onClose,
 			});
-		}, timer);
+		}, timerConfig.timer);
 	}
 };
 
@@ -1077,6 +1079,7 @@ function silverBox(config = {}) {
 			htmlText: config.html,
 			bodyText: config.text,
 			components: bodyComponents,
+			isInput: config.input,
 		});
 
 		// Adds "bodyComponentConfig" to "components" object to append it inside silverBox if it's not empty.
@@ -1095,12 +1098,11 @@ function silverBox(config = {}) {
 		 * @param {Boolean} isInputValue - Determines if the modal box contains an input field.
 		 * @returns {void}
 		 */
-		const modalSampleConfig = (className, isInputValue) =>
+		const modalSampleConfig = (className) =>
 			document.body.append(
 				createSilverBox({
 					components: components,
 					positionClassName: className,
-					isInput: isInputValue,
 					theme: config.theme,
 					direction: config.direction,
 					centerContent: config.centerContent,
@@ -1114,10 +1116,8 @@ function silverBox(config = {}) {
 				? `silverBox-${config.position}`
 				: "silverBox-overlay";
 
-		// Calls "modalSampleConfig" with value provided from "position" and ""input" in config" to create silverBox.
-		if (Object.keys(components).length !== 0) {
-			modalSampleConfig(position, "input" in config);
-		}
+		// Calls "modalSampleConfig" with value provided from "position" to create silverBox.
+		if (Object.keys(components).length !== 0) modalSampleConfig(position);
 
 		// Select "silverBoxWrapper"
 		let silverBoxWrapper = document.querySelectorAll(".silverBox-container");
@@ -1135,10 +1135,14 @@ function silverBox(config = {}) {
 				silverBoxWrapper.setAttribute("uniqueID", uniqueID);
 			}
 
+			// changes the title config to an object if the given value is a number, so as a result we can use this config as either an object or a number.
+			if (typeof config.timer === "number")
+				config.timer = { timer: config.timer };
+
 			// Handle the timerBar functionalities
 			silverBoxTimerBar({
 				uniqueID,
-				timer: config.timer,
+				timerConfig: config.timer,
 				pauseTimerOnHover: config.pauseTimerOnHover,
 				showTimerBar: config.showTimerBar,
 				onClose: config.onClose,
