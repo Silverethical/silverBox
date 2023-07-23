@@ -13,7 +13,6 @@ function createSilverBox({
 	direction,
 	components,
 	positionClassName,
-	isInput,
 	theme = "light",
 	centerContent,
 }) {
@@ -38,29 +37,8 @@ function createSilverBox({
 	// centers the modal contents if the config is given
 	if (centerContent) silverBoxModal.style.textAlign = "center";
 
-	// create form variable to contain a form element if it's needed
-	let form;
-
-	// checks if we have inputs in the given config, if true the elements will be added to a form elements, else there will be no form elements
-	if (isInput) {
-		// create  form element for inputs
-		form = document.createElement("form");
-
-		// add classlist to form element
-		form.classList.add("silverBox-form");
-
-		// submit event listener for silverBox form
-		form.addEventListener("submit", (e) => {
-			// form preventDefault
-			e.preventDefault();
-		});
-
-		// appends the form into the silverBoxModal
-		silverBoxModal.append(form);
-	}
-
-	// append the components items (header,body,footer) to the silverBox/form
-	appendingToModal(isInput ? form : silverBoxModal, components);
+	// append the components items (header,body,footer) to the silverBox
+	appendingToModal(silverBoxModal, components);
 
 	// if silverBox is not empty, it will be added to it's overlay
 	if (silverBoxModal.childElementCount !== 0) overlay.append(silverBoxModal);

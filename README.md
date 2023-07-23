@@ -26,11 +26,11 @@ To create a modal or alert using SilverBox, follow these steps:
 
 ```js
 silverBox({
-	title: {
-		text: "Success",
-		alertIcon: "success",
-	},
-	text: "Your task has been completed.",
+  title: {
+    text: "Success",
+    alertIcon: "success",
+  },
+  text: "Your task has been completed.",
 });
 ```
 
