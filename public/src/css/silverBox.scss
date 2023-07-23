@@ -33,6 +33,7 @@ body {
 	}
 
 	.silverBox {
+		z-index: var(--silverBox-z-index);
 		position: relative;
 		box-sizing: border-box;
 		width: var(--silverBox-width);
@@ -61,22 +62,43 @@ body {
 			border-radius: var(--silverBox-timer-bar-border-radius);
 			background-color: var(--silverBox-timer-bar);
 		}
+
+		.timer-bar-wrapper {
+			z-index: calc(var(--silverBox-z-index) + 1);
+			position: absolute;
+			bottom: 0;
+			border-radius: inherit;
+			width: 100%;
+			height: 100%;
+			overflow-x: hidden;
+		}
+
 		*:first-child {
 			margin-top: 0;
 		}
 	}
 
+	.silverBox-body-wrapper,
+	.silverBox-header-wrapper,
+	.silverBox-footer-wrapper {
+		position: relative;
+		z-index: calc(var(--silverBox-z-index) + 2);
+	}
+
 	.silverBox-body-wrapper {
 		margin-top: var(--silverBox-items-top-margin);
+
 		*:first-child {
 			margin-top: 0;
 		}
+
 		.silverBox-body-description {
 			color: var(--silverBox-text-color);
 			font-size: var(--silverBox-text-font-size);
 			font-weight: var(--silverBox-text-font-weight);
 		}
 	}
+
 	// popUp animation
 	@keyframes popUp {
 		50% {

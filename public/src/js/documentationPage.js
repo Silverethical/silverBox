@@ -36,7 +36,7 @@ window.addEventListener("scroll", () => {
 });
 
 // all versions of documentation
-const allVersions = ["1.0.0"];
+const allVersions = ["1.0.0", "1.1.0"];
 // version number from query string url
 let versionNumber = getParameterByName("v");
 
@@ -48,7 +48,9 @@ if (!versionNumber || !allVersions.includes(versionNumber)) {
 
 // on DOM load
 document.addEventListener("DOMContentLoaded", async () => {
-	const { default: docs } = await import(`/public/src/js/data/documentations/${versionNumber}.js`);
+	const { default: docs } = await import(
+		`/public/src/js/data/documentations/${versionNumber}.js`
+	);
 	silverBoxDocumentationTableComponent(".silverBox-tableWrapper", docs);
 });
 
@@ -63,7 +65,9 @@ function getParameterByName(name, url = window.location.href) {
 }
 
 // add versionNumber to documentation
-const documentationVersionSpan = document.querySelector("#silverBox-documentation-version");
+const documentationVersionSpan = document.querySelector(
+	"#silverBox-documentation-version"
+);
 
 // add documentation version to documentation Span
 documentationVersionSpan.innerText = "v" + versionNumber;

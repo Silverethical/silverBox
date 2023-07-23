@@ -6,7 +6,7 @@ import appendingToModal from "../../helpers/silverBox/appendToModal";
  * @param {String} components - The array of components to be appended.
  * @returns {HTMLElement} - The created body wrapper element.
  */
-function silverBoxBodyComponent({ htmlText, bodyText, components }) {
+function silverBoxBodyComponent({ htmlText, bodyText, components, isInput }) {
 	// create bodyWrapper for html,text,inputComponent,buttonComponent
 	const bodyWrapper = document.createElement("div");
 
@@ -39,8 +39,28 @@ function silverBoxBodyComponent({ htmlText, bodyText, components }) {
 		bodyWrapper.appendChild(textStructure);
 	}
 
+	// Create form variable to contain a form element if it's needed
+	let form;
+
+	// checks if we have inputs in the given config, if true the elements will be added to a form elements, else there will be no form elements
+	if (isInput) {
+		// create  form element for inputs
+		form = document.createElement("form");
+
+		// add classlist to form element
+		form.classList.add("silverBox-form");
+
+		// submit event listener for silverBox form
+		form.addEventListener("submit", (e) => {
+			// form preventDefault
+			e.preventDefault();
+		});
+
+		// appends the form into the bodyWrapper
+		bodyWrapper.append(form);
+	}
 	// append all components to modal by calling the "appendingToModal" helper function
-	appendingToModal(bodyWrapper, components);
+	appendingToModal(form ? form : bodyWrapper, components);
 
 	return bodyWrapper;
 }

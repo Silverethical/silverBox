@@ -180,6 +180,7 @@ function silverBox(config = {}) {
 			htmlText: config.html,
 			bodyText: config.text,
 			components: bodyComponents,
+			isInput: config.input,
 		});
 
 		// Adds "bodyComponentConfig" to "components" object to append it inside silverBox if it's not empty.
@@ -198,12 +199,11 @@ function silverBox(config = {}) {
 		 * @param {Boolean} isInputValue - Determines if the modal box contains an input field.
 		 * @returns {void}
 		 */
-		const modalSampleConfig = (className, isInputValue) =>
+		const modalSampleConfig = (className) =>
 			document.body.append(
 				createSilverBox({
 					components: components,
 					positionClassName: className,
-					isInput: isInputValue,
 					theme: config.theme,
 					direction: config.direction,
 					centerContent: config.centerContent,
@@ -217,10 +217,8 @@ function silverBox(config = {}) {
 				? `silverBox-${config.position}`
 				: "silverBox-overlay";
 
-		// Calls "modalSampleConfig" with value provided from "position" and ""input" in config" to create silverBox.
-		if (Object.keys(components).length !== 0) {
-			modalSampleConfig(position, "input" in config);
-		}
+		// Calls "modalSampleConfig" with value provided from "position" to create silverBox.
+		if (Object.keys(components).length !== 0) modalSampleConfig(position);
 
 		// Select "silverBoxWrapper"
 		let silverBoxWrapper = document.querySelectorAll(".silverBox-container");
@@ -238,10 +236,14 @@ function silverBox(config = {}) {
 				silverBoxWrapper.setAttribute("uniqueID", uniqueID);
 			}
 
+			// changes the title config to an object if the given value is a number, so as a result we can use this config as either an object or a number.
+			if (typeof config.timer === "number")
+				config.timer = { timer: config.timer };
+
 			// Handle the timerBar functionalities
 			silverBoxTimerBar({
 				uniqueID,
-				timer: config.timer,
+				timerConfig: config.timer,
 				pauseTimerOnHover: config.pauseTimerOnHover,
 				showTimerBar: config.showTimerBar,
 				onClose: config.onClose,
