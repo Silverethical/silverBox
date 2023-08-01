@@ -3,6 +3,7 @@
 @import "./components/input";
 @import "./components/buttons";
 @import "./components/header";
+@import "./components/body";
 @import "./components/icons";
 @import "./components/loadingAnimation";
 @import "./components/footer";
@@ -83,20 +84,6 @@ body {
 	.silverBox-footer-wrapper {
 		position: relative;
 		z-index: calc(var(--silverBox-z-index) + 2);
-	}
-
-	.silverBox-body-wrapper {
-		margin-top: var(--silverBox-items-top-margin);
-
-		*:first-child {
-			margin-top: 0;
-		}
-
-		.silverBox-body-description {
-			color: var(--silverBox-text-color);
-			font-size: var(--silverBox-text-font-size);
-			font-weight: var(--silverBox-text-font-weight);
-		}
 	}
 
 	// popUp animation

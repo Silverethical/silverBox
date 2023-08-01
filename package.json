@@ -3,8 +3,9 @@
 	"version": "1.1.0",
 	"description": "SilverBox is a lightweight and versatile JavaScript library that enables you to effortlessly create customizable modals and alerts for your web applications. Built with pure JavaScript and zero dependencies, SilverBox empowers developers to easily integrate stylish and interactive pop-up components without adding unnecessary bloat. Harness the power of CSS variables to customize the visual styles, seamlessly adapting to your application's design system. Experience the simplicity and flexibility of SilverBox for beautiful modals and alerts.",
 	"scripts": {
-		"dev:front": "concurrently --kill-others \"npm run scss\" \"npm run rollup\" \"node ./server.js\"",
-		"scss": "sass --style compressed --no-source-map --watch public/src/css/:public/dist/css",
+		"start": "sass --style compressed --no-source-map public/src/css/:public/dist/css && cross-env NODE_ENV=production rollup --config rollup.config.mjs && node ./server.js",
+		"dev:front": "cross-env NODE_ENV=development concurrently --kill-others \"npm run scss\" \"npm run rollup\" \"node ./server.js\"",
+		"scss": "sass --watch public/src/css/:public/dist/css",
 		"rollup": "rollup --watch --config rollup.config.mjs",
 		"prepare": "husky install"
 	},
@@ -25,6 +26,7 @@
 		"@rollup/plugin-babel": "^6.0.3",
 		"@rollup/plugin-terser": "^0.4.1",
 		"concurrently": "^8.0.1",
+		"cross-env": "^7.0.3",
 		"express": "^4.18.2",
 		"rollup": "^3.21.7",
 		"sass": "^1.62.1",
@@ -36,6 +38,6 @@
 		"prettier": "2.8.8"
 	},
 	"lint-staged": {
-		"public/src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier --write"
+		"public/src/**/*.{mjs,js,jsx,ts,tsx,json,css,scss,md}": "prettier --write"
 	}
 }
