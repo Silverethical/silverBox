@@ -70,13 +70,9 @@ function silverBox(config = {}) {
 		// Assign "silverBoxHeaderComponent" to a constant to put it inside "components" object.
 		const headerLayout = silverBoxHeaderComponent({
 			titleConfig: config.title,
-			titleAlertIcon: config.titleAlertIcon,
-			titleCustomIcon: config.titleCustomIcon,
 			icon: silverBoxIconsComponent(iconsConfig()),
 			showCloseButton: config.showCloseButton,
 			centerContent: config.centerContent,
-			titleCustomIconId: config.titleCustomIconId,
-			titleCustomIconClassName: config.titleCustomIconClassName,
 			onCloseConfig: config.onClose,
 		});
 

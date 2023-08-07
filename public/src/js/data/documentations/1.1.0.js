@@ -18,7 +18,7 @@ const documentation = [
 		configName: "customIcon",
 		defaultValue: "",
 		type: "string",
-		explanation: `Path to a customIcon. For example customIcon: "path/to/icon"; .`,
+		explanation: `Path to a customIcon. For example "customIcon: path/to/icon;" .`,
 	},
 	{
 		configName: "timer",
@@ -81,7 +81,7 @@ const documentation = [
 				configName: "customIcon",
 				defaultValue: "",
 				type: "string",
-				explanation: `Path to a title custom icon. For example customIcon: "path/to/icon"; .`,
+				explanation: `Path to a title custom icon. For example "customIcon: path/to/icon;" .`,
 			},
 			{
 				configName: "customIconId",
