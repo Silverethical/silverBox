@@ -196,7 +196,9 @@ function silverBox(config = {}) {
 		 * @returns {void}
 		 */
 		const modalSampleConfig = (className) => {
-			const silverBoxElement = createSilverBox({
+			if (Object.keys(components).length === 0) return null;
+
+			const createdSilverBox = createSilverBox({
 				components: components,
 				positionClassName: className,
 				theme: config.theme,
@@ -204,9 +206,9 @@ function silverBox(config = {}) {
 				centerContent: config.centerContent,
 			});
 
-			document.body.append(silverBoxElement);
+			document.body.append(createdSilverBox);
 
-			return silverBoxElement;
+			return createdSilverBox;
 		};
 
 		// If "position" exists in "config",sets the "position" variable to "silverBox-${config.position}"
@@ -217,7 +219,8 @@ function silverBox(config = {}) {
 				: "silverBox-overlay";
 
 		// Calls "modalSampleConfig" with value provided from "position" to create silverBox.
-		if (Object.keys(components).length !== 0) modalSampleConfig(position);
+		// Store it to be used in the returned methods at the end.
+		const silverBoxElement = modalSampleConfig(position);
 
 		// Select "silverBoxWrapper"
 		let silverBoxWrapper = document.querySelectorAll(".silverBox-container");
@@ -298,6 +301,22 @@ function silverBox(config = {}) {
 					: applyAnimation(config.animation);
 			}
 		}
+
+		if (silverBoxElement === null) return null;
+
+		return {
+			remove: () => {
+				document.body.removeChild(silverBoxElement);
+			},
+			removeLoading: (selector = "") => {
+				const buttons = silverBoxElement.querySelectorAll(
+					`button${selector}`
+				);
+				buttons.forEach((button) => {
+					button.classList.remove("silverBox-loading-button");
+				});
+			},
+		};
 	} catch (error) {
 		throw error;
 	}
