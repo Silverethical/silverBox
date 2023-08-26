@@ -195,20 +195,23 @@ function silverBox(config = {}) {
 		 * @param {Boolean} isInputValue - Determines if the modal box contains an input field.
 		 * @returns {void}
 		 */
-		const modalSampleConfig = (className) =>
-			document.body.append(
-				createSilverBox({
-					components: components,
-					positionClassName: className,
-					theme: config.theme,
-					direction: config.direction,
-					centerContent: config.centerContent,
-				})
-			);
+		const modalSampleConfig = (className) => {
+			const silverBoxElement = createSilverBox({
+				components: components,
+				positionClassName: className,
+				theme: config.theme,
+				direction: config.direction,
+				centerContent: config.centerContent,
+			});
+
+			document.body.append(silverBoxElement);
+
+			return silverBoxElement;
+		};
 
 		// If "position" exists in "config",sets the "position" variable to "silverBox-${config.position}"
 		// otherwise, it sets it to the value `"silverBox-overlay"`.
-		let position =
+		const position =
 			"position" in config
 				? `silverBox-${config.position}`
 				: "silverBox-overlay";
@@ -222,16 +225,16 @@ function silverBox(config = {}) {
 		// Reassign silverBoxWrapper value with the last element in NodeList to set timer.
 		silverBoxWrapper = silverBoxWrapper[silverBoxWrapper.length - 1];
 
+		// Create silverBox uniqueID by calling "silverBoxUniqueNumberMaker" to remove silverBox.
+		const uniqueID = silverBoxUniqueNumberMaker(1_000_000);
+
+		// Set the unique ID as an attribute to the modal.
+		if (silverBoxWrapper) {
+			silverBoxWrapper.setAttribute("data-unique-id", uniqueID);
+		}
+
 		// If "timer" is provided in config, the modal will be removed after the given time.
 		if ("timer" in config) {
-			// Create silverBox uniqueID by calling "silverBoxUniqueNumberMaker" to remove silverBox.
-			let uniqueID = silverBoxUniqueNumberMaker(1_000_000);
-
-			// Set the unique ID as an attribute to the modal.
-			if (silverBoxWrapper) {
-				silverBoxWrapper.setAttribute("uniqueID", uniqueID);
-			}
-
 			// changes the title config to an object if the given value is a number, so as a result we can use this config as either an object or a number.
 			if (typeof config.timer === "number")
 				config.timer = { timer: config.timer };
@@ -277,23 +280,26 @@ function silverBox(config = {}) {
 			silverBoxWrapper.classList += ` ${config.silverBoxClassName}`;
 		}
 
-		// Select "silverBox" to give it animation
-		const silverBox = document.querySelector(".silverBox");
-
 		// Add animation to silverBox
 		if ("animation" in config) {
-			// Set animation for the silverBox element based on the configuration provided.
-			// If "animation" is an array, each animation value will be added to silverBox as part of the animation sequence.
-			// If "animation" is an object, it will be called once and its values will be applied as an animation to silverBox.
-			silverBox.style.animation = Array.isArray(config.animation)
-				? config.animation
-						.map((animation) => applyAnimation(animation))
-						.join(", ")
-				: applyAnimation(config.animation);
+			// Select "silverBox" to give it animation
+			const silverBox = document.querySelector(
+				`.silverBox-container[data-unique-id="${uniqueID}"] .silverBox`
+			);
+
+			if (!!silverBox) {
+				// Set animation for the silverBox element based on the configuration provided.
+				// If "animation" is an array, each animation value will be added to silverBox as part of the animation sequence.
+				// If "animation" is an object, it will be called once and its values will be applied as an animation to silverBox.
+				silverBox.style.animation = Array.isArray(config.animation)
+					? config.animation
+							.map((animation) => applyAnimation(animation))
+							.join(", ")
+					: applyAnimation(config.animation);
+			}
 		}
 	} catch (error) {
-		console.error(error);
-		return false;
+		throw error;
 	}
 }
 

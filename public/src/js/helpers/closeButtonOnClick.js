@@ -25,7 +25,9 @@ function silverBoxClose({ uniqueID, timer, onClose, element }) {
 // this function will remove a specific element with the unique ID and after a specific timeout
 function silverBoxCloseAfterTimeout(elementID) {
 	// selects the element by the unique ID
-	const uniqueTimeOutElement = document.querySelector(`[uniqueID="${elementID}"]`);
+	const uniqueTimeOutElement = document.querySelector(
+		`[data-unique-id="${elementID}"]`
+	);
 
 	uniqueTimeOutElement.remove();
 
