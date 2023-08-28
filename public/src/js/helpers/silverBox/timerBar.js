@@ -6,6 +6,17 @@ const silverBoxTimerBar = ({ uniqueID, timerConfig, onClose }) => {
 	if (!("showBar" in timerConfig)) timerConfig.showBar = true;
 	if (!("pauseOnHover" in timerConfig)) timerConfig.pauseOnHover = true;
 
+	// adds a 'ms' to the given timer config with typeof number (animation case)
+	if (typeof timerConfig.timer === "number") timerConfig.timer += "ms";
+
+	// if there is no time units (s, ms) in the given timer config with type of string, the given timer will have a "ms" at the end of it (animation case)
+	if (
+		typeof timerConfig.timer === "string" &&
+		!/[a-zA-Z]/.test(timerConfig.timer)
+	) {
+		timerConfig.timer += "ms";
+	}
+
 	// select silverBox to append the timerBar element
 	let silverBox = document.querySelectorAll(".silverBox");
 	silverBox = silverBox[silverBox.length - 1];
@@ -21,7 +32,7 @@ const silverBoxTimerBar = ({ uniqueID, timerConfig, onClose }) => {
 	timerBarWrapper.append(timerBar);
 
 	// defining the animation duration based on the given timer
-	timerBar.style.animation = `timer ${timerConfig.timer / 1000}s linear`;
+	timerBar.style.animation = `timer ${timerConfig.timer} linear`;
 
 	// checks if the pauseTimerOnHover config is not false (it could either be )
 	if (timerConfig?.pauseOnHover !== false && silverBox) {
