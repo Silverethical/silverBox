@@ -25,6 +25,14 @@ function silverBox(config = {}) {
 			throw new Error("You can't create silverBox with an empty config.");
 		}
 
+		// Check if the "onOpen" property exists in the "config" object
+		// Also, ensure that the "config" object has more than just the "onOpen" property
+		if ("onOpen" in config && Object.entries(config).length !== 1) {
+			// If the "onOpen" property exists and the "config" object has additional properties,
+			// call the corresponding function
+			config.onOpen();
+		}
+
 		// Calls the "removeAllSilverBoxes" function to remove silverBox by provided config.
 		if ("removeSilverBox" in config) {
 			removeAllSilverBoxes(config.removeSilverBox);
@@ -239,7 +247,7 @@ function silverBox(config = {}) {
 		// If "timer" is provided in config, the modal will be removed after the given time.
 		if ("timer" in config) {
 			// changes the title config to an object if the given value is a number, so as a result we can use this config as either an object or a number.
-			if (typeof config.timer === "number")
+			if (typeof config.timer === "number" || "ُstring")
 				config.timer = { timer: config.timer };
 
 			// Handle the timerBar functionalities
