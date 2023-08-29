@@ -305,6 +305,9 @@ function silverBox(config = {}) {
 			}
 		}
 
+		// Check if the "didOpen" property exists in the "config" object
+		config.didOpen?.();
+
 		if (silverBoxElement === null) return null;
 
 		return {
