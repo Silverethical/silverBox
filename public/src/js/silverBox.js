@@ -25,13 +25,8 @@ function silverBox(config = {}) {
 			throw new Error("You can't create silverBox with an empty config.");
 		}
 
-		// Check if the "onOpen" property exists in the "config" object
-		// Also, ensure that the "config" object has more than just the "onOpen" property
-		if ("onOpen" in config && Object.entries(config).length !== 1) {
-			// If the "onOpen" property exists and the "config" object has additional properties,
-			// call the corresponding function
-			config.onOpen();
-		}
+		// Checks if onOpen config exists, then executes the callback which has been provided by user
+		config.onOpen?.();
 
 		// Calls the "removeAllSilverBoxes" function to remove silverBox by provided config.
 		if ("removeSilverBox" in config) {
