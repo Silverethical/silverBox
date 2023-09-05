@@ -25,8 +25,8 @@ function silverBox(config = {}) {
 			throw new Error("You can't create silverBox with an empty config.");
 		}
 
-		// Checks if onOpen config exists, then executes the callback which has been provided by user
-		config.onOpen?.();
+		// Checks if preOpen config exists, then executes the callback which has been provided by user
+		config.preOpen?.();
 
 		// Calls the "removeAllSilverBoxes" function to remove silverBox by provided config.
 		if ("removeSilverBox" in config) {
