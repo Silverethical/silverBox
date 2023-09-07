@@ -176,7 +176,7 @@ function silverBox(config = {}) {
 
 		// Create "bodyComponent" variable config for "silverBoxBodyComponent".
 		const bodyLayoutConfig = silverBoxBodyComponent({
-			htmlText: config.html,
+			htmlContent: config.html,
 			bodyText: config.text,
 			components: bodyComponents,
 			isInput: config.input,
