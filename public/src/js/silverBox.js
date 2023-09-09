@@ -25,6 +25,9 @@ function silverBox(config = {}) {
 			throw new Error("You can't create silverBox with an empty config.");
 		}
 
+		// Checks if preOpen config exists, then executes the callback which has been provided by user
+		config.preOpen?.();
+
 		// Calls the "removeAllSilverBoxes" function to remove silverBox by provided config.
 		if ("removeSilverBox" in config) {
 			removeAllSilverBoxes(config.removeSilverBox);
@@ -173,7 +176,7 @@ function silverBox(config = {}) {
 
 		// Create "bodyComponent" variable config for "silverBoxBodyComponent".
 		const bodyLayoutConfig = silverBoxBodyComponent({
-			htmlText: config.html,
+			htmlContent: config.html,
 			bodyText: config.text,
 			components: bodyComponents,
 			isInput: config.input,
@@ -195,26 +198,32 @@ function silverBox(config = {}) {
 		 * @param {Boolean} isInputValue - Determines if the modal box contains an input field.
 		 * @returns {void}
 		 */
-		const modalSampleConfig = (className) =>
-			document.body.append(
-				createSilverBox({
-					components: components,
-					positionClassName: className,
-					theme: config.theme,
-					direction: config.direction,
-					centerContent: config.centerContent,
-				})
-			);
+		const modalSampleConfig = (className) => {
+			if (Object.keys(components).length === 0) return null;
+
+			const createdSilverBox = createSilverBox({
+				components: components,
+				positionClassName: className,
+				theme: config.theme,
+				direction: config.direction,
+				centerContent: config.centerContent,
+			});
+
+			document.body.append(createdSilverBox);
+
+			return createdSilverBox;
+		};
 
 		// If "position" exists in "config",sets the "position" variable to "silverBox-${config.position}"
 		// otherwise, it sets it to the value `"silverBox-overlay"`.
-		let position =
+		const position =
 			"position" in config
 				? `silverBox-${config.position}`
 				: "silverBox-overlay";
 
 		// Calls "modalSampleConfig" with value provided from "position" to create silverBox.
-		if (Object.keys(components).length !== 0) modalSampleConfig(position);
+		// Store it to be used in the returned methods at the end.
+		const silverBoxElement = modalSampleConfig(position);
 
 		// Select "silverBoxWrapper"
 		let silverBoxWrapper = document.querySelectorAll(".silverBox-container");
@@ -222,18 +231,18 @@ function silverBox(config = {}) {
 		// Reassign silverBoxWrapper value with the last element in NodeList to set timer.
 		silverBoxWrapper = silverBoxWrapper[silverBoxWrapper.length - 1];
 
+		// Create silverBox uniqueID by calling "silverBoxUniqueNumberMaker" to remove silverBox.
+		const uniqueID = silverBoxUniqueNumberMaker(1_000_000);
+
+		// Set the unique ID as an attribute to the modal.
+		if (silverBoxWrapper) {
+			silverBoxWrapper.setAttribute("data-unique-id", uniqueID);
+		}
+
 		// If "timer" is provided in config, the modal will be removed after the given time.
 		if ("timer" in config) {
-			// Create silverBox uniqueID by calling "silverBoxUniqueNumberMaker" to remove silverBox.
-			let uniqueID = silverBoxUniqueNumberMaker(1_000_000);
-
-			// Set the unique ID as an attribute to the modal.
-			if (silverBoxWrapper) {
-				silverBoxWrapper.setAttribute("uniqueID", uniqueID);
-			}
-
 			// changes the title config to an object if the given value is a number, so as a result we can use this config as either an object or a number.
-			if (typeof config.timer === "number")
+			if (typeof config.timer === "number" || "string")
 				config.timer = { timer: config.timer };
 
 			// Handle the timerBar functionalities
@@ -277,23 +286,45 @@ function silverBox(config = {}) {
 			silverBoxWrapper.classList += ` ${config.silverBoxClassName}`;
 		}
 
-		// Select "silverBox" to give it animation
-		const silverBox = document.querySelector(".silverBox");
-
 		// Add animation to silverBox
 		if ("animation" in config) {
-			// Set animation for the silverBox element based on the configuration provided.
-			// If "animation" is an array, each animation value will be added to silverBox as part of the animation sequence.
-			// If "animation" is an object, it will be called once and its values will be applied as an animation to silverBox.
-			silverBox.style.animation = Array.isArray(config.animation)
-				? config.animation
-						.map((animation) => applyAnimation(animation))
-						.join(", ")
-				: applyAnimation(config.animation);
+			// Select "silverBox" to give it animation
+			const silverBox = document.querySelector(
+				`.silverBox-container[data-unique-id="${uniqueID}"] .silverBox`
+			);
+
+			if (!!silverBox) {
+				// Set animation for the silverBox element based on the configuration provided.
+				// If "animation" is an array, each animation value will be added to silverBox as part of the animation sequence.
+				// If "animation" is an object, it will be called once and its values will be applied as an animation to silverBox.
+				silverBox.style.animation = Array.isArray(config.animation)
+					? config.animation
+							.map((animation) => applyAnimation(animation))
+							.join(", ")
+					: applyAnimation(config.animation);
+			}
 		}
+
+		// Check if the "didOpen" property exists in the "config" object
+		config.didOpen?.();
+
+		if (silverBoxElement === null) return null;
+
+		return {
+			remove: () => {
+				document.body.removeChild(silverBoxElement);
+			},
+			removeLoading: (selector = "") => {
+				const buttons = silverBoxElement.querySelectorAll(
+					`button${selector}`
+				);
+				buttons.forEach((button) => {
+					button.classList.remove("silverBox-loading-button");
+				});
+			},
+		};
 	} catch (error) {
-		console.error(error);
-		return false;
+		throw error;
 	}
 }
 
