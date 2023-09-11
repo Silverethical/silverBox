@@ -257,22 +257,21 @@ function silverBox(config = {}) {
 
 		// Select silverBox overlay to give it an eventListener.
 		let silverBoxOverlay = document.querySelectorAll(".silverBox-overlay");
+		silverBoxOverlay = silverBoxOverlay[silverBoxOverlay.length - 1];
 
 		// if the clicked element has classList of silverBox-overlay this code will be executed.
 		if (silverBoxOverlay) {
-			for (const overlay of silverBoxOverlay) {
-				overlay.addEventListener("click", (e) => {
-					// closes the modal if the user clicks on the overlay (outside of the modal).
-					if (e.target === overlay) {
-						silverBoxClose({
-							onClose: config.onClose,
-							element: overlay,
-						});
-					}
-					// checks for silverBox after removing wrapper.
-					silverBoxDisableScroll(".silverBox-overlay");
-				});
-			}
+			silverBoxOverlay.addEventListener("click", (e) => {
+				// closes the modal if the user clicks on the overlay (outside of the modal).
+				if (e.target === silverBoxOverlay) {
+					silverBoxClose({
+						onClose: config.onClose,
+						element: silverBoxOverlay,
+					});
+				}
+				// checks for silverBox after removing wrapper.
+				silverBoxDisableScroll(".silverBox-overlay");
+			});
 		}
 
 		// Checks for silverBox after it's created.
