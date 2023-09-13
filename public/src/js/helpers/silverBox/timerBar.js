@@ -1,5 +1,6 @@
 // imports
 import silverBoxClose from "../closeButtonOnClick";
+import validateDuration from "./validateDuration";
 
 const silverBoxTimerBar = ({ uniqueID, timerConfig, onClose }) => {
 	// gives the pauseOnHover and showBar config in timer a default value if they're not given
@@ -21,7 +22,7 @@ const silverBoxTimerBar = ({ uniqueID, timerConfig, onClose }) => {
 	timerBarWrapper.append(timerBar);
 
 	// defining the animation duration based on the given timer
-	timerBar.style.animation = `timer ${timerConfig.timer / 1000}s linear`;
+	timerBar.style.animation = `timer ${validateDuration(timerConfig.timer)} linear`;
 
 	// checks if the pauseTimerOnHover config is not false (it could either be )
 	if (timerConfig?.pauseOnHover !== false && silverBox) {

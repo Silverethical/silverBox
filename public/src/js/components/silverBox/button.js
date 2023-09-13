@@ -43,7 +43,7 @@ function silverBoxButtonComponent(
 	if (buttonName.closeOnClick !== false) {
 		// Closes silverBox on click an run onClose function if it exits
 		buttonEl.addEventListener("click", () => {
-			silverBoxClose({ onClose: onCloseConfig });
+			silverBoxClose({ onClose: onCloseConfig, element: buttonEl });
 		});
 	}
 

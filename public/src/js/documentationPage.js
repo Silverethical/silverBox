@@ -36,7 +36,8 @@ window.addEventListener("scroll", () => {
 });
 
 // all versions of documentation
-const allVersions = ["1.0.0", "1.1.0"];
+const allVersions = ["1.0.0", "1.1.0", "1.2.0"];
+
 // version number from query string url
 let versionNumber = getParameterByName("v");
 

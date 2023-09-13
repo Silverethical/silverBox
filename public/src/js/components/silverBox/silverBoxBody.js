@@ -1,19 +1,19 @@
 import appendingToModal from "../../helpers/silverBox/appendToModal";
 /**
  * Creates bodyWrapper and appends html config, text config, button component, input component to it.
- * @param {String} htmlText - The HTML structure to be displayed.
+ * @param {String} htmlContent - The HTML structure to be displayed.
  * @param {String} bodyText - The text content to be displayed.
  * @param {String} components - The array of components to be appended.
  * @returns {HTMLElement} - The created body wrapper element.
  */
-function silverBoxBodyComponent({ htmlText, bodyText, components, isInput }) {
+function silverBoxBodyComponent({ htmlContent, bodyText, components, isInput }) {
 	// create bodyWrapper for html,text,inputComponent,buttonComponent
 	const bodyWrapper = document.createElement("div");
 
 	// add default className to silverBox-body
 	bodyWrapper.classList = "silverBox-body-wrapper";
 
-	if (htmlText) {
+	if (htmlContent) {
 		// create htmlStructure element
 		const htmlStructure = document.createElement("div");
 
@@ -21,7 +21,8 @@ function silverBoxBodyComponent({ htmlText, bodyText, components, isInput }) {
 		htmlStructure.classList.add("silverBox-body-description");
 
 		// add the given html structure to the htmlStructure element
-		htmlStructure.innerHTML = htmlText;
+		if (htmlContent.outerHTML) htmlStructure.append(htmlContent);
+		else htmlStructure.innerHTML = htmlContent;
 
 		// add the htmlStructure to it's wrapper
 		bodyWrapper.appendChild(htmlStructure);
