@@ -31,6 +31,7 @@ body {
 		left: 0;
 		justify-content: center;
 		background-color: var(--silverBox-overlay-background);
+		z-index: calc(var(--silverBox-z-index) - 1);
 	}
 
 	.silverBox {
