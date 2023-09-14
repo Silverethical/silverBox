@@ -260,7 +260,7 @@ function silverBox(config = {}) {
 		silverBoxOverlay = silverBoxOverlay[silverBoxOverlay.length - 1];
 
 		// if the clicked element has classList of silverBox-overlay this code will be executed.
-		if (silverBoxOverlay) {
+		if (silverBoxOverlay && config.closeOnOverlayClick !== false) {
 			silverBoxOverlay.addEventListener("click", (e) => {
 				// closes the modal if the user clicks on the overlay (outside of the modal).
 				if (e.target === silverBoxOverlay) {
