@@ -9,6 +9,9 @@ package-lock.json
 # dist directory
 public/dist/
 
+# IDE files
+.idea
+
 # misc
 .DS_Store
 .env.local
