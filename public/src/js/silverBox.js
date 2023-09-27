@@ -232,7 +232,10 @@ function silverBox(config = {}) {
 		silverBoxWrapper = silverBoxWrapper[silverBoxWrapper.length - 1];
 
 		// Create silverBox uniqueID by calling "silverBoxUniqueNumberMaker" to remove silverBox.
-		const uniqueID = silverBoxUniqueNumberMaker(1_000_000);
+		let uniqueID;
+		if (bodyLayoutConfig.childElementCount) {
+			uniqueID = silverBoxUniqueNumberMaker(1_000_000);
+		}
 
 		// Set the unique ID as an attribute to the modal.
 		if (silverBoxWrapper) {
