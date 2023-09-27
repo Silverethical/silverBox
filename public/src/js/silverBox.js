@@ -232,7 +232,10 @@ function silverBox(config = {}) {
 		silverBoxWrapper = silverBoxWrapper[silverBoxWrapper.length - 1];
 
 		// Create silverBox uniqueID by calling "silverBoxUniqueNumberMaker" to remove silverBox.
-		const uniqueID = silverBoxUniqueNumberMaker(1_000_000);
+		let uniqueID;
+		if (bodyLayoutConfig.childElementCount) {
+			uniqueID = silverBoxUniqueNumberMaker(1_000_000);
+		}
 
 		// Set the unique ID as an attribute to the modal.
 		if (silverBoxWrapper) {
@@ -260,7 +263,7 @@ function silverBox(config = {}) {
 		silverBoxOverlay = silverBoxOverlay[silverBoxOverlay.length - 1];
 
 		// if the clicked element has classList of silverBox-overlay this code will be executed.
-		if (silverBoxOverlay) {
+		if (silverBoxOverlay && config.closeOnOverlayClick !== false) {
 			silverBoxOverlay.addEventListener("click", (e) => {
 				// closes the modal if the user clicks on the overlay (outside of the modal).
 				if (e.target === silverBoxOverlay) {
