@@ -6,6 +6,7 @@ function silverBoxClose({ uniqueID, timer, onClose, element }) {
 	if (timer) {
 		silverBoxCloseAfterTimeout(uniqueID);
 	}
+
 	// if there is a element passed to silverBoxClose object, the closest silverBox-container to that element would be removed
 	else if (element) {
 		element.closest(".silverBox-container").remove();
@@ -21,7 +22,7 @@ function silverBoxCloseAfterTimeout(elementID) {
 		`[data-unique-id="${elementID}"]`
 	);
 
-	uniqueTimeOutElement.remove();
+	if (uniqueTimeOutElement) uniqueTimeOutElement.remove();
 
 	silverBoxDisableScroll(".silverBox-overlay");
 }
