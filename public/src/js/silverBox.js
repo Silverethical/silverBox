@@ -6,7 +6,6 @@ import silverBoxHeaderComponent from "./components/silverBox/header";
 import silverBoxIconsComponent from "./components/silverBox/icons";
 import silverBoxBodyComponent from "./components/silverBox/silverBoxBody";
 import silverBoxFooterComponent from "./components/silverBox/footer";
-import silverBoxUniqueNumberMaker from "./helpers/silverBox/uniqueNumber";
 import silverBoxDisableScroll from "./helpers/silverBox/disableScroll";
 import removeAllSilverBoxes from "./helpers/silverBox/removeAllSilverBoxes";
 import silverBoxRemoveLoadings from "./helpers/silverBox/removeLoadings";
