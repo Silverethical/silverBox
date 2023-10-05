@@ -225,23 +225,6 @@ function silverBox(config = {}) {
 		// Store it to be used in the returned methods at the end.
 		const silverBoxElement = modalSampleConfig(position);
 
-		// Select "silverBoxWrapper"
-		let silverBoxWrapper = document.querySelectorAll(".silverBox-container");
-
-		// Reassign silverBoxWrapper value with the last element in NodeList to set timer.
-		silverBoxWrapper = silverBoxWrapper[silverBoxWrapper.length - 1];
-
-		// Create silverBox uniqueID by calling "silverBoxUniqueNumberMaker" to remove silverBox.
-		let uniqueID;
-		if (bodyLayoutConfig.childElementCount) {
-			uniqueID = silverBoxUniqueNumberMaker(1_000_000);
-		}
-
-		// Set the unique ID as an attribute to the modal.
-		if (silverBoxWrapper) {
-			silverBoxWrapper.setAttribute("data-unique-id", uniqueID);
-		}
-
 		// If "timer" is provided in config, the modal will be removed after the given time.
 		if ("timer" in config) {
 			// changes the title config to an object if the given value is a number, so as a result we can use this config as either an object or a number.
@@ -250,7 +233,7 @@ function silverBox(config = {}) {
 
 			// Handle the timerBar functionalities
 			silverBoxTimerBar({
-				uniqueID,
+				silverBoxElement,
 				timerConfig: config.timer,
 				pauseTimerOnHover: config.pauseTimerOnHover,
 				showTimerBar: config.showTimerBar,
@@ -281,19 +264,17 @@ function silverBox(config = {}) {
 		silverBoxDisableScroll(".silverBox-overlay");
 
 		// If silverBoxId is in config
-		if ("silverBoxId" in config) silverBoxWrapper.id = config.silverBoxId;
+		if ("silverBoxId" in config) silverBoxElement.id = config.silverBoxId;
 
 		// Add silverBox className
 		if ("silverBoxClassName" in config) {
-			silverBoxWrapper.classList += ` ${config.silverBoxClassName}`;
+			silverBoxElement.classList += ` ${config.silverBoxClassName}`;
 		}
 
 		// Add animation to silverBox
 		if ("animation" in config) {
 			// Select "silverBox" to give it animation
-			const silverBox = document.querySelector(
-				`.silverBox-container[data-unique-id="${uniqueID}"] .silverBox`
-			);
+			const silverBox = silverBoxElement.querySelector(".silverBox");
 
 			if (!!silverBox) {
 				// Set animation for the silverBox element based on the configuration provided.

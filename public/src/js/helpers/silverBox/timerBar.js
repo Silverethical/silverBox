@@ -2,7 +2,7 @@
 import silverBoxClose from "../closeButtonOnClick";
 import validateDuration from "./validateDuration";
 
-const silverBoxTimerBar = ({ uniqueID, timerConfig, onClose }) => {
+const silverBoxTimerBar = ({ silverBoxElement, timerConfig, onClose }) => {
 	// gives the pauseOnHover and showBar config in timer a default value if they're not given
 	if (!("showBar" in timerConfig)) timerConfig.showBar = true;
 	if (!("pauseOnHover" in timerConfig)) timerConfig.pauseOnHover = true;
@@ -41,7 +41,7 @@ const silverBoxTimerBar = ({ uniqueID, timerConfig, onClose }) => {
 		// removes the specific element after the given timeout
 		timerBar.addEventListener("animationend", () => {
 			silverBoxClose({
-				uniqueID,
+				silverBoxElement,
 				timer: timerConfig.timer,
 				onClose,
 			});
@@ -49,7 +49,7 @@ const silverBoxTimerBar = ({ uniqueID, timerConfig, onClose }) => {
 	} else {
 		setTimeout(() => {
 			silverBoxClose({
-				uniqueID,
+				silverBoxElement,
 				timer: timerConfig.timer,
 				onClose,
 			});
