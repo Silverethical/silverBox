@@ -1,10 +1,10 @@
 // import
 import silverBoxDisableScroll from "./silverBox/disableScroll";
 /** selects the silverBox container and closes the element*/
-function silverBoxClose({ uniqueID, timer, onClose, element }) {
+function silverBoxClose({ silverBoxElement, timer, onClose, element }) {
 	// If timer config exists, silverBoxCloseAfterTimeout would get a uniqueID and will close the silverBox using that ID
 	if (timer) {
-		silverBoxCloseAfterTimeout(uniqueID);
+		silverBoxCloseAfterTimeout(silverBoxElement);
 	}
 
 	// if there is a element passed to silverBoxClose object, the closest silverBox-container to that element would be removed
@@ -13,16 +13,11 @@ function silverBoxClose({ uniqueID, timer, onClose, element }) {
 	}
 
 	// Runs onClose function if it exits
-	if (onClose) onClose();
+	if (typeof onClose === "function") onClose();
 }
 // this function will remove a specific element with the unique ID and after a specific timeout
-function silverBoxCloseAfterTimeout(elementID) {
-	// selects the element by the unique ID
-	const uniqueTimeOutElement = document.querySelector(
-		`[data-unique-id="${elementID}"]`
-	);
-
-	if (uniqueTimeOutElement) uniqueTimeOutElement.remove();
+function silverBoxCloseAfterTimeout(silverBoxElement) {
+	if (silverBoxElement) silverBoxElement.remove();
 
 	silverBoxDisableScroll(".silverBox-overlay");
 }
