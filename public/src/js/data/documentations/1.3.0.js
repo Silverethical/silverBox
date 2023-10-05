@@ -24,14 +24,14 @@ const documentation = [
 		configName: "timer",
 		defaultValue: "emptyDefaultValue",
 		type: "number | string | object",
-		explanation:
-			"SilverBox closes after given time in milliseconds or seconds. It can get a number representing the timer duration, or an object with other configs",
+		explanation: `Timer config to close silverBox after a given time. It can be treated as "duration" if you do not need other configs. For example: "timer: 1000ms" <br> and <br> "timer: { duration:'1000ms' , pauseOnHover: false} `,
 		config: [
 			{
 				configName: "duration",
 				defaultValue: 0,
 				type: "number | string",
-				explanation: "Timer duration in milliseconds or seconds.",
+				explanation:
+					'Timer duration in milliseconds (300ms) or seconds (0.3s) to close silverBox. The default unit is "ms" if no unit is provided.',
 			},
 			{
 				configName: "pauseOnHover",
@@ -397,7 +397,7 @@ const documentation = [
 		defaultValue: true,
 		type: "boolean",
 		explanation:
-			"Determines whether the modal should close on overlay click or not.",
+			"Determines whether the modal should be closed after the overlay click.",
 	},
 ];
 

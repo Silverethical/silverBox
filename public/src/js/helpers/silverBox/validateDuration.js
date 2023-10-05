@@ -6,14 +6,11 @@ const validateDuration = (value) => {
 		return `${value}ms`;
 	}
 
-	// Check if the value can be parsed as an integer or float
-	if (parseInt(value) || parseFloat(value)) {
-		// If it can be parsed as a number, return the value as a string
-		return value;
-	} else {
-		// If the value is not a valid number, return a default value of "300ms"
-		return "300ms";
-	}
+	// Check if the value is a valid number with "ms" or "s" suffix, or return "300ms" as the default
+	return (parseInt(value) || parseFloat(value)) &&
+		(value.endsWith("ms") || value.endsWith("s"))
+		? value
+		: "300ms";
 };
 
 export default validateDuration;

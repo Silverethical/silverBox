@@ -6,8 +6,7 @@
 		"start": "sass --style compressed --no-source-map public/src/css/:public/dist/css && cross-env NODE_ENV=production rollup --config rollup.config.mjs && node ./server.js",
 		"dev:front": "cross-env NODE_ENV=development concurrently --kill-others \"npm run scss\" \"npm run rollup\" \"node ./server.js\"",
 		"scss": "sass --watch public/src/css/:public/dist/css",
-		"rollup": "rollup --watch --config rollup.config.mjs",
-		"prepare": "husky install"
+		"rollup": "rollup --watch --config rollup.config.mjs"
 	},
 	"repository": {
 		"type": "git",
@@ -33,7 +32,6 @@
 		"uglify-js": "^3.17.4"
 	},
 	"devDependencies": {
-		"husky": "^8.0.3",
 		"lint-staged": "^13.2.2",
 		"prettier": "2.8.8"
 	},
