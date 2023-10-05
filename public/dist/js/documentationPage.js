@@ -1,1 +1,1551 @@
-"use strict";function ownKeys(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var o=Object.getOwnPropertySymbols(e);t&&(o=o.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),n.push.apply(n,o)}return n}function _objectSpread2(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{};t%2?ownKeys(Object(n),!0).forEach((function(t){_defineProperty(e,t,n[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):ownKeys(Object(n)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t))}))}return e}function _regeneratorRuntime(){_regeneratorRuntime=function(){return e};var e={},t=Object.prototype,n=t.hasOwnProperty,o=Object.defineProperty||function(e,t,n){e[t]=n.value},r="function"==typeof Symbol?Symbol:{},i=r.iterator||"@@iterator",a=r.asyncIterator||"@@asyncIterator",l=r.toStringTag||"@@toStringTag";function define(e,t,n){return Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}),e[t]}try{define({},"")}catch(e){define=function(e,t,n){return e[t]=n}}function wrap(e,t,n,r){var i=t&&t.prototype instanceof Generator?t:Generator,a=Object.create(i.prototype),l=new Context(r||[]);return o(a,"_invoke",{value:makeInvokeMethod(e,n,l)}),a}function tryCatch(e,t,n){try{return{type:"normal",arg:e.call(t,n)}}catch(e){return{type:"throw",arg:e}}}e.wrap=wrap;var c={};function Generator(){}function GeneratorFunction(){}function GeneratorFunctionPrototype(){}var s={};define(s,i,(function(){return this}));var u=Object.getPrototypeOf,d=u&&u(u(values([])));d&&d!==t&&n.call(d,i)&&(s=d);var v=GeneratorFunctionPrototype.prototype=Generator.prototype=Object.create(s);function defineIteratorMethods(e){["next","throw","return"].forEach((function(t){define(e,t,(function(e){return this._invoke(t,e)}))}))}function AsyncIterator(e,t){function invoke(o,r,i,a){var l=tryCatch(e[o],e,r);if("throw"!==l.type){var c=l.arg,s=c.value;return s&&"object"==typeof s&&n.call(s,"__await")?t.resolve(s.__await).then((function(e){invoke("next",e,i,a)}),(function(e){invoke("throw",e,i,a)})):t.resolve(s).then((function(e){c.value=e,i(c)}),(function(e){return invoke("throw",e,i,a)}))}a(l.arg)}var r;o(this,"_invoke",{value:function(e,n){function callInvokeWithMethodAndArg(){return new t((function(t,o){invoke(e,n,t,o)}))}return r=r?r.then(callInvokeWithMethodAndArg,callInvokeWithMethodAndArg):callInvokeWithMethodAndArg()}})}function makeInvokeMethod(e,t,n){var o="suspendedStart";return function(r,i){if("executing"===o)throw new Error("Generator is already running");if("completed"===o){if("throw"===r)throw i;return doneResult()}for(n.method=r,n.arg=i;;){var a=n.delegate;if(a){var l=maybeInvokeDelegate(a,n);if(l){if(l===c)continue;return l}}if("next"===n.method)n.sent=n._sent=n.arg;else if("throw"===n.method){if("suspendedStart"===o)throw o="completed",n.arg;n.dispatchException(n.arg)}else"return"===n.method&&n.abrupt("return",n.arg);o="executing";var s=tryCatch(e,t,n);if("normal"===s.type){if(o=n.done?"completed":"suspendedYield",s.arg===c)continue;return{value:s.arg,done:n.done}}"throw"===s.type&&(o="completed",n.method="throw",n.arg=s.arg)}}}function maybeInvokeDelegate(e,t){var n=t.method,o=e.iterator[n];if(void 0===o)return t.delegate=null,"throw"===n&&e.iterator.return&&(t.method="return",t.arg=void 0,maybeInvokeDelegate(e,t),"throw"===t.method)||"return"!==n&&(t.method="throw",t.arg=new TypeError("The iterator does not provide a '"+n+"' method")),c;var r=tryCatch(o,e.iterator,t.arg);if("throw"===r.type)return t.method="throw",t.arg=r.arg,t.delegate=null,c;var i=r.arg;return i?i.done?(t[e.resultName]=i.value,t.next=e.nextLoc,"return"!==t.method&&(t.method="next",t.arg=void 0),t.delegate=null,c):i:(t.method="throw",t.arg=new TypeError("iterator result is not an object"),t.delegate=null,c)}function pushTryEntry(e){var t={tryLoc:e[0]};1 in e&&(t.catchLoc=e[1]),2 in e&&(t.finallyLoc=e[2],t.afterLoc=e[3]),this.tryEntries.push(t)}function resetTryEntry(e){var t=e.completion||{};t.type="normal",delete t.arg,e.completion=t}function Context(e){this.tryEntries=[{tryLoc:"root"}],e.forEach(pushTryEntry,this),this.reset(!0)}function values(e){if(e){var t=e[i];if(t)return t.call(e);if("function"==typeof e.next)return e;if(!isNaN(e.length)){var o=-1,r=function next(){for(;++o<e.length;)if(n.call(e,o))return next.value=e[o],next.done=!1,next;return next.value=void 0,next.done=!0,next};return r.next=r}}return{next:doneResult}}function doneResult(){return{value:void 0,done:!0}}return GeneratorFunction.prototype=GeneratorFunctionPrototype,o(v,"constructor",{value:GeneratorFunctionPrototype,configurable:!0}),o(GeneratorFunctionPrototype,"constructor",{value:GeneratorFunction,configurable:!0}),GeneratorFunction.displayName=define(GeneratorFunctionPrototype,l,"GeneratorFunction"),e.isGeneratorFunction=function(e){var t="function"==typeof e&&e.constructor;return!!t&&(t===GeneratorFunction||"GeneratorFunction"===(t.displayName||t.name))},e.mark=function(e){return Object.setPrototypeOf?Object.setPrototypeOf(e,GeneratorFunctionPrototype):(e.__proto__=GeneratorFunctionPrototype,define(e,l,"GeneratorFunction")),e.prototype=Object.create(v),e},e.awrap=function(e){return{__await:e}},defineIteratorMethods(AsyncIterator.prototype),define(AsyncIterator.prototype,a,(function(){return this})),e.AsyncIterator=AsyncIterator,e.async=function(t,n,o,r,i){void 0===i&&(i=Promise);var a=new AsyncIterator(wrap(t,n,o,r),i);return e.isGeneratorFunction(n)?a:a.next().then((function(e){return e.done?e.value:a.next()}))},defineIteratorMethods(v),define(v,l,"Generator"),define(v,i,(function(){return this})),define(v,"toString",(function(){return"[object Generator]"})),e.keys=function(e){var t=Object(e),n=[];for(var o in t)n.push(o);return n.reverse(),function next(){for(;n.length;){var e=n.pop();if(e in t)return next.value=e,next.done=!1,next}return next.done=!0,next}},e.values=values,Context.prototype={constructor:Context,reset:function(e){if(this.prev=0,this.next=0,this.sent=this._sent=void 0,this.done=!1,this.delegate=null,this.method="next",this.arg=void 0,this.tryEntries.forEach(resetTryEntry),!e)for(var t in this)"t"===t.charAt(0)&&n.call(this,t)&&!isNaN(+t.slice(1))&&(this[t]=void 0)},stop:function(){this.done=!0;var e=this.tryEntries[0].completion;if("throw"===e.type)throw e.arg;return this.rval},dispatchException:function(e){if(this.done)throw e;var t=this;function handle(n,o){return i.type="throw",i.arg=e,t.next=n,o&&(t.method="next",t.arg=void 0),!!o}for(var o=this.tryEntries.length-1;o>=0;--o){var r=this.tryEntries[o],i=r.completion;if("root"===r.tryLoc)return handle("end");if(r.tryLoc<=this.prev){var a=n.call(r,"catchLoc"),l=n.call(r,"finallyLoc");if(a&&l){if(this.prev<r.catchLoc)return handle(r.catchLoc,!0);if(this.prev<r.finallyLoc)return handle(r.finallyLoc)}else if(a){if(this.prev<r.catchLoc)return handle(r.catchLoc,!0)}else{if(!l)throw new Error("try statement without catch or finally");if(this.prev<r.finallyLoc)return handle(r.finallyLoc)}}}},abrupt:function(e,t){for(var o=this.tryEntries.length-1;o>=0;--o){var r=this.tryEntries[o];if(r.tryLoc<=this.prev&&n.call(r,"finallyLoc")&&this.prev<r.finallyLoc){var i=r;break}}i&&("break"===e||"continue"===e)&&i.tryLoc<=t&&t<=i.finallyLoc&&(i=null);var a=i?i.completion:{};return a.type=e,a.arg=t,i?(this.method="next",this.next=i.finallyLoc,c):this.complete(a)},complete:function(e,t){if("throw"===e.type)throw e.arg;return"break"===e.type||"continue"===e.type?this.next=e.arg:"return"===e.type?(this.rval=this.arg=e.arg,this.method="return",this.next="end"):"normal"===e.type&&t&&(this.next=t),c},finish:function(e){for(var t=this.tryEntries.length-1;t>=0;--t){var n=this.tryEntries[t];if(n.finallyLoc===e)return this.complete(n.completion,n.afterLoc),resetTryEntry(n),c}},catch:function(e){for(var t=this.tryEntries.length-1;t>=0;--t){var n=this.tryEntries[t];if(n.tryLoc===e){var o=n.completion;if("throw"===o.type){var r=o.arg;resetTryEntry(n)}return r}}throw new Error("illegal catch attempt")},delegateYield:function(e,t,n){return this.delegate={iterator:values(e),resultName:t,nextLoc:n},"next"===this.method&&(this.arg=void 0),c}},e}function asyncGeneratorStep(e,t,n,o,r,i,a){try{var l=e[i](a),c=l.value}catch(e){return void n(e)}l.done?t(c):Promise.resolve(c).then(o,r)}function _asyncToGenerator(e){return function(){var t=this,n=arguments;return new Promise((function(o,r){var i=e.apply(t,n);function _next(e){asyncGeneratorStep(i,o,r,_next,_throw,"next",e)}function _throw(e){asyncGeneratorStep(i,o,r,_next,_throw,"throw",e)}_next(void 0)}))}}function _defineProperty(e,t,n){return(t=function _toPropertyKey(e){var t=function _toPrimitive(e,t){if("object"!=typeof e||null===e)return e;var n=e[Symbol.toPrimitive];if(void 0!==n){var o=n.call(e,t||"default");if("object"!=typeof o)return o;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===t?String:Number)(e)}(e,"string");return"symbol"==typeof t?t:String(t)}(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _slicedToArray(e,t){return function _arrayWithHoles(e){if(Array.isArray(e))return e}(e)||function _iterableToArrayLimit(e,t){var n=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=n){var o,r,i,a,l=[],c=!0,s=!1;try{if(i=(n=n.call(e)).next,0===t){if(Object(n)!==n)return;c=!1}else for(;!(c=(o=i.call(n)).done)&&(l.push(o.value),l.length!==t);c=!0);}catch(e){s=!0,r=e}finally{try{if(!c&&null!=n.return&&(a=n.return(),Object(a)!==a))return}finally{if(s)throw r}}return l}}(e,t)||function _unsupportedIterableToArray(e,t){if(!e)return;if("string"==typeof e)return _arrayLikeToArray(e,t);var n=Object.prototype.toString.call(e).slice(8,-1);"Object"===n&&e.constructor&&(n=e.constructor.name);if("Map"===n||"Set"===n)return Array.from(e);if("Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))return _arrayLikeToArray(e,t)}(e,t)||function _nonIterableRest(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function _arrayLikeToArray(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,o=new Array(t);n<t;n++)o[n]=e[n];return o}function silverBoxDisableScroll(e){document.querySelectorAll(e).length<=0?document.body.classList.remove("stop-scrolling"):document.body.classList.add("stop-scrolling")}function silverBoxClose(e){var t=e.uniqueID,n=e.timer,o=e.onClose,r=e.element;n?function silverBoxCloseAfterTimeout(e){var t=document.querySelector('[data-unique-id="'.concat(e,'"]'));t&&t.remove();silverBoxDisableScroll(".silverBox-overlay")}(t):r&&r.closest(".silverBox-container").remove(),o&&o()}function silverBoxButtonComponent(e,t,n,o){var r=document.createElement("button");e.onClick&&r.addEventListener("click",e.onClick),Object.entries(e.dataAttribute||{}).map((function(e){var t=_slicedToArray(e,2),n=t[0],o=t[1];r.setAttribute("data-".concat(n),o)})),e.bgColor&&(r.style.backgroundColor=e.bgColor),e.borderColor&&(r.style.borderColor=e.borderColor),e.textColor&&(r.style.color=e.textColor),e.disabled&&(r.disabled=e.disabled),r.classList.add("silverBox-button",t),e.id&&(r.id=e.id),e.className&&(r.classList+=" ".concat(e.className)),!1!==e.closeOnClick&&r.addEventListener("click",(function(){silverBoxClose({onClose:o,element:r})})),!1!==e.loadingAnimation&&r.addEventListener("click",(function(){r.classList.add("silverBox-loading-button")}));var i=document.createElement("span");return i.classList="silverBox-button-text",i.textContent=e.text?e.text:n,r.append(createSilverBoxButtonIcon(e.iconStart||""),i,function silverBoxLoadingAnimation(){var e=document.createElement("span");return e.classList.add("silverBox-button-loading-animation"),e}(),createSilverBoxButtonIcon(e.iconEnd||"")),r}function createSilverBoxButtonIcon(e){if(!e)return"";var t=document.createElement("img");return t.src=e,t.classList="silverBox-button-icon",t}function silverBoxInputComponent(e){var t=e.type,n=e.select,o=e.numberOnly,r=e.placeHolder,i=e.readOnly,a=e.label,l=e.hint,c=e.width,s=e.height,u=e.maxLength,d=e.textAlign,v=e.fontSize,m=e.placeHolderFontSize,p=e.name,f=e.className,h=e.id,y=e.value,x=document.createElement("div");x.classList="silverBox-input-wrapper";var g=document.createElement("label");if(g.textContent=a,n){var b=document.createElement("select");b.classList="silverBox-select",n.map((function(e){var t,n,o,r=document.createElement("option");r.value=null!==(t=e.value)&&void 0!==t?t:"",r.textContent=null!==(n=null!==(o=e.text)&&void 0!==o?o:e.value)&&void 0!==n?n:"",e.disabled&&r.setAttribute("disabled",""),e.selected&&r.setAttribute("selected",""),b.append(r)})),x.append(b)}else{var C,B="textarea"===t.toLowerCase(),L=document.createElement(B?"textarea":"input");!B&&t&&L.setAttribute("type",t),L.value=null!=y?y:"",r&&(L.placeholder=r),u&&(L.maxLength=u),d&&(L.style.textAlign=d),c&&(L.style.width=c),s&&(L.style.height=s),v&&(L.style.fontSize=v),o&&L.addEventListener("input",(function(){L.value=L.value.replace(/[۰-۹]/g,(function(e){return"۰۱۲۳۴۵۶۷۸۹.".indexOf(e)})).replace(/[^0-9.]/g,"")}));var w=null!==(C=null!=m?m:v)&&void 0!==C&&C;!1!==w&&L.style.setProperty("--silverBox-placeHolder-fontSize",w),p&&(L.name=p),f&&(L.classList+=" ".concat(f)),h&&(L.id=h),c&&(x.style.width="fit-content"),i&&L.setAttribute("readonly",""),a&&x.append(g),x.append(L)}var E=document.createElement("span");return E.classList="silverBox-input-hint",E.textContent=null!=l?l:"",l&&x.append(E),x}function appendingToModal(e,t){Object.keys(t).map((function(n){t[n]&&e.append(t[n])}))}var e=function silverBoxIconsComponent(e){var n=e.alertIcon,o=e.customIcon,r=e.customSvgIcon,i=e.isCentred,a=void 0!==i&&i,l=e.customIconClassName,c=e.customIconId,s=e.customSvgIconClassName,u=e.customSvgIconId;if(o)return silverBoxCreateCustomIcon(o,a,l,c,!1).cloneNode(!0);if(r)return silverBoxCreateCustomIcon(r,a,s,u,!0).cloneNode(!0);if(t[n]){if("closeButton"===n)return t[n];var d=t[n].cloneNode(!0);return a&&d.classList.add("silverBox-centered-icon"),d}return null},t={warning:createIcon("silverBox-warning","!"),success:createIcon("silverBox-tick-mark","","inside"),info:createIcon("silverBox-info","i"),error:createIcon("silverBox-error","","x"),question:createIcon("silverBox-question","?"),closeButton:'<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512"><line x1="368" y1="368" x2="144" y2="144" style="fill:none;stroke:#667085;stroke-linecap:round;stroke-linejoin:round;stroke-width:33px"/><line x1="368" y1="144" x2="144" y2="368" style="fill:none;stroke:#667085;stroke-linecap:round;stroke-linejoin:round;stroke-width:33px"/></svg>'};function createIcon(e,t,n){var o=document.createElement("div");if(o.classList=e,o.classList.add("silverBox-icon","silverBox-default-icon"),n){var r=document.createElement("div");r.classList=n,o.appendChild(r)}else if(t){var i=document.createElement("span");i.textContent=t,o.appendChild(i)}return o}function silverBoxCreateCustomIcon(e,t,n,o,r){var i=document.createElement("div");if(i.classList.add("silverBox-image-wrapper"),t&&i.classList.add("silverBox-centered-icon"),o&&(i.id=o),n&&(i.classList+=" ".concat(n)),r)i.innerHTML+=e;else{var a=document.createElement("img");a.src=e,a.classList="silverBox-icon silverBox-custom-icon",i.append(a)}return i}var n=0;function silverBoxUniqueNumberMaker(e){var t=Math.floor(Math.random()*e+1);if(n!==t)return n=t;silverBoxUniqueNumberMaker(e)}var o=function validateDuration(e){return Number(e)?"".concat(e,"ms"):parseInt(e)||parseFloat(e)?e:"300ms"},r=function silverBoxTimerBar(e){var t=e.uniqueID,n=e.timerConfig,r=e.onClose;"showBar"in n||(n.showBar=!0),"pauseOnHover"in n||(n.pauseOnHover=!0);var i=document.querySelectorAll(".silverBox");i=i[i.length-1];var a=document.createElement("div");a.classList="timer-bar";var l=document.createElement("div");l.classList="timer-bar-wrapper",l.append(a),a.style.animation="timer ".concat(o(n.timer)," linear"),!1!==(null==n?void 0:n.pauseOnHover)&&i&&(i.addEventListener("mouseover",(function(){a.style.animationPlayState="paused"})),i.addEventListener("mouseout",(function(){a.style.animationPlayState="running"}))),i&&null!=n&&n.showBar?(i.append(l),a.addEventListener("animationend",(function(){silverBoxClose({uniqueID:t,timer:n.timer,onClose:r})}))):setTimeout((function(){silverBoxClose({uniqueID:t,timer:n.timer,onClose:r})}),n.timer)},i=function applyAnimation(e){var t={name:"popUp",duration:"300ms",timingFunction:"linear",delay:"0ms",iterationCount:"1",direction:"normal",fillMode:"none"},n=_objectSpread2(_objectSpread2(_objectSpread2({},t),e),{},{duration:o(e.duration)||t.duration,delay:o(e.delay)||t.delay}),r=n.name,i=n.duration,a=n.timingFunction,l=n.delay,c=n.iterationCount,s=n.direction,u=n.fillMode;return"".concat(r," ").concat(i," ").concat(a," ").concat(l," ").concat(c," ").concat(s," ").concat(u)};function silverBox(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};try{var n,o;if(0===Object.keys(t).length)throw new Error("You can't create silverBox with an empty config.");null===(n=t.preOpen)||void 0===n||n.call(t),"removeSilverBox"in t&&function removeAllSilverBoxes(e){e=e.toLowerCase();var t=document.querySelectorAll(".silverBox-container");if("first"===e&&(e=1),"last"===e&&(e=t.length),"all"===e)for(var n=0;n<t.length;n++)t[n].remove();else Number(e)>0&&t[Number(e)-1].remove()}(t.removeSilverBox),"removeLoading"in t&&function silverBoxRemoveLoadings(e){var t=document.querySelectorAll(".silverBox-button-wrapper");if(e.toLowerCase(),"first"===e&&(e=1),"last"===e&&(e=t.length),"all"===e)for(var n=0;n<t.length;n++)t[n].childNodes.forEach((function(e){e.classList.remove("silverBox-loading-button")}));else Number(e)>0&&t[Number(e)-1].childNodes.forEach((function(e){e.classList.remove("silverBox-loading-button")}))}(t.removeLoading);var a={},l={},c=document.createElement("div");c.classList="silverBox-input-container";var s=document.createElement("div");s.classList="silverBox-button-wrapper";var u=function silverBoxHeaderComponent(t){var n,o,r,i,a=t.titleConfig,l=t.icon,c=t.showCloseButton,s=t.centerContent,u=t.onCloseConfig,d=document.createElement("div");d.classList.add("silverBox-header-wrapper");var v=document.createElement("div");v.classList.add("silverBox-icon-wrapper");var m=document.createElement("h2");if(m.classList.add("silverBox-header-title"),"string"==typeof a&&(a={text:a}),null!==(n=a)&&void 0!==n&&n.customIcon){var p,f,h=e({customIcon:a.customIcon});null!==(p=a)&&void 0!==p&&p.customIconId&&(h.children[0].id=a.customIconId),null!==(f=a)&&void 0!==f&&f.customIconClassName&&(h.children[0].classList+=" ".concat(a.customIconClassName)),m.append(h)}else if(null!==(o=a)&&void 0!==o&&o.customSvgIcon){var y,x,g=e({customSvgIcon:a.customSvgIcon});null!==(y=a)&&void 0!==y&&y.customSvgIconId&&(g.children[0].id=a.customSvgIconId),null!==(x=a)&&void 0!==x&&x.customSvgIconClassName&&(g.children[0].classList+=" ".concat(a.customSvgIconClassName)),m.append(g)}else if(null!==(r=a)&&void 0!==r&&r.alertIcon){var b=e({alertIcon:a.alertIcon});m.append(b)}if(m.childElementCount>=1&&m.classList.add("silverBox-title-has-icon"),s&&m.classList.add("silverBox-title-centred"),null!==(i=a)&&void 0!==i&&i.text){var C=document.createElement("span");m.classList.add("silverBox-title-text"),C.textContent=a.text,m.append(C)}var B=document.createElement("span");return B.innerHTML=e({alertIcon:"closeButton"}),B.classList.add("silverBox-close-button"),B.addEventListener("click",(function(){silverBoxClose({onClose:u,element:B})})),l&&v.appendChild(l),c&&v.appendChild(B),v.childElementCount>=1&&d.append(v),a&&d.appendChild(m),d}({titleConfig:t.title,icon:e(function iconsConfig(){return{alertIcon:t.alertIcon,customIcon:t.customIcon,isCentred:t.centerContent,customIconClassName:t.customIconClassName,customIconId:t.customIconId,customSvgIcon:t.customSvgIcon,customSvgIconClassName:t.customSvgIconClassName,customSvgIconId:t.customSvgIconId}}()),showCloseButton:t.showCloseButton,centerContent:t.centerContent,onCloseConfig:t.onClose});if(0!==u.childElementCount&&(a.header=u),"input"in t){var d=function inputConfig(e){return{type:"type"in e?e.type:"",select:e.select,numberOnly:e.numberOnly,hint:e.hint,label:e.label,placeHolder:e.placeHolder,readOnly:e.readOnly,width:e.width,height:e.height,maxLength:e.maxLength,textAlign:e.textAlign,fontSize:e.fontSize,placeHolderFontSize:e.placeHolderFontSize,name:e.name,className:e.className,id:e.id,value:e.value}},v=function multiplyByCheck(e){"multiplyBy"in e||(e.multiplyBy=1);for(var t=1;t<=e.multiplyBy;t++)c.append(silverBoxInputComponent(d(e)))};Array.isArray(t.input)?t.input.forEach((function(e){return v(e)})):v(t.input),c.childElementCount&&(l.input=c)}for(var m=0,p=[{type:"confirmButton",text:"Confirm"},{type:"denyButton",text:"Deny"},{type:"cancelButton",text:"Cancel"},{type:"customButton",text:"Custom"}];m<p.length;m++){var f=p[m];f.type in t&&!1!==t[f.type].showButton&&s.append(silverBoxButtonComponent(t[f.type],"silverBox-".concat(f.text.toLowerCase(),"-button"),f.text,t.onClose))}"buttonsDirection"in t&&(s.style.direction=t.buttonsDirection),s.childElementCount&&(l.button=s);var h=function silverBoxBodyComponent(e){var t,n=e.htmlContent,o=e.bodyText,r=e.components,i=e.isInput,a=document.createElement("div");if(a.classList="silverBox-body-wrapper",n){var l=document.createElement("div");l.classList.add("silverBox-body-description"),n.outerHTML?l.append(n):l.innerHTML=n,a.appendChild(l)}else if(o){var c=document.createElement("p");c.textContent=o,c.classList.add("silverBox-body-description"),a.appendChild(c)}return i&&((t=document.createElement("form")).classList.add("silverBox-form"),t.addEventListener("submit",(function(e){e.preventDefault()})),a.append(t)),appendingToModal(t||a,r),a}({htmlContent:t.html,bodyText:t.text,components:l,isInput:t.input});h.childElementCount&&(a.body=h),t.footer&&(a.footer=function silverBoxFooterComponent(e){var t=e.footerContent,n=document.createElement("div");n.classList.add("silverBox-footer-wrapper");var o=document.createElement("hr");return n.append(o),n.innerHTML+=t,n}({footerContent:t.footer}));var y,x=function modalSampleConfig(e){if(0===Object.keys(a).length)return null;var n=function createSilverBox(e){var t=e.direction,n=e.components,o=e.positionClassName,r=e.theme,i=void 0===r?"light":r,a=e.centerContent,l=document.createElement("div");l.classList.add("silverBox-container",o),l.dataset.theme=i;var c=document.createElement("div");if(c.classList.add("silverBox"),t&&c.setAttribute("dir",t),a&&(c.style.textAlign="center"),appendingToModal(c,n),0!==c.childElementCount&&l.append(c),0!==l.childElementCount)return l}({components:a,positionClassName:e,theme:t.theme,direction:t.direction,centerContent:t.centerContent});return document.body.append(n),n}("position"in t?"silverBox-".concat(t.position):"silverBox-overlay"),g=document.querySelectorAll(".silverBox-container");g=g[g.length-1],h.childElementCount&&(y=silverBoxUniqueNumberMaker(1e6)),g&&g.setAttribute("data-unique-id",y),"timer"in t&&(t.timer,t.timer={timer:t.timer},r({uniqueID:y,timerConfig:t.timer,pauseTimerOnHover:t.pauseTimerOnHover,showTimerBar:t.showTimerBar,onClose:t.onClose}));var b=document.querySelectorAll(".silverBox-overlay");if((b=b[b.length-1])&&!1!==t.closeOnOverlayClick&&b.addEventListener("click",(function(e){e.target===b&&silverBoxClose({onClose:t.onClose,element:b}),silverBoxDisableScroll(".silverBox-overlay")})),silverBoxDisableScroll(".silverBox-overlay"),"silverBoxId"in t&&(g.id=t.silverBoxId),"silverBoxClassName"in t&&(g.classList+=" ".concat(t.silverBoxClassName)),"animation"in t){var C=document.querySelector('.silverBox-container[data-unique-id="'.concat(y,'"] .silverBox'));C&&(C.style.animation=Array.isArray(t.animation)?t.animation.map((function(e){return i(e)})).join(", "):i(t.animation))}return null===(o=t.didOpen)||void 0===o||o.call(t),null===x?null:{remove:function remove(){document.body.removeChild(x)},removeLoading:function removeLoading(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"";x.querySelectorAll("button".concat(e)).forEach((function(e){e.classList.remove("silverBox-loading-button")}))}}}catch(e){throw e}}function silverBoxDocumentationTableComponent(e,t){var n=document.querySelector(e);n.append(function silverBoxTableHeader(){var e=document.createElement("div");e.classList.add("silverBox-tableRow","silverBox-tableRowHeader");var t=document.createElement("div");t.classList.add("silverBox-tableColumn","tableHeaderColumn"),t.textContent="Name";var n=document.createElement("div");n.classList.add("silverBox-tableColumn","tableHeaderColumn"),n.textContent="Type";var o=document.createElement("div");o.classList.add("silverBox-tableColumn","tableHeaderColumn"),o.textContent="Default";var r=document.createElement("div");return r.classList.add("silverBox-tableColumn","tableHeaderColumn"),r.textContent="Description",e.append(t),e.append(n),e.append(o),e.append(r),e}());var o=function silverBoxTableRowConfig(e,t,n){return function silverBoxTableRow(e){var t=e.name,n=e.type,o=e.description,r=e.defaultValue,i=e.id,a=e.config,l=document.createElement("div");l.classList.add("silverBox-tableRow");var c=document.createElement("a");c.classList.add("silverBox-tableColumn");var s=document.createElement("span");s.classList.add("silverBox-document-argument"),s.textContent=t,c.append(s);var u=document.createElement("div");u.classList.add("silverBox-tableColumn");var d=document.createElement("span");d.classList.add("silverBox-document-type"),d.textContent=n,u.append(d),c.onclick=function(){!function copyArgument(e){navigator.clipboard.writeText(e.textContent)}(c),silverBox({timer:1500,theme:"dark",position:"top-left",title:{text:"Argument copied."},centerContent:!0})};var v=document.createElement("div");v.classList.add("silverBox-tableColumn","silverBox-document-description");var m=document.createElement("span");m.classList.add("silverBox-explanation-span"),m.innerHTML=function replaceQuotedTextWithSpan(e){for(var t=!1,n="",o=0;o<e.length;o++)'"'===e[o]?(n+=t?"</span>":'<span class="silverBox-explanation-special-values">',t=!t):n+=e[o];return t&&(n+="</span>"),n}(o),v.append(m);var p=document.createElement("div");p.classList.add("silverBox-tableColumn","silverBox-document-default");var f=document.createElement("span");"emptyDefaultValue"!=r&&(f.classList.add("silverBox-document-string"),f.textContent=r,""===r&&(f.classList.add("silverBox-document-string"),f.textContent='" "'));if(p.append(f),"noConfig"==i){if(c.setAttribute("href","#"+t),l.id="".concat(t),"config"in a){var h=document.createElement("div");h.classList.add("silverBox-documentConfig-indicator"),c.append(h)}}else"hasConfig"==i&&(c.setAttribute("href","#".concat(a.configName).concat(t)),l.id="".concat(a.configName).concat(t));return l.append(c),l.append(u),l.append(p),l.append(v),l}({name:e.configName,type:e.type,description:e.explanation,defaultValue:e.defaultValue,id:t,config:n})};t.forEach((function(e){if(n.append(o(e,"noConfig",e)),"config"in e){var t=document.createElement("div");t.classList.add("silverBox-document-has-config"),e.config.forEach((function(n){var r=o(n,"hasConfig",e);t.append(r)})),n.append(t)}})),function toggleConfig(){for(var e=document.querySelectorAll(".silverBox-document-has-config"),t=document.querySelectorAll(".silverBox-documentConfig-indicator"),n=function _loop(n){t[n].addEventListener("click",(function(){e[n].classList.contains("silverBox-hide")?(e[n].classList.remove("silverBox-hide"),t[n].classList.remove("silverBox-hide")):(e[n].classList.add("silverBox-hide"),t[n].classList.add("silverBox-hide"))}))},o=0;o<e.length;o++)n(o)}()}var a=document.querySelector("#hamburger-menu"),l=document.querySelector("#logo"),c=document.querySelector("#silverBox-header nav ul");a.addEventListener("click",(function(){c.classList.contains("show")?(a.classList.remove("rotate"),c.classList.remove("show"),l.classList.remove("hide")):(a.classList.add("rotate"),c.classList.add("show"),l.classList.add("hide"))}));var s=document.querySelector("#silverBox-header");window.addEventListener("scroll",(function(){window.scrollY>50?s.classList.add("scrolled"):s.classList.remove("scrolled")}));var u=["1.0.0","1.1.0","1.2.0","1.3.0"],d=function getParameterByName(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:window.location.href;e=e.replace(/[\[\]]/g,"\\$&");var n=new RegExp("[?&]"+e+"(=([^&#]*)|&|#|$)").exec(t);return n?n[2]?decodeURIComponent(n[2].replace(/\+/g," ")):"":null}("v");d&&u.includes(d)||(d=u[u.length-1]),document.addEventListener("DOMContentLoaded",_asyncToGenerator(_regeneratorRuntime().mark((function _callee(){var e;return _regeneratorRuntime().wrap((function _callee$(t){for(;;)switch(t.prev=t.next){case 0:return t.next=2,import("/public/src/js/data/documentations/".concat(d,".js"));case 2:e=t.sent,silverBoxDocumentationTableComponent(".silverBox-tableWrapper",e.default);case 5:case"end":return t.stop()}}),_callee)})))),document.querySelector("#silverBox-documentation-version").innerText="v"+d;
+'use strict';
+
+/**
+ * Replaces quoted text with a span element with class "document-string".
+ * Also Replaces the text inside quotes if its either true or false with class "document-boolean"
+ * @param {string} explanation - The string to replace quoted text in.
+ * @returns {string} The modified string with span elements.
+ */
+function replaceQuotedTextWithSpan(explanation) {
+    let insideQuote = false;
+    let result = '';
+
+    for (let i = 0; i < explanation.length; i++) {
+        // If the current character is a double quote
+        if (explanation[i] === '"') {
+            // If we are already inside a quote, close the span tag
+            if (insideQuote) {
+                result += '</span>';
+            }
+            // Otherwise, open a new span tag with class "document-string"
+            else {
+                result += '<span class="silverBox-explanation-special-values">';
+            }
+            // Toggle the value of insideQuote
+            insideQuote = !insideQuote;
+        }
+
+        // If we are currently inside a quote and the next few characters are "true" or "false"
+        // else if (insideQuote && (explanation.slice(i, i + 4) === 'true' || explanation.slice(i, i + 5) === 'false')) {
+        //     // Get the boolean value as a string ("true" or "false")
+        //     const booleanValue = explanation.slice(i, i + 4) === 'true' ? 'true' : 'false';
+        //     // Add a new span tag with class "document-boolean" and insert the boolean value as text content
+        //     result += `<span class="document-boolean">${booleanValue}</span>`;
+        //     // Increment i by the length of the boolean value minus one to skip over it in the next iteration of the loop
+        //     i += booleanValue.length - 1;
+        // }
+        // If none of the above conditions are met, simply add the current character to result
+        else {
+            result += explanation[i];
+        }
+    }
+
+    // If we are still inside a quote at the end of the loop, close the span tag
+    if (insideQuote) {
+        result += '</span>';
+    }
+
+    // Return the modified string
+    return result;
+}
+
+// copyies the specefic given text
+function copyArgument(element) {
+    navigator.clipboard.writeText(element.textContent);
+}
+
+// disables scroll
+function silverBoxDisableScroll(select) {
+    // selector 
+    let silverBoxWrapper = document.querySelectorAll(select);
+    // if the class node list is empty this code will be executed
+    if (silverBoxWrapper.length <= 0) {
+        document.body.classList.remove("stop-scrolling");
+    }
+     // if the class node list is not empty this code will be executed
+    else {
+        document.body.classList.add("stop-scrolling");
+    }
+}
+
+// import
+/** selects the silverBox container and closes the element*/
+function silverBoxClose({ silverBoxElement, timer, onClose, element }) {
+	// If timer config exists, silverBoxCloseAfterTimeout would get a uniqueID and will close the silverBox using that ID
+	if (timer) {
+		silverBoxCloseAfterTimeout(silverBoxElement);
+	}
+
+	// if there is a element passed to silverBoxClose object, the closest silverBox-container to that element would be removed
+	else if (element) {
+		element.closest(".silverBox-container").remove();
+	}
+
+	// Runs onClose function if it exits
+	if (typeof onClose === "function") onClose();
+}
+// this function will remove a specific element with the unique ID and after a specific timeout
+function silverBoxCloseAfterTimeout(silverBoxElement) {
+	if (silverBoxElement) silverBoxElement.remove();
+
+	silverBoxDisableScroll(".silverBox-overlay");
+}
+
+/**
+ * Creates loading animation element
+ * @returns {HTMLElement} - loading animation element
+ */
+function silverBoxLoadingAnimation() {
+	// create loading element
+	const loadingEl = document.createElement("span");
+
+	// add className to loading element
+	loadingEl.classList.add("silverBox-button-loading-animation");
+
+	// return loading element
+	return loadingEl;
+}
+
+/**
+ * Creates predefined buttons
+ * @param {Object} buttonName - Button config
+ * @param {String} uniqClass - Button classList
+ * @returns {HTMLElement} - Button
+ */
+function silverBoxButtonComponent(
+	buttonName,
+	uniqClass,
+	defaultText,
+	onCloseConfig
+) {
+	// create button element
+	const buttonEl = document.createElement("button");
+
+	// Check if the onClick property of buttonName exists and Add "click" event listener to buttonEl
+	if (!!buttonName.onClick) buttonEl.addEventListener("click", buttonName.onClick);
+
+	// loop over dataAttribute object entries
+	Object.entries(buttonName.dataAttribute || {}).map(([key, value]) => {
+		buttonEl.setAttribute(`data-${key}`, value);
+	});
+
+	// inline styles
+	if (buttonName.bgColor) buttonEl.style.backgroundColor = buttonName.bgColor;
+	if (buttonName.borderColor) buttonEl.style.borderColor = buttonName.borderColor;
+	if (buttonName.textColor) buttonEl.style.color = buttonName.textColor;
+	if (buttonName.disabled) buttonEl.disabled = buttonName.disabled;
+
+	// add default className to button element
+	buttonEl.classList.add("silverBox-button", uniqClass);
+
+	// add given id to button element if it exits
+	if (buttonName.id) buttonEl.id = buttonName.id;
+
+	// add given className to button element if it exits
+	if (buttonName.className) buttonEl.classList += ` ${buttonName.className}`;
+
+	// if closeOnClick in config is true the code will be executed
+	if (buttonName.closeOnClick !== false) {
+		// Closes silverBox on click an run onClose function if it exits
+		buttonEl.addEventListener("click", () => {
+			silverBoxClose({ onClose: onCloseConfig, element: buttonEl });
+		});
+	}
+
+	// if closeOnClick in config is false the code will be executed
+	if (buttonName.loadingAnimation !== false) {
+		// loading animation
+		buttonEl.addEventListener("click", () => {
+			buttonEl.classList.add("silverBox-loading-button");
+		});
+	}
+
+	// create button text element
+	const buttonTextSpan = document.createElement("span");
+
+	// add "silverBox-button-text" className to buttonText span
+	buttonTextSpan.classList = "silverBox-button-text";
+
+	// add given/default text for buttonTextSpan element
+	buttonTextSpan.textContent = buttonName.text ? buttonName.text : defaultText;
+
+	// append iconStart / buttonTextSpan / silver box loadingAnimation / iconEnd
+	buttonEl.append(
+		createSilverBoxButtonIcon(buttonName.iconStart || ""),
+		buttonTextSpan,
+		silverBoxLoadingAnimation(),
+		createSilverBoxButtonIcon(buttonName.iconEnd || "")
+	);
+
+	return buttonEl;
+}
+
+/**
+ * create button Icon element
+ * @param {String} iconSrc - Given image src
+ * @returns {HTMLElement}
+ */
+function createSilverBoxButtonIcon(iconSrc) {
+	// return an empty string if there is no iconSrc
+	if (!iconSrc) return "";
+
+	// create button Icon
+	const buttonIcon = document.createElement("img");
+
+	// add image to button Icon
+	buttonIcon.src = iconSrc;
+
+	// add default className to button Icon
+	buttonIcon.classList = "silverBox-button-icon";
+
+	return buttonIcon;
+}
+
+/**
+ * Returns inputWrapper element based on given arguments from config
+ * @param {String} type - type of input
+ * @param {String} placeHolder - placeHolder of input
+ * @param {Boolean} readOnly - value of input readonly attribute which is either true or false
+ * @param {String} label - label name of input
+ * @param {String} hint - hint of input
+ * @param {String} width - width of input
+ * @param {String} height - height of input
+ * @param {Number} maxLength - maxLength attribute of input
+ * @param {String} textAlign - specifies the position of texts in input
+ * @param {String} fontSize - text fontSize of input
+ * @param {String} placeHolderFontSize - placeHolder fontSize of input
+ * @returns {HTMLElement} - inputWrapper element
+ */
+function silverBoxInputComponent({
+	type,
+	select,
+	numberOnly,
+	placeHolder,
+	readOnly,
+	label,
+	hint,
+	width,
+	height,
+	maxLength,
+	textAlign,
+	fontSize,
+	placeHolderFontSize,
+	name,
+	className,
+	id,
+	value,
+}) {
+	// Create a wrapper div element for the input
+	const inputWrapper = document.createElement("div");
+	inputWrapper.classList = "silverBox-input-wrapper";
+
+	// Create a label element and set its text content to the provided label
+	const labelEl = document.createElement("label");
+	labelEl.textContent = label;
+
+	if (select) {
+		// Create a select element if the 'select' flag is true
+		const selectEl = document.createElement("select");
+		selectEl.classList = "silverBox-select";
+
+		// Iterate over the 'select' options array
+		select.map((option) => {
+			const optionEl = document.createElement("option");
+			optionEl.value = option.value ?? "";
+			optionEl.textContent = option.text ?? option.value ?? "";
+
+			// Set the 'disabled' attribute if the option is disabled
+			if (option.disabled) optionEl.setAttribute("disabled", "");
+
+			// Set the 'selected' attribute if the option is selected
+			if (option.selected) optionEl.setAttribute("selected", "");
+
+			// Append the option element to the select element
+			selectEl.append(optionEl);
+		});
+
+		// Append the select element to the input wrapper
+		inputWrapper.append(selectEl);
+	} else {
+		// Create an input element (either input or textarea) based on the 'type'
+		const isTextArea = type.toLowerCase() === "textarea";
+		const inputEl = document.createElement(isTextArea ? "textarea" : "input");
+
+		// Set the 'type' attribute for input elements (except for textarea)
+		if (!isTextArea && type) inputEl.setAttribute("type", type);
+
+		// Set the value of the input element to the provided value (or an empty string)
+		inputEl.value = value ?? "";
+
+		// Set the placeholder attribute if a placeholder value is provided
+		if (placeHolder) inputEl.placeholder = placeHolder;
+
+		// Set the maxLength attribute if a maxLength value is provided
+		if (maxLength) inputEl.maxLength = maxLength;
+
+		// Set the text alignment style if textAlign is provided
+		if (textAlign) inputEl.style.textAlign = textAlign;
+
+		// Set the width style if width is provided
+		if (width) inputEl.style.width = width;
+
+		// Set the height style if height is provided
+		if (height) inputEl.style.height = height;
+
+		// Set the font size style if fontSize is provided
+		if (fontSize) inputEl.style.fontSize = fontSize;
+
+		// Add an event listener to handle numberOnly behavior if numberOnly flag is true
+		if (numberOnly) {
+			inputEl.addEventListener("input", () => {
+				inputEl.value = inputEl.value
+					.replace(/[۰-۹]/g, (digit) => "۰۱۲۳۴۵۶۷۸۹.".indexOf(digit))
+					.replace(/[^0-9.]/g, "");
+			});
+		}
+
+		// Set the placeholder font size style if provided or fallback to fontSize
+		const givenPHFS = placeHolderFontSize ?? fontSize ?? false;
+		if (givenPHFS !== false)
+			inputEl.style.setProperty("--silverBox-placeHolder-fontSize", givenPHFS);
+
+		// Set the name attribute if a name value is provided
+		if (name) inputEl.name = name;
+
+		// Add the provided className to the input element's class list
+		if (className) inputEl.classList += ` ${className}`;
+
+		// Set the id attribute if an id value is provided
+		if (id) inputEl.id = id;
+
+		// Set the wrapper width to 'fit-content' if width is provided
+		if (width) inputWrapper.style.width = "fit-content";
+
+		// Set the 'readonly' attribute if readOnly flag is true
+		if (readOnly) inputEl.setAttribute("readonly", "");
+
+		// Append the label element to the input wrapper
+		if (label) inputWrapper.append(labelEl);
+
+		// Append the input element to the input wrapper
+		inputWrapper.append(inputEl);
+	}
+
+	// Create a span element for the hint text and set its content to the provided hint
+	const hintEl = document.createElement("span");
+	hintEl.classList = "silverBox-input-hint";
+	hintEl.textContent = hint ?? "";
+
+	// Append the hint element to the input wrapper
+	if (hint) inputWrapper.append(hintEl);
+
+	// Return the input wrapper element
+	return inputWrapper;
+}
+
+/**
+ * append the component element to a parent element
+ * @param {HTMLObjectElement} element - parent HTML element
+ * @param {object} components - component items including (header,input and etc)
+ */
+function appendingToModal(element, components) {
+	// loops through the component key
+	Object.keys(components).map((item) => {
+		// appends the components if they exist
+		if (components[item]) element.append(components[item]);
+	});
+}
+
+/**
+ * Returns silverBox based on given argument from config
+ * @param {string} direction - html direction value
+ * @param {object} components - array of elements
+ * @param {string} positionClassName - overlay of silverBox className
+ * @param {boolean} isInput - boolean value
+ * @param {string} theme - html data-theme attribute value which is either light or dark
+ * @param {boolean} centerContent - specifies wether the content is centered or not
+ * @returns {HTMLObjectElement} - silverBox overlay
+ */
+function createSilverBox({
+	direction,
+	components,
+	positionClassName,
+	theme = "light",
+	centerContent,
+}) {
+	// main overlay
+	const overlay = document.createElement("div");
+
+	// add classlist to silverBox overlay
+	overlay.classList.add("silverBox-container", positionClassName);
+
+	// set a data for overlay
+	overlay.dataset.theme = theme;
+
+	// the modalBox
+	const silverBoxModal = document.createElement("div");
+
+	// add classlist to silverBox
+	silverBoxModal.classList.add("silverBox");
+
+	// set a direction for the modal
+	if (direction) silverBoxModal.setAttribute("dir", direction);
+
+	// centers the modal contents if the config is given
+	if (centerContent) silverBoxModal.style.textAlign = "center";
+
+	// append the components items (header,body,footer) to the silverBox
+	appendingToModal(silverBoxModal, components);
+
+	// if silverBox is not empty, it will be added to it's overlay
+	if (silverBoxModal.childElementCount !== 0) overlay.append(silverBoxModal);
+
+	// returns the silverBox overlay if it's not empty
+	if (overlay.childElementCount !== 0) return overlay;
+}
+
+/**
+ * Returns an icon based on the alert icon type and custom icon URL. If a custom icon URL is provided,
+ * the function will create a user icon using the provided URL. Otherwise, it retrieves the requested icon
+ * from the icons object and optionally centers it if the isCentred parameter is true.
+ *
+ * @param {String} alertIcon - The name of the alert icon to retrieve from the icons object (e.g. "warning").
+ * @param {String} customIcon - The URL of a custom icon, if one is specified.
+ * @param {String} customSvgIcon - The URL of a custom svg icon, if one is specified.
+ * @param {Boolean} isCentred - Determines whether to center the icon or not (default is false).
+ *
+ * @returns {HTMLElement|null} - The requested icon element or null if no matching icon was found.
+ */
+const silverBoxIconsComponent = ({
+	alertIcon,
+	customIcon,
+	customSvgIcon,
+	isCentred = false,
+	customIconClassName,
+	customIconId,
+	customSvgIconClassName,
+	customSvgIconId,
+}) => {
+	// Check if a custom icon URL was provided.
+	if (customIcon) {
+		// Return a new custom icon element using the provided URL and clone it to avoid modifying the original icon.
+		return silverBoxCreateCustomIcon(customIcon, isCentred, customIconClassName, customIconId, false).cloneNode(
+			true
+		);
+	}
+
+	// Check if a custom svg icon URL was provided.
+	if (customSvgIcon) {
+		// Return a new svg icon element using the provided URL and clone it to avoid modifying the original icon.
+		return silverBoxCreateCustomIcon(
+			customSvgIcon,
+			isCentred,
+			customSvgIconClassName,
+			customSvgIconId,
+			true
+		).cloneNode(true);
+	}
+
+	// Check if the requested icon exists in the icons object.
+	if (icons[alertIcon]) {
+		// closeButton is not a node, so return it as is.
+		if (alertIcon === "closeButton") return icons[alertIcon];
+
+		// Retrieve the requested icon from the icons object and clone it to avoid modifying the original icon.
+		const clonedIcon = icons[alertIcon].cloneNode(true);
+
+		// Add the "silverBox-centered-icon" class to the cloned icon element.
+		if (isCentred) clonedIcon.classList.add("silverBox-centered-icon");
+
+		// Return the cloned icon element.
+		return clonedIcon;
+	}
+
+	// Return null if no matching icon was found.
+	return null;
+};
+
+// Create an object to store the available icons.
+const icons = {
+	warning: createIcon("silverBox-warning", "!"),
+	success: createIcon("silverBox-tick-mark", "", "inside"),
+	info: createIcon("silverBox-info", "i"),
+	error: createIcon("silverBox-error", "", "x"),
+	question: createIcon("silverBox-question", "?"),
+	// X button
+	closeButton:
+		'<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512"><line x1="368" y1="368" x2="144" y2="144" style="fill:none;stroke:#667085;stroke-linecap:round;stroke-linejoin:round;stroke-width:33px"/><line x1="368" y1="144" x2="144" y2="368" style="fill:none;stroke:#667085;stroke-linecap:round;stroke-linejoin:round;stroke-width:33px"/></svg>',
+};
+
+/**
+ * Creates an icon element with the specified class name and child element (if any).
+ * @param {String} className - The class name for the icon element.
+ * @param {String} text - The text to display in the icon element (if any).
+ * @param {String} childClass - The class name for a child element (if any).
+ * @returns {HTMLElement} - The icon element.
+ */
+function createIcon(className, text, childClass) {
+	// Create a new div element with the specified class name and class.
+	const icon = document.createElement("div");
+
+	// add given className to icon
+	icon.classList = className;
+
+	// add default classNames
+	icon.classList.add("silverBox-icon", "silverBox-default-icon");
+
+	// If childClass is defined, create a child div element with the specified class name and append it to the icon element.
+	if (childClass) {
+		// create child element
+		const child = document.createElement("div");
+
+		// add given child className
+		child.classList = childClass;
+
+		// appends the child element to icon
+		icon.appendChild(child);
+	}
+
+	// If text is defined create a new span element with the text and append it to the icon element.
+	else if (text) {
+		const span = document.createElement("span");
+		span.textContent = text;
+		icon.appendChild(span);
+	}
+
+	// append icon into
+	return icon;
+}
+
+/**
+ * A function that creates a user icon element with the specified url.
+ *
+ * @param {String} customIcon - The URL for the user icon.
+ * @param {Boolean} isCentred - Whether to center the icon or not.
+ * @param {String} customIconClassName - A custom class to add to the icon element.
+ * @param {String} customIconId - A custom ID to add to the icon element.
+ * @returns {HTMLElement} - The user icon element created.
+ */
+function silverBoxCreateCustomIcon(customIcon, isCentred, className, id, isSvg) {
+	// create a wrapper for customIcon
+	const customIconWrapper = document.createElement("div");
+
+	// add className to customIcon wrapper
+	customIconWrapper.classList.add(`silverBox-image-wrapper`);
+
+	// give wrapper a centred class if it's given
+	if (isCentred) customIconWrapper.classList.add("silverBox-centered-icon");
+
+	// Adds customIcon Id
+	if (id) customIconWrapper.id = id;
+
+	// Adds customIcon class
+	if (className) customIconWrapper.classList += ` ${className}`;
+
+	// if there is a svg config the svg code will be added to the wrapper
+	if (!!isSvg) {
+		customIconWrapper.innerHTML += customIcon;
+	}
+
+	// if there is no svg config the image element will be created
+	else {
+		const img = document.createElement("img");
+		img.src = customIcon;
+		img.classList = "silverBox-icon silverBox-custom-icon";
+		customIconWrapper.append(img);
+	}
+
+	return customIconWrapper;
+}
+
+/** imports */
+
+/**
+ * Returns headerWrapper based on given arguments from config
+ * @param {Object} titleConfig - silverBox title Config
+ * @param {String} icon - silverBox icon
+ * @param {Boolean} showCloseButton - silverBox closeButton
+ * @param {Boolean} centerContent - center silverBox header content
+ * @returns {Object} - headerWrapper element
+ */
+function silverBoxHeaderComponent({
+	titleConfig,
+	icon,
+	showCloseButton,
+	centerContent,
+	onCloseConfig,
+}) {
+	// header wrapper
+	const headerWrapper = document.createElement("div");
+
+	// add default className to headerWrapper
+	headerWrapper.classList.add("silverBox-header-wrapper");
+
+	// icon and closeButton wrapper
+	const iconWrapper = document.createElement("div");
+
+	// add default className to iconWrapper
+	iconWrapper.classList.add("silverBox-icon-wrapper");
+
+	// title wrapper
+	const title = document.createElement("h2");
+
+	// add default className to title
+	title.classList.add("silverBox-header-title");
+
+	/**
+	 * titleConfig should be an object. So if only the 'text' has been provided,
+	 * it needs to be converted to an object with a 'text' property.
+	 */
+	if (typeof titleConfig === "string") titleConfig = { text: titleConfig };
+
+	// check if customIcon is needed
+	if (titleConfig?.customIcon) {
+		// stores returned customIcon element into a variable
+		const customIcon = silverBoxIconsComponent({
+			customIcon: titleConfig.customIcon,
+		});
+
+		// if titleCustomIcon id exists, the img element of the customIcon will receive given Id
+		if (titleConfig?.customIconId)
+			customIcon.children[0].id = titleConfig.customIconId;
+
+		// if titleCustomIcon className exists, the img element of the customIcon will receive given class
+		if (titleConfig?.customIconClassName) {
+			customIcon.children[0].classList += ` ${titleConfig.customIconClassName}`;
+		}
+
+		// append the customIcon into the title
+		title.append(customIcon);
+	}
+	// check if customSvgIcon is needed
+	else if (titleConfig?.customSvgIcon) {
+		// stores returned customSvgIcon element into a variable
+		const customSvgIcon = silverBoxIconsComponent({
+			customSvgIcon: titleConfig.customSvgIcon,
+		});
+
+		// if titleSvgCustomIcon id exists, the img element of the customIcon Wrapper will receive given Id
+		if (titleConfig?.customSvgIconId)
+			customSvgIcon.children[0].id = titleConfig.customSvgIconId;
+
+		// if titleSvgCustomIcon class exists, the img element of the customIcon Wrapper will receive given class
+		if (titleConfig?.customSvgIconClassName) {
+			customSvgIcon.children[0].classList += ` ${titleConfig.customSvgIconClassName}`;
+		}
+		// append the customSvgIcon into the title
+		title.append(customSvgIcon);
+	}
+	// check if alertIcon is needed
+	else if (titleConfig?.alertIcon) {
+		// stores returned alertIcon element into a variable
+		const alertIcon = silverBoxIconsComponent({
+			alertIcon: titleConfig.alertIcon,
+		});
+
+		// append the alertIcon into the title
+		title.append(alertIcon);
+	}
+	// checks if parentELement has a icon, if true the has-icon class will be given
+	if (title.childElementCount >= 1)
+		title.classList.add("silverBox-title-has-icon");
+
+	// if centerContent is true the title children will be centred
+	if (centerContent) title.classList.add("silverBox-title-centred");
+
+	// check if textConfig exists
+	if (titleConfig?.text) {
+		// create titleSpan element
+		const titleSpan = document.createElement("span");
+
+		// add a default className to the title element with some related styles
+		title.classList.add("silverBox-title-text");
+
+		// add the given text to titleSpan element
+		titleSpan.textContent = titleConfig.text;
+
+		// append the titleSpan to the title element
+		title.append(titleSpan);
+	}
+
+	// create a span element for x button
+	const closeButtonEl = document.createElement("span");
+
+	// add "x" icon as a SVG to the closeButtonEl
+	closeButtonEl.innerHTML = silverBoxIconsComponent({ alertIcon: "closeButton" });
+
+	// add a default className to "x" button
+	closeButtonEl.classList.add("silverBox-close-button");
+
+	// add a onclick event for the closeButtonEl to close the Modal
+	// closeButtonEl.onclick = silverBoxCloseButtonOnClick({ hasOverlay: true });
+	closeButtonEl.addEventListener("click", () => {
+		silverBoxClose({
+			onClose: onCloseConfig,
+			element: closeButtonEl,
+		});
+	});
+
+	// add icon to iconWrapper
+	if (icon) iconWrapper.appendChild(icon);
+
+	// add closeButton to iconWrapper
+	if (showCloseButton) iconWrapper.appendChild(closeButtonEl);
+
+	// appends the icon Wrapper to headerWrapper
+	if (iconWrapper.childElementCount >= 1) headerWrapper.append(iconWrapper);
+
+	// add title to headerWrapper
+	if (titleConfig) headerWrapper.appendChild(title);
+
+	// return headerWrapper
+	return headerWrapper;
+}
+
+/**
+ * Creates bodyWrapper and appends html config, text config, button component, input component to it.
+ * @param {String} htmlContent - The HTML structure to be displayed.
+ * @param {String} bodyText - The text content to be displayed.
+ * @param {String} components - The array of components to be appended.
+ * @returns {HTMLElement} - The created body wrapper element.
+ */
+function silverBoxBodyComponent({ htmlContent, bodyText, components, isInput }) {
+	// create bodyWrapper for html,text,inputComponent,buttonComponent
+	const bodyWrapper = document.createElement("div");
+
+	// add default className to silverBox-body
+	bodyWrapper.classList = "silverBox-body-wrapper";
+
+	if (htmlContent) {
+		// create htmlStructure element
+		const htmlStructure = document.createElement("div");
+
+		// add a default className for the htmlStructure element
+		htmlStructure.classList.add("silverBox-body-description");
+
+		// add the given html structure to the htmlStructure element
+		if (htmlContent.outerHTML) htmlStructure.append(htmlContent);
+		else htmlStructure.innerHTML = htmlContent;
+
+		// add the htmlStructure to it's wrapper
+		bodyWrapper.appendChild(htmlStructure);
+	} else if (bodyText) {
+		// create textStructure element
+		const textStructure = document.createElement("p");
+
+		// add the given textConfig to the textStructure element
+		textStructure.textContent = bodyText;
+
+		// add a default className to the textStructure element
+		textStructure.classList.add("silverBox-body-description");
+
+		// append the textStructure to it's wrapper
+		bodyWrapper.appendChild(textStructure);
+	}
+
+	// Create form variable to contain a form element if it's needed
+	let form;
+
+	// checks if we have inputs in the given config, if true the elements will be added to a form elements, else there will be no form elements
+	if (isInput) {
+		// create  form element for inputs
+		form = document.createElement("form");
+
+		// add classlist to form element
+		form.classList.add("silverBox-form");
+
+		// submit event listener for silverBox form
+		form.addEventListener("submit", (e) => {
+			// form preventDefault
+			e.preventDefault();
+		});
+
+		// appends the form into the bodyWrapper
+		bodyWrapper.append(form);
+	}
+	// append all components to modal by calling the "appendingToModal" helper function
+	appendingToModal(form ? form : bodyWrapper, components);
+
+	return bodyWrapper;
+}
+
+/**
+ * Returns footer element based on arguments as text
+ * @param {string} footerContent - footer HTML content
+ * @returns {Element} - footer element
+ */
+function silverBoxFooterComponent({ footerContent }) {
+	// creates footer
+	const footerEl = document.createElement("div");
+
+	// add className to footer element
+	footerEl.classList.add("silverBox-footer-wrapper");
+
+	// creates hr line
+	const line = document.createElement("hr");
+
+	// appends line to footerEl
+	footerEl.append(line);
+
+	// appends footer to footerEl innerHTML
+	footerEl.innerHTML += footerContent;
+
+	// returns the footer
+	return footerEl;
+}
+
+/**
+ * removes all silverBox's
+ * @param {string} - value of silverBox that wants to be removed
+ */
+function removeAllSilverBoxes(index) {
+    // converts the index to lowercase
+    index = index.toLowerCase();
+    // selector
+    const silverBoxes = document.querySelectorAll('.silverBox-container');
+
+    // changes the indexes
+    if (index === "first") index = 1;
+    if (index === "last") index = silverBoxes.length;
+
+    // all
+    if (index === "all") {
+        for (let i = 0; i < silverBoxes.length; i++) {
+            silverBoxes[i].remove();
+        }
+    }
+    // number
+    else if (Number(index) > 0) {
+        silverBoxes[Number(index) - 1].remove();
+    }
+}
+
+function silverBoxRemoveLoadings(animationIndex) {
+    // select SilverBox buttonWrapper
+    let silverBoxButtonWrapper = document.querySelectorAll('.silverBox-button-wrapper');
+
+    // converts the given value to lowerCase
+    animationIndex.toLowerCase();
+
+    // covert the indexes 
+    if (animationIndex === 'first') animationIndex = 1;
+    if (animationIndex === 'last') animationIndex = silverBoxButtonWrapper.length;
+
+    // removes all modal's button's loading
+    if (animationIndex === 'all') {
+        for (let i = 0; i < silverBoxButtonWrapper.length; i++) {
+            silverBoxButtonWrapper[i].childNodes.forEach(button => {
+                button.classList.remove('silverBox-loading-button');
+            });
+
+        }
+
+    }
+    // removes the nth modal's button's loading
+    else if (Number(animationIndex) > 0) {
+        silverBoxButtonWrapper[Number(animationIndex) - 1].childNodes.forEach(button => {
+            button.classList.remove('silverBox-loading-button');
+        });
+    }
+
+}
+
+// Function to convert number values to strings with 's' suffix for seconds
+const validateDuration = (value) => {
+	// Check if the value is a valid number
+	if (Number(value)) {
+		// If it is a number, add 'ms' suffix and return the value as a string
+		return `${value}ms`;
+	}
+
+	// Check if the value is a valid number with "ms" or "s" suffix, or return "300ms" as the default
+	return (parseInt(value) || parseFloat(value)) &&
+		(value.endsWith("ms") || value.endsWith("s"))
+		? value
+		: "300ms";
+};
+
+// imports
+
+const silverBoxTimerBar = ({ silverBoxElement, timerConfig, onClose }) => {
+	// gives the pauseOnHover and showBar config in timer a default value if they're not given
+	if (!("showBar" in timerConfig)) timerConfig.showBar = true;
+	if (!("pauseOnHover" in timerConfig)) timerConfig.pauseOnHover = true;
+
+	// select silverBox to append the timerBar element
+	let silverBox = document.querySelectorAll(".silverBox");
+	silverBox = silverBox[silverBox.length - 1];
+
+	// create a timerBar element with it's wrapper to track the remaining time before closing the silverBox
+	const timerBar = document.createElement("div");
+	timerBar.classList = "timer-bar";
+
+	const timerBarWrapper = document.createElement("div");
+	timerBarWrapper.classList = "timer-bar-wrapper";
+
+	// appends the timerBar inside a wrapper
+	timerBarWrapper.append(timerBar);
+
+	// defining the animation duration based on the given timer
+	timerBar.style.animation = `timer ${validateDuration(timerConfig.timer)} linear`;
+
+	// checks if the pauseTimerOnHover config is not false (it could either be )
+	if (timerConfig?.pauseOnHover !== false && silverBox) {
+		silverBox.addEventListener("mouseover", () => {
+			timerBar.style.animationPlayState = "paused";
+		});
+		silverBox.addEventListener("mouseout", () => {
+			timerBar.style.animationPlayState = "running";
+		});
+	}
+
+	// appending the timerBar to silverBox, if users wants it
+	if (silverBox && timerConfig?.showBar) {
+		silverBox.append(timerBarWrapper);
+
+		// removes the specific element after the given timeout
+		timerBar.addEventListener("animationend", () => {
+			silverBoxClose({
+				silverBoxElement,
+				timer: timerConfig.timer,
+				onClose,
+			});
+		});
+	} else {
+		setTimeout(() => {
+			silverBoxClose({
+				silverBoxElement,
+				timer: timerConfig.timer,
+				onClose,
+			});
+		}, timerConfig.timer);
+	}
+};
+
+/**
+ * Applies animation using the provided configuration.
+ * @param {Object} config - The animation configuration.
+ * @returns {String} - The final animation configuration.
+ */
+const applyAnimation = (config) => {
+	// default values for animation properties
+	const defaultValues = {
+		name: "popUp",
+		duration: "300ms",
+		timingFunction: "linear",
+		delay: "0ms",
+		iterationCount: "1",
+		direction: "normal",
+		fillMode: "none",
+	};
+
+	// Normalize duration and delay values
+	const normalizedConfig = {
+		...defaultValues,
+		...config,
+		duration: validateDuration(config.duration) || defaultValues.duration,
+		delay: validateDuration(config.delay) || defaultValues.delay,
+	};
+
+	// Destructure animation config keys
+	const {
+		name,
+		duration,
+		timingFunction,
+		delay,
+		iterationCount,
+		direction,
+		fillMode,
+	} = normalizedConfig;
+
+	return `${name} ${duration} ${timingFunction} ${delay} ${iterationCount} ${direction} ${fillMode}`;
+};
+
+// import components
+
+/**
+ * SilverBox function that creates silverBox by provided config.
+ * @param {Object} config - object of related keys to silverBox settings.
+ */
+function silverBox(config = {}) {
+	try {
+		// Logs out an error if silverBox config is empty.
+		if (Object.keys(config).length === 0) {
+			throw new Error("You can't create silverBox with an empty config.");
+		}
+
+		// Checks if preOpen config exists, then executes the callback which has been provided by user
+		config.preOpen?.();
+
+		// Calls the "removeAllSilverBoxes" function to remove silverBox by provided config.
+		if ("removeSilverBox" in config) {
+			removeAllSilverBoxes(config.removeSilverBox);
+		}
+
+		// Calls the "silverBoxRemoveLoadings" function to remove silverBox button loadings by provided config.
+		if ("removeLoading" in config) {
+			silverBoxRemoveLoadings(config.removeLoading);
+		}
+
+		// Object of all silverBox components.
+		const components = {};
+
+		// Object of body wrapper related components.
+		const bodyComponents = {};
+
+		// Create input wrapper for all inputs in provided config.
+		const inputWrapper = document.createElement("div");
+
+		// Add default className for "inputWrapper".
+		inputWrapper.classList = "silverBox-input-container";
+
+		// Create button wrapper for all buttons provided in config.
+		const buttonWrapper = document.createElement("div");
+
+		// Add default className for "buttonWrapper".
+		buttonWrapper.classList = "silverBox-button-wrapper";
+
+		// Create a function that returns icon related properties provided in config.
+		const iconsConfig = () => {
+			return {
+				alertIcon: config.alertIcon,
+				customIcon: config.customIcon,
+				isCentred: config.centerContent,
+				customIconClassName: config.customIconClassName,
+				customIconId: config.customIconId,
+				customSvgIcon: config.customSvgIcon,
+				customSvgIconClassName: config.customSvgIconClassName,
+				customSvgIconId: config.customSvgIconId,
+			};
+		};
+
+		// Assign "silverBoxHeaderComponent" to a constant to put it inside "components" object.
+		const headerLayout = silverBoxHeaderComponent({
+			titleConfig: config.title,
+			icon: silverBoxIconsComponent(iconsConfig()),
+			showCloseButton: config.showCloseButton,
+			centerContent: config.centerContent,
+			onCloseConfig: config.onClose,
+		});
+
+		// Assign "headerLayout" constant as header key in "components" object.
+		if (headerLayout.childElementCount !== 0) components.header = headerLayout;
+
+		if ("input" in config) {
+			/**
+			 * Returns an object with specified configuration properties for an input element.
+			 * @param {Object} selector - The selector object containing input configuration properties.
+			 * @returns {Object} - The input configuration object.
+			 */
+			const inputConfig = (selector) => {
+				return {
+					type: "type" in selector ? selector.type : "",
+					select: selector.select,
+					numberOnly: selector.numberOnly,
+					hint: selector.hint,
+					label: selector.label,
+					placeHolder: selector.placeHolder,
+					readOnly: selector.readOnly,
+					width: selector.width,
+					height: selector.height,
+					maxLength: selector.maxLength,
+					textAlign: selector.textAlign,
+					fontSize: selector.fontSize,
+					placeHolderFontSize: selector.placeHolderFontSize,
+					name: selector.name,
+					className: selector.className,
+					id: selector.id,
+					value: selector.value,
+				};
+			};
+
+			const multiplyByCheck = (selector) => {
+				// If there is no "multiplyBy" in config, this code is executed.
+				if (!("multiplyBy" in selector)) selector.multiplyBy = 1;
+
+				// Loops throw "multiplyBy" config to creates the given number of inputs by checking "multiplyBy" property.
+				for (let i = 1; i <= selector.multiplyBy; i++) {
+					inputWrapper.append(
+						silverBoxInputComponent(inputConfig(selector))
+					);
+				}
+			};
+
+			// Loops throw "config.input" if it's an array and adds it to the input wrapper by calling
+			// "multiplyByCheck". If there it's not an array it will be called only once.
+			Array.isArray(config.input)
+				? config.input.forEach((input) => multiplyByCheck(input))
+				: multiplyByCheck(config.input);
+
+			// Add "inputWrapper" to "component" object.
+			if (inputWrapper.childElementCount) bodyComponents.input = inputWrapper;
+		}
+
+		// Array of Buttons config.
+		const buttonsConfig = [
+			{
+				type: "confirmButton",
+				text: "Confirm",
+			},
+			{
+				type: "denyButton",
+				text: "Deny",
+			},
+			{
+				type: "cancelButton",
+				text: "Cancel",
+			},
+			{
+				type: "customButton",
+				text: "Custom",
+			},
+		];
+
+		// Loop over buttons config in order to create them.
+		for (const button of buttonsConfig) {
+			if (button.type in config && config[button.type].showButton !== false) {
+				buttonWrapper.append(
+					silverBoxButtonComponent(
+						config[button.type],
+						`silverBox-${button.text.toLowerCase()}-button`,
+						button.text,
+						config.onClose
+					)
+				);
+			}
+		}
+
+		// Sets "buttonWrapper" direction.
+		if ("buttonsDirection" in config) {
+			buttonWrapper.style.direction = config.buttonsDirection;
+		}
+
+		// Pushes the "buttonWrapper" inside the "bodyComponents" for appending it to silverBox.
+		if (buttonWrapper.childElementCount) bodyComponents.button = buttonWrapper;
+
+		// Create "bodyComponent" variable config for "silverBoxBodyComponent".
+		const bodyLayoutConfig = silverBoxBodyComponent({
+			htmlContent: config.html,
+			bodyText: config.text,
+			components: bodyComponents,
+			isInput: config.input,
+		});
+
+		// Adds "bodyComponentConfig" to "components" object to append it inside silverBox if it's not empty.
+		if (bodyLayoutConfig.childElementCount) components.body = bodyLayoutConfig;
+
+		// Adds "footer" config as "footer" key in "components" Object.
+		if (config.footer) {
+			components.footer = silverBoxFooterComponent({
+				footerContent: config.footer,
+			});
+		}
+
+		/**
+		 * This function adds a sample modal configuration to the document body.
+		 * @param {String} className - The class name used for positioning the modal box.
+		 * @param {Boolean} isInputValue - Determines if the modal box contains an input field.
+		 * @returns {void}
+		 */
+		const modalSampleConfig = (className) => {
+			if (Object.keys(components).length === 0) return null;
+
+			const createdSilverBox = createSilverBox({
+				components: components,
+				positionClassName: className,
+				theme: config.theme,
+				direction: config.direction,
+				centerContent: config.centerContent,
+			});
+
+			document.body.append(createdSilverBox);
+
+			return createdSilverBox;
+		};
+
+		// If "position" exists in "config",sets the "position" variable to "silverBox-${config.position}"
+		// otherwise, it sets it to the value `"silverBox-overlay"`.
+		const position =
+			"position" in config
+				? `silverBox-${config.position}`
+				: "silverBox-overlay";
+
+		// Calls "modalSampleConfig" with value provided from "position" to create silverBox.
+		// Store it to be used in the returned methods at the end.
+		const silverBoxElement = modalSampleConfig(position);
+
+		// If "timer" is provided in config, the modal will be removed after the given time.
+		if ("timer" in config) {
+			// changes the title config to an object if the given value is a number, so as a result we can use this config as either an object or a number.
+			if (typeof config.timer === "number" || "string")
+				config.timer = { timer: config.timer };
+
+			// Handle the timerBar functionalities
+			silverBoxTimerBar({
+				silverBoxElement,
+				timerConfig: config.timer,
+				pauseTimerOnHover: config.pauseTimerOnHover,
+				showTimerBar: config.showTimerBar,
+				onClose: config.onClose,
+			});
+		}
+
+		// Select silverBox overlay to give it an eventListener.
+		let silverBoxOverlay = document.querySelectorAll(".silverBox-overlay");
+		silverBoxOverlay = silverBoxOverlay[silverBoxOverlay.length - 1];
+
+		// if the clicked element has classList of silverBox-overlay this code will be executed.
+		if (silverBoxOverlay && config.closeOnOverlayClick !== false) {
+			silverBoxOverlay.addEventListener("click", (e) => {
+				// closes the modal if the user clicks on the overlay (outside of the modal).
+				if (e.target === silverBoxOverlay) {
+					silverBoxClose({
+						onClose: config.onClose,
+						element: silverBoxOverlay,
+					});
+				}
+				// checks for silverBox after removing wrapper.
+				silverBoxDisableScroll(".silverBox-overlay");
+			});
+		}
+
+		// Checks for silverBox after it's created.
+		silverBoxDisableScroll(".silverBox-overlay");
+
+		// If silverBoxId is in config
+		if ("silverBoxId" in config) silverBoxElement.id = config.silverBoxId;
+
+		// Add silverBox className
+		if ("silverBoxClassName" in config) {
+			silverBoxElement.classList += ` ${config.silverBoxClassName}`;
+		}
+
+		// Add animation to silverBox
+		if ("animation" in config) {
+			// Select "silverBox" to give it animation
+			const silverBox = silverBoxElement.querySelector(".silverBox");
+
+			if (!!silverBox) {
+				// Set animation for the silverBox element based on the configuration provided.
+				// If "animation" is an array, each animation value will be added to silverBox as part of the animation sequence.
+				// If "animation" is an object, it will be called once and its values will be applied as an animation to silverBox.
+				silverBox.style.animation = Array.isArray(config.animation)
+					? config.animation
+							.map((animation) => applyAnimation(animation))
+							.join(", ")
+					: applyAnimation(config.animation);
+			}
+		}
+
+		// Check if the "didOpen" property exists in the "config" object
+		config.didOpen?.();
+
+		if (silverBoxElement === null) return null;
+
+		return {
+			remove: () => {
+				document.body.removeChild(silverBoxElement);
+			},
+			removeLoading: (selector = "") => {
+				const buttons = silverBoxElement.querySelectorAll(
+					`button${selector}`
+				);
+				buttons.forEach((button) => {
+					button.classList.remove("silverBox-loading-button");
+				});
+			},
+		};
+	} catch (error) {
+		throw error;
+	}
+}
+
+// import
+
+// selector: element that table is appended to 
+function silverBoxDocumentationTableComponent(selector, documentation) {
+    // select element
+    const selectorEl = document.querySelector(selector);
+    // tableWrapper selector
+    // adds tableHeader to tableWrapper
+    selectorEl.append(silverBoxTableHeader());
+
+    // document argument
+    let silverBoxTableRowConfig = (selector, idValue, configValue) => silverBoxTableRow({
+        name: selector.configName,
+        type: selector.type,
+        description: selector.explanation,
+        defaultValue: selector.defaultValue,
+        id: idValue,
+        config: configValue,
+    });
+    // for loop
+    documentation.forEach(documentItem => {
+
+        // tableRowFunctionConfig
+        selectorEl.append(silverBoxTableRowConfig(documentItem, "noConfig", documentItem));
+
+        // if there is no config in object item this code will be executed
+        if (("config" in documentItem)) {
+
+            // creates document configs wrapper
+            let documentConfigWrapper = document.createElement('div');
+            documentConfigWrapper.classList.add('silverBox-document-has-config');
+
+            documentItem.config.forEach(config => {
+                let configTableRow = silverBoxTableRowConfig(config, "hasConfig", documentItem);
+                // appending each config to the parent div
+                documentConfigWrapper.append(configTableRow);
+            });
+            // appending the whole parent div after the related config explanation
+            selectorEl.append(documentConfigWrapper);
+
+        }
+    });
+    toggleConfig();
+}
+/**
+ * creates tableHeader
+ * @returns {element} - tableHeader Element
+ */
+function silverBoxTableHeader() {
+    // create tableHeader
+    const tableHeader = document.createElement("div");
+    tableHeader.classList.add("silverBox-tableRow", "silverBox-tableRowHeader");
+
+    // name header
+    const nameHeader = document.createElement("div");
+    nameHeader.classList.add("silverBox-tableColumn", "tableHeaderColumn");
+    nameHeader.textContent = "Name";
+
+    // type header
+    const typeHeader = document.createElement('div');
+    typeHeader.classList.add("silverBox-tableColumn", "tableHeaderColumn");
+    typeHeader.textContent = "Type";
+
+    // default header
+    const defaultHeader = document.createElement("div");
+    defaultHeader.classList.add("silverBox-tableColumn", "tableHeaderColumn");
+    defaultHeader.textContent = "Default";
+
+    // description header
+    const descriptionHeader = document.createElement("div");
+    descriptionHeader.classList.add("silverBox-tableColumn", "tableHeaderColumn");
+    descriptionHeader.textContent = "Description";
+
+    // append all items
+    tableHeader.append(nameHeader);
+    tableHeader.append(typeHeader);
+    tableHeader.append(defaultHeader);
+    tableHeader.append(descriptionHeader);
+
+    return tableHeader
+}
+
+/**
+ * creates table row element
+ * @param {string} argument - document argument
+ * @param {string} explanation - document explanation
+ * @param {string} defaultValue - document defaultValue
+ * @param {string} config - document config
+ * @param {string} id - determines the status of id (how the id is added)
+ * @returns {element} - table row element
+ */
+function silverBoxTableRow({ name, type, description, defaultValue, id, config }) {
+    // selectors
+    const tableRowEl = document.createElement("div");
+    tableRowEl.classList.add("silverBox-tableRow");
+
+
+    // name column ----
+
+    const docNameColumn = document.createElement("a");
+    docNameColumn.classList.add("silverBox-tableColumn");
+    const docNameSpan = document.createElement('span');
+    docNameSpan.classList.add("silverBox-document-argument");
+    docNameSpan.textContent = name;
+    docNameColumn.append(docNameSpan);
+
+    // type column
+    const docTypeColumn = document.createElement("div");
+    docTypeColumn.classList.add("silverBox-tableColumn");
+    const docTypeSpan = document.createElement('span');
+    docTypeSpan.classList.add("silverBox-document-type");
+    docTypeSpan.textContent = type;
+    docTypeColumn.append(docTypeSpan);
+
+    // copies the name textContent after being Clicked
+    docNameColumn.onclick = () => {
+        copyArgument(docNameColumn);
+        silverBox({
+            timer: 1500,
+            theme: "dark",
+            position: "top-left",
+            title: {
+                text: "Argument copied."
+            },
+            centerContent: true
+        });
+    };
+
+    // description column ----
+
+    const docDescriptionColumn = document.createElement("div");
+    docDescriptionColumn.classList.add("silverBox-tableColumn", "silverBox-document-description");
+    const descriptionSpan = document.createElement("span");
+    descriptionSpan.classList.add("silverBox-explanation-span");
+    descriptionSpan.innerHTML = replaceQuotedTextWithSpan(description);
+    docDescriptionColumn.append(descriptionSpan);
+
+    // default value column ----
+
+    const docDefaultValueColumn = document.createElement("div");
+    docDefaultValueColumn.classList.add("silverBox-tableColumn", "silverBox-document-default");
+    const defaultValueSpan = document.createElement('span');
+
+    if (defaultValue != "emptyDefaultValue") {
+        defaultValueSpan.classList.add("silverBox-document-string");
+        defaultValueSpan.textContent = defaultValue;
+
+        if (defaultValue === "") {
+            defaultValueSpan.classList.add("silverBox-document-string");
+            defaultValueSpan.textContent = '" "';
+        }
+    }
+    docDefaultValueColumn.append(defaultValueSpan);
+
+    // if id == "noConfig" this code will be executed
+    if (id == "noConfig") {
+        docNameColumn.setAttribute("href", "#" + name);
+        tableRowEl.id = `${name}`;
+
+        // if there is config keyword in the value of config which is documentation in our case
+        // this code will be executed
+        if ("config" in config) {
+            // creates the show more button
+            // create indicator
+            let documentConfigWrapperIndicator = document.createElement('div');
+            documentConfigWrapperIndicator.classList.add("silverBox-documentConfig-indicator");
+            docNameColumn.append(documentConfigWrapperIndicator);
+        }
+    }
+    // if id == "hasConfig" this code will be executed
+    else if (id == "hasConfig") {
+        // gets the id of the configName that contains the config
+        docNameColumn.setAttribute("href", `#${config.configName}${name}`);
+        tableRowEl.id = `${config.configName}${name}`;
+
+    }
+    // appends the items to table row
+
+    // name
+    tableRowEl.append(docNameColumn);
+    // type
+    tableRowEl.append(docTypeColumn);
+    // default value
+    tableRowEl.append(docDefaultValueColumn);
+    // description
+    tableRowEl.append(docDescriptionColumn);
+
+    return tableRowEl
+}
+function toggleConfig() {
+    // select all configs
+    const documentThatHasConfig = document.querySelectorAll('.silverBox-document-has-config');
+    const silverBoxDocumentConfigIndicator = document.querySelectorAll('.silverBox-documentConfig-indicator');
+
+    // for loop
+    for (let i = 0; i < documentThatHasConfig.length; i++) {
+        // click event for each showMoreBtn
+        silverBoxDocumentConfigIndicator[i].addEventListener("click", () => {
+            // if each document that has config contains "hide" class this code will be executed
+            if (documentThatHasConfig[i].classList.contains("silverBox-hide")) {
+                // remove "hide" class from document that has config
+                documentThatHasConfig[i].classList.remove("silverBox-hide");
+                // remove "hide" class from Document Config Indicator
+                silverBoxDocumentConfigIndicator[i].classList.remove("silverBox-hide");
+            }
+            // if each document that has config doesn't contain "hide" class this code will be executed
+            else {
+                // add "hide" class to document that has config 
+                documentThatHasConfig[i].classList.add("silverBox-hide");
+                // add "hide" class to Document Config Indicator
+                silverBoxDocumentConfigIndicator[i].classList.add("silverBox-hide");
+            }
+        });
+    }
+}
+
+// import
+
+// navigation section
+const hamburgerMenuIcon = document.querySelector("#hamburger-menu");
+const silverBoxLogo = document.querySelector("#logo");
+const navigationList = document.querySelector("#silverBox-header nav ul");
+
+// opens/closes the navigation menu on hamburger menu click
+hamburgerMenuIcon.addEventListener("click", () => {
+	if (!navigationList.classList.contains("show")) {
+		hamburgerMenuIcon.classList.add("rotate");
+		navigationList.classList.add("show");
+		silverBoxLogo.classList.add("hide");
+	} else {
+		hamburgerMenuIcon.classList.remove("rotate");
+		navigationList.classList.remove("show");
+		silverBoxLogo.classList.remove("hide");
+	}
+});
+
+// silverBox header gets a background color whenever we scroll the page
+const header = document.querySelector("#silverBox-header");
+
+window.addEventListener("scroll", () => {
+	let bodyScrollHeight = window.scrollY;
+
+	// if the scrollHeight is more than 50, the header will get a class
+	if (bodyScrollHeight > 50) {
+		header.classList.add("scrolled");
+	}
+	// else it will be removed
+	else {
+		header.classList.remove("scrolled");
+	}
+});
+
+// all versions of documentation
+const allVersions = ["1.0.0", "1.1.0", "1.2.0", "1.3.0"];
+
+// version number from query string url
+let versionNumber = getParameterByName("v");
+
+// if version number from query string is not given or does not exists in allVersions array
+if (!versionNumber || !allVersions.includes(versionNumber)) {
+	// set the versionNumber to latest version
+	versionNumber = allVersions[allVersions.length - 1];
+}
+
+// on DOM load
+document.addEventListener("DOMContentLoaded", async () => {
+	const { default: docs } = await import(
+		`/public/src/js/data/documentations/${versionNumber}.js`
+	);
+	silverBoxDocumentationTableComponent(".silverBox-tableWrapper", docs);
+});
+
+// get query string value from URL
+function getParameterByName(name, url = window.location.href) {
+	name = name.replace(/[\[\]]/g, "\\$&");
+	var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+		results = regex.exec(url);
+	if (!results) return null;
+	if (!results[2]) return "";
+	return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+// add versionNumber to documentation
+const documentationVersionSpan = document.querySelector(
+	"#silverBox-documentation-version"
+);
+
+// add documentation version to documentation Span
+documentationVersionSpan.innerText = "v" + versionNumber;

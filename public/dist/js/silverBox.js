@@ -14,10 +14,10 @@ function silverBoxDisableScroll(select) {
 
 // import
 /** selects the silverBox container and closes the element*/
-function silverBoxClose({ uniqueID, timer, onClose, element }) {
+function silverBoxClose({ silverBoxElement, timer, onClose, element }) {
 	// If timer config exists, silverBoxCloseAfterTimeout would get a uniqueID and will close the silverBox using that ID
 	if (timer) {
-		silverBoxCloseAfterTimeout(uniqueID);
+		silverBoxCloseAfterTimeout(silverBoxElement);
 	}
 
 	// if there is a element passed to silverBoxClose object, the closest silverBox-container to that element would be removed
@@ -26,16 +26,11 @@ function silverBoxClose({ uniqueID, timer, onClose, element }) {
 	}
 
 	// Runs onClose function if it exits
-	if (onClose) onClose();
+	if (typeof onClose === "function") onClose();
 }
 // this function will remove a specific element with the unique ID and after a specific timeout
-function silverBoxCloseAfterTimeout(elementID) {
-	// selects the element by the unique ID
-	const uniqueTimeOutElement = document.querySelector(
-		`[data-unique-id="${elementID}"]`
-	);
-
-	if (uniqueTimeOutElement) uniqueTimeOutElement.remove();
+function silverBoxCloseAfterTimeout(silverBoxElement) {
+	if (silverBoxElement) silverBoxElement.remove();
 
 	silverBoxDisableScroll(".silverBox-overlay");
 }
@@ -743,26 +738,6 @@ function silverBoxFooterComponent({ footerContent }) {
 	return footerEl;
 }
 
-// creates a random Number
-// uniqueNumber
-let uniqueNumber = 0;
-
-function silverBoxUniqueNumberMaker(maxVal) {
-
-    // randomNumber
-    const randomNumber = Math.floor((Math.random() * maxVal) + 1);
-    // checks if the number exists in the array, if true it will pushed into the array and also will be returned
-    if (uniqueNumber !== randomNumber) {
-        uniqueNumber = randomNumber;
-        return uniqueNumber;
-    }
-    // if it's false, the function will be called once again
-    else {
-        silverBoxUniqueNumberMaker(maxVal);
-    }
-
-}
-
 /**
  * removes all silverBox's
  * @param {string} - value of silverBox that wants to be removed
@@ -827,19 +802,16 @@ const validateDuration = (value) => {
 		return `${value}ms`;
 	}
 
-	// Check if the value can be parsed as an integer or float
-	if (parseInt(value) || parseFloat(value)) {
-		// If it can be parsed as a number, return the value as a string
-		return value;
-	} else {
-		// If the value is not a valid number, return a default value of "300ms"
-		return "300ms";
-	}
+	// Check if the value is a valid number with "ms" or "s" suffix, or return "300ms" as the default
+	return (parseInt(value) || parseFloat(value)) &&
+		(value.endsWith("ms") || value.endsWith("s"))
+		? value
+		: "300ms";
 };
 
 // imports
 
-const silverBoxTimerBar = ({ uniqueID, timerConfig, onClose }) => {
+const silverBoxTimerBar = ({ silverBoxElement, timerConfig, onClose }) => {
 	// gives the pauseOnHover and showBar config in timer a default value if they're not given
 	if (!("showBar" in timerConfig)) timerConfig.showBar = true;
 	if (!("pauseOnHover" in timerConfig)) timerConfig.pauseOnHover = true;
@@ -878,7 +850,7 @@ const silverBoxTimerBar = ({ uniqueID, timerConfig, onClose }) => {
 		// removes the specific element after the given timeout
 		timerBar.addEventListener("animationend", () => {
 			silverBoxClose({
-				uniqueID,
+				silverBoxElement,
 				timer: timerConfig.timer,
 				onClose,
 			});
@@ -886,7 +858,7 @@ const silverBoxTimerBar = ({ uniqueID, timerConfig, onClose }) => {
 	} else {
 		setTimeout(() => {
 			silverBoxClose({
-				uniqueID,
+				silverBoxElement,
 				timer: timerConfig.timer,
 				onClose,
 			});
@@ -1146,23 +1118,6 @@ function silverBox(config = {}) {
 		// Store it to be used in the returned methods at the end.
 		const silverBoxElement = modalSampleConfig(position);
 
-		// Select "silverBoxWrapper"
-		let silverBoxWrapper = document.querySelectorAll(".silverBox-container");
-
-		// Reassign silverBoxWrapper value with the last element in NodeList to set timer.
-		silverBoxWrapper = silverBoxWrapper[silverBoxWrapper.length - 1];
-
-		// Create silverBox uniqueID by calling "silverBoxUniqueNumberMaker" to remove silverBox.
-		let uniqueID;
-		if (bodyLayoutConfig.childElementCount) {
-			uniqueID = silverBoxUniqueNumberMaker(1_000_000);
-		}
-
-		// Set the unique ID as an attribute to the modal.
-		if (silverBoxWrapper) {
-			silverBoxWrapper.setAttribute("data-unique-id", uniqueID);
-		}
-
 		// If "timer" is provided in config, the modal will be removed after the given time.
 		if ("timer" in config) {
 			// changes the title config to an object if the given value is a number, so as a result we can use this config as either an object or a number.
@@ -1171,7 +1126,7 @@ function silverBox(config = {}) {
 
 			// Handle the timerBar functionalities
 			silverBoxTimerBar({
-				uniqueID,
+				silverBoxElement,
 				timerConfig: config.timer,
 				pauseTimerOnHover: config.pauseTimerOnHover,
 				showTimerBar: config.showTimerBar,
@@ -1202,19 +1157,17 @@ function silverBox(config = {}) {
 		silverBoxDisableScroll(".silverBox-overlay");
 
 		// If silverBoxId is in config
-		if ("silverBoxId" in config) silverBoxWrapper.id = config.silverBoxId;
+		if ("silverBoxId" in config) silverBoxElement.id = config.silverBoxId;
 
 		// Add silverBox className
 		if ("silverBoxClassName" in config) {
-			silverBoxWrapper.classList += ` ${config.silverBoxClassName}`;
+			silverBoxElement.classList += ` ${config.silverBoxClassName}`;
 		}
 
 		// Add animation to silverBox
 		if ("animation" in config) {
 			// Select "silverBox" to give it animation
-			const silverBox = document.querySelector(
-				`.silverBox-container[data-unique-id="${uniqueID}"] .silverBox`
-			);
+			const silverBox = silverBoxElement.querySelector(".silverBox");
 
 			if (!!silverBox) {
 				// Set animation for the silverBox element based on the configuration provided.
