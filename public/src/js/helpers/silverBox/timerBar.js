@@ -19,10 +19,13 @@ const silverBoxTimerBar = ({ silverBoxElement, timerConfig, onClose }) => {
 	timerBarWrapper.classList = "timer-bar-wrapper";
 
 	// appends the timerBar inside a wrapper
-	timerBarWrapper.append(timerBar);
+
+	if (timerConfig.duration) timerBarWrapper.append(timerBar);
 
 	// defining the animation duration based on the given timer
-	timerBar.style.animation = `timer ${validateDuration(timerConfig.timer)} linear`;
+	timerBar.style.animation = `timer ${validateDuration(
+		timerConfig.duration
+	)} linear`;
 
 	// checks if the pauseTimerOnHover config is not false (it could either be )
 	if (timerConfig?.pauseOnHover !== false && silverBox) {
@@ -42,7 +45,7 @@ const silverBoxTimerBar = ({ silverBoxElement, timerConfig, onClose }) => {
 		timerBar.addEventListener("animationend", () => {
 			silverBoxClose({
 				silverBoxElement,
-				timer: timerConfig.timer,
+				timer: timerConfig.duration,
 				onClose,
 			});
 		});
@@ -50,10 +53,10 @@ const silverBoxTimerBar = ({ silverBoxElement, timerConfig, onClose }) => {
 		setTimeout(() => {
 			silverBoxClose({
 				silverBoxElement,
-				timer: timerConfig.timer,
+				timer: timerConfig.duration,
 				onClose,
 			});
-		}, timerConfig.timer);
+		}, timerConfig.duration);
 	}
 };
 
