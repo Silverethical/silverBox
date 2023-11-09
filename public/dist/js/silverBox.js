@@ -828,10 +828,13 @@ const silverBoxTimerBar = ({ silverBoxElement, timerConfig, onClose }) => {
 	timerBarWrapper.classList = "timer-bar-wrapper";
 
 	// appends the timerBar inside a wrapper
-	timerBarWrapper.append(timerBar);
+
+	if (timerConfig.duration) timerBarWrapper.append(timerBar);
 
 	// defining the animation duration based on the given timer
-	timerBar.style.animation = `timer ${validateDuration(timerConfig.timer)} linear`;
+	timerBar.style.animation = `timer ${validateDuration(
+		timerConfig.duration
+	)} linear`;
 
 	// checks if the pauseTimerOnHover config is not false (it could either be )
 	if (timerConfig?.pauseOnHover !== false && silverBox) {
@@ -851,7 +854,7 @@ const silverBoxTimerBar = ({ silverBoxElement, timerConfig, onClose }) => {
 		timerBar.addEventListener("animationend", () => {
 			silverBoxClose({
 				silverBoxElement,
-				timer: timerConfig.timer,
+				timer: timerConfig.duration,
 				onClose,
 			});
 		});
@@ -859,10 +862,10 @@ const silverBoxTimerBar = ({ silverBoxElement, timerConfig, onClose }) => {
 		setTimeout(() => {
 			silverBoxClose({
 				silverBoxElement,
-				timer: timerConfig.timer,
+				timer: timerConfig.duration,
 				onClose,
 			});
-		}, timerConfig.timer);
+		}, timerConfig.duration);
 	}
 };
 
@@ -1121,8 +1124,12 @@ function silverBox(config = {}) {
 		// If "timer" is provided in config, the modal will be removed after the given time.
 		if ("timer" in config) {
 			// changes the title config to an object if the given value is a number, so as a result we can use this config as either an object or a number.
-			if (typeof config.timer === "number" || "string")
-				config.timer = { timer: config.timer };
+			if (
+				typeof config.timer === "number" ||
+				typeof config.timer === "string"
+			) {
+				config.timer = { duration: config.timer };
+			}
 
 			// Handle the timerBar functionalities
 			silverBoxTimerBar({
