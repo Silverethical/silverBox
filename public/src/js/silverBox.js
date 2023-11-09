@@ -227,8 +227,12 @@ function silverBox(config = {}) {
 		// If "timer" is provided in config, the modal will be removed after the given time.
 		if ("timer" in config) {
 			// changes the title config to an object if the given value is a number, so as a result we can use this config as either an object or a number.
-			if (typeof config.timer === "number" || "string")
-				config.timer = { timer: config.timer };
+			if (
+				typeof config.timer === "number" ||
+				typeof config.timer === "string"
+			) {
+				config.timer = { duration: config.timer };
+			}
 
 			// Handle the timerBar functionalities
 			silverBoxTimerBar({
